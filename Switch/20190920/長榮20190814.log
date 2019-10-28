@@ -1,0 +1,406 @@
+﻿=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2019.08.14 11:35:00 =~=~=~=~=~=~=~=~=~=~=~=
+
+
+[edit]
+root@3A34# show |no-more 
+## Last changed: 2019-08-14 03:38:06 UTC
+version 15.1X49-D170.4;
+system {
+    host-name 3A34;
+    root-authentication {
+        encrypted-password "$5$MWe0aBe9$t61gYb6psbslQh4DPnQSqxmDJ3E9eTrEHtvVHhnpVB0"; ## SECRET-DATA
+    }
+    name-server {
+        8.8.8.8;
+        8.8.4.4;
+    }
+    services {
+        ssh {
+            protocol-version v2;
+        }
+        telnet;
+        netconf {
+            ssh;
+        }
+        dhcp-local-server {
+            group jdhcp-group {
+                interface irb.0;
+            }
+        }
+        web-management {
+            https {
+                system-generated-certificate;
+            }
+        }
+    }
+    syslog {
+        archive size 100k files 3;
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+    max-configurations-on-flash 5;
+    max-configuration-rollbacks 5;
+    license {
+        autoupdate {
+            url https://ae1.juniper.net/junos/key_retrieval;
+        }
+    }
+}
+security {
+    log {
+        mode stream;
+        report;
+    }
+    ike {
+        proposal vpn_R_3A34-vpn1 {
+            authentication-method pre-shared-keys;
+            dh-group group2;
+            authentication-algorithm md5;
+            encryption-algorithm 3des-cbc;
+            lifetime-seconds 3600;
+        }
+        policy ike_pol_vpn_R_3A34-gw1 {
+            mode main;
+            proposals vpn_R_3A34-vpn1;
+            pre-shared-key ascii-text "$9$wrsaUkqfzF/s2Tz3nAtWLXxbs"; ## SECRET-DATA
+        }
+        gateway gw_vpn_R_3A34-gw1 {
+            ike-policy ike_pol_vpn_R_3A34-gw1;
+            address 10.1.1.130;
+            external-interface ge-0/0/0.0;
+        }
+    }
+    ipsec {
+        vpn-monitor-options;
+        proposal vpn_R_3A34-vpn1 {
+            protocol esp;
+            authentication-algorithm hmac-md5-96;
+            encryption-algorithm 3des-cbc;
+            lifetime-seconds 3600;
+        }
+        policy ipsec_pol_vpn_R_3A34-gw1 {
+            perfect-forward-secrecy {
+                keys group2;
+            }
+            proposals vpn_R_3A34-vpn1;
+        }
+        vpn vpn_R_3A34-gw1 {
+            bind-interface st0.1;
+            vpn-monitor {
+                optimized;
+            }
+            ike {
+                gateway gw_vpn_R_3A34-gw1;
+                ipsec-policy ipsec_pol_vpn_R_3A34-gw1;
+            }
+            establish-tunnels immediately;
+        }
+    }
+    screen {
+        ids-option untrust-screen {
+            icmp {
+                ping-death;
+            }
+            ip {
+                source-route-option;
+                tear-drop;
+            }
+            tcp {
+                syn-flood {
+                    alarm-threshold 1024;
+                    attack-threshold 200;
+                    source-threshold 1024;
+                    destination-threshold 2048;
+                    timeout 20;
+                }
+                land;
+            }
+        }
+    }
+    policies {
+        from-zone trust to-zone trust {
+            policy trust-to-trust {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+        from-zone trust to-zone untrust {
+            policy trust-to-untrust {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+            policy policy_out_vpn_R_3A34-gw1 {
+                match {
+                    source-address addr_10_120_90_0_24;
+                    destination-address [ addr_10_2_2_0_24 addr_10_2_1_0_24 ];
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+        from-zone untrust to-zone trust {
+            policy policy_in_vpn_R_3A34-gw1 {
+                match {
+                    source-address [ addr_10_2_2_0_24 addr_10_2_1_0_24 ];
+                    destination-address addr_10_120_90_0_24;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+            policy untrust-to-trust {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                    log {
+                        session-init;
+                        session-close;
+                    }
+                    count;
+                }
+            }
+        }
+    }
+    tcp-encap;
+    zones {
+        security-zone trust {
+            address-book {
+                address addr_10_120_90_0_24 10.120.90.0/24;
+            }
+            host-inbound-traffic {
+                system-services {
+                    all;
+                }
+                protocols {
+                    all;
+                }
+            }
+            interfaces {
+                irb.0 {
+                    host-inbound-traffic {
+                        system-services {
+                            all;
+                        }
+                        protocols {
+                            all;
+                        }
+                    }
+                }
+            }
+        }
+        security-zone untrust {
+            address-book {
+                address addr_10_2_2_0_24 10.2.2.0/24;
+                address addr_10_2_1_0_24 10.2.1.0/24;
+            }
+            screen untrust-screen;
+            host-inbound-traffic {
+                system-services {
+                    all;
+                }
+                protocols {
+                    all;
+                }
+            }
+            interfaces {
+                ge-0/0/0.0 {
+                    host-inbound-traffic {
+                        system-services {
+                            ping;
+                            ssh;
+                            telnet;
+                            snmp;
+                            http;
+                            all;
+                        }
+                        protocols {
+                            all;
+                        }
+                    }
+                }
+                ge-0/0/7.0 {
+                    host-inbound-traffic {
+                        system-services {
+                            all;
+                        }
+                        protocols {
+                            all;
+                        }
+                    }
+                }
+                st0.1 {
+                    host-inbound-traffic {
+                        system-services {
+                            all;
+                        }
+                        protocols {
+                            all;
+                        }
+                    }
+                }
+            }
+        }
+        security-zone vlan1;
+        security-zone V1-Trust;
+        security-zone V1-Untrust;
+        security-zone V1-Null;
+        security-zone V1-DMZ;
+        security-zone DMZ {
+            interfaces {
+                ge-0/0/1.0;
+            }
+        }
+    }
+}
+interfaces {
+    ge-0/0/0 {
+        unit 0 {
+            family inet {
+                address 10.20.90.130/24;
+            }
+        }
+    }
+    ge-0/0/1 {
+        unit 0;
+    }
+    ge-0/0/2 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan-trust;
+                }
+            }
+        }
+    }
+    ge-0/0/3 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan-trust;
+                }
+            }
+        }
+    }
+    ge-0/0/4 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan-trust;
+                }
+            }
+        }
+    }
+    ge-0/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members vlan-trust;
+                }
+            }
+        }
+    }
+    ge-0/0/6 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan-trust;
+                }
+            }
+        }
+    }
+    ge-0/0/7 {
+        unit 0 {
+            family inet;
+        }
+    }
+    irb {
+        unit 0 {
+            family inet {
+                address 10.120.90.254/24;
+            }
+        }
+    }
+    st0 {
+        unit 1 {
+            family inet;
+        }
+    }
+}
+snmp {
+    name 3A34;
+    engine-id {
+        local 0162082013000121;
+    }
+}
+routing-options {
+    static {
+        route 10.2.2.0/24 next-hop st0.1;
+        route 10.2.1.0/24 next-hop st0.1;
+        route 10.1.1.0/24 next-hop 10.20.90.60;
+        route 0.0.0.0/0 next-hop 10.20.90.60;
+    }
+}
+protocols {
+    l2-learning {
+        global-mode switching;
+    }
+    rstp {
+        interface all;
+    }
+}
+switch-options {
+    voip {
+        interface ge-0/0/2.0 {
+            vlan vlan-trust;
+        }
+        interface ge-0/0/3.0 {
+            vlan vlan-trust;
+        }
+        interface ge-0/0/4.0 {
+            vlan vlan-trust;
+        }
+        interface ge-0/0/5.0 {
+            vlan vlan-trust;
+        }
+        interface ge-0/0/6.0 {
+            vlan vlan-trust;
+        }
+    }
+}
+vlans {
+    vlan-trust {
+        vlan-id 1;
+        l3-interface irb.0;
+    }
+}
+
+[edit]
+root@3A34# 

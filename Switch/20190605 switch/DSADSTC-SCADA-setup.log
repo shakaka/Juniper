@@ -1,0 +1,812 @@
+﻿﻿root# run show virtual-chassis 
+
+Virtual Chassis ID: 70c9.87d5.2003
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050007 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}[edit]
+root# run show virtual-chassis    
+
+Virtual Chassis ID: 70c9.87d5.2003
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050007 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}[edit]
+root# run show virtual-chassis    
+
+Virtual Chassis ID: 70c9.87d5.2003
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050007 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}[edit]
+root# run show virtual-chassis    
+
+Virtual Chassis ID: 70c9.87d5.2003
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050007 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}[edit]
+root# exit 
+Exiting configuration mode
+
+{master:0}
+root> show virtual-chassis i
+                           ^
+syntax error, expecting <command>.
+root> show virtual-chassis ?   
+Possible completions:
+  <[Enter]>            Execute this command
+  active-topology      Virtual chassis active topology
+  device-topology      PFE device topology
+  login                Login session information
+  mode                 Virtual chassis mode information
+  protocol             Show virtual chassis protocol information
+  status               Virtual chassis information
+  vc-path              Show virtual-chassis packet path
+  vc-port              Virtual chassis port information
+  |                    Pipe through a command
+{master:0}
+root> show virtual-chassis vc-port 
+fpc0:
+--------------------------------------------------------------------------
+Interface   Type              Trunk  Status       Speed        Neighbor
+or                             ID                 (mbps)       ID  Interface
+PIC / Port
+1/3         Configured               Absent  
+1/2         Configured               Absent  
+1/1         Configured               Absent  
+1/0         Configured               Absent  
+
+{master:0}
+root> show virtual-chassis 
+
+Virtual Chassis ID: 70c9.87d5.2003
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050007 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}
+root> show interfaces terse    
+Interface               Admin Link Proto    Local                 Remote
+ge-0/0/0                up    down
+ge-0/0/0.0              up    down eth-switch
+pfe-0/0/0               up    up
+pfe-0/0/0.16383         up    up   inet    
+                                   inet6   
+pfh-0/0/0               up    up
+pfh-0/0/0.16383         up    up   inet    
+ge-0/0/1                up    down
+ge-0/0/1.0              up    down eth-switch
+ge-0/0/2                up    up
+ge-0/0/2.0              up    up   eth-switch
+ge-0/0/3                up    down
+ge-0/0/3.0              up    down eth-switch
+ge-0/0/4                up    down
+ge-0/0/4.0              up    down eth-switch
+ge-0/0/5                up    down
+ge-0/0/5.0              up    down eth-switch
+ge-0/0/6                up    up
+ge-0/0/6.0              up    up   eth-switch
+ge-0/0/7                up    up
+ge-0/0/7.0              up    up   eth-switch
+ge-0/0/8                up    down
+ge-0/0/8.0              up    down eth-switch
+ge-0/0/9                up    down
+ge-0/0/9.0              up    down eth-switch
+ge-0/0/10               up    up
+ge-0/0/10.0             up    up   eth-switch
+ge-0/0/11               up    up
+ge-0/0/11.0             up    up   eth-switch
+ge-0/0/12               up    up
+ge-0/0/12.0             up    up   eth-switch
+ge-0/0/13               up    down
+ge-0/0/13.0             up    down eth-switch
+ge-0/0/14               up    down
+ge-0/0/14.0             up    down eth-switch
+ge-0/0/15               up    down
+ge-0/0/15.0             up    down eth-switch
+ge-0/0/16               up    up
+ge-0/0/16.0             up    up   eth-switch
+ge-0/0/17               up    down
+ge-0/0/17.0             up    down eth-switch
+ge-0/0/18               up    down
+ge-0/0/18.0             up    down eth-switch
+ge-0/0/19               up    up
+ge-0/0/19.0             up    up   eth-switch
+ge-0/0/20               up    up        
+ge-0/0/20.0             up    up   eth-switch
+ge-0/0/21               up    up
+ge-0/0/21.0             up    up   eth-switch
+ge-0/0/22               up    down
+ge-0/0/22.0             up    down eth-switch
+ge-0/0/23               up    up
+ge-0/0/23.0             up    up   eth-switch
+xe-0/2/0                up    up
+xe-0/2/0.0              up    up   eth-switch
+bme0                    up    up
+bme0.0                  up    up   inet     128.0.0.1/2     
+                                            128.0.0.4/2     
+                                            128.0.0.16/2    
+                                            128.0.0.32/2    
+dsc                     up    up
+gre                     up    up
+ipip                    up    up
+irb                     up    up
+irb.0                   up    up   inet    
+jsrv                    up    up
+jsrv.1                  up    up   inet     128.0.0.127/2   
+lo0                     up    up
+lo0.16385               up    up   inet    
+lsi                     up    up
+me0                     up    down
+me0.0                   up    down eth-switch
+mtun                    up    up
+pimd                    up    up
+pime                    up    up
+tap                     up    up
+vme                     up    down
+vme.0                   up    down inet    
+
+{master:0}
+root> show virtual-chassis 
+
+Virtual Chassis ID: 70c9.87d5.2003
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050007 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}
+root> 
+Amnesiac (ttyu0)
+
+login: root
+Password:
+
+--- JUNOS 13.2X51-D35.3 built 2015-04-09 20:48:22 UTC
+root@:RE:0%                                                                                
+Auto Image Upgrade: DHCP Client Bound interfaces:                                                                                
+                                                                               
+Auto Image Upgrade: DHCP Client Unbound interfaces: irb.0   vme.0                                                                                  
+                                                                               
+Auto Image Upgrade: To stop, on CLI apply "delete chassis auto-image-upgrade"  
+and commit                                                                               
+                                                                               
+Auto Image Upgrade: No DHCP Client in bound state, reset all enabled DHCP clien
+ts                                                                               
+                                                                               
+Auto Image Upgrade: DHCP Client State Reset: irb.0   vme.0                                                                                  
+
+root@:RE:0% cli
+e{master:0}
+root> edit 
+Entering configuration mode
+
+{master:0}[edit]
+root# delete chassis auto-image-upgrade 
+
+{master:0}[edit]
+root# commit 
+configuration check succeeds
+commit complete
+
+{master:0}[edit]
+root# exit 
+Exiting configuration mode
+
+{master:0}
+root> show virtual-chassis 
+
+Virtual Chassis ID: 4aca.600a.edaf
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050229 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}
+root> show virtual-chassis in 
+                           ^
+syntax error, expecting <command>.
+root> show virtual-chassis ?    
+Possible completions:
+  <[Enter]>            Execute this command
+  active-topology      Virtual chassis active topology
+  device-topology      PFE device topology
+  login                Login session information
+  mode                 Virtual chassis mode information
+  protocol             Show virtual chassis protocol information
+  status               Virtual chassis information
+  vc-path              Show virtual-chassis packet path
+  vc-port              Virtual chassis port information
+  |                    Pipe through a command
+{master:0}
+root> show virtual-chassis vc-p
+                               ^
+'vc-p' is ambiguous.
+Possible completions:
+  vc-path              Show virtual-chassis packet path
+  vc-port              Virtual chassis port information
+{master:0}
+root> show virtual-chassis vc-port 
+fpc0:
+--------------------------------------------------------------------------
+Interface   Type              Trunk  Status       Speed        Neighbor
+or                             ID                 (mbps)       ID  Interface
+PIC / Port
+1/3         Configured               Absent  
+1/2         Configured               Absent  
+1/1         Configured               Absent  
+1/0         Configured               Absent  
+
+{master:0}
+root> show virtual-chassis 
+
+Virtual Chassis ID: 4aca.600a.edaf
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050229 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}
+root> show virtual-chassis    
+
+Virtual Chassis ID: 4aca.600a.edaf
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050229 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}
+root> show version 
+fpc0:
+--------------------------------------------------------------------------
+Model: ex4300-24t
+JUNOS EX  Software Suite [13.2X51-D35.3]
+JUNOS FIPS mode utilities [13.2X51-D35.3]
+JUNOS Online Documentation [13.2X51-D35.3]
+JUNOS EX 4300 Software Suite [13.2X51-D35.3]
+JUNOS Web Management [13.2X51-D35.3]
+JUNOS py-base-powerpc [13.2X51-D35.3]
+
+{master:0}
+root> 
+
+{master:0}
+root> show version 
+fpc0:
+--------------------------------------------------------------------------
+Model: ex4300-24t
+JUNOS EX  Software Suite [13.2X51-D35.3]
+JUNOS FIPS mode utilities [13.2X51-D35.3]
+JUNOS Online Documentation [13.2X51-D35.3]
+JUNOS EX 4300 Software Suite [13.2X51-D35.3]
+JUNOS Web Management [13.2X51-D35.3]
+JUNOS py-base-powerpc [13.2X51-D35.3]
+
+{master:0}
+root> 
+root@DSA-TP:RE:1% cli
+{master:1}
+root@DSADSKA-SCADA> show version 
+fpc0:
+--------------------------------------------------------------------------
+Hostname: DSADSKA-SCADA
+Model: ex4300-24t
+Junos: 14.1X53-D47.3
+JUNOS EX  Software Suite [14.1X53-D47.3]
+JUNOS FIPS mode utilities [14.1X53-D47.3]
+JUNOS Online Documentation [14.1X53-D47.3]
+JUNOS EX 4300 Software Suite [14.1X53-D47.3]
+JUNOS Web Management Platform Package [14.1X53-D47.3]
+JUNOS py-base-powerpc [14.1X53-D47.3]
+JUNOS Web Management Application package [18.1A2]
+
+fpc1:
+--------------------------------------------------------------------------
+Hostname: DSADSKA-SCADA
+Model: ex4300-24t
+Junos: 14.1X53-D47.3
+JUNOS EX  Software Suite [14.1X53-D47.3]
+JUNOS FIPS mode utilities [14.1X53-D47.3]
+JUNOS Online Documentation [14.1X53-D47.3]
+JUNOS EX 4300 Software Suite [14.1X53-D47.3]
+JUNOS Web Management Platform Package [14.1X53-D47.3]
+Match except: q                         
+Hostname: DSADSKA-SCADA
+Model: ex4300-24t
+Junos: 14.1X53-D47.3
+JUNOS EX  Software Suite [14.1X53-D47.3]
+JUNOS FIPS mode utilities [14.1X53-D47.3]
+JUNOS Online Documentation [14.1X53-D47.3]
+JUNOS EX 4300 Software Suite [14.1X53-D47.3]
+JUNOS Web Management Platform Package [14.1X53-D47.3]
+JUNOS py-base-powerpc [14.1X53-D47.3]
+JUNOS Web Management Application package [18.1A2]
+
+fpc1:
+--------------------------------------------------------------------------
+Hostname: DSADSKA-SCADA
+Model: ex4300-24t
+Junos: 14.1X53-D47.3
+JUNOS EX  Software Suite [14.1X53-D47.3]
+JUNOS FIPS mode utilities [14.1X53-D47.3]
+JUNOS Online Documentation [14.1X53-D47.3]
+JUNOS EX 4300 Software Suite [14.1X53-D47.3]
+JUNOS Web Management Platform Package [14.1X53-D47.3]
+JUNOS py-base-powerpc [14.1X53-D47.3]
+                                        
+{master:1}
+root@DSADSKA-SCADA> exit 
+
+root@DSA-TP:RE:1% exit
+logout
+
+DSADSKA-SCADA (ttyu0)
+
+login: 
+
+{master:0}
+root> show virtual-chassis 
+
+Virtual Chassis ID: 70c9.87d5.2003
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050007 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}
+root> show virtual-chassis    
+
+Virtual Chassis ID: 70c9.87d5.2003
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050007 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}
+root> show version 
+fpc0:
+--------------------------------------------------------------------------
+Model: ex4300-24t
+JUNOS EX  Software Suite [13.2X51-D35.3]
+JUNOS FIPS mode utilities [13.2X51-D35.3]
+JUNOS Online Documentation [13.2X51-D35.3]
+JUNOS EX 4300 Software Suite [13.2X51-D35.3]
+JUNOS Web Management [13.2X51-D35.3]
+JUNOS py-base-powerpc [13.2X51-D35.3]
+
+{master:0}
+root> show version    
+fpc0:
+--------------------------------------------------------------------------
+Model: ex4300-24t
+JUNOS EX  Software Suite [13.2X51-D35.3]
+JUNOS FIPS mode utilities [13.2X51-D35.3]
+JUNOS Online Documentation [13.2X51-D35.3]
+JUNOS EX 4300 Software Suite [13.2X51-D35.3]
+JUNOS Web Management [13.2X51-D35.3]
+JUNOS py-base-powerpc [13.2X51-D35.3]
+
+{master:0}
+root> show virtual-chassis    
+
+Virtual Chassis ID: 70c9.87d5.2003
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050007 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}
+root> exit 
+
+root@:RE:0% umass1: vendor 0x1005 USB FLASH DRIVE, rev 2.00/1.10, addr 2
+da1 at umass-sim1 bus 1 target 0 lun 0
+da1: < USB FLASH DRIVE PMAP> Removable Direct Access SCSI-0 device 
+da1: 40.000MB/s transfers
+da1: 7640MB (15646720 512 byte sectors: 255H 63S/T 973C)
+
+root@:RE:0% mkdir /var/tmp/usb
+root@:RE:0% mount_msdosfs /dev/da1s1 /var/tmp/usb
+root@:RE:0% ls /var/tmp/usb
+.SMART_IO.CRD
+.Spotlight-V100
+.Trashes
+._03_0508.txt
+._SRX100_0521_1.conf
+._jinstall-ex-2200-12.3R12.4-domestic-signed.tgz
+._jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz
+._junos-srxsme-15.1X49-D110.4-domestic.tgz
+._junos-srxsme-15.1X49-D130.6-domestic.tgz
+._junos-srxsme-15.1X49-D70.3-domestic.tgz
+._junos-srxsme-15.1X49-D90.7-domestic.tgz
+._ps-pulse-one-appliance-2.0.1743.1.1.1495-package.tgz
+.fseventsd
+03_0508.txt
+0919 NB VPN-1.saz
+20180510-nsd-error-config.txt
+???VPN
+SMART_IO.CRD
+SRX100_0521_1.conf
+SRXasCA.cert
+System Volume Information
+jinstall-ex-2200-12.3R12.4-domestic-signed.tgz
+jinstall-ex-4200-15.1R7.8-domestic-signed.tgz
+jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz
+jinstall-ex-4300-15.1R6.7-domestic-signed.tgz
+junos-srxsme-15.1X49-D110.4-domestic.tgz
+junos-srxsme-15.1X49-D130.6-domestic.tgz
+junos-srxsme-15.1X49-D70.3-domestic.tgz
+junos-srxsme-15.1X49-D90.7-domestic.tgz
+ps-esap-3.2.6.pkg
+ps-pulse-one-appliance-2.0.1743.1.1.1495-package.tgz
+root@:RE:0% vp /var/tmp/usb/jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz /var/tmp
+vp: Command not found.
+var/tmpE:0% vp /var/tmp/usb/jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz / 
+vp: Command not found.
+root@:RE:0% cp /var/tmp/usb/jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz /var/tmp
+root@:RE:0% 
+root@:RE:0% umount /dev/da1s1
+root@:RE:0% umass1: at uhub1 port 1 (addr 2) disconnected
+(da1:umass-sim1:1:0:0): lost device
+(da1:umass-sim1:1:0:0): removing device entry
+umass1: detached
+
+root@:RE:0% cli
+{master:0}
+root> ...ll-ex-4300-14.1X53-D47.6-domestic-signed.tgz no-copy no-validate    
+Verify the signature of the new package
+Verified jinstall-ex-4300-14.1X53-D47.6-domestic.tgz signed by PackageProductionRSA_2018
+WARNING: A reboot is required to install the software
+WARNING:     Use the 'request system reboot' command immediately
+
+{master:0}
+root> request system reboot at now 
+Reboot the system at now? [yes,no] (no) yes 
+
+                                                                               
+*** FINAL System shutdown message from root@ ***                             
+
+System going down IMMEDIATELY                                                  
+
+                                                                               
+Shutdown NOW!
+[pid 36091]
+
+{master:0}
+root> umass1: vendor 0x1005 USB FLASH DRIVE, rev 2.00/1.10, addr 2
+da1 at umass-sim1 bus 1 target 0 lun 0
+da1: < USB FLASH DRIVE PMAP> Removable Direct Access SCSI-0 device 
+da1: 40.000MB/s transfers
+da1: 7640MB (15646720 512 byte sectors: 255H 63S/T 973C)
+
+
+{master:0}
+root> exit 
+
+root@:RE:0% mkdir /var/tmp/usb
+root@:RE:0% mount_msdosfs /dev/da1s1 /var/tmp/usb
+root@:RE:0% cp /var/tmp/usb/jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz /var/tmp
+root@:RE:0% umount /dev/da1s1
+root@:RE:0% umass1: at uhub1 port 1 (addr 2) disconnected
+(da1:umass-sim1:1:0:0): lost device
+(da1:umass-sim1:1:0:0): removing device entry
+umass1: detached
+
+root@:RE:0% cli
+{master:0}
+root> ...ll-ex-4300-14.1X53-D47.6-domestic-signed.tgz no-copy no-validate     
+Verify the signature of the new package
+verify-sig: cannot validate certs.pem
+certificate is not yet valid: /C=US/ST=CA/L=Sunnyvale/O=Juniper Networks/OU=Juniper CA/CN=PackageProductionRSA_2018/emailAddress=ca@juniper.net
+
+ERROR: Package signature validation failed.  Aborting install.
+
+{master:0}
+root> ...l-ex-4300-14.1X53-D47.6-domestic-signed.tgz no-copy                
+NOTICE: Validating configuration against jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz.
+NOTICE: Use the 'no-validate' option to skip this if desired.
+Verify the signature of the new package
+verify-sig: cannot validate certs.pem
+certificate is not yet valid: /C=US/ST=CA/L=Sunnyvale/O=Juniper Networks/OU=Juniper CA/CN=PackageProductionRSA_2018/emailAddress=ca@juniper.net
+
+ERROR: Package signature validation failed.  Aborting install.
+
+{master:0}
+root> show version 
+fpc0:
+--------------------------------------------------------------------------
+Model: ex4300-24t
+JUNOS EX  Software Suite [13.2X51-D35.3]
+JUNOS FIPS mode utilities [13.2X51-D35.3]
+JUNOS Online Documentation [13.2X51-D35.3]
+JUNOS EX 4300 Software Suite [13.2X51-D35.3]
+JUNOS Web Management [13.2X51-D35.3]
+JUNOS py-base-powerpc [13.2X51-D35.3]
+
+{master:0}
+root> exit 
+
+root@:RE:0% ls /var/tmp
+.snap
+ex_autod_config
+ex_autod_rollback_cfg
+gres-tp
+install
+jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz
+pics
+rtsdb
+sampled.pkts
+usb
+vi.recover
+root@:RE:0% cli
+{master:0}
+root> re
+        ^
+'re' is ambiguous.
+Possible completions:
+  request              Make system-level requests
+  restart              Restart software process
+{master:0}
+root> ... add /var/tmp/jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz   
+NOTICE: Validating configuration against jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz.
+NOTICE: Use the 'no-validate' option to skip this if desired.
+Verify the signature of the new package
+verify-sig: cannot validate certs.pem
+certificate is not yet valid: /C=US/ST=CA/L=Sunnyvale/O=Juniper Networks/OU=Juniper CA/CN=PackageProductionRSA_2018/emailAddress=ca@juniper.net
+
+ERROR: Package signature validation failed.  Aborting install.
+
+{master:0}
+root> show virtual-chassis 
+
+Virtual Chassis ID: 4aca.600a.edaf
+Virtual Chassis Mode: Enabled
+                                                Mstr           Mixed Route Neighbor List
+Member ID  Status   Serial No    Model          prio  Role      Mode  Mode ID  Interface
+0 (FPC 0)  Prsnt    PG3717050229 ex4300-24t     128   Master*      N  VC
+
+Member ID for next new member: 1 (FPC 1)
+
+{master:0}
+root> show vlans 
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1        
+                                                             ge-0/0/0.0
+                                                             ge-0/0/1.0
+                                                             ge-0/0/10.0
+                                                             ge-0/0/11.0
+                                                             ge-0/0/12.0
+                                                             ge-0/0/13.0
+                                                             ge-0/0/14.0
+                                                             ge-0/0/15.0
+                                                             ge-0/0/16.0
+                                                             ge-0/0/17.0
+                                                             ge-0/0/18.0
+                                                             ge-0/0/19.0
+                                                             ge-0/0/2.0
+                                                             ge-0/0/20.0
+                                                             ge-0/0/21.0
+                                                             ge-0/0/22.0
+                                                             ge-0/0/23.0
+                                                             ge-0/0/3.0
+                                                             ge-0/0/4.0
+                                                             ge-0/0/5.0
+                                                             ge-0/0/6.0
+                                                             ge-0/0/7.0
+                                                             ge-0/0/8.0
+                                                             ge-0/0/9.0
+                                                             xe-0/2/0.0
+
+{master:0}
+root> exit 
+
+root@:RE:0% umass1: vendor 0x1005 USB FLASH DRIVE, rev 2.00/1.10, addr 2
+da1 at umass-sim1 bus 1 target 0 lun 0
+da1: < USB FLASH DRIVE PMAP> Removable Direct Access SCSI-0 device 
+da1: 40.000MB/s transfers
+da1: 7640MB (15646720 512 byte sectors: 255H 63S/T 973C)
+
+root@:RE:0% mount_msdosfs /dv/da1s1 /var/tmp/usb
+mount_msdosfs: /dv/da1s1: No such file or directory
+root@:RE:0% mount_msdosfs /dev/da1s1 /var/tmp/usb
+root@:RE:0% ls /var/tmp/usb
+.SMART_IO.CRD
+.Spotlight-V100
+.Trashes
+._03_0508.txt
+._SRX100_0521_1.conf
+._jinstall-ex-2200-12.3R12.4-domestic-signed.tgz
+._jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz
+._junos-srxsme-15.1X49-D110.4-domestic.tgz
+._junos-srxsme-15.1X49-D130.6-domestic.tgz
+._junos-srxsme-15.1X49-D70.3-domestic.tgz
+._junos-srxsme-15.1X49-D90.7-domestic.tgz
+._ps-pulse-one-appliance-2.0.1743.1.1.1495-package.tgz
+.fseventsd
+03_0508.txt
+0919 NB VPN-1.saz
+20180510-nsd-error-config.txt
+???VPN
+SMART_IO.CRD
+SRX100_0521_1.conf
+SRXasCA.cert
+System Volume Information
+jinstall-ex-2200-12.3R12.4-domestic-signed.tgz
+jinstall-ex-4200-15.1R7.8-domestic-signed.tgz
+jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz
+jinstall-ex-4300-15.1R6.7-domestic-signed.tgz
+junos-srxsme-15.1X49-D110.4-domestic.tgz
+junos-srxsme-15.1X49-D130.6-domestic.tgz
+junos-srxsme-15.1X49-D70.3-domestic.tgz
+junos-srxsme-15.1X49-D90.7-domestic.tgz
+ps-esap-3.2.6.pkg
+ps-pulse-one-appliance-2.0.1743.1.1.1495-package.tgz
+root@:RE:0% cp /var/tmp/usb/jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz /var/tmp
+root@:RE:0% 
+root@:RE:0% umount /dev/da1s1
+root@:RE:0% 
+root@:RE:0% 
+root@:RE:0% umass1: at uhub1 port 1 (addr 2) disconnected
+(da1:umass-sim1:1:0:0): lost device
+(da1:umass-sim1:1:0:0): removing device entry
+umass1: detached
+
+root@:RE:0% cli
+{master:0}
+root> 
+
+{master:0}
+root> ...ll-ex-4300-14.1X53-D47.6-domestic-signed.tgz no-copy no-validate    
+Verify the signature of the new package
+verify-sig: cannot validate certs.pem
+certificate is not yet valid: /C=US/ST=CA/L=Sunnyvale/O=Juniper Networks/OU=Juniper CA/CN=PackageProductionRSA_2018/emailAddress=ca@juniper.net
+
+ERROR: Package signature validation failed.  Aborting install.
+
+{master:0}
+root> show version 
+fpc0:
+--------------------------------------------------------------------------
+Model: ex4300-24t
+JUNOS EX  Software Suite [13.2X51-D35.3]
+JUNOS FIPS mode utilities [13.2X51-D35.3]
+JUNOS Online Documentation [13.2X51-D35.3]
+JUNOS EX 4300 Software Suite [13.2X51-D35.3]
+JUNOS Web Management [13.2X51-D35.3]
+JUNOS py-base-powerpc [13.2X51-D35.3]
+
+{master:0}
+root> 
+
+{master:0}
+root> file delete ?
+Possible completions:
+  <path>               Path to delete
+  purge                Overwrite regular files before deleting them
+{master:0}
+root> file delete     
+                  ^
+missing argument.
+
+{master:0}
+root> ...nstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz                   
+
+{master:0}
+root> exit 
+
+root@:RE:0% ls /var/tmp
+.snap                   install                 usb
+ex_autod_config         pics                    vi.recover
+ex_autod_rollback_cfg   rtsdb
+gres-tp                 sampled.pkts
+root@:RE:0% umass1: vendor 0x8564 product 0x1000, rev 2.00/11.00, addr 2
+(da1:umass-sim1:1:0:0): got CAM status 0x4
+(da1:umass-sim1:1:0:0): fatal error, failed to attach to device
+(da1:umass-sim1:1:0:0): lost device
+(da1:umass-sim1:1:0:0): removing device entry
+Opened disk da1 -> 6
+
+root@:RE:0% 
+root@:RE:0% 
+root@:RE:0% 
+root@:RE:0% 
+root@:RE:0% ls /dev
+altroot         da0s2a          i2c             md8             syspld
+bcm5664x.0      da0s2c          klog            md9             ttyu0
+cfi0            da0s3           kmem            mdctl           ttyu0.init
+console         da0s3c          lcd             mem             ttyu0.lock
+ctty            da0s3d          log             nfs4            ttyu1
+cuau0           da0s3e          md0             nfslock         ttyu1.init
+cuau0.init      da0s4           md1             null            ttyu1.lock
+cuau0.lock      da0s4c          md10            pass0           urandom
+cuau1           da0s4d          md11            pass1           usb
+cuau1.init      devctl          md12            pci             usb0
+cuau1.lock      devstat         md2             random          usb1
+da0             dtsec0          md3             root            veriexec
+da0s1           fd              md4             rstdev          xpt0
+da0s1a          fido            md5             stderr          zero
+da0s1c          fileassoc       md6             stdin
+da0s2           geom.ctl        md7             stdout
+root@:RE:0%  
+root@:RE:0% 
+root@:RE:0% 
+root@:RE:0% 
+root@:RE:0% umass1: at uhub1 port 1 (addr 2) disconnected
+umass1: detached
+umass1: JetFlash Mass Storage Device, rev 2.00/11.00, addr 2
+da1 at umass-sim1 bus 1 target 0 lun 0
+da1: <JetFlash Transcend 32GB 1100> Removable Direct Access SCSI-4 device 
+da1: 40.000MB/s transfers
+da1: 30144MB (61734912 512 byte sectors: 255H 63S/T 3842C)
+
+root@:RE:0% mount_msdosfs /dev/da1s1 /var/tmp/usb
+root@:RE:0% cp /var/tmp/usb/jinstall-ex-4300-14.1X53-D47.6-domestic-signed.tgz /var/tmp
+root@:RE:0% cli
+{master:0}
+root> ...ll-ex-4300-14.1X53-D47.6-domestic-signed.tgz no-copy no-validate    
+Verify the signature of the new package
+verify-sig: cannot validate certs.pem
+certificate is not yet valid: /C=US/ST=CA/L=Sunnyvale/O=Juniper Networks/OU=Juniper CA/CN=PackageProductionRSA_2018/emailAddress=ca@juniper.net
+
+ERROR: Package signature validation failed.  Aborting install.
+
+{master:0}
+root> exit 
+
+root@:RE:0% cp /var/tmp/usb/jinstall-ex-4300-14.1X53-D10.4-controlled-signed.tgz /var/tmp
+root@:RE:0% cli
+{master:0}
+root> ...10.4-controlled-signed.tgz no-copy no-validate                     
+Verify the signature of the new package
+Verified jinstall-ex-4300-14.1X53-D10.4-controlled.tgz signed by PackageDevelopmentRSA_2014
+WARNING: A reboot is required to install the software
+WARNING:     Use the 'request system reboot' command immediately
+
+{master:0}
+root> request system reboot at now  
+Reboot the system at now? [yes,no] (no) yes 
+
+                                                                               
+*** FINAL System shutdown message from root@ ***                             
+
+System going down IMMEDIATELY                                                  
+
+                                                                               
+Shutdown NOW!
+[pid 2211]
+
+{master:0}

@@ -1,0 +1,4150 @@
+﻿﻿root@OSAOSTC# delete interfaces ge-2/0/0 ether-options 802.3ad ae0
+
+{master:0}[edit]
+root@OSAOSTC# set interfaces ge-1/0/0 ether-options 802.3ad ae0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/1 ether-options 802.3ad ae1
+
+{master:0}[edit]
+root@OSAOSTC# set interfaces ge-1/0/1 ether-options 802.3ad ae1
+
+{master:0}[edit]
+root@OSAOSTC# commit check
+[edit interfaces ge-1/0/0]
+  'unit 0'
+     logical unit is not allowed on aggregated links
+error: configuration check-out failed
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-1/0/0.0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-1/0/1.0
+
+{master:0}[edit]
+root@OSAOSTC# commit check
+configuration check succeeds
+fpc1:
+configuration check succeeds
+fpc2:
+configuration check succeeds
+fpc3:
+configuration check succeeds
+
+{master:0}[edit]
+root@OSAOSTC# load set terminal
+[Type ^D at a new line to end input]
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae2 unit 0 family ethernet-switching interface-mode access
+set interfaces ae2 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-1/0/3 ether-options 802.3ad ae3
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae0 unit 0 family ethernet-switching interface-mode access
+set interfaces ae0 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-1/0/4 ether-options 802.3ad ae4
+set interfaces ae4 aggregated-ether-options minimum-links 1
+set interfaces ae4 aggregated-ether-options lacp passive
+set interfaces ae4 unit 0 family ethernet-switching interface-mode access
+set interfaces ae4 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/5 ether-options 802.3ad ae5
+set interfaces ge-1/0/5 ether-options 802.3ad ae5
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options lacp passive
+set interfaces ae5 unit 0 family ethernet-switching interface-mode access
+set interfaces ae5 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae6 aggregated-ether-options lacp passive
+set interfaces ae6 unit 0 family ethernet-switching interface-mode access
+set interfaces ae6 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-1/0/7 ether-options 802.3ad ae7
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae7 unit 0 family ethernet-switching interface-mode access
+set interfaces ae7 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae8 unit 0 family ethernet-switching interface-mode access
+set interfaces ae8 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-1/0/9 ether-options 802.3ad ae9
+set interfaces ae9 aggregated-ether-options minimum-links 1
+set interfaces ae9 aggregated-ether-options lacp passive
+set interfaces ae9 unit 0 family ethernet-switching interface-mode access
+set interfaces ae9 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/10 ether-options 802.3ad ae10
+set interfaces ge-1/0/10 ether-options 802.3ad ae10
+set interfaces ae10 aggregated-ether-options minimum-links 1
+set interfaces ae10 aggregated-ether-options lacp passive
+set interfaces ae10 unit 0 family ethernet-switching interface-mode access
+set interfaces ae10 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/11 ether-options 802.3ad ae11
+set interfaces ge-1/0/11 ether-options 802.3ad ae11
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members default
+delete protocols rstp interface ge-0/0/0
+delete protocols rstp interface ge-0/0/1
+deletewarning: statement not found
+ protocols rstp interface ge-0/0/2
+deletwarning: statement not found
+e protocols rstp interface ge-0/0/3
+delete protocols rstp interface ge-0/0/4
+delete protocols rstp interface ge-0/0/5
+delete protocols rstp interface ge-0/0/6
+delete protocols rstp interface ge-0/0/7
+delete protocols rstp interface ge-0/0/8
+delete protocols rstp interface ge-0/0/9
+delete protocols rstp interface ge-0/0/10
+delete protocols rstp interface ge-0/0/11
+delete interface ge-0/0/0.0
+delete interface ge-0/0/1.0
+determinal:73:(7) syntax error: interface
+lete interface ge-0/0/2.0
+deleteterminal:74:(7) syntax error: interface
+terminal:75:(7) syntax error: interface
+ interface ge-0/0/3.0
+delete interface ge-0/0/4.0
+deleteterminal:76:(7) syntax error: interface
+ interface ge-0/0/5.0
+determinal:77:(7) syntax error: interface
+lete interface ge-0/0/6.0
+deleteterminal:78:(7) syntax error: interface
+ interface ge-0/0/7.0
+determinal:79:(7) syntax error: interface
+lete interface ge-0/0/8.0
+deleteterminal:80:(7) syntax error: interface
+ interface ge-0/0/9.0
+determinal:81:(7) syntax error: interface
+lete interface ge-0/0/10.0
+deletterminal:82:(7) syntax error: interface
+e interface ge-0/0/11.0
+terminal:83:(7) syntax error: interface
+delete interface ge-1/0/0.0
+deleterminal:84:(7) syntax error: interface
+te interface ge-1/0/1.0
+terminal:85:(7) syntax error: interface
+terminal:86:(7) syntax error: interface
+delete interface ge-1/0/2.0
+delete interface ge-1/0/3.0
+terminal:87:(7) syntax error: interface
+terminal:88:(7) syntax error: interface
+delete interface ge-1/0/4.0
+delete interface ge-1/0/5.0
+terminal:89:(7) syntax error: interface
+terminal:90:(7) syntax error: interface
+delete interface ge-1/0/6.0
+delete interface ge-1/0/7.0
+terminal:91:(7) syntax error: interface
+delete interface ge-1/0/8.0
+deleterminal:92:(7) syntax error: interface
+te interface ge-1/0/9.0
+delete interface ge-1/0/10.0
+delete interface ge-1/0/11.0
+terminal:93:(7) syntax error: interface
+terminal:94:(7) syntax error: interface
+terminal:95:(7) syntax error: interface
+terminal:96:(7) syntax error: interface
+load complete
+
+{master:0}[edit]
+root@OSAOSTC# commit check
+[edit interfaces ge-0/0/2]
+  'unit 0'
+     logical unit is not allowed on aggregated links
+[edit interfaces ae0 unit 0 family ethernet-switching]
+  'vlan'
+    Access interface can be part of only one vlan
+error: configuration check-out failed
+
+{master:0}[edit]
+root@OSAOSTC# runsh
+              ^
+unknown command.
+root@OSAOSTC# run show vlans
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1
+
+default-switch          v10                   10
+                                                           ae0.0
+                                                           ge-0/0/10.0
+                                                           ge-0/0/11.0
+                                                           ge-0/0/12.0
+                                                           ge-0/0/13.0
+                                                           ge-0/0/14.0
+                                                           ge-0/0/15.0
+                                                           ge-0/0/16.0
+                                                           ge-0/0/17.0
+                                                           ge-0/0/18.0
+                                                           ge-0/0/19.0
+                                                           ge-0/0/20.0
+                                                           ge-0/0/21.0
+                                                           ge-0/0/22.0
+                                                           ge-0/0/23.0
+                                                           ge-0/0/9.0
+                                                           ge-1/0/0.0
+                                                           ge-1/0/1.0
+                                                           ge-1/0/10.0
+                                                           ge-1/0/11.0
+                                                           ge-1/0/12.0
+                                                           ge-1/0/13.0
+                                                           ge-1/0/14.0
+                                                           ge-1/0/15.0
+                                                           ge-1/0/16.0
+                                                           ge-1/0/17.0
+                                                           ge-1/0/18.0
+                                                           ge-1/0/19.0
+                                                           ge-1/0/2.0
+                                                           ge-1/0/20.0
+                                                           ge-1/0/21.0
+                                                           ge-1/0/22.0
+                                                           ge-1/0/23.0
+                                                           ge-1/0/3.0
+                                                           ge-1/0/4.0
+                                                           ge-1/0/5.0
+                                                           ge-1/0/6.0
+                                                           ge-1/0/7.0
+                                                           ge-1/0/8.0
+                                                           ge-1/0/9.0
+                                                           ge-2/0/10.0
+                                                           ge-2/0/11.0
+                                                           ge-2/0/12.0
+                                                           ge-2/0/13.0
+                                                           ge-2/0/14.0
+                                                           ge-2/0/15.0
+                                                           ge-2/0/16.0
+                                                           ge-2/0/17.0
+                                                           ge-2/0/18.0
+                                                           ge-2/0/19.0
+                                                           ge-2/0/20.0
+                                                           ge-2/0/21.0
+                                                           ge-2/0/22.0
+                                                           ge-2/0/23.0
+                                                           ge-2/0/9.0
+                                                           ge-3/0/0.0
+                                                           ge-3/0/1.0
+                                                           ge-3/0/10.0
+                                                           ge-3/0/11.0
+                                                           ge-3/0/12.0
+                                                           ge-3/0/13.0
+                                                           ge-3/0/14.0
+                                                           ge-3/0/15.0
+                                                           ge-3/0/16.0
+                                                           ge-3/0/17.0
+                                                           ge-3/0/18.0
+                                                           ge-3/0/19.0
+                                                           ge-3/0/2.0
+                                                           ge-3/0/20.0
+                                                           ge-3/0/21.0
+                                                           ge-3/0/22.0
+                                                           ge-3/0/23.0
+                                                           ge-3/0/3.0
+                                                           ge-3/0/4.0
+                                                           ge-3/0/5.0
+                                                           ge-3/0/6.0
+                                                           ge-3/0/7.0
+                                                           ge-3/0/8.0
+                                                           ge-3/0/9.0
+default-switch          v11                   11
+                                                           ge-0/0/5.0
+                                                           ge-2/0/5.0
+default-switch          v12                   12
+                                                           ge-0/0/6.0
+                                                           ge-2/0/6.0
+default-switch          v13                   13
+                                                           ge-0/0/7.0
+                                                           ge-2/0/7.0
+default-switch          v14                   14
+                                                           ge-0/0/8.0
+                                                           ge-2/0/8.0
+default-switch          v2                    2
+                                                           ge-0/0/2.0
+                                                           ge-2/0/2.0
+default-switch          v3                    3
+                                                           ge-0/0/3.0
+                                                           ge-2/0/3.0
+default-switch          v4                    4
+                                                           ge-0/0/4.0
+                                                           ge-2/0/4.0
+default-switch          v5                    5
+
+default-switch          v6                    6
+
+default-switch          v7                    7
+
+default-switch          v8                    8
+                                                           ae1.0
+
+{master:0}[edit]
+root@OSAOSTC# rollback 0
+load complete
+
+{master:0}[edit]
+root@OSAOSTC# commit check
+configuration check succeeds
+fpc1:
+configuration check succeeds
+fpc2:
+configuration check succeeds
+fpc3:
+configuration check succeeds
+
+{master:0}[edit]
+root@OSAOSTC# load set terminal
+[Type ^D at a new line to end input]
+delete interface ge-0/0/2.0
+deleterminal:1:(7) syntax error: interface
+te interface ge-0/0/3.0
+delete interface ge-0/0/4.0
+deleterminal:2:(7) syntax error: interface
+terminal:3:(7) syntax error: interface
+te interface ge-0/0/5.0
+delete interface ge-0/0/6.0
+deleterminal:4:(7) syntax error: interface
+te interface ge-0/0/7.0
+terminal:5:(7) syntax error: interface
+delete interface ge-0/0/8.0
+deleterminal:6:(7) syntax error: interface
+te interface ge-0/0/9.0
+terminal:7:(7) syntax error: interface
+delete interface ge-0/0/10.0
+delterminal:8:(7) syntax error: interface
+ete interface ge-0/0/11.0
+terminal:9:(7) syntax error: interface
+
+terminal:10:(7) syntax error: interface
+
+
+
+load complete
+
+{master:0}[edit]
+root@OSAOSTC# commit check
+configuration check succeeds
+fpc1:
+configuration check succeeds
+fpc2:
+configuration check succeeds
+fpc3:
+configuration check succeeds
+
+{master:0}[edit]
+root@OSAOSTC# run show interfaces terse
+Interface               Admin Link Proto    Local                 Remote
+vcp-255/2/0             up    up
+vcp-255/2/0.32768       up    up
+vcp-255/2/1             up    down
+vcp-255/2/1.32768       up    down
+ge-0/0/0                up    down
+ge-0/0/0.0              up    down aenet    --> ae0.0
+gr-0/0/0                up    up
+pfe-0/0/0               up    up
+pfe-0/0/0.16383         up    up   inet
+                                   inet6
+pfh-0/0/0               up    up
+pfh-0/0/0.16383         up    up   inet
+pfh-0/0/0.16384         up    up   inet
+ge-0/0/1                up    down
+ge-0/0/1.0              up    down aenet    --> ae1.0
+ge-0/0/2                up    down
+ge-0/0/2.0              up    down eth-switch
+ge-0/0/3                up    down
+ge-0/0/3.0              up    down eth-switch
+ge-0/0/4                up    down
+ge-0/0/4.0              up    down eth-switch
+ge-0/0/5                up    down
+ge-0/0/5.0              up    down eth-switch
+ge-0/0/6                up    down
+ge-0/0/6.0              up    down eth-switch
+ge-0/0/7                up    down
+ge-0/0/7.0              up    down eth-switch
+ge-0/0/8                up    down
+ge-0/0/8.0              up    down eth-switch
+ge-0/0/9                up    down
+ge-0/0/9.0              up    down eth-switch
+ge-0/0/10               up    down
+ge-0/0/10.0             up    down eth-switch
+ge-0/0/11               up    down
+ge-0/0/11.0             up    down eth-switch
+ge-0/0/12               up    down
+ge-0/0/12.0             up    down eth-switch
+ge-0/0/13               up    down
+ge-0/0/13.0             up    down eth-switch
+ge-0/0/14               up    down
+ge-0/0/14.0             up    down eth-switch
+ge-0/0/15               up    down
+ge-0/0/15.0             up    down eth-switch
+ge-0/0/16               up    down
+ge-0/0/16.0             up    down eth-switch
+ge-0/0/17               up    down
+ge-0/0/17.0             up    down eth-switch
+ge-0/0/18               up    down
+ge-0/0/18.0             up    down eth-switch
+ge-0/0/19               up    down
+ge-0/0/19.0             up    down eth-switch
+ge-0/0/20               up    down
+ge-0/0/20.0             up    down eth-switch
+ge-0/0/21               up    down
+ge-0/0/21.0             up    down eth-switch
+ge-0/0/22               up    down
+ge-0/0/22.0             up    down eth-switch
+ge-0/0/23               up    down
+ge-0/0/23.0             up    down eth-switch
+ge-1/0/0                up    down
+ge-1/0/0.0              up    down eth-switch
+pfe-1/0/0               up    up
+pfe-1/0/0.16383         up    up   inet
+                                   inet6
+pfh-1/0/0               up    up
+pfh-1/0/0.16383         up    up   inet
+pfh-1/0/0.16384         up    up   inet
+ge-1/0/1                up    down
+ge-1/0/1.0              up    down eth-switch
+ge-1/0/2                up    down
+ge-1/0/2.0              up    down eth-switch
+ge-1/0/3                up    down
+ge-1/0/3.0              up    down eth-switch
+ge-1/0/4                up    down
+ge-1/0/4.0              up    down eth-switch
+ge-1/0/5                up    down
+ge-1/0/5.0              up    down eth-switch
+ge-1/0/6                up    down
+ge-1/0/6.0              up    down eth-switch
+ge-1/0/7                up    down
+ge-1/0/7.0              up    down eth-switch
+ge-1/0/8                up    down
+ge-1/0/8.0              up    down eth-switch
+ge-1/0/9                up    down
+ge-1/0/9.0              up    down eth-switch
+ge-1/0/10               up    down
+ge-1/0/10.0             up    down eth-switch
+ge-1/0/11               up    down
+ge-1/0/11.0             up    down eth-switch
+ge-1/0/12               up    down
+ge-1/0/12.0             up    down eth-switch
+
+{master:0}[edit]
+root@OSAOSTC# run show vlans
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1
+
+default-switch          v10                   10
+                                                           ae0.0
+                                                           ge-0/0/10.0
+                                                           ge-0/0/11.0
+                                                           ge-0/0/12.0
+                                                           ge-0/0/13.0
+                                                           ge-0/0/14.0
+                                                           ge-0/0/15.0
+                                                           ge-0/0/16.0
+                                                           ge-0/0/17.0
+                                                           ge-0/0/18.0
+                                                           ge-0/0/19.0
+                                                           ge-0/0/20.0
+                                                           ge-0/0/21.0
+                                                           ge-0/0/22.0
+                                                           ge-0/0/23.0
+                                                           ge-0/0/9.0
+                                                           ge-1/0/0.0
+                                                           ge-1/0/1.0
+                                                           ge-1/0/10.0
+                                                           ge-1/0/11.0
+                                                           ge-1/0/12.0
+                                                           ge-1/0/13.0
+                                                           ge-1/0/14.0
+                                                           ge-1/0/15.0
+                                                           ge-1/0/16.0
+                                                           ge-1/0/17.0
+                                                           ge-1/0/18.0
+                                                           ge-1/0/19.0
+                                                           ge-1/0/2.0
+                                                           ge-1/0/20.0
+                                                           ge-1/0/21.0
+                                                           ge-1/0/22.0
+                                                           ge-1/0/23.0
+                                                           ge-1/0/3.0
+                                                           ge-1/0/4.0
+                                                           ge-1/0/5.0
+                                                           ge-1/0/6.0
+                                                           ge-1/0/7.0
+                                                           ge-1/0/8.0
+                                                           ge-1/0/9.0
+                                                           ge-2/0/10.0
+                                                           ge-2/0/11.0
+                                                           ge-2/0/12.0
+                                                           ge-2/0/13.0
+                                                           ge-2/0/14.0
+                                                           ge-2/0/15.0
+                                                           ge-2/0/16.0
+                                                           ge-2/0/17.0
+                                                           ge-2/0/18.0
+                                                           ge-2/0/19.0
+                                                           ge-2/0/20.0
+                                                           ge-2/0/21.0
+                                                           ge-2/0/22.0
+                                                           ge-2/0/23.0
+                                                           ge-2/0/9.0
+                                                           ge-3/0/0.0
+                                                           ge-3/0/1.0
+                                                           ge-3/0/10.0
+                                                           ge-3/0/11.0
+                                                           ge-3/0/12.0
+                                                           ge-3/0/13.0
+                                                           ge-3/0/14.0
+                                                           ge-3/0/15.0
+                                                           ge-3/0/16.0
+                                                           ge-3/0/17.0
+                                                           ge-3/0/18.0
+                                                           ge-3/0/19.0
+                                                           ge-3/0/2.0
+                                                           ge-3/0/20.0
+                                                           ge-3/0/21.0
+                                                           ge-3/0/22.0
+                                                           ge-3/0/23.0
+                                                           ge-3/0/3.0
+                                                           ge-3/0/4.0
+                                                           ge-3/0/5.0
+                                                           ge-3/0/6.0
+                                                           ge-3/0/7.0
+                                                           ge-3/0/8.0
+                                                           ge-3/0/9.0
+default-switch          v11                   11
+                                                           ge-0/0/5.0
+                                                           ge-2/0/5.0
+default-switch          v12                   12
+                                                           ge-0/0/6.0
+                                                           ge-2/0/6.0
+default-switch          v13                   13
+                                                           ge-0/0/7.0
+                                                           ge-2/0/7.0
+default-switch          v14                   14
+                                                           ge-0/0/8.0
+                                                           ge-2/0/8.0
+default-switch          v2                    2
+                                                           ge-0/0/2.0
+                                                           ge-2/0/2.0
+default-switch          v3                    3
+                                                           ge-0/0/3.0
+                                                           ge-2/0/3.0
+default-switch          v4                    4
+                                                           ge-0/0/4.0
+                                                           ge-2/0/4.0
+default-switch          v5                    5
+
+default-switch          v6                    6
+
+default-switch          v7                    7
+
+default-switch          v8                    8
+                                                           ae1.0
+
+{master:0}[edit]
+root@OSAOSTC# edit interfaces
+
+{master:0}[edit interfaces]
+root@OSAOSTC# show | display set
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members v2
+set interfaces ge-0/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members v3
+set interfaces ge-0/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members v4
+set interfaces ge-0/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/5 unit 0 family ethernet-switching vlan members v11
+set interfaces ge-0/0/5 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/6 unit 0 family ethernet-switching vlan members v12
+set interfaces ge-0/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members v13
+set interfaces ge-0/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members v14
+set interfaces ge-0/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/9 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/0 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/1 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/2 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/3 unit 0 family ethernet-switching vlan members v10
+
+{master:0}[edit interfaces]
+root@OSAOSTC# show | display set
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members v2
+set interfaces ge-0/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members v3
+set interfaces ge-0/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members v4
+set interfaces ge-0/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/5 unit 0 family ethernet-switching vlan members v11
+set interfaces ge-0/0/5 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/6 unit 0 family ethernet-switching vlan members v12
+set interfaces ge-0/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members v13
+set interfaces ge-0/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members v14
+set interfaces ge-0/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/9 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/0 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/1 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/2 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/3 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/4 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/5 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/5 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/6 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/7 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/8 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/9 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/14 unit 0 family ethernet-switching storm-control default
+
+{master:0}[edit interfaces]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit interfaces]
+root@OSAOSTC# show | display set
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members v2
+set interfaces ge-0/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members v3
+set interfaces ge-0/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members v4
+set interfaces ge-0/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/5 unit 0 family ethernet-switching vlan members v11
+set interfaces ge-0/0/5 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/6 unit 0 family ethernet-switching vlan members v12
+set interfaces ge-0/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members v13
+set interfaces ge-0/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members v14
+set interfaces ge-0/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/9 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/0 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/1 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/2 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/3 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/4 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/5 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/5 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/6 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/7 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/8 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/9 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/0 ether-options 802.3ad ae0
+set interfaces ge-2/0/1 ether-options 802.3ad ae1
+set interfaces ge-2/0/2 unit 0 family ethernet-switching vlan members v2
+set interfaces ge-2/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/3 unit 0 family ethernet-switching vlan members v3
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/2 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit interfaces]
+root@OSAOSTC# show | display set
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members v2
+set interfaces ge-0/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members v3
+set interfaces ge-0/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members v4
+set interfaces ge-0/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/5 unit 0 family ethernet-switching vlan members v11
+set interfaces ge-0/0/5 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/6 unit 0 family ethernet-switching vlan members v12
+set interfaces ge-0/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members v13
+set interfaces ge-0/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members v14
+set interfaces ge-0/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/9 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/0 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/1 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/3 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/4 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/5 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/5 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/6 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/7 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/8 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/9 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/0 ether-options 802.3ad ae0
+set interfaces ge-2/0/1 ether-options 802.3ad ae1
+set interfaces ge-2/0/2 unit 0 family ethernet-switching vlan members v2
+set interfaces ge-2/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/3 unit 0 family ethernet-switching vlan members v3
+set interfaces ge-2/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/4 unit 0 family ethernet-switching vlan members v4
+set interfaces ge-2/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/5 unit 0 family ethernet-switching vlan members v11
+set interfaces ge-2/0/5 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/6 unit 0 family ethernet-switching vlan members v12
+set interfaces ge-2/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/7 unit 0 family ethernet-switching vlan members v13
+set interfaces ge-2/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/8 unit 0 family ethernet-switching vlan members v14
+set interfaces ge-2/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/9 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-2/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/0 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/1 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/4 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/5 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/5 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/6 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/6 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/7 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/7 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/8 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/8 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/9 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/9 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/10 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/11 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-3/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-3/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options lacp active
+set interfaces ae0 unit 0 family ethernet-switching interface-mode access
+set interfaces ae0 unit 0 family ethernet-switching vlan members v10
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options lacp active
+set interfaces ae1 unit 0 family ethernet-switching interface-mode access
+set interfaces ae1 unit 0 family ethernet-switching vlan members v8
+set interfaces irb unit 0 family inet dhcp vendor-id Juniper-ex4300-24t
+set interfaces irb unit 2 family inet address 172.30.51.1/30
+set interfaces irb unit 3 family inet address 172.30.52.1/30
+set interfaces irb unit 4 family inet address 172.30.53.1/30
+set interfaces irb unit 8 family inet address 172.30.12.1/30
+set interfaces irb unit 10 family inet address 193.30.10.254/24
+set interfaces irb unit 11 family inet address 172.30.71.1/30
+set interfaces irb unit 12 family inet address 172.30.72.1/30
+set interfaces irb unit 13 family inet address 172.30.73.1/30
+set interfaces irb unit 14 family inet address 172.30.74.1/30
+set interfaces irb unit 100 family inet
+set interfaces irb unit 101 family inet
+set interfaces irb unit 102 family inet
+set interfaces irb unit 103 family inet
+set interfaces irb unit 104 family inet
+set interfaces irb unit 105 family inet
+set interfaces irb unit 106 family inet
+set interfaces irb unit 107 family inet
+set interfaces irb unit 108 family inet
+set interfaces irb unit 109 family inet
+set interfaces irb unit 110 family inet
+set interfaces irb unit 111 family inet
+set interfaces irb unit 112 family inet
+set interfaces irb unit 113 family inet
+set interfaces irb unit 114 family inet
+set interfaces irb unit 115 family inet
+set interfaces irb unit 116 family inet
+set interfaces irb unit 220 family inet
+set interfaces vme unit 0 family inet dhcp vendor-id Juniper-ex4300-24t
+
+{master:0}[edit interfaces]
+root@OSAOSTC#
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/3 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/4 unit 0
+
+lete ge-1/0/5 unit 0
+delete ge-1/0/6 unit 0
+delete ge-1/0/7 unit 0
+delete ge-1/0/8 unit 0
+delete ge-1/0/9 unit 0
+delete ge-1/0/10 unit 0
+delete ge-1/0/11 unit 0{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/5 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/6 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/7 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/8 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/9 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/10 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-1/0/11 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC#
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/2 unit 0
+elete ge-0/0/3 unit 0
+delete ge-
+0/0/4 unit 0
+delete ge-0/0/5 unit 0
+delete ge-0/0/6 unit 0
+delete ge-0/0/7 unit 0
+delete ge-0/0/8 unit 0
+delete ge-0/0/9 unit 0
+delete ge-0/0/10 unit 0
+delete ge-0/0/11 unit 0{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/3 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/4 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/5 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/6 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/7 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/8 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/9 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/10 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# delete ge-0/0/11 unit 0
+
+{master:0}[edit interfaces]
+root@OSAOSTC# commit
+[edit protocols rstp]
+  'interface'
+    XSTP : Interface ge-0/0/2 is not enabled for Ethernet Switching
+error: configuration check-out failed
+
+{master:0}[edit interfaces]
+root@OSAOSTC# top
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/2
+delete protocols rstp interface ge-0/0/3
+delete protocols rstp interface
+ ge-0/0/4
+delete protocols rstp interface ge-0/0/5
+delete protocols rstp interface ge-0/0/6
+delete protocols rstp interface ge-0/0/7
+delete protocols rstp interface ge-0/0/8
+delete protocols rstp interface ge-0/0/9
+delete protocols rstp interface ge-0/0/10
+delete protocols rstp interface ge-0/0/11{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/3
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/4
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/5
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/6
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/7
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/8
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/9
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/10
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/11
+
+{master:0}[edit]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@OSAOSTC# edit protocols rs
+                               ^
+'rs' is ambiguous.
+Possible completions:
+> rstp                 Rapid Spanning Tree Protocol options
+> rsvp                 RSVP options
+{master:0}[edit]
+root@OSAOSTC# edit protocols rstp
+
+{master:0}[edit protocols rstp]
+root@OSAOSTC# show
+interface ge-0/0/12;
+interface ge-0/0/13;
+interface ge-0/0/14;
+interface ge-0/0/15;
+interface ge-0/0/16;
+interface ge-0/0/17;
+interface ge-0/0/18;
+interface ge-0/0/19;
+interface ge-0/0/20;
+interface ge-0/0/21;
+interface ge-0/0/22;
+interface ge-0/0/23;
+interface ge-0/2/0;
+interface xe-0/2/0;
+interface ge-0/2/1;
+interface xe-0/2/1;
+interface ge-0/2/2;
+interface xe-0/2/2;
+interface ge-0/2/3;
+interface xe-0/2/3;
+
+{master:0}[edit protocols rstp]
+root@OSAOSTC# top
+
+{master:0}[edit]
+root@OSAOSTC# set et
+                  ^
+syntax error.
+root@OSAOSTC#
+
+{master:0}[edit]
+root@OSAOSTC# exit
+Exiting configuration mode
+
+{master:0}
+root@OSAOSTC> set ag
+                  ^
+syntax error, expecting <command>.
+root@OSAOSTC> set a
+                   ^
+syntax error.
+root@OSAOSTC> edit
+Entering configuration mode
+
+{master:0}[edit]
+root@OSAOSTC# set chassis aggregated-devices d
+                                              ^
+syntax error.
+root@OSAOSTC# set chassis aggregated-devices ?
+Possible completions:
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+> ethernet             Aggregated device options for Ethernet
+{master:0}[edit]
+root@OSAOSTC# set chassis aggregated-devices ethernet ?
+Possible completions:
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+  device-count         Number of aggregated Ethernet devices (1..128)
+> lacp                 Global Link Aggregation Control Protocol configuration
+{master:0}[edit]
+root@OSAOSTC# set chassis aggregated-devices ethernet device-count ?
+Possible completions:
+  <device-count>       Number of aggregated Ethernet devices (1..128)
+{master:0}[edit]
+root@OSAOSTC# set chassis aggregated-devices ethernet device-count 32
+
+{master:0}[edit]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@OSAOSTC# load st
+                   ^
+syntax error, expecting <command>.
+root@OSAOSTC# load set terminal
+[Type ^D at a new line to end input]
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae2 unit 0 family ethernet-switching interface-mode access
+set interfaces ae2 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-1/0/3 ether-options 802.3ad ae3
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae0 unit 0 family ethernet-switching interface-mode access
+set interfaces ae0 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-1/0/4 ether-options 802.3ad ae4
+set interfaces ae4 aggregated-ether-options minimum-links 1
+set interfaces ae4 aggregated-ether-options lacp passive
+set interfaces ae4 unit 0 family ethernet-switching interface-mode access
+set interfaces ae4 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/5 ether-options 802.3ad ae5
+set interfaces ge-1/0/5 ether-options 802.3ad ae5
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options lacp passive
+set interfaces ae5 unit 0 family ethernet-switching interface-mode access
+set interfaces ae5 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae6 aggregated-ether-options lacp passive
+set interfaces ae6 unit 0 family ethernet-switching interface-mode access
+set interfaces ae6 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-1/0/7 ether-options 802.3ad ae7
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae7 unit 0 family ethernet-switching interface-mode access
+set interfaces ae7 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae8 unit 0 family ethernet-switching interface-mode access
+set interfaces ae8 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-1/0/9 ether-options 802.3ad ae9
+set interfaces ae9 aggregated-ether-options minimum-links 1
+set interfaces ae9 aggregated-ether-options lacp passive
+set interfaces ae9 unit 0 family ethernet-switching interface-mode access
+set interfaces ae9 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/10 ether-options 802.3ad ae10
+set interfaces ge-1/0/10 ether-options 802.3ad ae10
+set interfaces ae10 aggregated-ether-options minimum-links 1
+set interfaces ae10 aggregated-ether-options lacp passive
+set interfaces ae10 unit 0 family ethernet-switching interface-mode access
+set interfaces ae10 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/11 ether-options 802.3ad ae11
+set interfaces ge-1/0/11 ether-options 802.3ad ae11
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members default
+load complete
+
+{master:0}[edit]
+root@OSAOSTC# commit
+[edit interfaces ae0 unit 0 family ethernet-switching]
+  'vlan'
+    Access interface can be part of only one vlan
+error: configuration check-out failed
+
+{master:0}[edit]
+root@OSAOSTC# rollback 0
+load complete
+
+{master:0}[edit]
+root@OSAOSTC# run show vlans
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1
+
+default-switch          v10                   10
+                                                           ae0.0*
+                                                           ge-0/0/12.0
+                                                           ge-0/0/13.0
+                                                           ge-0/0/14.0
+                                                           ge-0/0/15.0
+                                                           ge-0/0/16.0
+                                                           ge-0/0/17.0
+                                                           ge-0/0/18.0
+                                                           ge-0/0/19.0
+                                                           ge-0/0/20.0
+                                                           ge-0/0/21.0
+                                                           ge-0/0/22.0
+                                                           ge-0/0/23.0
+                                                           ge-1/0/0.0*
+                                                           ge-1/0/1.0*
+                                                           ge-1/0/12.0
+                                                           ge-1/0/13.0
+                                                           ge-1/0/14.0
+                                                           ge-1/0/15.0
+                                                           ge-1/0/16.0
+                                                           ge-1/0/17.0
+                                                           ge-1/0/18.0
+                                                           ge-1/0/19.0
+                                                           ge-1/0/20.0
+                                                           ge-1/0/21.0
+                                                           ge-1/0/22.0
+                                                           ge-1/0/23.0
+                                                           ge-2/0/10.0
+                                                           ge-2/0/11.0
+                                                           ge-2/0/12.0
+                                                           ge-2/0/13.0
+                                                           ge-2/0/14.0
+                                                           ge-2/0/15.0
+                                                           ge-2/0/16.0
+                                                           ge-2/0/17.0
+                                                           ge-2/0/18.0
+                                                           ge-2/0/19.0
+                                                           ge-2/0/20.0
+                                                           ge-2/0/21.0
+                                                           ge-2/0/22.0
+                                                           ge-2/0/23.0
+                                                           ge-2/0/9.0
+                                                           ge-3/0/0.0
+                                                           ge-3/0/1.0
+                                                           ge-3/0/10.0
+                                                           ge-3/0/11.0
+                                                           ge-3/0/12.0
+                                                           ge-3/0/13.0
+                                                           ge-3/0/14.0
+                                                           ge-3/0/15.0
+                                                           ge-3/0/16.0
+                                                           ge-3/0/17.0
+                                                           ge-3/0/18.0
+                                                           ge-3/0/19.0
+                                                           ge-3/0/2.0
+                                                           ge-3/0/20.0
+                                                           ge-3/0/21.0
+                                                           ge-3/0/22.0
+                                                           ge-3/0/23.0
+                                                           ge-3/0/3.0
+                                                           ge-3/0/4.0
+                                                           ge-3/0/5.0
+                                                           ge-3/0/6.0
+                                                           ge-3/0/7.0
+                                                           ge-3/0/8.0
+                                                           ge-3/0/9.0
+default-switch          v11                   11
+                                                           ge-2/0/5.0
+default-switch          v12                   12
+                                                           ge-2/0/6.0
+default-switch          v13                   13
+                                                           ge-2/0/7.0
+default-switch          v14                   14
+                                                           ge-2/0/8.0
+default-switch          v2                    2
+                                                           ge-2/0/2.0
+default-switch          v3                    3
+                                                           ge-2/0/3.0
+default-switch          v4                    4
+                                                           ge-2/0/4.0
+default-switch          v5                    5
+
+default-switch          v6                    6
+
+default-switch          v7                    7
+
+default-switch          v8                    8
+                                                           ae1.0*
+
+{master:0}[edit]
+root@OSAOSTC#
+
+{master:0}[edit]
+root@OSAOSTC# load set terminal
+[Type ^D at a new line to end input]
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae2 unit 0 family ethernet-switching interface-mode access
+set interfaces ae2 unit 0 family ethernet-switching vlan members v2
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-1/0/3 ether-options 802.3ad ae3
+set interfaces ae3 aggregated-ether-options minimum-links 1
+set interfaces ae3 aggregated-ether-options lacp passive
+set interfaces ae3 unit 0 family ethernet-switching interface-mode access
+set interfaces ae3 unit 0 family ethernet-switching vlan members v3
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-1/0/4 ether-options 802.3ad ae4
+set interfaces ae4 aggregated-ether-options minimum-links 1
+set interfaces ae4 aggregated-ether-options lacp passive
+set interfaces ae4 unit 0 family ethernet-switching interface-mode access
+set interfaces ae4 unit 0 family ethernet-switching vlan members v4
+set interfaces ge-0/0/5 ether-options 802.3ad ae5
+set interfaces ge-1/0/5 ether-options 802.3ad ae5
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options lacp passive
+set interfaces ae5 unit 0 family ethernet-switching interface-mode access
+set interfaces ae5 unit 0 family ethernet-switching vlan members v11
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae6 aggregated-ether-options lacp passive
+set interfaces ae6 unit 0 family ethernet-switching interface-mode access
+set interfaces ae6 unit 0 family ethernet-switching vlan members v12
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-1/0/7 ether-options 802.3ad ae7
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae7 unit 0 family ethernet-switching interface-mode access
+set interfaces ae7 unit 0 family ethernet-switching vlan members v13
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae8 unit 0 family ethernet-switching interface-mode access
+set interfaces ae8 unit 0 family ethernet-switching vlan members 14
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-1/0/9 ether-options 802.3ad ae9
+set interfaces ae9 aggregated-ether-options minimum-links 1
+set interfaces ae9 aggregated-ether-options lacp passive
+set interfaces ae9 unit 0 family ethernet-switching interface-mode access
+set interfaces ae9 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/10 ether-options 802.3ad ae10
+set interfaces ge-1/0/10 ether-options 802.3ad ae10
+set interfaces ae10 aggregated-ether-options minimum-links 1
+set interfaces ae10 aggregated-ether-options lacp passive
+set interfaces ae10 unit 0 family ethernet-switching interface-mode access
+set interfaces ae10 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/11 ether-options 802.3ad ae11
+set interfaces ge-1/0/11 ether-options 802.3ad ae11
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/12 ether-options 802.3ad ae12
+set interfaces ge-1/0/12 ether-options 802.3ad ae12
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+load complete
+
+{master:0}[edit]
+root@OSAOSTC# commit
+[edit interfaces ge-0/0/12]
+  'unit 0'
+     logical unit is not allowed on aggregated links
+error: xSTP configuration disallowed on interface ge-0/0/12 as it is part of an aggregate bundle
+error: configuration check-out failed
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-0/0/12 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# commit
+[edit interfaces ge-1/0/12]
+  'unit 0'
+     logical unit is not allowed on aggregated links
+[edit protocols rstp]
+  'interface'
+    XSTP : Interface ge-0/0/12 is not enabled for Ethernet Switching
+error: configuration check-out failed
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-1/0/12 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# commit
+[edit protocols rstp]
+  'interface'
+    XSTP : Interface ge-0/0/12 is not enabled for Ethernet Switching
+error: configuration check-out failed
+
+{master:0}[edit]
+root@OSAOSTC# delete protocols rstp interface ge-0/0/12
+
+{master:0}[edit]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@OSAOSTC#
+
+{master:0}[edit]
+root@OSAOSTC#
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/0 unit 0
+warning: statement not found
+
+interface ge-2/0/1 unit 0
+delete interface ge-2/0/2 unit 0
+delete interface ge-2/0/3 unit 0
+delete interface ge-2/0/4 unit 0
+delete interface ge-2/0/5 unit 0
+delete interface ge-2/0/6 unit 0
+delete interface ge-2/0/7 unit 0
+delete interface ge-2/0/8 unit 0
+delete interface ge-2/0/9 unit 0
+delete interface ge-2/0/10 unit 0{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/1 unit 0
+warning: statement not found
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/2 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/3 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/4 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/5 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/6 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/7 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/8 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/9 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-2/0/10 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/0 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/1 unit 0
+ interface ge-3/0/2 unit 0
+delet
+e interface ge-3/0/3 unit 0
+delete interface ge-3/0/4 unit 0
+delete interface ge-3/0/5 unit 0
+delete interface ge-3/0/6 unit 0
+delete interface ge-3/0/7 unit 0
+delete interface ge-3/0/8 unit 0
+delete interface ge-3/0/9 unit 0
+delete interface ge-3/0/10 unit 0{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/2 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/3 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/4 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/5 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/6 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/7 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/8 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/9 unit 0
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ge-3/0/10 unit 0
+
+{master:0}[edit]
+root@OSAOSTC#
+
+{master:0}[edit]
+root@OSAOSTC#
+
+{master:0}[edit]
+root@OSAOSTC# load st
+                   ^
+syntax error, expecting <command>.
+root@OSAOSTC# load stt
+                   ^
+syntax error, expecting <command>.
+root@OSAOSTC# load set terminal
+[Type ^D at a new line to end input]
+set interfaces ge-2/0/0 ether-options 802.3ad ae13
+set interfaces ge-3/0/0 ether-options 802.3ad ae13
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/1 ether-options 802.3ad ae14
+set interfaces ge-3/0/1 ether-options 802.3ad ae14
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/2 ether-options 802.3ad ae15
+set interfaces ge-3/0/2 ether-options 802.3ad ae15
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/3 ether-options 802.3ad ae16
+set interfaces ge-3/0/3 ether-options 802.3ad ae16
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/4 ether-options 802.3ad ae17
+set interfaces ge-3/0/4 ether-options 802.3ad ae17
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/5 ether-options 802.3ad ae18
+set interfaces ge-3/0/5 ether-options 802.3ad ae18
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/6 ether-options 802.3ad ae19
+set interfaces ge-3/0/6 ether-options 802.3ad ae19
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/7 ether-options 802.3ad ae20
+set interfaces ge-3/0/7 ether-options 802.3ad ae20
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/8 ether-options 802.3ad ae21
+set interfaces ge-3/0/8 ether-options 802.3ad ae21
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/9 ether-options 802.3ad ae22
+set interfaces ge-3/0/9 ether-options 802.3ad ae22
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/10 ether-options 802.3ad ae23
+set interfaces ge-3/0/10 ether-options 802.3ad ae23
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+load complete
+
+{master:0}[edit]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@OSAOSTC#
+
+{master:0}[edit]
+root@OSAOSTC# run show interfaces terse | irb
+                                          ^
+syntax error, expecting <command>.
+
+{master:0}[edit]
+root@OSAOSTC# run show interfaces terse | match irb
+irb                     up    up
+irb.0                   up    down inet
+irb.2                   up    down inet     172.30.51.1/30
+irb.3                   up    down inet     172.30.52.1/30
+irb.4                   up    down inet     172.30.53.1/30
+irb.8                   up    up   inet     172.30.12.1/30
+irb.10                  up    up   inet     193.30.10.254/24
+irb.11                  up    down inet     172.30.71.1/30
+irb.12                  up    down inet     172.30.72.1/30
+irb.13                  up    down inet     172.30.73.1/30
+irb.14                  up    down inet     172.30.74.1/30
+irb.100                 up    down inet
+irb.101                 up    down inet
+irb.102                 up    down inet
+irb.103                 up    down inet
+irb.104                 up    down inet
+irb.105                 up    down inet
+irb.106                 up    down inet
+irb.107                 up    down inet
+irb.108                 up    down inet
+irb.109                 up    down inet
+irb.110                 up    down inet
+irb.111                 up    down inet
+
+{master:0}[edit]
+root@OSAOSTC# set interfaces irb.10 family inet address 193.30.10.253/24
+
+{master:0}[edit]
+root@OSAOSTC# ...0 family inet address 193.30.10.254/24
+
+{master:0}[edit]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@OSAOSTC# run show vlans
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1
+                                                           ae9.0
+default-switch          v10                   10
+                                                           ae0.0*
+                                                           ae10.0
+                                                           ae11.0
+                                                           ge-0/0/13.0
+                                                           ge-0/0/14.0
+                                                           ge-0/0/15.0
+                                                           ge-0/0/16.0
+                                                           ge-0/0/17.0
+                                                           ge-0/0/18.0
+                                                           ge-0/0/19.0
+                                                           ge-0/0/20.0
+                                                           ge-0/0/21.0
+                                                           ge-0/0/22.0
+                                                           ge-0/0/23.0
+                                                           ge-1/0/0.0*
+                                                           ge-1/0/1.0*
+                                                           ge-1/0/13.0
+                                                           ge-1/0/14.0
+                                                           ge-1/0/15.0
+                                                           ge-1/0/16.0
+                                                           ge-1/0/17.0
+                                                           ge-1/0/18.0
+                                                           ge-1/0/19.0
+                                                           ge-1/0/20.0
+                                                           ge-1/0/21.0
+                                                           ge-1/0/22.0
+                                                           ge-1/0/23.0
+                                                           ge-2/0/11.0
+                                                           ge-2/0/12.0
+                                                           ge-2/0/13.0
+                                                           ge-2/0/14.0
+                                                           ge-2/0/15.0
+                                                           ge-2/0/16.0
+                                                           ge-2/0/17.0
+                                                           ge-2/0/18.0
+                                                           ge-2/0/19.0
+                                                           ge-2/0/20.0
+                                                           ge-2/0/21.0
+                                                           ge-2/0/22.0
+                                                           ge-2/0/23.0
+                                                           ge-3/0/11.0
+                                                           ge-3/0/12.0
+                                                           ge-3/0/13.0
+                                                           ge-3/0/14.0
+                                                           ge-3/0/15.0
+                                                           ge-3/0/16.0
+                                                           ge-3/0/17.0
+                                                           ge-3/0/18.0
+                                                           ge-3/0/19.0
+                                                           ge-3/0/20.0
+                                                           ge-3/0/21.0
+                                                           ge-3/0/22.0
+                                                           ge-3/0/23.0
+default-switch          v11                   11
+                                                           ae5.0
+default-switch          v12                   12
+                                                           ae6.0
+default-switch          v13                   13
+                                                           ae7.0
+default-switch          v14                   14
+                                                           ae8.0
+default-switch          v2                    2
+                                                           ae2.0
+default-switch          v3                    3
+                                                           ae3.0
+default-switch          v4                    4
+                                                           ae4.0
+default-switch          v5                    5
+
+default-switch          v6                    6
+
+default-switch          v7                    7
+
+default-switch          v8                    8
+                                                           ae1.0*
+
+{master:0}[edit]
+root@OSAOSTC# run show intter
+                       ^
+syntax error, expecting <command>.
+root@OSAOSTC# run show in
+                         ^
+'in' is ambiguous.
+Possible completions:
+  ingress-replication  Show Ingress-Replication tunnel information
+  interfaces           Show interface information
+{master:0}[edit]
+root@OSAOSTC# run show interfaces terse | match ae
+ge-0/0/0.0              up    up   aenet    --> ae0.0
+ge-0/0/1.0              up    up   aenet    --> ae1.0
+ge-0/0/2.0              up    down aenet    --> ae2.0
+ge-0/0/3.0              up    down aenet    --> ae3.0
+ge-0/0/4.0              up    down aenet    --> ae4.0
+ge-0/0/5.0              up    down aenet    --> ae5.0
+ge-0/0/6.0              up    down aenet    --> ae6.0
+ge-0/0/7.0              up    down aenet    --> ae7.0
+ge-0/0/8.0              up    down aenet    --> ae8.0
+ge-0/0/9.0              up    down aenet    --> ae9.0
+ge-0/0/10.0             up    down aenet    --> ae10.0
+ge-0/0/11.0             up    down aenet    --> ae11.0
+ge-1/0/2.0              up    down aenet    --> ae2.0
+ge-1/0/3.0              up    down aenet    --> ae3.0
+ge-1/0/4.0              up    down aenet    --> ae4.0
+ge-1/0/5.0              up    down aenet    --> ae5.0
+ge-1/0/6.0              up    down aenet    --> ae6.0
+ge-1/0/7.0              up    down aenet    --> ae7.0
+ge-1/0/8.0              up    down aenet    --> ae8.0
+ge-1/0/9.0              up    down aenet    --> ae9.0
+ge-1/0/10.0             up    down aenet    --> ae10.0
+ge-1/0/11.0             up    down aenet    --> ae11.0
+ae0                     up    up
+ae0.0                   up    up   eth-switch
+ae1                     up    up
+ae1.0                   up    up   eth-switch
+ae2                     up    down
+ae2.0                   up    down eth-switch
+ae3                     up    down
+ae3.0                   up    down eth-switch
+ae4                     up    down
+ae4.0                   up    down eth-switch
+ae5                     up    down
+ae5.0                   up    down eth-switch
+ae6                     up    down
+ae6.0                   up    down eth-switch
+ae7                     up    down
+ae7.0                   up    down eth-switch
+ae8                     up    down
+ae8.0                   up    down eth-switch
+ae9                     up    down
+ae9.0                   up    down eth-switch
+ae10                    up    down
+ae10.0                  up    down eth-switch
+ae11                    up    down
+ae11.0                  up    down eth-switch
+
+{master:0}[edit]
+root@OSAOSTC# load set terminal
+[Type ^D at a new line to end input]
+set interfaces ge-0/0/12 ether-options 802.3ad ae12
+set interfaces ge-1/0/12 ether-options 802.3ad ae12
+set interfaces ae12 aggregated-ether-options minimum-links 1
+set interfaces ae12 aggregated-ether-options lacp passive
+set interfaces ae12 unit 0 family ethernet-switching interface-mode access
+set interfaces ae12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/0 ether-options 802.3ad ae13
+set interfaces ge-3/0/0 ether-options 802.3ad ae13
+set interfaces ae13 aggregated-ether-options minimum-links 1
+set interfaces ae13 aggregated-ether-options lacp passive
+set interfaces ae13 unit 0 family ethernet-switching interface-mode access
+set interfaces ae13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/1 ether-options 802.3ad ae14
+set interfaces ge-3/0/1 ether-options 802.3ad ae14
+set interfaces ae14 aggregated-ether-options minimum-links 1
+set interfaces ae14 aggregated-ether-options lacp passive
+set interfaces ae14 unit 0 family ethernet-switching interface-mode access
+set interfaces ae14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/2 ether-options 802.3ad ae15
+set interfaces ge-3/0/2 ether-options 802.3ad ae15
+set interfaces ae15 aggregated-ether-options minimum-links 1
+set interfaces ae15 aggregated-ether-options lacp passive
+set interfaces ae15 unit 0 family ethernet-switching interface-mode access
+set interfaces ae15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/3 ether-options 802.3ad ae16
+set interfaces ge-3/0/3 ether-options 802.3ad ae16
+set interfaces ae16 aggregated-ether-options minimum-links 1
+set interfaces ae16 aggregated-ether-options lacp passive
+set interfaces ae16 unit 0 family ethernet-switching interface-mode access
+set interfaces ae16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/4 ether-options 802.3ad ae17
+set interfaces ge-3/0/4 ether-options 802.3ad ae17
+set interfaces ae17 aggregated-ether-options minimum-links 1
+set interfaces ae17 aggregated-ether-options lacp passive
+set interfaces ae17 unit 0 family ethernet-switching interface-mode access
+set interfaces ae17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/5 ether-options 802.3ad ae18
+set interfaces ge-3/0/5 ether-options 802.3ad ae18
+set interfaces ae18 aggregated-ether-options minimum-links 1
+set interfaces ae18 aggregated-ether-options lacp passive
+set interfaces ae18 unit 0 family ethernet-switching interface-mode access
+set interfaces ae18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/6 ether-options 802.3ad ae19
+set interfaces ge-3/0/6 ether-options 802.3ad ae19
+set interfaces ae19 aggregated-ether-options minimum-links 1
+set interfaces ae19 aggregated-ether-options lacp passive
+set interfaces ae19 unit 0 family ethernet-switching interface-mode access
+set interfaces ae19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/7 ether-options 802.3ad ae20
+set interfaces ge-3/0/7 ether-options 802.3ad ae20
+set interfaces ae20 aggregated-ether-options minimum-links 1
+set interfaces ae20 aggregated-ether-options lacp passive
+set interfaces ae20 unit 0 family ethernet-switching interface-mode access
+set interfaces ae20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/8 ether-options 802.3ad ae21
+set interfaces ge-3/0/8 ether-options 802.3ad ae21
+set interfaces ae21 aggregated-ether-options minimum-links 1
+set interfaces ae21 aggregated-ether-options lacp passive
+set interfaces ae21 unit 0 family ethernet-switching interface-mode access
+set interfaces ae21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/9 ether-options 802.3ad ae22
+set interfaces ge-3/0/9 ether-options 802.3ad ae22
+set interfaces ae22 aggregated-ether-options minimum-links 1
+set interfaces ae22 aggregated-ether-options lacp passive
+set interfaces ae22 unit 0 family ethernet-switching interface-mode access
+set interfaces ae22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-2/0/10 ether-options 802.3ad ae23
+set interfaces ge-3/0/10 ether-options 802.3ad ae23
+set interfaces ae23 aggregated-ether-options minimum-links 1
+set interfaces ae23 aggregated-ether-options lacp passive
+set interfaces ae23 unit 0 family ethernet-switching interface-mode access
+set interfaces ae23 unit 0 family ethernet-switching vlan members v10
+load complete
+
+{master:0}[edit]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@OSAOSTC# run show vlans
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1
+                                                           ae9.0
+default-switch          v10                   10
+                                                           ae0.0*
+                                                           ae10.0
+                                                           ae11.0
+                                                           ae13.0
+                                                           ae14.0
+                                                           ge-0/0/13.0
+                                                           ge-0/0/14.0
+                                                           ge-0/0/15.0
+                                                           ge-0/0/16.0
+                                                           ge-0/0/17.0
+                                                           ge-0/0/18.0
+                                                           ge-0/0/19.0
+                                                           ge-0/0/20.0
+                                                           ge-0/0/21.0
+                                                           ge-0/0/22.0
+                                                           ge-0/0/23.0
+                                                           ge-1/0/0.0*
+                                                           ge-1/0/1.0*
+                                                           ge-1/0/13.0
+                                                           ge-1/0/14.0
+                                                           ge-1/0/15.0
+                                                           ge-1/0/16.0
+                                                           ge-1/0/17.0
+                                                           ge-1/0/18.0
+                                                           ge-1/0/19.0
+                                                           ge-1/0/20.0
+                                                           ge-1/0/21.0
+                                                           ge-1/0/22.0
+                                                           ge-1/0/23.0
+                                                           ge-2/0/11.0
+                                                           ge-2/0/12.0
+                                                           ge-2/0/13.0
+                                                           ge-2/0/14.0
+                                                           ge-2/0/15.0
+                                                           ge-2/0/16.0
+                                                           ge-2/0/17.0
+                                                           ge-2/0/18.0
+                                                           ge-2/0/19.0
+                                                           ge-2/0/20.0
+                                                           ge-2/0/21.0
+                                                           ge-2/0/22.0
+                                                           ge-2/0/23.0
+                                                           ge-3/0/11.0
+                                                           ge-3/0/12.0
+                                                           ge-3/0/13.0
+                                                           ge-3/0/14.0
+                                                           ge-3/0/15.0
+                                                           ge-3/0/16.0
+                                                           ge-3/0/17.0
+                                                           ge-3/0/18.0
+                                                           ge-3/0/19.0
+                                                           ge-3/0/20.0
+                                                           ge-3/0/21.0
+                                                           ge-3/0/22.0
+                                                           ge-3/0/23.0
+default-switch          v11                   11
+                                                           ae5.0
+default-switch          v12                   12
+                                                           ae6.0
+default-switch          v13                   13
+                                                           ae7.0
+default-switch          v14                   14
+                                                           ae8.0
+default-switch          v2                    2
+                                                           ae2.0
+default-switch          v3                    3
+                                                           ae3.0
+default-switch          v4                    4
+                                                           ae4.0
+default-switch          v5                    5
+
+default-switch          v6                    6
+
+default-switch          v7                    7
+
+default-switch          v8                    8
+                                                           ae1.0*
+
+{master:0}[edit]
+root@OSAOSTC# run show interfaces terse | match ae
+ge-0/0/0.0              up    up   aenet    --> ae0.0
+ge-0/0/1.0              up    up   aenet    --> ae1.0
+ge-0/0/2.0              up    down aenet    --> ae2.0
+ge-0/0/3.0              up    down aenet    --> ae3.0
+ge-0/0/4.0              up    down aenet    --> ae4.0
+ge-0/0/5.0              up    down aenet    --> ae5.0
+ge-0/0/6.0              up    down aenet    --> ae6.0
+ge-0/0/7.0              up    down aenet    --> ae7.0
+ge-0/0/8.0              up    down aenet    --> ae8.0
+ge-0/0/9.0              up    down aenet    --> ae9.0
+ge-0/0/10.0             up    down aenet    --> ae10.0
+ge-0/0/11.0             up    down aenet    --> ae11.0
+ge-0/0/12.0             up    down aenet    --> ae12.0
+ge-1/0/2.0              up    down aenet    --> ae2.0
+ge-1/0/3.0              up    down aenet    --> ae3.0
+ge-1/0/4.0              up    down aenet    --> ae4.0
+ge-1/0/5.0              up    down aenet    --> ae5.0
+ge-1/0/6.0              up    down aenet    --> ae6.0
+ge-1/0/7.0              up    down aenet    --> ae7.0
+ge-1/0/8.0              up    down aenet    --> ae8.0
+ge-1/0/9.0              up    down aenet    --> ae9.0
+ge-1/0/10.0             up    down aenet    --> ae10.0
+ge-1/0/11.0             up    down aenet    --> ae11.0
+ge-1/0/12.0             up    down aenet    --> ae12.0
+ge-2/0/0.0              up    down aenet    --> ae13.0
+ge-2/0/1.0              up    down aenet    --> ae14.0
+ge-2/0/2.0              up    down aenet    --> ae15.0
+ge-2/0/3.0              up    down aenet    --> ae16.0
+ge-2/0/4.0              up    down aenet    --> ae17.0
+ge-2/0/5.0              up    down aenet    --> ae18.0
+ge-2/0/6.0              up    down aenet    --> ae19.0
+ge-2/0/7.0              up    down aenet    --> ae20.0
+ge-2/0/8.0              up    down aenet    --> ae21.0
+ge-2/0/9.0              up    down aenet    --> ae22.0
+ge-2/0/10.0             up    down aenet    --> ae23.0
+ge-3/0/0.0              up    down aenet    --> ae13.0
+ge-3/0/1.0              up    down aenet    --> ae14.0
+ge-3/0/2.0              up    down aenet    --> ae15.0
+ge-3/0/3.0              up    down aenet    --> ae16.0
+ge-3/0/4.0              up    down aenet    --> ae17.0
+ge-3/0/5.0              up    down aenet    --> ae18.0
+ge-3/0/6.0              up    down aenet    --> ae19.0
+ge-3/0/7.0              up    down aenet    --> ae20.0
+ge-3/0/8.0              up    down aenet    --> ae21.0
+ge-3/0/9.0              up    down aenet    --> ae22.0
+ge-3/0/10.0             up    down aenet    --> ae23.0
+ae0                     up    up
+ae0.0                   up    up   eth-switch
+ae1                     up    up
+ae1.0                   up    up   eth-switch
+ae2                     up    down
+ae2.0                   up    down eth-switch
+ae3                     up    down
+ae3.0                   up    down eth-switch
+ae4                     up    down
+ae4.0                   up    down eth-switch
+ae5                     up    down
+ae5.0                   up    down eth-switch
+ae6                     up    down
+ae6.0                   up    down eth-switch
+ae7                     up    down
+ae7.0                   up    down eth-switch
+ae8                     up    down
+ae8.0                   up    down eth-switch
+ae9                     up    down
+ae9.0                   up    down eth-switch
+ae10                    up    down
+ae10.0                  up    down eth-switch
+ae11                    up    down
+ae11.0                  up    down eth-switch
+ae12                    up    down
+ae12.0                  up    down eth-switch
+ae13                    up    down
+ae13.0                  up    down eth-switch
+ae14                    up    down
+ae14.0                  up    down eth-switch
+ae15                    up    down
+ae15.0                  up    down eth-switch
+ae16                    up    down
+ae16.0                  up    down eth-switch
+ae17                    up    down
+ae17.0                  up    down eth-switch
+ae18                    up    down
+ae18.0                  up    down eth-switch
+ae19                    up    down
+ae19.0                  up    down eth-switch
+ae20                    up    down
+ae20.0                  up    down eth-switch
+ae21                    up    down
+ae21.0                  up    down eth-switch
+ae22                    up    down
+ae22.0                  up    down eth-switch
+ae23                    up    down
+ae23.0                  up    down eth-switch
+
+{master:0}[edit]
+root@OSAOSTC# run show vlans | match ae
+                                                           ae9.0
+                                                           ae0.0*
+                                                           ae10.0
+                                                           ae11.0
+                                                           ae12.0
+                                                           ae13.0
+                                                           ae14.0
+                                                           ae15.0
+                                                           ae16.0
+                                                           ae17.0
+                                                           ae18.0
+                                                           ae19.0
+                                                           ae20.0
+                                                           ae21.0
+                                                           ae22.0
+                                                           ae23.0
+                                                           ae5.0
+                                                           ae6.0
+                                                           ae7.0
+                                                           ae8.0
+                                                           ae2.0
+                                                           ae3.0
+                                                           ae4.0
+                                                           ae1.0*
+
+{master:0}[edit]
+root@OSAOSTC# run show vk
+                       ^
+syntax error, expecting <command>.
+root@OSAOSTC# run show vlans
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1
+                                                           ae9.0
+default-switch          v10                   10
+                                                           ae0.0*
+                                                           ae10.0
+                                                           ae11.0
+                                                           ae12.0
+                                                           ae13.0
+                                                           ae14.0
+                                                           ae15.0
+                                                           ae16.0
+                                                           ae17.0
+                                                           ae18.0
+                                                           ae19.0
+                                                           ae20.0
+                                                           ae21.0
+                                                           ae22.0
+                                                           ae23.0
+                                                           ge-0/0/13.0
+                                                           ge-0/0/14.0
+                                                           ge-0/0/15.0
+                                                           ge-0/0/16.0
+                                                           ge-0/0/17.0
+                                                           ge-0/0/18.0
+                                                           ge-0/0/19.0
+                                                           ge-0/0/20.0
+                                                           ge-0/0/21.0
+                                                           ge-0/0/22.0
+                                                           ge-0/0/23.0
+                                                           ge-1/0/0.0*
+                                                           ge-1/0/1.0*
+                                                           ge-1/0/13.0
+                                                           ge-1/0/14.0
+                                                           ge-1/0/15.0
+                                                           ge-1/0/16.0
+                                                           ge-1/0/17.0
+                                                           ge-1/0/18.0
+                                                           ge-1/0/19.0
+                                                           ge-1/0/20.0
+                                                           ge-1/0/21.0
+                                                           ge-1/0/22.0
+                                                           ge-1/0/23.0
+                                                           ge-2/0/11.0
+                                                           ge-2/0/12.0
+                                                           ge-2/0/13.0
+                                                           ge-2/0/14.0
+                                                           ge-2/0/15.0
+                                                           ge-2/0/16.0
+                                                           ge-2/0/17.0
+                                                           ge-2/0/18.0
+                                                           ge-2/0/19.0
+                                                           ge-2/0/20.0
+                                                           ge-2/0/21.0
+                                                           ge-2/0/22.0
+                                                           ge-2/0/23.0
+                                                           ge-3/0/11.0
+                                                           ge-3/0/12.0
+                                                           ge-3/0/13.0
+                                                           ge-3/0/14.0
+                                                           ge-3/0/15.0
+                                                           ge-3/0/16.0
+                                                           ge-3/0/17.0
+                                                           ge-3/0/18.0
+                                                           ge-3/0/19.0
+                                                           ge-3/0/20.0
+                                                           ge-3/0/21.0
+                                                           ge-3/0/22.0
+                                                           ge-3/0/23.0
+default-switch          v11                   11
+                                                           ae5.0
+default-switch          v12                   12
+                                                           ae6.0
+default-switch          v13                   13
+                                                           ae7.0
+default-switch          v14                   14
+                                                           ae8.0
+default-switch          v2                    2
+                                                           ae2.0
+default-switch          v3                    3
+                                                           ae3.0
+default-switch          v4                    4
+                                                           ae4.0
+default-switch          v5                    5
+
+default-switch          v6                    6
+
+default-switch          v7                    7
+
+default-switch          v8                    8
+                                                           ae1.0*
+
+{master:0}[edit]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@OSAOSTC# set interfaces ae
+                               ^
+'ae' is ambiguous.
+Possible completions:
+  <interface-name>     Interface name
+  ae0                  Interface name
+  ae1                  Interface name
+  ae10                 Interface name
+  ae11                 Interface name
+  ae12                 Interface name
+  ae13                 Interface name
+  ae14                 Interface name
+  ae15                 Interface name
+  ae16                 Interface name
+  ae17                 Interface name
+  ae18                 Interface name
+  ae19                 Interface name
+  ae2                  Interface name
+  ae20                 Interface name
+  ae21                 Interface name
+  ae22                 Interface name
+  ae23                 Interface name
+  ae3                  Interface name
+  ae4                  Interface name
+  ae5                  Interface name
+  ae6                  Interface name
+  ae7                  Interface name
+  ae8                  Interface name
+  ae9                  Interface name
+{master:0}[edit]
+root@OSAOSTC# set interfaces ae9.0 family inet address 172.30.13.245/30
+
+{master:0}[edit]
+root@OSAOSTC# delete interfaces ae9.0 family ethernet-switching
+
+{master:0}[edit]
+root@OSAOSTC# commit check
+configuration check succeeds
+fpc1:
+configuration check succeeds
+fpc2:
+configuration check succeeds
+fpc3:
+configuration check succeeds
+
+{master:0}[edit]
+root@OSAOSTC# set routing-options s
+                                   ^
+'s' is ambiguous.
+Possible completions:
+> source-packet-routing  Source packet routing (SPRING)
+> source-routing       Source-routing options
+> srlg                 SRLG configuration
+> static               Static routes
+{master:0}[edit]
+root@OSAOSTC# ...tic route 0.0.0.0/0 next-hop 172.30.13.246
+
+{master:0}[edit]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@OSAOSTC# edit interfaces
+
+{master:0}[edit interfaces]
+root@OSAOSTC# show | display set | match active
+set interfaces ae0 aggregated-ether-options lacp active
+set interfaces ae1 aggregated-ether-options lacp active
+
+{master:0}[edit interfaces]
+root@OSAOSTC# show | display set | match pasive
+
+{master:0}[edit interfaces]
+root@OSAOSTC# show | display set | match passive
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae3 aggregated-ether-options lacp passive
+set interfaces ae4 aggregated-ether-options lacp passive
+set interfaces ae5 aggregated-ether-options lacp passive
+set interfaces ae6 aggregated-ether-options lacp passive
+set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae9 aggregated-ether-options lacp passive
+set interfaces ae10 aggregated-ether-options lacp passive
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae12 aggregated-ether-options lacp passive
+set interfaces ae13 aggregated-ether-options lacp passive
+set interfaces ae14 aggregated-ether-options lacp passive
+set interfaces ae15 aggregated-ether-options lacp passive
+set interfaces ae16 aggregated-ether-options lacp passive
+set interfaces ae17 aggregated-ether-options lacp passive
+set interfaces ae18 aggregated-ether-options lacp passive
+set interfaces ae19 aggregated-ether-options lacp passive
+set interfaces ae20 aggregated-ether-options lacp passive
+set interfaces ae21 aggregated-ether-options lacp passive
+set interfaces ae22 aggregated-ether-options lacp passive
+set interfaces ae23 aggregated-ether-options lacp passive
+
+{master:0}[edit interfaces]
+root@OSAOSTC# replace pattern passive with active
+
+{master:0}[edit interfaces]
+root@OSAOSTC# show | display set | match active
+set interfaces ae0 aggregated-ether-options lacp active
+set interfaces ae1 aggregated-ether-options lacp active
+set interfaces ae2 aggregated-ether-options lacp active
+set interfaces ae3 aggregated-ether-options lacp active
+set interfaces ae4 aggregated-ether-options lacp active
+set interfaces ae5 aggregated-ether-options lacp active
+set interfaces ae6 aggregated-ether-options lacp active
+set interfaces ae7 aggregated-ether-options lacp active
+set interfaces ae8 aggregated-ether-options lacp active
+set interfaces ae9 aggregated-ether-options lacp active
+set interfaces ae10 aggregated-ether-options lacp active
+set interfaces ae11 aggregated-ether-options lacp active
+set interfaces ae12 aggregated-ether-options lacp active
+set interfaces ae13 aggregated-ether-options lacp active
+set interfaces ae14 aggregated-ether-options lacp active
+set interfaces ae15 aggregated-ether-options lacp active
+set interfaces ae16 aggregated-ether-options lacp active
+set interfaces ae17 aggregated-ether-options lacp active
+set interfaces ae18 aggregated-ether-options lacp active
+set interfaces ae19 aggregated-ether-options lacp active
+set interfaces ae20 aggregated-ether-options lacp active
+set interfaces ae21 aggregated-ether-options lacp active
+set interfaces ae22 aggregated-ether-options lacp active
+set interfaces ae23 aggregated-ether-options lacp active
+
+{master:0}[edit interfaces]
+root@OSAOSTC# commit
+configuration check succeeds
+fpc1:
+commit complete
+fpc2:
+commit complete
+fpc3:
+commit complete
+commit complete
+
+{master:0}[edit interfaces]
+root@OSAOSTC#
+DSADSTC (ttyu0)
+
+login: root
+Password:
+
+--- JUNOS 18.1R3-S6.1 built 2019-06-07 11:50:34 UTC
+
+{master:0}[edit interfaces]
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0% .1 built 2019-06-07 11:50:34 UTC
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0%
+root@DSADSTC:RE:0% cli
+{master:0}
+root@DSADSTC> show vlans
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1
+
+default-switch          v10                   10
+                                                           ae0.0*
+                                                           ae1.0
+                                                           ae10.0
+                                                           ae11.0
+                                                           ae2.0
+                                                           ae4.0
+                                                           ae5.0
+                                                           ae6.0
+                                                           ae7.0
+                                                           ae8.0
+                                                           ae9.0
+                                                           ge-0/0/12.0
+                                                           ge-0/0/13.0
+                                                           ge-0/0/14.0
+                                                           ge-0/0/15.0
+                                                           ge-0/0/16.0
+                                                           ge-0/0/17.0
+                                                           ge-0/0/18.0
+                                                           ge-0/0/19.0
+                                                           ge-0/0/20.0
+                                                           ge-0/0/21.0
+                                                           ge-0/0/22.0
+                                                           ge-0/0/23.0
+                                                           ge-1/0/12.0
+                                                           ge-1/0/13.0
+                                                           ge-1/0/14.0
+                                                           ge-1/0/15.0
+                                                           ge-1/0/16.0
+                                                           ge-1/0/17.0
+                                                           ge-1/0/18.0
+                                                           ge-1/0/19.0
+                                                           ge-1/0/20.0
+                                                           ge-1/0/21.0
+                                                           ge-1/0/22.0
+                                                           ge-1/0/23.0
+
+{master:0}
+root@DSADSTC> show interfaces terse | match ae
+ge-0/0/0.0              up    up   aenet    --> ae0.0
+ge-0/0/1.0              up    down aenet    --> ae1.0
+ge-0/0/2.0              up    down aenet    --> ae2.0
+ge-0/0/4.0              up    down aenet    --> ae4.0
+ge-0/0/5.0              up    down aenet    --> ae5.0
+ge-0/0/6.0              up    down aenet    --> ae6.0
+ge-0/0/7.0              up    down aenet    --> ae7.0
+ge-0/0/8.0              up    down aenet    --> ae8.0
+ge-0/0/9.0              up    down aenet    --> ae9.0
+ge-0/0/10.0             up    down aenet    --> ae10.0
+ge-0/0/11.0             up    down aenet    --> ae11.0
+ge-1/0/0.0              up    up   aenet    --> ae0.0
+ge-1/0/1.0              up    down aenet    --> ae1.0
+ge-1/0/2.0              up    down aenet    --> ae2.0
+ge-1/0/4.0              up    down aenet    --> ae4.0
+ge-1/0/5.0              up    down aenet    --> ae5.0
+ge-1/0/6.0              up    down aenet    --> ae6.0
+ge-1/0/7.0              up    down aenet    --> ae7.0
+ge-1/0/8.0              up    down aenet    --> ae8.0
+ge-1/0/9.0              up    down aenet    --> ae9.0
+ge-1/0/10.0             up    down aenet    --> ae10.0
+ge-1/0/11.0             up    down aenet    --> ae11.0
+ae0                     up    up
+ae0.0                   up    up   eth-switch
+ae1                     up    down
+ae1.0                   up    down eth-switch
+ae2                     up    down
+ae2.0                   up    down eth-switch
+ae4                     up    down
+ae4.0                   up    down eth-switch
+ae5                     up    down
+ae5.0                   up    down eth-switch
+ae6                     up    down
+ae6.0                   up    down eth-switch
+ae7                     up    down
+ae7.0                   up    down eth-switch
+ae8                     up    down
+ae8.0                   up    down eth-switch
+ae9                     up    down
+ae9.0                   up    down eth-switch
+ae10                    up    down
+ae10.0                  up    down eth-switch
+ae11                    up    down
+ae11.0                  up    down eth-switch
+
+{master:0}
+root@DSADSTC> edit
+Entering configuration mode
+
+{master:0}[edit]
+root@DSADSTC# delete interfaces ae7
+
+{master:0}[edit]
+root@DSADSTC# commit
+fpc0:
+configuration check succeeds
+fpc1:
+commit complete
+fpc0:
+commit complete
+
+{master:0}[edit]
+root@DSADSTC# run show interfaces terse
+Interface               Admin Link Proto    Local                 Remote
+vcp-255/2/0             up    up
+vcp-255/2/0.32768       up    up
+ge-0/0/0                up    up
+ge-0/0/0.0              up    up   aenet    --> ae0.0
+gr-0/0/0                up    up
+pfe-0/0/0               up    up
+pfe-0/0/0.16383         up    up   inet
+                                   inet6
+pfh-0/0/0               up    up
+pfh-0/0/0.16383         up    up   inet
+pfh-0/0/0.16384         up    up   inet
+ge-0/0/1                up    down
+ge-0/0/1.0              up    down aenet    --> ae1.0
+ge-0/0/2                up    down
+ge-0/0/2.0              up    down aenet    --> ae2.0
+ge-0/0/3                up    down
+ge-0/0/4                up    down
+ge-0/0/4.0              up    down aenet    --> ae4.0
+ge-0/0/5                up    down
+ge-0/0/5.0              up    down aenet    --> ae5.0
+ge-0/0/6                up    down
+ge-0/0/6.0              up    down aenet    --> ae6.0
+ge-0/0/7                up    down
+ge-0/0/8                up    down
+ge-0/0/8.0              up    down aenet    --> ae8.0
+ge-0/0/9                up    down
+ge-0/0/9.0              up    down aenet    --> ae9.0
+ge-0/0/10               up    down
+ge-0/0/10.0             up    down aenet    --> ae10.0
+ge-0/0/11               up    down
+ge-0/0/11.0             up    down aenet    --> ae11.0
+ge-0/0/12               up    down
+ge-0/0/12.0             up    down eth-switch
+ge-0/0/13               up    down
+ge-0/0/13.0             up    down eth-switch
+ge-0/0/14               up    down
+ge-0/0/14.0             up    down eth-switch
+ge-0/0/15               up    down
+ge-0/0/15.0             up    down eth-switch
+ge-0/0/16               up    down
+ge-0/0/16.0             up    down eth-switch
+ge-0/0/17               up    down
+ge-0/0/17.0             up    down eth-switch
+ge-0/0/18               up    down
+ge-0/0/18.0             up    down eth-switch
+ge-0/0/19               up    down
+ge-0/0/19.0             up    down eth-switch
+ge-0/0/20               up    down
+ge-0/0/20.0             up    down eth-switch
+ge-0/0/21               up    down
+ge-0/0/21.0             up    down eth-switch
+ge-0/0/22               up    down
+ge-0/0/22.0             up    down eth-switch
+ge-0/0/23               up    down
+ge-0/0/23.0             up    down eth-switch
+ge-1/0/0                up    up
+ge-1/0/0.0              up    up   aenet    --> ae0.0
+pfe-1/0/0               up    up
+pfe-1/0/0.16383         up    up   inet
+                                   inet6
+pfh-1/0/0               up    up
+pfh-1/0/0.16383         up    up   inet
+pfh-1/0/0.16384         up    up   inet
+ge-1/0/1                up    down
+ge-1/0/1.0              up    down aenet    --> ae1.0
+ge-1/0/2                up    down
+ge-1/0/2.0              up    down aenet    --> ae2.0
+ge-1/0/3                up    down
+ge-1/0/4                up    down
+ge-1/0/4.0              up    down aenet    --> ae4.0
+ge-1/0/5                up    down
+ge-1/0/5.0              up    down aenet    --> ae5.0
+ge-1/0/6                up    down
+ge-1/0/6.0              up    down aenet    --> ae6.0
+ge-1/0/7                up    down
+ge-1/0/8                up    down
+ge-1/0/8.0              up    down aenet    --> ae8.0
+ge-1/0/9                up    down
+ge-1/0/9.0              up    down aenet    --> ae9.0
+ge-1/0/10               up    down
+ge-1/0/10.0             up    down aenet    --> ae10.0
+ge-1/0/11               up    down
+ge-1/0/11.0             up    down aenet    --> ae11.0
+ge-1/0/12               up    down
+ge-1/0/12.0             up    down eth-switch
+ge-1/0/13               up    down
+ge-1/0/13.0             up    down eth-switch
+ge-1/0/14               up    down
+ge-1/0/14.0             up    down eth-switch
+ge-1/0/15               up    down
+ge-1/0/15.0             up    down eth-switch
+
+{master:0}[edit]
+root@DSADSTC# delete interfaces ae8
+
+{master:0}[edit]
+root@DSADSTC# delete interfaces ae9
+
+{master:0}[edit]
+root@DSADSTC# delete interfaces ae10
+
+{master:0}[edit]
+root@DSADSTC# delete interfaces ae11
+
+{master:0}[edit]
+root@DSADSTC# commit
+fpc0:
+configuration check succeeds
+fpc1:
+commit complete
+fpc0:
+commit complete
+
+{master:0}[edit]
+root@DSADSTC# ....0 family ethernet-switching vlan members v10
+
+{master:0}[edit]
+root@DSADSTC# ...s ge-0/0/8.0 family ethernet-switching vlan members v10
+
+{master:0}[edit]
+root@DSADSTC# commit
+[edit interfaces ge-0/0/7]
+  'unit 0'
+     logical unit is not allowed on aggregated links
+error: configuration check-out failed
+
+{master:0}[edit]
+root@DSADSTC# edit interfaces
+
+{master:0}[edit interfaces]
+root@DSADSTC# show | display set
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-0/0/5 ether-options 802.3ad ae5
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-0/0/10 ether-options 802.3ad ae10
+set interfaces ge-0/0/11 ether-options 802.3ad ae11
+set interfaces ge-0/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members v10
+
+{master:0}[edit interfaces]
+root@DSADSTC# top
+
+{master:0}[edit]
+root@DSADSTC# load set terminal
+[Type ^D at a new line to end input]
+delete interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members v10
+delete interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members v10
+delete interfaces ge-0/0/9 ether-options 802.3ad ae9
+delete interfaces ge-0/0/10 ether-options 802.3ad ae10
+delete interfaces ge-0/0/11 ether-options 802.3ad ae11
+delete interfaces ge-1/0/7 ether-options 802.3ad ae7
+delete interfaces ge-1/0/8 ether-options 802.3ad ae8
+delete interfaces ge-1/0/9 ether-options 802.3ad ae9
+delete interfaces ge-1/0/10 ether-options 802.3ad ae10
+delete interfaces ge-1/0/11 ether-options 802.3ad ae11
+load complete
+
+{master:0}[edit]
+root@DSADSTC# commit
+fpc0:
+configuration check succeeds
+fpc1:
+commit complete
+fpc0:
+commit complete
+
+{master:0}[edit]
+root@DSADSTC# exit
+Exiting configuration mode
+
+{master:0}
+root@DSADSTC> exit
+
+root@DSADSTC:RE:0% exit
+logout
+
+DSADSTC (ttyu0)
+
+login:
+ESAESTC (ttyu0)
+
+login: root
+Password:
+
+--- JUNOS 18.1R3-S6.1 built 2019-06-07 11:50:34 UTC
+DSADSTC (ttyu0)
+root@ESAESTC:RE:0%
+login:
+root@ESAESTC:RE:0%
+root@ESAESTC:RE:0%
+root@ESAESTC:RE:0%
+root@ESAESTC:RE:0%
+root@ESAESTC:RE:0%
+root@ESAESTC:RE:0% .1 built 2019-06-07 11:50:34 UTC
+root@ESAESTC:RE:0%
+root@ESAESTC:RE:0%
+root@ESAESTC:RE:0%
+root@ESAESTC:RE:0% cli
+{master:0}
+root@ESAESTC>
+
+{master:0}
+root@ESAESTC>
+
+{master:0}
+root@ESAESTC> show vlans
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1
+
+default-switch          v30                   30
+                                                           ae1.0
+                                                           ae10.0
+                                                           ae11.0
+                                                           ae2.0
+                                                           ae3.0
+                                                           ae4.0
+                                                           ae5.0
+                                                           ae6.0
+                                                           ae7.0
+                                                           ae8.0
+                                                           ae9.0
+                                                           ge-0/0/12.0
+                                                           ge-0/0/13.0
+                                                           ge-0/0/14.0
+                                                           ge-0/0/15.0
+                                                           ge-0/0/16.0
+                                                           ge-0/0/17.0
+                                                           ge-0/0/18.0
+                                                           ge-0/0/19.0
+                                                           ge-0/0/20.0
+                                                           ge-0/0/21.0
+                                                           ge-0/0/22.0
+                                                           ge-0/0/23.0
+                                                           ge-1/0/12.0
+                                                           ge-1/0/13.0
+                                                           ge-1/0/14.0
+                                                           ge-1/0/15.0
+                                                           ge-1/0/16.0
+                                                           ge-1/0/17.0
+                                                           ge-1/0/18.0
+                                                           ge-1/0/19.0
+                                                           ge-1/0/20.0
+                                                           ge-1/0/21.0
+                                                           ge-1/0/22.0
+                                                           ge-1/0/23.0
+default-switch          v8                    8
+                                                           ae0.0*
+
+{master:0}
+root@ESAESTC> edit
+Entering configuration mode
+
+{master:0}[edit]
+root@ESAESTC# edit interfaces
+
+{master:0}[edit interfaces]
+root@ESAESTC# show | display set | match ae8
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae8 unit 0 family ethernet-switching interface-mode access
+set interfaces ae8 unit 0 family ethernet-switching vlan members v30
+
+{master:0}[edit interfaces]
+root@ESAESTC# delete ge-0/0/8 ether-options 802.3ad ae8
+
+{master:0}[edit interfaces]
+root@ESAESTC# delete ge-1/0/8 ether-options 802.3ad ae8
+
+{master:0}[edit interfaces]
+root@ESAESTC# delete ae8
+
+{master:0}[edit interfaces]
+root@ESAESTC# delete ae9
+
+{master:0}[edit interfaces]
+root@ESAESTC# delete ge-1/0/9 ether-options 802.3ad ae9
+
+{master:0}[edit interfaces]
+root@ESAESTC# delete ge-0/0/9 ether-options 802.3ad ae9
+
+{master:0}[edit interfaces]
+root@ESAESTC# commit
+fpc0:
+configuration check succeeds
+fpc1:
+commit complete
+fpc0:
+commit complete
+
+{master:0}[edit interfaces]
+root@ESAESTC# set ge-0/0/8.0 family ethernet-switching vlan members v30
+
+{master:0}[edit interfaces]
+root@ESAESTC# set ge-0/0/9.0 family ethernet-switching vlan members v30
+
+{master:0}[edit interfaces]
+root@ESAESTC# commit
+fpc0:
+configuration check succeeds
+fpc1:
+commit complete
+fpc0:
+commit complete
+
+{master:0}[edit interfaces]
+root@ESAESTC# exit
+
+{master:0}[edit]
+root@ESAESTC# show vlans
+default {
+    vlan-id 1;
+    l3-interface irb.0;
+}
+v30 {
+    vlan-id 30;
+    l3-interface irb.30;
+}
+v8 {
+    vlan-id 8;
+    l3-interface irb.8;
+}
+
+{master:0}[edit]
+root@ESAESTC# run show vlans
+
+Routing instance        VLAN name             Tag          Interfaces
+default-switch          default               1
+
+default-switch          v30                   30
+                                                           ae1.0
+                                                           ae10.0
+                                                           ae11.0
+                                                           ae2.0
+                                                           ae3.0
+                                                           ae4.0
+                                                           ae5.0
+                                                           ae6.0
+                                                           ae7.0
+                                                           ge-0/0/12.0
+                                                           ge-0/0/13.0
+                                                           ge-0/0/14.0
+                                                           ge-0/0/15.0
+                                                           ge-0/0/16.0
+                                                           ge-0/0/17.0
+                                                           ge-0/0/18.0
+                                                           ge-0/0/19.0
+                                                           ge-0/0/20.0
+                                                           ge-0/0/21.0
+                                                           ge-0/0/22.0
+                                                           ge-0/0/23.0
+                                                           ge-0/0/8.0
+                                                           ge-0/0/9.0
+                                                           ge-1/0/12.0
+                                                           ge-1/0/13.0
+                                                           ge-1/0/14.0
+                                                           ge-1/0/15.0
+                                                           ge-1/0/16.0
+                                                           ge-1/0/17.0
+                                                           ge-1/0/18.0
+                                                           ge-1/0/19.0
+                                                           ge-1/0/20.0
+                                                           ge-1/0/21.0
+                                                           ge-1/0/22.0
+                                                           ge-1/0/23.0
+default-switch          v8                    8
+                                                           ae0.0*
+
+{master:0}[edit]
+root@ESAESTC# run show interfaces terse | match irb
+irb                     up    up
+irb.8                   up    up   inet     172.30.12.2/30
+irb.30                  up    down inet     193.30.12.254/24
+
+{master:0}[edit]
+root@ESAESTC# exit
+Exiting configuration mode
+
+{master:0}
+root@ESAESTC> exit
+
+root@ESAESTC:RE:0% exit
+logout
+
+ESAESTC (ttyu0)
+
+login:
+DRADSKA (ttyu0)
+
+login:
+DRADSKA (ttyu0)
+
+login: root
+
+Logging to master
+Password:
+
+--- JUNOS 12.3R12-S10 built 2018-07-27 08:56:56 UTC
+login:
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1% 10 built 2018-07-27 08:56:56 UTC
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1% cli
+{master:1}
+root@DRADSKA>
+
+{master:1}
+root@DRADSKA>
+
+{master:1}
+root@DRADSKA> show vlans
+Name           Tag     Interfaces
+default        10
+                       ae0.0
+vlan100        100
+                       ge-0/0/0.0*, ge-0/0/1.0, ge-0/0/2.0, ge-0/0/3.0,
+                       ge-0/0/4.0, ge-0/0/5.0, ge-0/0/6.0, ge-0/0/7.0,
+                       ge-0/0/8.0, ge-0/0/9.0, ge-0/0/10.0, ge-0/0/11.0,
+                       ge-0/0/12.0, ge-0/0/13.0, ge-0/0/14.0, ge-0/0/15.0,
+                       ge-0/0/16.0, ge-0/0/17.0, ge-0/0/18.0, ge-0/0/19.0,
+                       ge-0/0/20.0, ge-0/0/21.0, ge-0/0/22.0, ge-0/0/23.0,
+                       ge-1/0/0.0*, ge-1/0/1.0, ge-1/0/2.0, ge-1/0/3.0,
+                       ge-1/0/4.0, ge-1/0/5.0, ge-1/0/6.0, ge-1/0/7.0,
+                       ge-1/0/8.0, ge-1/0/9.0, ge-1/0/10.0, ge-1/0/11.0,
+                       ge-1/0/12.0, ge-1/0/13.0, ge-1/0/14.0, ge-1/0/15.0,
+                       ge-1/0/16.0, ge-1/0/17.0, ge-1/0/18.0, ge-1/0/19.0,
+                       ge-1/0/20.0, ge-1/0/21.0, ge-1/0/22.0, ge-1/0/23.0
+
+{master:1}
+root@DRADSKA> show interfaces terse
+Interface               Admin Link Proto    Local                 Remote
+ge-0/0/0                up    up
+ge-0/0/0.0              up    up   eth-switch
+ge-0/0/1                up    down
+ge-0/0/1.0              up    down eth-switch
+ge-0/0/2                up    down
+ge-0/0/2.0              up    down eth-switch
+ge-0/0/3                up    down
+ge-0/0/3.0              up    down eth-switch
+ge-0/0/4                up    down
+ge-0/0/4.0              up    down eth-switch
+ge-0/0/5                up    down
+ge-0/0/5.0              up    down eth-switch
+ge-0/0/6                up    down
+ge-0/0/6.0              up    down eth-switch
+ge-0/0/7                up    down
+ge-0/0/7.0              up    down eth-switch
+ge-0/0/8                up    down
+ge-0/0/8.0              up    down eth-switch
+ge-0/0/9                up    down
+ge-0/0/9.0              up    down eth-switch
+ge-0/0/10               up    down
+ge-0/0/10.0             up    down eth-switch
+ge-0/0/11               up    down
+ge-0/0/11.0             up    down eth-switch
+ge-0/0/12               up    down
+ge-0/0/12.0             up    down eth-switch
+ge-0/0/13               up    down
+ge-0/0/13.0             up    down eth-switch
+ge-0/0/14               up    down
+ge-0/0/14.0             up    down eth-switch
+ge-0/0/15               up    down
+ge-0/0/15.0             up    down eth-switch
+ge-0/0/16               up    down
+ge-0/0/16.0             up    down eth-switch
+ge-0/0/17               up    down
+ge-0/0/17.0             up    down eth-switch
+ge-0/0/18               up    down
+ge-0/0/18.0             up    down eth-switch
+ge-0/0/19               up    down
+ge-0/0/19.0             up    down eth-switch
+ge-0/0/20               up    down
+ge-0/0/20.0             up    down eth-switch
+ge-0/0/21               up    down
+ge-0/0/21.0             up    down eth-switch
+ge-0/0/22               up    down
+ge-0/0/22.0             up    down eth-switch
+ge-0/0/23               up    down
+ge-0/0/23.0             up    down eth-switch
+ge-1/0/0                up    up
+ge-1/0/0.0              up    up   eth-switch
+ge-1/0/1                up    down
+ge-1/0/1.0              up    down eth-switch
+ge-1/0/2                up    down
+ge-1/0/2.0              up    down eth-switch
+ge-1/0/3                up    down
+ge-1/0/3.0              up    down eth-switch
+ge-1/0/4                up    down
+ge-1/0/4.0              up    down eth-switch
+ge-1/0/5                up    down
+ge-1/0/5.0              up    down eth-switch
+ge-1/0/6                up    down
+ge-1/0/6.0              up    down eth-switch
+ge-1/0/7                up    down
+ge-1/0/7.0              up    down eth-switch
+ge-1/0/8                up    down
+ge-1/0/8.0              up    down eth-switch
+ge-1/0/9                up    down
+ge-1/0/9.0              up    down eth-switch
+ge-1/0/10               up    down
+ge-1/0/10.0             up    down eth-switch
+ge-1/0/11               up    down
+ge-1/0/11.0             up    down eth-switch
+ge-1/0/12               up    down
+ge-1/0/12.0             up    down eth-switch
+ge-1/0/13               up    down
+ge-1/0/13.0             up    down eth-switch
+ge-1/0/14               up    down
+ge-1/0/14.0             up    down eth-switch
+ge-1/0/15               up    down
+ge-1/0/15.0             up    down eth-switch
+ge-1/0/16               up    down
+ge-1/0/16.0             up    down eth-switch
+ge-1/0/17               up    down
+ge-1/0/17.0             up    down eth-switch
+ge-1/0/18               up    down
+ge-1/0/18.0             up    down eth-switch
+ge-1/0/19               up    down
+ge-1/0/19.0             up    down eth-switch
+ge-1/0/20               up    down
+ge-1/0/20.0             up    down eth-switch
+ge-1/0/21               up    down
+ge-1/0/21.0             up    down eth-switch
+ge-1/0/22               up    down
+ge-1/0/22.0             up    down eth-switch
+ge-1/0/23               up    down
+ge-1/0/23.0             up    down eth-switch
+vcp-0                   up    down
+vcp-0.32768             up    down
+vcp-1                   up    up
+vcp-1.32768             up    up
+ae0                     up    down
+ae0.0                   up    down eth-switch
+ae1                     up    down
+ae2                     up    down
+ae3                     up    down
+ae4                     up    down
+ae5                     up    down
+ae6                     up    down
+ae7                     up    down
+ae8                     up    down
+ae9                     up    down
+ae10                    up    down
+ae11                    up    down
+ae12                    up    down
+ae13                    up    down
+ae14                    up    down
+ae15                    up    down
+bme0                    up    up
+bme0.32768              up    up   inet     128.0.0.1/2
+                                            128.0.0.17/2
+                                            128.0.0.32/2
+                                   tnp      0x11
+bme0.32769              down  up   eth-switch
+dsc                     up    up
+gre                     up    up
+ipip                    up    up
+lo0                     up    up
+lo0.16384               up    up   inet     127.0.0.1           --> 0/0
+lsi                     up    up
+me0                     up    down
+me0.0                   up    down eth-switch
+mtun                    up    up
+pimd                    up    up
+pime                    up    up
+tap                     up    up
+vlan                    up    up
+vlan.100                up    up   inet     193.50.100.253/24
+vme                     up    down
+vme.0                   up    down inet     192.168.1.1/24
+
+{master:1}
+root@DRADSKA> edit
+Entering configuration mode
+
+{master:1}[edit]
+root@DRADSKA# set vlans v2 vlan-id 2
+
+{master:1}[edit]
+root@DRADSKA# set vlans v51 vlan-id 51
+
+{master:1}[edit]
+root@DRADSKA# delete interfaces vlan.100
+
+{master:1}[edit]
+root@DRADSKA# show vlans
+default {
+    vlan-id 10;
+}
+v2 {
+    vlan-id 2;
+}
+v51 {
+    vlan-id 51;
+}
+vlan100 {
+    vlan-id 100;
+    ##
+    ## Warning: Interface must already be defined under [edit interfaces]
+    ##
+    l3-interface vlan.100;
+}
+
+{master:1}[edit]
+root@DRADSKA# delete vlans vlan100
+
+{master:1}[edit]
+root@DRADSKA# sey
+              ^
+unknown command.
+root@DRADSKA#
+
+{master:1}[edit]
+root@DRADSKA# set interfaces vlan.2 g=fa
+                                    ^
+syntax error.
+root@DRADSKA# set interfaces vlan.2 family inet address 172.30.51.2/30
+
+{master:1}[edit]
+root@DRADSKA# set interfaces vlan.51 family inet address 193.30.51.254/24
+
+{master:1}[edit]
+root@DRADSKA# show | display set | match ae
+set interfaces ae0 aggregated-ether-options lacp active
+set interfaces ae0 unit 0 family ethernet-switching port-mode access
+
+{master:1}[edit]
+root@DRADSKA# load set terminal
+[Type ^D at a new line to end input]
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-1/0/0 ether-options 802.3ad ae0
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae0 unit 0 family ethernet-switching interface-mode access
+set interfaces ae0 unit 0 family ethernet-switching vlan members v2
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-1/0/1 ether-options 802.3ad ae1
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options lacp passive
+set interfaces ae1 unit 0 family ethernet-switching interface-mode access
+set interfaces ae1 unit 0 family ethernet-switching vlan members v51
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae2 unit 0 family ethernet-switching interface-mode access
+set interfaces ae2 unit 0 family ethernet-switching vlan members v51
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-1/0/3 ether-options 802.3ad ae3
+set interfaces ae3 aggregated-ether-options minimum-links 1
+set interfaces ae3 aggregated-ether-options lacp passive
+set interfaces ae3 unit 0 family ethernet-switching interface-mode access
+set interfaces ae3 unit 0 family ethernet-switching vlan members v51
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-1/0/4 ether-options 802.3ad ae4
+set interfaces ae4 aggregated-ether-options minimum-links 1
+set interfaces ae4 aggregated-ether-options lacp passive
+set interfaces ae4 unit 0 family ethernet-switching interface-mode access
+set interfaces ae4 unit 0 family ethernet-switching vlan members v51
+load complete
+
+{master:1}[edit]
+root@DRADSKA# commit
+[edit interfaces ge-0/0/0]
+  'unit 0'
+     logical unit is not allowed on aggregated links
+error: Interface <ge-0/0/0.0> vlan member <vlan100> undefined
+error: configuration check-out failed
+
+{master:1}[edit]
+root@DRADSKA# edit interfaces
+
+{master:1}[edit interfaces]
+root@DRADSKA# delete ge-1/0/0 unit 0
+
+{master:1}[edit interfaces]
+root@DRADSKA# delete ge-1/0/1 unit 0
+elete ge-1/0/2 unit 0
+de
+{master:1}[edit interfaces]
+root@DRADSKA# delete ge-1/0/2 unit 0
+lete ge-1/0/3 unit 0
+delete ge-1/0/4 unit 0
+{master:1}[edit interfaces]
+root@DRADSKA# delete ge-1/0/3 unit 0
+
+{master:1}[edit interfaces]
+root@DRADSKA# delete ge-1/0/4 unit 0
+
+{master:1}[edit interfaces]
+root@DRADSKA# delete ge-0/0/0 unit 0
+elete ge-0/0/1 unit 0
+de
+l{master:1}[edit interfaces]
+root@DRADSKA# delete ge-0/0/1 unit 0
+ete ge-0/0/2 unit 0
+delete ge-0/0/3 unit 0
+delete ge-0/
+{master:1}[edit interfaces]
+root@DRADSKA# delete ge-0/0/2 unit 0
+
+{master:1}[edit interfaces]
+root@DRADSKA# delete ge-0/0/3 unit 0
+
+{master:1}[edit interfaces]
+root@DRADSKA# delete ge-0/0/4 unit 0
+
+{master:1}[edit interfaces]
+root@DRADSKA# commit
+error: Interface <ge-0/0/10.0> vlan member <vlan100> undefined
+error: configuration check-out failed
+
+{master:1}[edit interfaces]
+root@DRADSKA# pe
+              ^
+unknown command.
+root@DRADSKA# replace pattern vlan100 with default
+
+{master:1}[edit interfaces]
+root@DRADSKA# commit
+configuration check succeeds
+fpc0:
+commit complete
+commit complete
+
+{master:1}[edit interfaces]
+root@DRADSKA# run show vlans
+Name           Tag     Interfaces
+default        10
+                       ge-0/0/5.0, ge-0/0/6.0, ge-0/0/7.0, ge-0/0/8.0,
+                       ge-0/0/9.0, ge-0/0/10.0, ge-0/0/11.0, ge-0/0/12.0,
+                       ge-0/0/13.0, ge-0/0/14.0, ge-0/0/15.0, ge-0/0/16.0,
+                       ge-0/0/17.0, ge-0/0/18.0, ge-0/0/19.0, ge-0/0/20.0,
+                       ge-0/0/21.0, ge-0/0/22.0, ge-0/0/23.0, ge-1/0/5.0,
+                       ge-1/0/6.0, ge-1/0/7.0, ge-1/0/8.0, ge-1/0/9.0,
+                       ge-1/0/10.0, ge-1/0/11.0, ge-1/0/12.0, ge-1/0/13.0,
+                       ge-1/0/14.0, ge-1/0/15.0, ge-1/0/16.0, ge-1/0/17.0,
+                       ge-1/0/18.0, ge-1/0/19.0, ge-1/0/20.0, ge-1/0/21.0,
+                       ge-1/0/22.0, ge-1/0/23.0
+v2             2
+                       ae0.0
+v51            51
+                       ae1.0, ae2.0, ae3.0, ae4.0
+
+{master:1}[edit interfaces]
+root@DRADSKA# set ge-0/0/5.0 family ethernet-switching vlan members v51
+
+{master:1}[edit interfaces]
+root@DRADSKA# ...y ethernet-switching vlan members default
+
+{master:1}[edit interfaces]
+root@DRADSKA# commit
+configuration check succeeds
+fpc0:
+commit complete
+commit complete
+
+{master:1}[edit interfaces]
+root@DRADSKA#
+
+{master:1}[edit interfaces]
+root@DRADSKA# exit
+
+{master:1}[edit]
+root@DRADSKA# exit
+Exiting configuration mode
+
+{master:1}
+root@DRADSKA> exit
+
+root@DRADSKA:RE:1% exit
+logout
+
+DRADSKA (ttyu0)
+
+login:
+DRADSHY (ttyu0)
+
+login: root
+Password:
+
+--- JUNOS 12.3R9.4 built 2015-02-12 11:08:41 UTC
+DRADSKA (ttyu0)
+
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0% built 2015-02-12 11:08:41 UTC
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0%
+root@DRADSHY:RE:0% cli
+{master:0}
+root@DRADSHY>
+
+{master:0}
+root@DRADSHY>
+
+{master:0}
+root@DRADSHY> show vlans
+Name           Tag     Interfaces
+default        10
+                       ae0.0
+vlan100        100
+                       ge-0/0/0.0*, ge-0/0/1.0, ge-0/0/2.0, ge-0/0/3.0,
+                       ge-0/0/4.0, ge-0/0/5.0, ge-0/0/6.0, ge-0/0/7.0,
+                       ge-0/0/8.0, ge-0/0/9.0, ge-0/0/10.0, ge-0/0/11.0,
+                       ge-0/0/12.0, ge-0/0/13.0, ge-0/0/14.0, ge-0/0/15.0,
+                       ge-0/0/16.0, ge-0/0/17.0, ge-0/0/18.0, ge-0/0/19.0,
+                       ge-0/0/20.0, ge-0/0/21.0, ge-0/0/22.0, ge-0/0/23.0,
+                       ge-1/0/0.0*, ge-1/0/1.0, ge-1/0/2.0, ge-1/0/3.0,
+                       ge-1/0/4.0, ge-1/0/5.0, ge-1/0/6.0, ge-1/0/7.0,
+                       ge-1/0/8.0, ge-1/0/9.0, ge-1/0/10.0, ge-1/0/11.0,
+                       ge-1/0/12.0, ge-1/0/13.0, ge-1/0/14.0, ge-1/0/15.0,
+                       ge-1/0/16.0, ge-1/0/17.0, ge-1/0/18.0, ge-1/0/19.0,
+                       ge-1/0/20.0, ge-1/0/21.0, ge-1/0/22.0, ge-1/0/23.0
+
+{master:0}
+root@DRADSHY> edit
+Entering configuration mode
+
+{master:0}[edit]
+root@DRADSHY# set vlans v11 vlan-id 11
+
+{master:0}[edit]
+root@DRADSHY# set vlans v71 vlan-id 71
+
+{master:0}[edit]
+root@DRADSHY# set interfaces vlan.11 family inet address 172.30.71.2/30
+
+{master:0}[edit]
+root@DRADSHY# set interfaces vlan.71 family inet address 193.30.71.254/24
+
+{master:0}[edit]
+root@DRADSHY# delete interfaces vlan.100
+
+{master:0}[edit]
+root@DRADSHY# delete vlans vlan100
+
+{master:0}[edit]
+root@DRADSHY# edit interfaces
+
+{master:0}[edit interfaces]
+root@DRADSHY# re
+                ^
+'re' is ambiguous.
+Possible completions:
+  rename               Rename a statement
+  replace              Replace character string in configuration
+{master:0}[edit interfaces]
+root@DRADSHY# replace pattern valn100 with v71
+
+{master:0}[edit interfaces]
+root@DRADSHY# commit
+error: Interface <ge-0/0/0.0> vlan member <vlan100> undefined
+error: configuration check-out failed
+
+{master:0}[edit interfaces]
+root@DRADSHY# replace pattern vlan100 with v71
+
+{master:0}[edit interfaces]
+root@DRADSHY# commit
+configuration check succeeds
+fpc1:
+commit complete
+commit complete
+
+{master:0}[edit interfaces]
+root@DRADSHY# top
+
+{master:0}[edit]
+root@DRADSHY# set vlans v
+                         ^
+Length 1 is not within range (2..64) at 'v'
+
+Possible completions:
+  <vlan-name>          VLAN name
+  v11                  VLAN name
+  v71                  VLAN name
+{master:0}[edit]
+root@DRADSHY# set vlans v11 l3-interface vlan.11
+
+{master:0}[edit]
+root@DRADSHY# set vlans v71 l3-interface vlan.71
+
+{master:0}[edit]
+root@DRADSHY# commit
+configuration check succeeds
+fpc1:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@DRADSHY# edit interfaces
+
+{master:0}[edit interfaces]
+root@DRADSHY# delete ge-1/0/0 unit 0
+
+{master:0}[edit interfaces]
+root@DRADSHY# delete ge-1/0/1 unit 0
+
+{master:0}[edit interfaces]
+root@DRADSHY# delete ge-1/0/2 unit 0
+
+{master:0}[edit interfaces]
+root@DRADSHY# delete ge-0/0/0 unit 0
+
+{master:0}[edit interfaces]
+root@DRADSHY# delete ge-0/0/1 unit 0
+lete ge-0/0/2 unit 0
+{master:0}[edit interfaces]
+root@DRADSHY# delete ge-0/0/2 unit 0
+
+{master:0}[edit interfaces]
+root@DRADSHY# top
+
+{master:0}[edit]
+root@DRADSHY# load set terminal
+[Type ^D at a new line to end input]
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-1/0/0 ether-options 802.3ad ae0
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae0 unit 0 family ethernet-switching interface-mode access
+set interfaces ae0 unit 0 family ethernet-switching vlan members v11
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-1/0/1 ether-options 802.3ad ae1
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options lacp passive
+set interfaces ae1 unit 0 family ethernet-switching interface-mode access
+set interfaces ae1 unit 0 family ethernet-switching vlan members v71
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae2 unit 0 family ethernet-switching interface-mode access
+set interfaces ae2 unit 0 family ethernet-switching vlan members v71
+load complete
+
+{master:0}[edit]
+root@DRADSHY# commit
+error: Access interface <ae0.0> has more than one vlan member: <v11> and <default>
+error: configuration check-out failed
+
+{master:0}[edit]
+root@DRADSHY# ... family ethernet-switching vlan members default
+warning: element 'default' not found
+
+{master:0}[edit]
+root@DRADSHY# edit interfaces
+
+{master:0}[edit interfaces]
+root@DRADSHY# edit ae0
+
+{master:0}[edit interfaces ae0]
+root@DRADSHY# show
+aggregated-ether-options {
+    minimum-links 1;
+    lacp {
+        passive;
+    }
+}
+unit 0 {
+    family ethernet-switching {
+        port-mode access;
+        ##
+        ## Warning: statement ignored: unsupported platform (ex4200-24t)
+        ##
+        interface-mode access;
+        vlan {
+            members [ 10 v11 ];
+        }
+    }
+}
+
+{master:0}[edit interfaces ae0]
+root@DRADSHY# delete unit 0 family ethernet-switching vlan 10
+                                                           ^
+syntax error.
+
+{master:0}[edit interfaces ae0]
+root@DRADSHY# delete unit 0 family ethernet-switching vlan members 10
+
+{master:0}[edit interfaces ae0]
+root@DRADSHY# top
+
+{master:0}[edit]
+root@DRADSHY# commit
+configuration check succeeds
+fpc1:
+commit complete
+commit complete
+
+{master:0}[edit]
+root@DRADSHY# run show vlans
+Name           Tag     Interfaces
+default        10
+                       None
+v11            11
+                       ae0.0
+v71            71
+                       ae1.0, ae2.0, ge-0/0/3.0, ge-0/0/4.0, ge-0/0/5.0,
+                       ge-0/0/6.0, ge-0/0/7.0, ge-0/0/8.0, ge-0/0/9.0,
+                       ge-0/0/10.0, ge-0/0/11.0, ge-0/0/12.0, ge-0/0/13.0,
+                       ge-0/0/14.0, ge-0/0/15.0, ge-0/0/16.0, ge-0/0/17.0,
+                       ge-0/0/18.0, ge-0/0/19.0, ge-0/0/20.0, ge-0/0/21.0,
+                       ge-0/0/22.0, ge-0/0/23.0, ge-1/0/3.0, ge-1/0/4.0,
+                       ge-1/0/5.0, ge-1/0/6.0, ge-1/0/7.0, ge-1/0/8.0,
+                       ge-1/0/9.0, ge-1/0/10.0, ge-1/0/11.0, ge-1/0/12.0,
+                       ge-1/0/13.0, ge-1/0/14.0, ge-1/0/15.0, ge-1/0/16.0,
+                       ge-1/0/17.0, ge-1/0/18.0, ge-1/0/19.0, ge-1/0/20.0,
+                       ge-1/0/21.0, ge-1/0/22.0, ge-1/0/23.0
+
+{master:0}[edit]
+root@DRADSHY# run show interfaces terse | match vlan
+vlan                    up    up
+vlan.0                  up    down
+vlan.11                 up    up   inet     172.30.71.2/30
+vlan.71                 up    down inet     193.30.71.254/24
+
+{master:0}[edit]
+root@DRADSHY# show vlans
+default {
+    vlan-id 10;
+}
+v11 {
+    vlan-id 11;
+    l3-interface vlan.11;
+}
+v71 {
+    vlan-id 71;
+    l3-interface vlan.71;
+}
+
+{master:0}[edit]
+root@DRADSHY# exit
+Exiting configuration mode
+
+{master:0}
+root@DRADSHY> exit
+
+root@DRADSHY:RE:0% exit
+logout
+
+DRADSHY (ttyu0)
+
+login:
+DRADSKA (ttyu0)
+
+login: root
+
+Logging to master
+Password:
+
+--- JUNOS 12.3R12-S10 built 2018-07-27 08:56:56 UTC
+login:
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1% 10 built 2018-07-27 08:56:56 UTC
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1% cli
+{master:1}
+root@DRADSKA> show vlans
+Name           Tag     Interfaces
+default        10
+                       ge-0/0/6.0, ge-0/0/7.0, ge-0/0/8.0, ge-0/0/9.0,
+                       ge-0/0/10.0, ge-0/0/11.0, ge-0/0/12.0, ge-0/0/13.0,
+                       ge-0/0/14.0, ge-0/0/15.0, ge-0/0/16.0, ge-0/0/17.0,
+                       ge-0/0/18.0, ge-0/0/19.0, ge-0/0/20.0, ge-0/0/21.0,
+                       ge-0/0/22.0, ge-0/0/23.0, ge-1/0/5.0, ge-1/0/6.0,
+                       ge-1/0/7.0, ge-1/0/8.0, ge-1/0/9.0, ge-1/0/10.0,
+                       ge-1/0/11.0, ge-1/0/12.0, ge-1/0/13.0, ge-1/0/14.0,
+                       ge-1/0/15.0, ge-1/0/16.0, ge-1/0/17.0, ge-1/0/18.0,
+                       ge-1/0/19.0, ge-1/0/20.0, ge-1/0/21.0, ge-1/0/22.0,
+                       ge-1/0/23.0
+v2             2
+                       ae0.0*
+v51            51
+                       ae1.0, ae2.0, ae3.0, ae4.0, ge-0/0/5.0
+
+{master:1}
+root@DRADSKA> edit
+Entering configuration mode
+
+{master:1}[edit]
+root@DRADSKA# edit interfaces
+
+{master:1}[edit interfaces]
+root@DRADSKA# show
+ge-0/0/0 {
+    ether-options {
+        802.3ad ae0;
+    }
+}
+ge-0/0/1 {
+    ether-options {
+        802.3ad ae1;
+    }
+}
+ge-0/0/2 {
+    ether-options {
+        802.3ad ae2;
+    }
+}
+ge-0/0/3 {
+    ether-options {
+        802.3ad ae3;
+    }
+}
+ge-0/0/4 {
+    ether-options {
+        802.3ad ae4;
+    }
+}
+ge-0/0/5 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members v51;
+            }
+        }
+    }
+}
+ge-0/0/6 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-0/0/7 {
+    unit 0 {
+        family ethernet-switching {
+
+{master:1}[edit interfaces]
+root@DRADSKA# replace pattern default with v51
+
+{master:1}[edit interfaces]
+root@DRADSKA# commit
+configuration check succeeds
+fpc0:
+commit complete
+commit complete
+
+{master:1}[edit interfaces]
+root@DRADSKA# run show vlans
+Name           Tag     Interfaces
+default        10
+                       None
+v2             2
+                       ae0.0*
+v51            51
+                       ae1.0, ae2.0, ae3.0, ae4.0, ge-0/0/5.0, ge-0/0/6.0,
+                       ge-0/0/7.0, ge-0/0/8.0, ge-0/0/9.0, ge-0/0/10.0,
+                       ge-0/0/11.0, ge-0/0/12.0, ge-0/0/13.0, ge-0/0/14.0,
+                       ge-0/0/15.0, ge-0/0/16.0, ge-0/0/17.0, ge-0/0/18.0,
+                       ge-0/0/19.0, ge-0/0/20.0, ge-0/0/21.0, ge-0/0/22.0,
+                       ge-0/0/23.0, ge-1/0/5.0, ge-1/0/6.0, ge-1/0/7.0,
+                       ge-1/0/8.0, ge-1/0/9.0, ge-1/0/10.0, ge-1/0/11.0,
+                       ge-1/0/12.0, ge-1/0/13.0, ge-1/0/14.0, ge-1/0/15.0,
+                       ge-1/0/16.0, ge-1/0/17.0, ge-1/0/18.0, ge-1/0/19.0,
+                       ge-1/0/20.0, ge-1/0/21.0, ge-1/0/22.0, ge-1/0/23.0
+
+{master:1}[edit interfaces]
+root@DRADSKA# top
+
+{master:1}[edit]
+root@DRADSKA# show vlans
+default {
+    vlan-id 10;
+}
+v2 {
+    vlan-id 2;
+}
+v51 {
+    vlan-id 51;
+}
+
+{master:1}[edit]
+root@DRADSKA# set vlans v2 l3-interface vlan.2
+
+{master:1}[edit]
+root@DRADSKA# set vlans v51 l3-interface vlan.51
+
+{master:1}[edit]
+root@DRADSKA# commit
+configuration check succeeds
+fpc0:
+commit complete
+commit complete
+
+{master:1}[edit]
+root@DRADSKA# show vlans
+default {
+    vlan-id 10;
+}
+v2 {
+    vlan-id 2;
+    l3-interface vlan.2;
+}
+v51 {
+    vlan-id 51;
+    l3-interface vlan.51;
+}
+
+{master:1}[edit]
+root@DRADSKA# run show interfaces terse
+Interface               Admin Link Proto    Local                 Remote
+ge-0/0/0                up    up
+ge-0/0/0.0              up    up   aenet    --> ae0.0
+ge-0/0/1                up    down
+ge-0/0/1.0              up    down aenet    --> ae1.0
+ge-0/0/2                up    down
+ge-0/0/2.0              up    down aenet    --> ae2.0
+ge-0/0/3                up    down
+ge-0/0/3.0              up    down aenet    --> ae3.0
+ge-0/0/4                up    down
+ge-0/0/4.0              up    down aenet    --> ae4.0
+ge-0/0/5                up    down
+ge-0/0/5.0              up    down eth-switch
+ge-0/0/6                up    down
+ge-0/0/6.0              up    down eth-switch
+ge-0/0/7                up    down
+ge-0/0/7.0              up    down eth-switch
+ge-0/0/8                up    down
+ge-0/0/8.0              up    down eth-switch
+ge-0/0/9                up    down
+ge-0/0/9.0              up    down eth-switch
+ge-0/0/10               up    down
+ge-0/0/10.0             up    down eth-switch
+ge-0/0/11               up    down
+ge-0/0/11.0             up    down eth-switch
+ge-0/0/12               up    down
+ge-0/0/12.0             up    down eth-switch
+ge-0/0/13               up    down
+ge-0/0/13.0             up    down eth-switch
+ge-0/0/14               up    down
+ge-0/0/14.0             up    down eth-switch
+ge-0/0/15               up    down
+ge-0/0/15.0             up    down eth-switch
+ge-0/0/16               up    down
+ge-0/0/16.0             up    down eth-switch
+ge-0/0/17               up    down
+ge-0/0/17.0             up    down eth-switch
+ge-0/0/18               up    down
+ge-0/0/18.0             up    down eth-switch
+ge-0/0/19               up    down
+ge-0/0/19.0             up    down eth-switch
+ge-0/0/20               up    down
+ge-0/0/20.0             up    down eth-switch
+ge-0/0/21               up    down
+ge-0/0/21.0             up    down eth-switch
+ge-0/0/22               up    down
+ge-0/0/22.0             up    down eth-switch
+ge-0/0/23               up    down
+ge-0/0/23.0             up    down eth-switch
+ge-1/0/0                up    up
+ge-1/0/0.0              up    up   aenet    --> ae0.0
+ge-1/0/1                up    down
+ge-1/0/1.0              up    down aenet    --> ae1.0
+ge-1/0/2                up    down
+ge-1/0/2.0              up    down aenet    --> ae2.0
+ge-1/0/3                up    down
+ge-1/0/3.0              up    down aenet    --> ae3.0
+ge-1/0/4                up    down
+ge-1/0/4.0              up    down aenet    --> ae4.0
+ge-1/0/5                up    down
+ge-1/0/5.0              up    down eth-switch
+ge-1/0/6                up    down
+ge-1/0/6.0              up    down eth-switch
+ge-1/0/7                up    down
+ge-1/0/7.0              up    down eth-switch
+ge-1/0/8                up    down
+ge-1/0/8.0              up    down eth-switch
+ge-1/0/9                up    down
+ge-1/0/9.0              up    down eth-switch
+ge-1/0/10               up    down
+ge-1/0/10.0             up    down eth-switch
+ge-1/0/11               up    down
+ge-1/0/11.0             up    down eth-switch
+ge-1/0/12               up    down
+ge-1/0/12.0             up    down eth-switch
+ge-1/0/13               up    down
+ge-1/0/13.0             up    down eth-switch
+ge-1/0/14               up    down
+ge-1/0/14.0             up    down eth-switch
+ge-1/0/15               up    down
+ge-1/0/15.0             up    down eth-switch
+ge-1/0/16               up    down
+ge-1/0/16.0             up    down eth-switch
+ge-1/0/17               up    down
+ge-1/0/17.0             up    down eth-switch
+ge-1/0/18               up    down
+ge-1/0/18.0             up    down eth-switch
+ge-1/0/19               up    down
+ge-1/0/19.0             up    down eth-switch
+ge-1/0/20               up    down
+ge-1/0/20.0             up    down eth-switch
+ge-1/0/21               up    down
+ge-1/0/21.0             up    down eth-switch
+ge-1/0/22               up    down
+ge-1/0/22.0             up    down eth-switch
+ge-1/0/23               up    down
+ge-1/0/23.0             up    down eth-switch
+vcp-0                   up    down
+vcp-0.32768             up    down
+vcp-1                   up    up
+vcp-1.32768             up    up
+ae0                     up    up
+ae0.0                   up    up   eth-switch
+ae1                     up    down
+ae1.0                   up    down eth-switch
+ae2                     up    down
+ae2.0                   up    down eth-switch
+ae3                     up    down
+ae3.0                   up    down eth-switch
+ae4                     up    down
+ae4.0                   up    down eth-switch
+ae5                     up    down
+ae6                     up    down
+ae7                     up    down
+ae8                     up    down
+ae9                     up    down
+ae10                    up    down
+ae11                    up    down
+ae12                    up    down
+ae13                    up    down
+ae14                    up    down
+ae15                    up    down
+bme0                    up    up
+bme0.32768              up    up   inet     128.0.0.1/2
+                                            128.0.0.17/2
+                                            128.0.0.32/2
+                                   tnp      0x11
+bme0.32769              down  up   eth-switch
+dsc                     up    up
+gre                     up    up
+ipip                    up    up
+lo0                     up    up
+lo0.16384               up    up   inet     127.0.0.1           --> 0/0
+lsi                     up    up
+me0                     up    down
+me0.0                   up    down eth-switch
+mtun                    up    up
+pimd                    up    up
+pime                    up    up
+tap                     up    up
+vlan                    up    up
+vlan.2                  up    up   inet     172.30.51.2/30
+vlan.51                 up    down inet     193.30.51.254/24
+vme                     up    down
+vme.0                   up    down inet     192.168.1.1/24
+
+{master:1}[edit]
+root@DRADSKA# run ping 172.30.51.1
+PING 172.30.51.1 (172.30.51.1): 56 data bytes
+64 bytes from 172.30.51.1: icmp_seq=0 ttl=64 time=904.452 ms
+64 bytes from 172.30.51.1: icmp_seq=1 ttl=64 time=3.317 ms
+64 bytes from 172.30.51.1: icmp_seq=2 ttl=64 time=3.298 ms
+64 bytes from 172.30.51.1: icmp_seq=3 ttl=64 time=2.463 ms
+64 bytes from 172.30.51.1: icmp_seq=4 ttl=64 time=3.648 ms
+^C
+--- 172.30.51.1 ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 2.463/183.436/904.452/360.508 ms
+
+{master:1}[edit]
+root@DRADSKA# exit
+Exiting configuration mode
+
+{master:1}
+root@DRADSKA> exit
+
+root@DRADSKA:RE:1% exit
+logout
+
+DRADSKA (ttyu0)
+
+login: root
+
+Logging to master
+Password:
+
+--- JUNOS 12.3R12-S10 built 2018-07-27 08:56:56 UTC
+
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1% 10 built 2018-07-27 08:56:56 UTC
+root@DRADSKA:RE:1%
+root@DRADSKA:RE:1% cli
+{master:1}
+root@DRADSKA> show system alarms
+2 alarms currently active
+Alarm time               Class  Description
+2019-07-04 02:23:56 UTC  Major  FPC 1 PEM 0 is not powered
+2019-07-04 02:23:56 UTC  Major  FPC 0 PEM 1 is not powered
+
+{master:1}
+root@DRADSKA> exit
+
+root@DRADSKA:RE:1% exit
+logout
+
+DRADSKA (ttyu0)

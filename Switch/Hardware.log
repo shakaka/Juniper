@@ -1,0 +1,220 @@
+
+=====================================HY================================================
+Item             Version  Part number  Serial number     Description
+Chassis                                PG3717050084      Virtual Chassis
+Routing Engine 0 REV 23   650-044936   PG3717080037      EX4300-24T
+Routing Engine 1 REV 23   650-044936   PG3717050084      EX4300-24T
+FPC 0            REV 23   650-044936   PG3717080037      EX4300-24T
+  CPU                     BUILTIN      BUILTIN           FPC CPU
+  PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+  PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+  PIC 2          REV 02   611-063980   MY3717090162      4x 1G/10G SFP/SFP+
+    Xcvr 0       REV 01   740-031980   FC1807101086      SFP+-10G-SR
+  Power Supply 0
+  Power Supply 1 REV 01   740-046873   1EDE7012484       JPSU-350-AC-AFO-A
+  Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+  Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+FPC 1            REV 23   650-044936   PG3717050084      EX4300-24T
+  CPU                     BUILTIN      BUILTIN           FPC CPU
+  PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+  PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+  PIC 2          REV 02   611-063980   MY3717090404      4x 1G/10G SFP/SFP+
+    Xcvr 0       REV 01   740-031980   FC1807101085      SFP+-10G-SR
+  Power Supply 0
+  Power Supply 1 REV 01   740-046873   1EDE7012291       JPSU-350-AC-AFO-A
+  Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+  Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+
+
+  Item             Version  Part number  Serial number     Description
+  Chassis                                BM0217040072      Virtual Chassis
+  Routing Engine 0 REV 01   750-072480   BM0217040072      EX4200-24T, 8 POE
+  Routing Engine 1 REV 01   750-072480   BM0217040059      EX4200-24T, 8 POE
+  FPC 0            REV 01   750-072480   BM0217040072      EX4200-24T, 8 POE
+    CPU                     BUILTIN      BUILTIN           FPC CPU
+    PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+    PIC 1          REV 07   711-021270   AR0217080200      4x GE SFP
+    Power Supply 0 REV 02   740-071377   AT0516421083      PS 320W AC
+    Power Supply 1 REV 02   740-071377   AT0516422375      PS 320W AC
+    Fan Tray                                               Fan Tray
+  FPC 1            REV 01   750-072480   BM0217040059      EX4200-24T, 8 POE
+    CPU                     BUILTIN      BUILTIN           FPC CPU
+    PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+    PIC 1          REV 07   711-021270   AR0217080191      4x GE SFP
+    Power Supply 0 REV 02   740-071377   AT0516421631      PS 320W AC
+    Power Supply 1 REV 02   740-071377   AT0516421363      PS 320W AC
+    Fan Tray                                               Fan Tray
+=====================================KA================================================
+Item             Version  Part number  Serial number     Description
+Chassis                                PG3717080010      Virtual Chassis
+Routing Engine 0 REV 23   650-044936   PG3717080038      EX4300-24T
+Routing Engine 1 REV 23   650-044936   PG3717080010      EX4300-24T
+FPC 0            REV 23   650-044936   PG3717080038      EX4300-24T
+  CPU                     BUILTIN      BUILTIN           FPC CPU
+  PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+  PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+  PIC 2          REV 02   611-063980   MY3717090624      4x 1G/10G SFP/SFP+
+    Xcvr 0       REV 01   740-031980   FC1807101088      SFP+-10G-SR
+    Xcvr 1       REV 01   740-031980   FC1807101046      SFP+-10G-SR
+  Power Supply 0
+  Power Supply 1 REV 01   740-046873   1EDE7012648       JPSU-350-AC-AFO-A
+  Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+  Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+FPC 1            REV 23   650-044936   PG3717080010      EX4300-24T
+  CPU                     BUILTIN      BUILTIN           FPC CPU
+  PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+  PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+  PIC 2          REV 02   611-063980   MY3717090938      4x 1G/10G SFP/SFP+
+    Xcvr 0       REV 01   740-031980   FC1807101087      SFP+-10G-SR
+    Xcvr 1       REV 01   740-031980   FC1807101045      SFP+-10G-SR
+  Power Supply 0
+  Power Supply 1 REV 01   740-046873   1EDE7012575       JPSU-350-AC-AFO-A
+  Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+  Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+  Item             Version  Part number  Serial number     Description
+  Chassis                                BM0217090064      Virtual Chassis
+  Routing Engine 0 REV 01   750-072480   BM0217040130      EX4200-24T, 8 POE
+  Routing Engine 1 REV 01   750-072480   BM0217090064      EX4200-24T, 8 POE
+  FPC 0            REV 01   750-072480   BM0217040130      EX4200-24T, 8 POE
+    CPU                     BUILTIN      BUILTIN           FPC CPU
+    PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+    PIC 1          REV 07   711-021270   AR0217080114      4x GE SFP
+    Power Supply 0 REV 02   740-071377   AT0516421620      PS 320W AC
+    Power Supply 1 REV 02   740-071377   AT0516422449      PS 320W AC
+    Fan Tray                                               Fan Tray
+  FPC 1            REV 01   750-072480   BM0217090064      EX4200-24T, 8 POE
+    CPU                     BUILTIN      BUILTIN           FPC CPU
+    PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+    PIC 1          REV 07   711-021270   AR0217080096      4x GE SFP
+    Power Supply 0 REV 02   740-071377   AT0516422299      PS 320W AC
+    Power Supply 1 REV 02   740-071377   AT0516422703      PS 320W AC
+    Fan Tray                                               Fan Tray
+=====================================TC================================================
+Item             Version  Part number  Serial number     Description
+Chassis                                PG3717050007      Virtual Chassis
+Routing Engine 0 REV 23   650-044936   PG3717050007      EX4300-24T
+Routing Engine 1 REV 23   650-044936   PG3717050229      EX4300-24T
+FPC 0            REV 23   650-044936   PG3717050007      EX4300-24T
+  CPU                     BUILTIN      BUILTIN           FPC CPU
+  PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+  PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+  PIC 2          REV 02   611-063980   MY3717091503      4x 1G/10G SFP/SFP+
+    Xcvr 0       REV 01   740-031980   FC1807101075      SFP+-10G-SR
+  Power Supply 0 REV 01   740-046873   1EDE7010321       JPSU-350-AC-AFO-A
+  Power Supply 1 REV 01   740-046873   1EDE7012485       JPSU-350-AC-AFO-A
+  Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+  Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+FPC 1            REV 23   650-044936   PG3717050229      EX4300-24T
+  CPU                     BUILTIN      BUILTIN           FPC CPU
+  PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+  PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+  PIC 2          REV 02   611-063980   MY3717090495      4x 1G/10G SFP/SFP+
+    Xcvr 0       REV 01   740-031980   FC1807101069      SFP+-10G-SR
+  Power Supply 0 REV 01   740-046873   1EDE7011058       JPSU-350-AC-AFO-A
+  Power Supply 1
+  Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+  Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+  Item             Version  Part number  Serial number     Description
+  Chassis                                BM0217090096      Virtual Chassis
+  Routing Engine 0 REV 01   750-072480   BM0217090096      EX4200-24T, 8 POE
+  Routing Engine 1 REV 01   750-072480   BM0217090001      EX4200-24T, 8 POE
+  FPC 0            REV 01   750-072480   BM0217090096      EX4200-24T, 8 POE
+    CPU                     BUILTIN      BUILTIN           FPC CPU
+    PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+    Power Supply 0 REV 02   740-071377   AT0516422100      PS 320W AC
+    Power Supply 1 REV 02   740-071377   AT0516421043      PS 320W AC
+    Fan Tray                                               Fan Tray
+  FPC 1            REV 01   750-072480   BM0217090001      EX4200-24T, 8 POE
+    CPU                     BUILTIN      BUILTIN           FPC CPU
+    PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+    PIC 1          REV 07   711-021270   AR0217080001      4x GE SFP
+    Power Supply 0 REV 02   740-071377   AT0516421885      PS; 320W AC
+    Power Supply 1 REV 02   740-071377   AT0516422380      PS 320W AC
+    Fan Tray                                               Fan Tray
+
+    Item             Version  Part number  Serial number     Description
+    Chassis                                PG3717050088      Virtual Chassis
+    Routing Engine 0 REV 23   650-044936   PG3717050088      EX4300-24T
+    Routing Engine 1 REV 23   650-044936   PG3717050017      EX4300-24T
+    FPC 0            REV 23   650-044936   PG3717050088      EX4300-24T
+      CPU                     BUILTIN      BUILTIN           FPC CPU
+      PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+      PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+      PIC 2          REV 02   611-063980   MY3717090971      4x 1G/10G SFP/SFP+
+        Xcvr 0       REV 01   740-031980   FC1807101070      SFP+-10G-SR
+      Power Supply 0 REV 01   740-046873   1EDE7010476       JPSU-350-AC-AFO-A
+      Power Supply 1 REV 01   740-046873   1EDE7012627       JPSU-350-AC-AFO-A
+      Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+      Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+    FPC 1            REV 23   650-044936   PG3717050017      EX4300-24T
+      CPU                     BUILTIN      BUILTIN           FPC CPU
+      PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+      PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+      PIC 2          REV 02   611-063980   MY3717090115      4x 1G/10G SFP/SFP+
+        Xcvr 0       REV 01   740-031980   FC1807101068      SFP+-10G-SR
+      Power Supply 0 REV 01   740-046873   1EDE7011136       JPSU-350-AC-AFO-A
+      Power Supply 1 REV 01   740-046873   1EDE7012428       JPSU-350-AC-AFO-A
+      Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+      Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+      Item             Version  Part number  Serial number     Description
+      Chassis                                BM0217040118      Virtual Chassis
+      Routing Engine 0 REV 01   750-072480   BM0217040118      EX4200-24T, 8 POE
+      Routing Engine 1 REV 01   750-072480   BM0217090100      EX4200-24T, 8 POE
+      FPC 0            REV 01   750-072480   BM0217040118      EX4200-24T, 8 POE
+        CPU                     BUILTIN      BUILTIN           FPC CPU
+        PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+        PIC 1          REV 07   711-021270   AR0217080198      4x GE SFP
+        Power Supply 0 REV 02   740-071377   AT0516421629      PS 320W AC
+        Power Supply 1 REV 02   740-071377   AT0516421031      PS 320W AC
+        Fan Tray                                               Fan Tray
+      FPC 1            REV 01   750-072480   BM0217090100      EX4200-24T, 8 POE
+        CPU                     BUILTIN      BUILTIN           FPC CPU
+        PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+        PIC 1          REV 07   711-021270   AR0217080031      4x GE SFP
+        Power Supply 0 REV 02   740-071377   AT0516420986      PS 320W AC
+        Power Supply 1 REV 02   740-071377   AT0516422429      PS 320W AC
+        Fan Tray                                               Fan Tray
+
+        Item             Version  Part number  Serial number     Description
+        Chassis                                PG3717080100      Virtual Chassis
+        Routing Engine 0 REV 23   650-044936   PG3717080100      EX4300-24T
+        Routing Engine 1 REV 23   650-044936   PG3717080018      EX4300-24T
+        FPC 0            REV 23   650-044936   PG3717080100      EX4300-24T
+          CPU                     BUILTIN      BUILTIN           FPC CPU
+          PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+          PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+          PIC 2          REV 02   611-063980   MY3717091475      4x 1G/10G SFP/SFP+
+            Xcvr 0       REV 01   740-031980   FC1807101071      SFP+-10G-SR
+          Power Supply 0 REV 01   740-046873   1EDE7010651       JPSU-350-AC-AFO-A
+          Power Supply 1 REV 01   740-046873   1EDE7012561       JPSU-350-AC-AFO-A
+          Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+          Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+        FPC 1            REV 23   650-044936   PG3717080018      EX4300-24T
+          CPU                     BUILTIN      BUILTIN           FPC CPU
+          PIC 0          REV 23   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+          PIC 1          REV 23   BUILTIN      BUILTIN           4x 40GE QSFP+
+          PIC 2          REV 02   611-063980   MY3717091500      4x 1G/10G SFP/SFP+
+            Xcvr 0       REV 01   740-031980   FC1807101065      SFP+-10G-SR
+          Power Supply 0 REV 01   740-046873   1EDE7010580       JPSU-350-AC-AFO-A
+          Power Supply 1 REV 01   740-046873   1EDE7012554       JPSU-350-AC-AFO-A
+          Fan Tray 0                                             Fan Module, Airflow Out (AFO)
+          Fan Tray 1                                             Fan Module, Airflow Out (AFO)
+
+          Item             Version  Part number  Serial number     Description
+          Chassis                                BM0217090008      Virtual Chassis
+          Routing Engine 0 REV 01   750-072480   BM0217090051      EX4200-24T, 8 POE
+          Routing Engine 1 REV 01   750-072480   BM0217090008      EX4200-24T, 8 POE
+          FPC 0            REV 01   750-072480   BM0217090051      EX4200-24T, 8 POE
+            CPU                     BUILTIN      BUILTIN           FPC CPU
+            PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+            PIC 1          REV 07   711-021270   AR0217080084      4x GE SFP
+            Power Supply 0 REV 02   740-071377   AT0516422289      PS 320W AC
+            Power Supply 1 REV 02   740-071377   AT0516422378      PS 320W AC
+            Fan Tray                                               Fan Tray
+          FPC 1            REV 01   750-072480   BM0217090008      EX4200-24T, 8 POE
+            CPU                     BUILTIN      BUILTIN           FPC CPU
+            PIC 0                   BUILTIN      BUILTIN           24x 10/100/1000 Base-T
+            PIC 1          REV 07   711-021270   AR0217080186      4x GE SFP
+            Power Supply 0 REV 02   740-071377   AT0516422118      PS 320W AC
+            Power Supply 1 REV 02   740-071377   AT0516421028      PS 320W AC
+            Fan Tray                                               Fan Tray
