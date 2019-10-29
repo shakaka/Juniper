@@ -1,3 +1,9 @@
+set member 0 serial-number PGXXXX role routing-engine
+set member 1 serial-number PGXXXX role routing-engine
+set member 2 serial-number PGXXXX role line-card
+set member 3 serial-number PGXXXX role line-card
+
+
 delete protocols rstp interfaces ge-0/0/0
 delete protocols rstp interfaces ge-1/0/0
 delete protocols rstp interfaces ge-0/0/1
