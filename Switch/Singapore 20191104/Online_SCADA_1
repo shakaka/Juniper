@@ -3,7 +3,6 @@ set member 1 serial-number PGXXXX role routing-engine
 set member 2 serial-number PGXXXX role line-card
 set member 3 serial-number PGXXXX role line-card
 
-
 delete protocols rstp interfaces ge-0/0/0
 delete protocols rstp interfaces ge-1/0/0
 delete protocols rstp interfaces ge-0/0/1
@@ -168,6 +167,9 @@ set interfaces ge-2/0/12 ether-options 802.3ad ae0
 set interfaces ge-3/0/12 ether-options 802.3ad ae0
 
 
+
+set chassis aggregated-devices ethernet device-count 26
+
 set interfaces ae0 aggregated-ether-options minimum-links 1
 set interfaces ae1 aggregated-ether-options minimum-links 1
 set interfaces ae2 aggregated-ether-options minimum-links 1
@@ -192,6 +194,8 @@ set interfaces ae20 aggregated-ether-options minimum-links 1
 set interfaces ae21 aggregated-ether-options minimum-links 1
 set interfaces ae22 aggregated-ether-options minimum-links 1
 set interfaces ae23 aggregated-ether-options minimum-links 1
+set interfaces ae24 aggregated-ether-options minimum-links 1
+set interfaces ae25 aggregated-ether-options minimum-links 1
 
 set interfaces ae0 aggregated-ether-options lacp passive
 set interfaces ae1 aggregated-ether-options lacp passive
@@ -217,6 +221,8 @@ set interfaces ae20 aggregated-ether-options lacp passive
 set interfaces ae21 aggregated-ether-options lacp passive
 set interfaces ae22 aggregated-ether-options lacp passive
 set interfaces ae23 aggregated-ether-options lacp passive
+set interfaces ae24 aggregated-ether-options lacp passive
+set interfaces ae25 aggregated-ether-options lacp passive
 
 
 
@@ -256,4 +262,10 @@ set interfaces irb.14 family inet address 172.30.74.1/30
 set vlans vlan14 vlan-id 14
 set vlans vlan14 l3-interface irb.14
 
-set interfaces  family inet address 172.30.13.245/30
+set interfaces ae9 family inet address 172.30.13.245/30
+
+
+
+show virtual-chassis vc-port
+request virtual-chassis vc-port set pic-slot 2 port 1
+request virtual-chassis vc-port set pic-slot 2 port 0
