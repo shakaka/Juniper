@@ -1,4 +1,4 @@
-????,Interface,AE Interface,????,ip,vlan
+,Interface,AE Interface,Link-To,ip,vlan
 A303-03-1,Ge-0/0/0,ae0,A303-03-03,193.30.10.254/24,10
 ,Ge-1/0/0,,,,
 ,Ge-0/0/1,ae1,A303-03-04,172.30.12.1/30,8
