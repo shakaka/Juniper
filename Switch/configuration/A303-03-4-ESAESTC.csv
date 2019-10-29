@@ -1,0 +1,21 @@
+????,Interface,AE Interface,????,ip,vlan
+A303-03-4,Ge-0/0/0,ae0,A303-03-1,172.30.12.2/30,8
+,Ge-1/0/0,,,,
+,Ge-0/0/1,ae1,ADM Server,193.30.12.254/24,30
+,Ge-1/0/1,,,,
+,Ge-0/0/2,ae2,COM Server,,30
+,Ge-1/0/2,,,,
+,Ge-0/0/3,ae3,IFS Server,,30
+,Ge-1/0/3,,,,
+,Ge-0/0/4,ae4,UI Server,,30
+,Ge-1/0/4,,,,
+,Ge-0/0/5,ae5,DC Server,,30
+,Ge-1/0/5,,,,
+,Ge-0/0/6,ae6,Work Station,,30
+,Ge-1/0/6,,,,
+,Ge-0/0/7,ae7,Work Station,,30
+,Ge-1/0/7,,,,
+,Ge-0/0/8,ae8,Work Station,,30
+,Ge-1/0/8,,,,
+,Ge-0/0/9,,color printer,,30
+,Ge-1/0/9,,B/W printer,,30

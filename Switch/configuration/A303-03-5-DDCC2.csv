@@ -1,0 +1,12 @@
+????,Interface,????,ip,
+A303-03-5-DDCC2,Ge-0/0/0,,193.30.52.254/24,3
+,Ge-1/0/0,,,
+,Ge-0/0/1,work Station#1,193.30.52.254/24,52
+,Ge-1/0/1,,,
+,Ge-0/0/2,work Station#2,,
+,Ge-1/0/2,,,
+,Ge-0/0/3,work Station#3,,
+,Ge-1/0/3,,,
+,Ge-0/0/4,work Station#4,,
+,Ge-1/0/4,,,
+,Ge-0/0/5,color printer,,
