@@ -1,7 +1,17 @@
+show virtual-chassis vc-port
+request virtual-chassis vc-port set pic-slot 2 port 1
+request virtual-chassis vc-port set pic-slot 2 port 0
+.....
+
+
+
 set member 0 serial-number PGXXXX role routing-engine
 set member 1 serial-number PGXXXX role routing-engine
 set member 2 serial-number PGXXXX role line-card
 set member 3 serial-number PGXXXX role line-card
+
+
+
 
 delete protocols rstp interfaces ge-0/0/0
 delete protocols rstp interfaces ge-1/0/0
@@ -265,7 +275,31 @@ set vlans vlan14 l3-interface irb.14
 set interfaces ae9 family inet address 172.30.13.245/30
 
 
+set interfaces ae0 family ethernet-switching vlan members vl10
+set interfaces ae10 family ethernet-switching vlan members vl10
+set interfaces ae11 family ethernet-switching vlan members vl10
+set interfaces ae12 family ethernet-switching vlan members vl10
+set interfaces ae13 family ethernet-switching vlan members vl10
+set interfaces ae14 family ethernet-switching vlan members vl10
+set interfaces ae15 family ethernet-switching vlan members vl10
+set interfaces ae16 family ethernet-switching vlan members vl10
+set interfaces ae17 family ethernet-switching vlan members vl10
+set interfaces ae18 family ethernet-switching vlan members vl10
+set interfaces ae19 family ethernet-switching vlan members vl10
+set interfaces ae20 family ethernet-switching vlan members vl10
+set interfaces ae21 family ethernet-switching vlan members vl10
+set interfaces ae22 family ethernet-switching vlan members vl10
+set interfaces ae23 family ethernet-switching vlan members vl10
+set interfaces ae24 family ethernet-switching vlan members vl10
+set interfaces ae25 family ethernet-switching vlan members vl10
+set interfaces ge-0/0/13 family ethernet-switching vlan members vl10
+set interfaces ge-1/0/13 family ethernet-switching vlan members vl10
 
-show virtual-chassis vc-port
-request virtual-chassis vc-port set pic-slot 2 port 1
-request virtual-chassis vc-port set pic-slot 2 port 0
+set interfaces ae1 family ethernet-switching vlan members vl8
+set interfaces ae2 family ethernet-switching vlan members vl2
+set interfaces ae3 family ethernet-switching vlan members vl3
+set interfaces ae4 family ethernet-switching vlan members vl4
+set interfaces ae5 family ethernet-switching vlan members vl11
+set interfaces ae6 family ethernet-switching vlan members vl12
+set interfaces ae7 family ethernet-switching vlan members vl13
+set interfaces ae8 family ethernet-switching vlan members vl14
