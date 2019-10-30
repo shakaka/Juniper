@@ -303,3 +303,13 @@ set interfaces ae5 family ethernet-switching vlan members vl11
 set interfaces ae6 family ethernet-switching vlan members vl12
 set interfaces ae7 family ethernet-switching vlan members vl13
 set interfaces ae8 family ethernet-switching vlan members vl14
+
+set routing-options static route 193.30.12.0/24 next-hop 172.30.12.2
+set routing-options static route 193.30.51.0/24 next-hop 172.30.51.2
+set routing-options static route 193.30.52.0/24 next-hop 172.30.52.2
+set routing-options static route 193.30.53.0/24 next-hop 172.30.53.2
+set routing-options static route 193.30.71.0/24 next-hop 172.30.71.2
+set routing-options static route 193.30.72.0/24 next-hop 172.30.72.2
+set routing-options static route 193.30.73.0/24 next-hop 172.30.73.2
+set routing-options static route 193.30.74.0/24 next-hop 172.30.74.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.13.246
