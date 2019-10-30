@@ -236,7 +236,7 @@ set interfaces ae25 aggregated-ether-options lacp passive
 
 
 
-set interfaces irb.10 family inet address 193.30.10.253/24
+set interfaces irb.10 family inet address 193.30.10.254/24
 set vlans vl10 vlan-id 10
 set vlans vl10 l3-interface irb.10
 
