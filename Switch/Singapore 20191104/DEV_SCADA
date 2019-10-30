@@ -39,18 +39,18 @@ delete interfaces ge-1/0/6 family ethernet-switching vlan members default
 
 set interfaces ge-0/0/0 ether-options 802.3ad ae0
 set interfaces ge-1/0/0 ether-options 802.3ad ae0
-set interfaces ge-0/0/1 ether-options 802.3ad ae0
-set interfaces ge-1/0/1 ether-options 802.3ad ae0
-set interfaces ge-0/0/2 ether-options 802.3ad ae0
-set interfaces ge-1/0/2 ether-options 802.3ad ae0
-set interfaces ge-0/0/3 ether-options 802.3ad ae0
-set interfaces ge-1/0/3 ether-options 802.3ad ae0
-set interfaces ge-0/0/4 ether-options 802.3ad ae0
-set interfaces ge-1/0/4 ether-options 802.3ad ae0
-set interfaces ge-0/0/5 ether-options 802.3ad ae0
-set interfaces ge-1/0/5 ether-options 802.3ad ae0
-set interfaces ge-0/0/6 ether-options 802.3ad ae0
-set interfaces ge-1/0/6 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-1/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-1/0/3 ether-options 802.3ad ae3
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-1/0/4 ether-options 802.3ad ae4
+set interfaces ge-0/0/5 ether-options 802.3ad ae5
+set interfaces ge-1/0/5 ether-options 802.3ad ae5
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
 
 
 set chassis aggregated-devices ethernet device-count 7
