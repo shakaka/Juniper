@@ -313,3 +313,4 @@ set routing-options static route 193.30.72.0/24 next-hop 172.30.72.2
 set routing-options static route 193.30.73.0/24 next-hop 172.30.73.2
 set routing-options static route 193.30.74.0/24 next-hop 172.30.74.2
 set routing-options static route 0.0.0.0/0 next-hop 172.30.13.246
+set routing-options static route 0.0.0.0/0 next-hop 193.30.10.253
