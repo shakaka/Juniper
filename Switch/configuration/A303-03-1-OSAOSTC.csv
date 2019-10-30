@@ -51,7 +51,7 @@ A303-03-1,Ge-0/0/0,ae0,A303-03-03,193.30.10.254/24,10
 ,Ge-3/0/11,,,,
 ,Ge-2/0/12,ae25,Workstation,,10
 ,Ge-3/0/12,,,,
-,Ge-0/0/13,,Color printer,,
+,Ge-0/0/13,,Color printer,,10
 ,,,,,
-,Ge-1/0/13,,B/W printer,,
+,Ge-1/0/13,,B/W printer,,10
 ,,,,,
