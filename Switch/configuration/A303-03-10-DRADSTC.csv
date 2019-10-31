@@ -1,7 +1,7 @@
-????,Interface,AE Interface,????,ip,vlan
-A303-03-10,Ge-0/0/0,ae0,A303-03-8,,100
+,Interface,AE Interface,,ip,vlan
+A303-03-10,Ge-0/0/0,ae0,A303-03-8,193.30.100.253/24,100
 ,Ge-1/0/0,,,,
-,Ge-0/0/1,ae1,IFS Server#1,193.30.100.253/24,100
+,Ge-0/0/1,ae1,IFS Server,,100
 ,Ge-1/0/1,,,,
 ,,,,,
 ,,,,,

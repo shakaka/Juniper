@@ -86,4 +86,4 @@ set interfaces ae4 family ethernet-switching vlan members vl10
 set interfaces ae5 family ethernet-switching vlan members vl10
 set interfaces ae6 family ethernet-switching vlan members vl10
 
-set routing-options static route 0.0.0.0/0 next-hop 193.30.10.253
+set routing-options static route 0.0.0.0/0 next-hop 193.30.10.254

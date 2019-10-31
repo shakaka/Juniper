@@ -1,0 +1,148 @@
+show virtual-chassis vc-port
+request virtual-chassis vc-port set pic-slot 2 port 1
+request virtual-chassis vc-port set pic-slot 2 port 0
+.....
+
+
+
+set member 0 serial-number PGXXXX role routing-engine
+set member 1 serial-number PGXXXX role routing-engine
+set member 2 serial-number PGXXXX role line-card
+
+
+delete protocols rstp interfaces ge-0/0/6
+delete protocols rstp interfaces ge-1/0/6
+delete protocols rstp interfaces ge-0/0/7
+delete protocols rstp interfaces ge-1/0/7
+delete protocols rstp interfaces ge-0/0/8
+delete protocols rstp interfaces ge-1/0/8
+delete protocols rstp interfaces ge-0/0/9
+delete protocols rstp interfaces ge-1/0/9
+
+delete interfaces ge-0/0/6 family ethernet-switching vlan members default
+delete interfaces ge-1/0/6 family ethernet-switching vlan members default
+delete interfaces ge-0/0/7 family ethernet-switching vlan members default
+delete interfaces ge-1/0/7 family ethernet-switching vlan members default
+delete interfaces ge-0/0/8 family ethernet-switching vlan members default
+delete interfaces ge-1/0/8 family ethernet-switching vlan members default
+delete interfaces ge-0/0/9 family ethernet-switching vlan members default
+delete interfaces ge-1/0/9 family ethernet-switching vlan members default
+
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-1/0/7 ether-options 802.3ad ae7
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-1/0/9 ether-options 802.3ad ae9
+
+set chassis aggregated-devices ethernet device-count 4
+
+set vlans vl100 vlan-id 100
+set vlans vl101 vlan-id 101
+set vlans vl102 vlan-id 102
+set vlans vl103 vlan-id 103
+set vlans vl104 vlan-id 104
+set vlans vl105 vlan-id 105
+set vlans vl106 vlan-id 106
+set vlans vl107 vlan-id 107
+set vlans vl108 vlan-id 108
+set vlans vl109 vlan-id 109
+set vlans vl110 vlan-id 110
+set vlans vl111 vlan-id 111
+set vlans vl112 vlan-id 112
+set vlans vl113 vlan-id 113
+set vlans vl220 vlan-id 220
+
+set interfaces vlan unit 100 family inet address 193.30.100.254/24
+set interfaces vlan unit 101 family inet address 172.30.220.1/30
+set interfaces vlan unit 102 family inet address 172.30.221.1/30
+set interfaces vlan unit 103 family inet address 172.30.222.1/30
+set interfaces vlan unit 104 family inet address 172.30.223.1/30
+set interfaces vlan unit 105 family inet address 172.30.224.1/30
+set interfaces vlan unit 106 family inet address 172.30.225.1/30
+set interfaces vlan unit 107 family inet address 172.30.226.1/30
+set interfaces vlan unit 108 family inet address 172.30.227.1/30
+set interfaces vlan unit 109 family inet address 172.30.228.1/30
+set interfaces vlan unit 110 family inet address 172.30.229.1/30
+set interfaces vlan unit 111 family inet address 172.30.230.1/30
+set interfaces vlan unit 112 family inet address 172.30.231.1/30
+set interfaces vlan unit 113 family inet address 172.30.232.1/30
+set interfaces vlan unit 220 family inet address 172.30.202.1/30
+
+set vlans vl100 l3-interface vlan.100
+set vlans vl101 l3-interface vlan.101
+set vlans vl102 l3-interface vlan.102
+set vlans vl103 l3-interface vlan.103
+set vlans vl104 l3-interface vlan.104
+set vlans vl105 l3-interface vlan.105
+set vlans vl106 l3-interface vlan.106
+set vlans vl107 l3-interface vlan.107
+set vlans vl108 l3-interface vlan.108
+set vlans vl109 l3-interface vlan.109
+set vlans vl110 l3-interface vlan.110
+set vlans vl111 l3-interface vlan.111
+set vlans vl112 l3-interface vlan.112
+set vlans vl113 l3-interface vlan.113
+set vlans vl220 l3-interface vlan.220
+
+
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae9 aggregated-ether-options minimum-links 1
+
+set interfaces ae6 aggregated-ether-options lacp passive
+set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae9 aggregated-ether-options lacp passive
+
+
+set interfaces ae6 family ethernet-switching vlan members vl100
+set interfaces ae7 family ethernet-switching vlan members vl100
+set interfaces ae8 family ethernet-switching vlan members vl100
+set interfaces ae9 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/0 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/1 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/2 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/3 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/4 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/5 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/0 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/1 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/2 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/3 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/4 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/5 family ethernet-switching vlan members vl100
+set interfaces Ge-2/0/0 family ethernet-switching vlan members vl100
+set interfaces Ge-2/0/1 family ethernet-switching vlan members vl101
+set interfaces Ge-2/0/2 family ethernet-switching vlan members vl102
+set interfaces Ge-2/0/3 family ethernet-switching vlan members vl103
+set interfaces Ge-2/0/4 family ethernet-switching vlan members vl104
+set interfaces Ge-2/0/5 family ethernet-switching vlan members vl105
+set interfaces Ge-2/0/6 family ethernet-switching vlan members vl106
+set interfaces Ge-2/0/7 family ethernet-switching vlan members vl107
+set interfaces Ge-2/0/8 family ethernet-switching vlan members vl108
+set interfaces Ge-2/0/9 family ethernet-switching vlan members vl109
+set interfaces Ge-2/0/10 family ethernet-switching vlan members vl110
+set interfaces Ge-2/0/11 family ethernet-switching vlan members vl111
+set interfaces Ge-2/0/12 family ethernet-switching vlan members vl112
+
+
+
+set routing-options static route 0.0.0.0/0 next-hop 172.30.220.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.221.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.222.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.223.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.224.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.225.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.226.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.227.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.228.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.229.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.230.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.231.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.232.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.202.2
+set routing-options static route 0.0.0.0/0 next-hop 193.30.100.253

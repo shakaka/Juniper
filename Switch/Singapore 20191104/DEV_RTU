@@ -1,0 +1,41 @@
+show virtual-chassis vc-port
+request virtual-chassis vc-port set pic-slot 2 port 1
+request virtual-chassis vc-port set pic-slot 2 port 0
+
+set member 0 serial-number PGXXXX role routing-engine
+set member 1 serial-number PGXXXX role routing-engine
+
+
+delete protocols rstp interfaces ge-0/0/0
+delete protocols rstp interfaces ge-1/0/0
+delete protocols rstp interfaces ge-0/0/1
+delete protocols rstp interfaces ge-1/0/1
+
+
+delete interfaces ge-0/0/0 family ethernet-switching vlan members default
+delete interfaces ge-1/0/0 family ethernet-switching vlan members default
+delete interfaces ge-0/0/1 family ethernet-switching vlan members default
+delete interfaces ge-1/0/1 family ethernet-switching vlan members default
+
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-1/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-1/0/1 ether-options 802.3ad ae1
+
+
+set chassis aggregated-devices ethernet device-count 2
+
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options minimum-links 1
+
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae1 aggregated-ether-options lacp passive
+
+set vlans vl100 vlan-id 100
+set interfaces vlan unit 100 family inet address 193.30.100.253/24
+set vlans vl100 l3-interface vlan.100
+
+
+set interfaces ae0 family ethernet-switching vlan members vl100
+
+set routing-options static route 0.0.0.0/0 next-hop 193.30.100.254
