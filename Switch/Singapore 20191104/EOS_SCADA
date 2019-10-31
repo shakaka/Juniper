@@ -1,0 +1,132 @@
+show virtual-chassis vc-port
+request virtual-chassis vc-port set pic-slot 2 port 1
+request virtual-chassis vc-port set pic-slot 2 port 0
+.....
+
+set member 0 serial-number PGXXXX role routing-engine
+set member 1 serial-number PGXXXX role routing-engine
+
+
+delete protocols rstp interfaces ge-0/0/0
+delete protocols rstp interfaces ge-1/0/0
+delete protocols rstp interfaces ge-0/0/1
+delete protocols rstp interfaces ge-1/0/1
+delete protocols rstp interfaces ge-0/0/2
+delete protocols rstp interfaces ge-1/0/2
+delete protocols rstp interfaces ge-0/0/3
+delete protocols rstp interfaces ge-1/0/3
+delete protocols rstp interfaces ge-0/0/4
+delete protocols rstp interfaces ge-1/0/4
+delete protocols rstp interfaces ge-0/0/5
+delete protocols rstp interfaces ge-1/0/5
+delete protocols rstp interfaces ge-0/0/6
+delete protocols rstp interfaces ge-1/0/6
+delete protocols rstp interfaces ge-0/0/7
+delete protocols rstp interfaces ge-1/0/7
+delete protocols rstp interfaces ge-0/0/8
+delete protocols rstp interfaces ge-1/0/8
+
+
+delete interfaces ge-0/0/0 family ethernet-switching vlan members default
+delete interfaces ge-1/0/0 family ethernet-switching vlan members default
+delete interfaces ge-0/0/1 family ethernet-switching vlan members default
+delete interfaces ge-1/0/1 family ethernet-switching vlan members default
+delete interfaces ge-0/0/2 family ethernet-switching vlan members default
+delete interfaces ge-1/0/2 family ethernet-switching vlan members default
+delete interfaces ge-0/0/3 family ethernet-switching vlan members default
+delete interfaces ge-1/0/3 family ethernet-switching vlan members default
+delete interfaces ge-0/0/4 family ethernet-switching vlan members default
+delete interfaces ge-1/0/4 family ethernet-switching vlan members default
+delete interfaces ge-0/0/5 family ethernet-switching vlan members default
+delete interfaces ge-1/0/5 family ethernet-switching vlan members default
+delete interfaces ge-0/0/6 family ethernet-switching vlan members default
+delete interfaces ge-1/0/6 family ethernet-switching vlan members default
+delete interfaces ge-0/0/7 family ethernet-switching vlan members default
+delete interfaces ge-1/0/7 family ethernet-switching vlan members default
+delete interfaces ge-0/0/8 family ethernet-switching vlan members default
+delete interfaces ge-1/0/8 family ethernet-switching vlan members default
+
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-1/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae0
+set interfaces ge-1/0/1 ether-options 802.3ad ae0
+set interfaces ge-0/0/2 ether-options 802.3ad ae0
+set interfaces ge-1/0/2 ether-options 802.3ad ae0
+set interfaces ge-0/0/3 ether-options 802.3ad ae0
+set interfaces ge-1/0/3 ether-options 802.3ad ae0
+set interfaces ge-0/0/4 ether-options 802.3ad ae0
+set interfaces ge-1/0/4 ether-options 802.3ad ae0
+set interfaces ge-0/0/5 ether-options 802.3ad ae0
+set interfaces ge-1/0/5 ether-options 802.3ad ae0
+set interfaces ge-0/0/6 ether-options 802.3ad ae0
+set interfaces ge-1/0/6 ether-options 802.3ad ae0
+set interfaces ge-0/0/7 ether-options 802.3ad ae0
+set interfaces ge-1/0/7 ether-options 802.3ad ae0
+set interfaces ge-0/0/8 ether-options 802.3ad ae0
+set interfaces ge-1/0/8 ether-options 802.3ad ae0
+
+
+
+set chassis aggregated-devices ethernet device-count 9
+
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae3 aggregated-ether-options minimum-links 1
+set interfaces ae4 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options minimum-links 1
+
+
+set interfaces irb.30 family inet address 193.30.12.254/24
+set vlans vl30 vlan-id 30
+set vlans vl30 l3-interface irb.30
+
+set interfaces irb.8 family inet address 172.30.12.2/30
+set vlans vl8 vlan-id 8
+set vlans vl8 l3-interface irb.8
+
+
+
+
+set interfaces ae0 family ethernet-switching vlan members vl10
+set interfaces ae10 family ethernet-switching vlan members vl10
+set interfaces ae11 family ethernet-switching vlan members vl10
+set interfaces ae12 family ethernet-switching vlan members vl10
+set interfaces ae13 family ethernet-switching vlan members vl10
+set interfaces ae14 family ethernet-switching vlan members vl10
+set interfaces ae15 family ethernet-switching vlan members vl10
+set interfaces ae16 family ethernet-switching vlan members vl10
+set interfaces ae17 family ethernet-switching vlan members vl10
+set interfaces ae18 family ethernet-switching vlan members vl10
+set interfaces ae19 family ethernet-switching vlan members vl10
+set interfaces ae20 family ethernet-switching vlan members vl10
+set interfaces ae21 family ethernet-switching vlan members vl10
+set interfaces ae22 family ethernet-switching vlan members vl10
+set interfaces ae23 family ethernet-switching vlan members vl10
+set interfaces ae24 family ethernet-switching vlan members vl10
+set interfaces ae25 family ethernet-switching vlan members vl10
+set interfaces ge-0/0/13 family ethernet-switching vlan members vl10
+set interfaces ge-1/0/13 family ethernet-switching vlan members vl10
+
+set interfaces ae1 family ethernet-switching vlan members vl8
+set interfaces ae2 family ethernet-switching vlan members vl2
+set interfaces ae3 family ethernet-switching vlan members vl3
+set interfaces ae4 family ethernet-switching vlan members vl4
+set interfaces ae5 family ethernet-switching vlan members vl11
+set interfaces ae6 family ethernet-switching vlan members vl12
+set interfaces ae7 family ethernet-switching vlan members vl13
+set interfaces ae8 family ethernet-switching vlan members vl14
+
+set routing-options static route 193.30.12.0/24 next-hop 172.30.12.2
+set routing-options static route 193.30.51.0/24 next-hop 172.30.51.2
+set routing-options static route 193.30.52.0/24 next-hop 172.30.52.2
+set routing-options static route 193.30.53.0/24 next-hop 172.30.53.2
+set routing-options static route 193.30.71.0/24 next-hop 172.30.71.2
+set routing-options static route 193.30.72.0/24 next-hop 172.30.72.2
+set routing-options static route 193.30.73.0/24 next-hop 172.30.73.2
+set routing-options static route 193.30.74.0/24 next-hop 172.30.74.2
+set routing-options static route 0.0.0.0/0 next-hop 172.30.13.246
+set routing-options static route 0.0.0.0/0 next-hop 193.30.10.253
