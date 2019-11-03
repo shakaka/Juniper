@@ -131,18 +131,18 @@ set interfaces Ge-2/0/12 family ethernet-switching vlan members vl112
 
 
 
-set routing-options static route 0.0.0.0/0 next-hop 172.30.220.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.221.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.222.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.223.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.224.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.225.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.226.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.227.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.228.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.229.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.230.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.231.2
-set routing-options static route 0.0.0.0/0 next-hop 172.30.232.2
+set routing-options static route 193.30.220.0/0 next-hop 172.30.220.2
+set routing-options static route 193.30.221.0/0 next-hop 172.30.221.2
+set routing-options static route 193.30.222.0/0 next-hop 172.30.222.2
+set routing-options static route 193.30.223.0/0 next-hop 172.30.223.2
+set routing-options static route 193.30.224.0/0 next-hop 172.30.224.2
+set routing-options static route 193.30.225.0/0 next-hop 172.30.225.2
+set routing-options static route 193.30.226.0/0 next-hop 172.30.226.2
+set routing-options static route 193.30.227.0/0 next-hop 172.30.227.2
+set routing-options static route 193.30.228.0/0 next-hop 172.30.228.2
+set routing-options static route 193.30.229.0/0 next-hop 172.30.229.2
+set routing-options static route 193.30.230.0/0 next-hop 172.30.230.2
+set routing-options static route 193.30.231.0/0 next-hop 172.30.231.2
+set routing-options static route 193.30.232.0/0 next-hop 172.30.232.2
 set routing-options static route 0.0.0.0/0 next-hop 172.30.202.2
 set routing-options static route 0.0.0.0/0 next-hop 193.30.100.253
