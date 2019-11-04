@@ -1,0 +1,22 @@
+#Online
+
+set vlans vl70 vlan-id 70
+set interfaces vlan unit 70 family inet address 193.30.14.250/24
+set vlans vl70 l3-interface vlan.70
+
+
+set interfaces ge-0/0/1 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/2 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/3 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/4 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/5 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/6 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/7 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/8 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/9 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/10 family ethernet-switching vlan members vl70
+set interfaces ge-0/0/11 family ethernet-switching vlan members vl70
+
+
+
+set routing-options static route 0.0.0.0/0 next-hop 193.30.100.254
