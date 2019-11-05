@@ -1,7 +1,7 @@
 ,Interface,,ip,vlan
 A303-03-9,Ge-0/0/0,A303-03-8,172.30.202.2/30,220
 ,Ge-1/0/0,,,
-,Ge-0/0/1,EOS seril port1,193.30.200.253/24,200
+,Ge-0/0/1,EOS seril port1,193.30.202.254/24,200
 ,Ge-1/0/1,EOS seril port2,,200
 ,Ge-0/0/2,EOS IFS Server,,200
 ,Ge-1/0/2,,,
