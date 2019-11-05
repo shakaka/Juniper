@@ -115,19 +115,20 @@ set interfaces ge-1/0/2 family ethernet-switching vlan members vl100
 set interfaces ge-1/0/3 family ethernet-switching vlan members vl100
 set interfaces ge-1/0/4 family ethernet-switching vlan members vl100
 set interfaces ge-1/0/5 family ethernet-switching vlan members vl100
-set interfaces Ge-2/0/0 family ethernet-switching vlan members vl100
-set interfaces Ge-2/0/1 family ethernet-switching vlan members vl101
-set interfaces Ge-2/0/2 family ethernet-switching vlan members vl102
-set interfaces Ge-2/0/3 family ethernet-switching vlan members vl103
-set interfaces Ge-2/0/4 family ethernet-switching vlan members vl104
-set interfaces Ge-2/0/5 family ethernet-switching vlan members vl105
-set interfaces Ge-2/0/6 family ethernet-switching vlan members vl106
-set interfaces Ge-2/0/7 family ethernet-switching vlan members vl107
-set interfaces Ge-2/0/8 family ethernet-switching vlan members vl108
-set interfaces Ge-2/0/9 family ethernet-switching vlan members vl109
-set interfaces Ge-2/0/10 family ethernet-switching vlan members vl110
-set interfaces Ge-2/0/11 family ethernet-switching vlan members vl111
-set interfaces Ge-2/0/12 family ethernet-switching vlan members vl112
+set interfaces ge-2/0/0 family ethernet-switching vlan members vl100
+set interfaces ge-2/0/1 family ethernet-switching vlan members vl101
+set interfaces ge-2/0/2 family ethernet-switching vlan members vl102
+set interfaces ge-2/0/3 family ethernet-switching vlan members vl103
+set interfaces ge-2/0/4 family ethernet-switching vlan members vl104
+set interfaces ge-2/0/5 family ethernet-switching vlan members vl105
+set interfaces ge-2/0/6 family ethernet-switching vlan members vl106
+set interfaces ge-2/0/7 family ethernet-switching vlan members vl107
+set interfaces ge-2/0/8 family ethernet-switching vlan members vl108
+set interfaces ge-2/0/9 family ethernet-switching vlan members vl109
+set interfaces ge-2/0/10 family ethernet-switching vlan members vl110
+set interfaces ge-2/0/11 family ethernet-switching vlan members vl111
+set interfaces ge-2/0/12 family ethernet-switching vlan members vl112
+set interfaces ge-2/0/13 family ethernet-switching vlan members vl113
 
 
 
