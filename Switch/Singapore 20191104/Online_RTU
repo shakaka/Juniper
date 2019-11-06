@@ -93,8 +93,8 @@ set interfaces ae7 aggregated-ether-options minimum-links 1
 set interfaces ae8 aggregated-ether-options minimum-links 1
 set interfaces ae9 aggregated-ether-options minimum-links 1
 
-set interfaces ae6 aggregated-ether-options lacp passive
-set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae6 aggregated-ether-options lacp active
+set interfaces ae7 aggregated-ether-options lacp actice
 set interfaces ae8 aggregated-ether-options lacp passive
 set interfaces ae9 aggregated-ether-options lacp passive
 
@@ -146,21 +146,21 @@ set routing-options static route 193.30.230.0/24 next-hop 172.30.230.2
 set routing-options static route 193.30.231.0/24 next-hop 172.30.231.2
 set routing-options static route 193.30.232.0/24 next-hop 172.30.232.2
 
-set routing-options static route 193.30.220.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.221.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.222.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.223.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.224.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.225.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.226.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.227.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.228.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.229.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.230.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.231.0/24 qualified-next-hop 193.30.100.253 preference 25
-set routing-options static route 193.30.232.0/24 qualified-next-hop 193.30.100.253 preference 25
+set routing-options static route 193.30.220.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.221.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.222.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.223.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.224.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.225.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.226.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.227.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.228.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.229.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.230.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.231.0/24 qualified-next-hop 172.30.202. preference 25
+set routing-options static route 193.30.232.0/24 qualified-next-hop 172.30.202. preference 25
 
 
 
 set routing-options static route 0.0.0.0/0 next-hop 193.30.100.253
-set routing-options static route 0.0.0.0/0 next-hop 172.30.202.2
+set routing-options static route 193.30.202.0/24 next-hop 172.30.202.2

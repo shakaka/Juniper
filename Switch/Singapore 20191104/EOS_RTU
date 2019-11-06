@@ -27,51 +27,51 @@ set interfaces ge-1/0/2 ether-options 802.3ad ae2
 set chassis aggregated-devices ethernet device-count 2
 
 set vlans vl200 vlan-id 200
-set vlans vl101 vlan-id 101
-set vlans vl102 vlan-id 102
-set vlans vl103 vlan-id 103
-set vlans vl104 vlan-id 104
-set vlans vl105 vlan-id 105
-set vlans vl106 vlan-id 106
-set vlans vl107 vlan-id 107
-set vlans vl108 vlan-id 108
-set vlans vl109 vlan-id 109
-set vlans vl110 vlan-id 110
-set vlans vl111 vlan-id 111
-set vlans vl112 vlan-id 112
-set vlans vl113 vlan-id 113
+set vlans vl201 vlan-id 201
+set vlans vl202 vlan-id 202
+set vlans vl203 vlan-id 203
+set vlans vl204 vlan-id 204
+set vlans vl205 vlan-id 205
+set vlans vl206 vlan-id 206
+set vlans vl207 vlan-id 207
+set vlans vl208 vlan-id 208
+set vlans vl209 vlan-id 209
+set vlans vl210 vlan-id 210
+set vlans vl211 vlan-id 211
+set vlans vl212 vlan-id 212
+set vlans vl213 vlan-id 213
 set vlans vl220 vlan-id 220
 
 set interfaces vlan unit 200 family inet address 193.30.202.254/24
-set interfaces vlan unit 101 family inet address 172.30.220.5/30
-set interfaces vlan unit 102 family inet address 172.30.221.5/30
-set interfaces vlan unit 103 family inet address 172.30.222.5/30
-set interfaces vlan unit 104 family inet address 172.30.223.5/30
-set interfaces vlan unit 105 family inet address 172.30.224.5/30
-set interfaces vlan unit 106 family inet address 172.30.225.5/30
-set interfaces vlan unit 107 family inet address 172.30.226.5/30
-set interfaces vlan unit 108 family inet address 172.30.227.5/30
-set interfaces vlan unit 109 family inet address 172.30.228.5/30
-set interfaces vlan unit 110 family inet address 172.30.229.5/30
-set interfaces vlan unit 111 family inet address 172.30.230.5/30
-set interfaces vlan unit 112 family inet address 172.30.231.5/30
-set interfaces vlan unit 113 family inet address 172.30.232.5/30
+set interfaces vlan unit 201 family inet address 172.30.220.5/30
+set interfaces vlan unit 202 family inet address 172.30.221.5/30
+set interfaces vlan unit 203 family inet address 172.30.222.5/30
+set interfaces vlan unit 204 family inet address 172.30.223.5/30
+set interfaces vlan unit 205 family inet address 172.30.224.5/30
+set interfaces vlan unit 206 family inet address 172.30.225.5/30
+set interfaces vlan unit 207 family inet address 172.30.226.5/30
+set interfaces vlan unit 208 family inet address 172.30.227.5/30
+set interfaces vlan unit 209 family inet address 172.30.228.5/30
+set interfaces vlan unit 210 family inet address 172.30.229.5/30
+set interfaces vlan unit 211 family inet address 172.30.230.5/30
+set interfaces vlan unit 212 family inet address 172.30.231.5/30
+set interfaces vlan unit 213 family inet address 172.30.232.5/30
 set interfaces vlan unit 220 family inet address 172.30.202.2/30
 
 set vlans vl200 l3-interface vlan.200
-set vlans vl101 l3-interface vlan.101
-set vlans vl102 l3-interface vlan.102
-set vlans vl103 l3-interface vlan.103
-set vlans vl104 l3-interface vlan.104
-set vlans vl105 l3-interface vlan.105
-set vlans vl106 l3-interface vlan.106
-set vlans vl107 l3-interface vlan.107
-set vlans vl108 l3-interface vlan.108
-set vlans vl109 l3-interface vlan.109
-set vlans vl110 l3-interface vlan.110
-set vlans vl111 l3-interface vlan.111
-set vlans vl112 l3-interface vlan.112
-set vlans vl113 l3-interface vlan.113
+set vlans vl201 l3-interface vlan.201
+set vlans vl202 l3-interface vlan.202
+set vlans vl203 l3-interface vlan.203
+set vlans vl204 l3-interface vlan.204
+set vlans vl205 l3-interface vlan.205
+set vlans vl206 l3-interface vlan.206
+set vlans vl207 l3-interface vlan.207
+set vlans vl208 l3-interface vlan.208
+set vlans vl209 l3-interface vlan.209
+set vlans vl210 l3-interface vlan.210
+set vlans vl211 l3-interface vlan.211
+set vlans vl212 l3-interface vlan.212
+set vlans vl213 l3-interface vlan.213
 set vlans vl220 l3-interface vlan.220
 
 
@@ -85,23 +85,23 @@ set interfaces ae0 aggregated-ether-options lacp passive
 set interfaces ae2 aggregated-ether-options lacp passive
 set interfaces ae2 aggregated-ether-options lacp passive
 
-
+set interfaces ae0 family ethernet-switching vlan members vl220
 set interfaces ae2 family ethernet-switching vlan members vl200
-set interfaces ge-0/0/0 family ethernet-switching vlan members vl100
-set interfaces ge-1/0/1 family ethernet-switching vlan members vl100
-set interfaces ge-2/0/1 family ethernet-switching vlan members vl101
-set interfaces ge-2/0/2 family ethernet-switching vlan members vl102
-set interfaces ge-2/0/3 family ethernet-switching vlan members vl103
-set interfaces ge-2/0/4 family ethernet-switching vlan members vl104
-set interfaces ge-2/0/5 family ethernet-switching vlan members vl105
-set interfaces ge-2/0/6 family ethernet-switching vlan members vl106
-set interfaces ge-2/0/7 family ethernet-switching vlan members vl107
-set interfaces ge-2/0/8 family ethernet-switching vlan members vl108
-set interfaces ge-2/0/9 family ethernet-switching vlan members vl109
-set interfaces ge-2/0/10 family ethernet-switching vlan members vl110
-set interfaces ge-2/0/11 family ethernet-switching vlan members vl111
-set interfaces ge-2/0/12 family ethernet-switching vlan members vl112
-set interfaces ge-2/0/13 family ethernet-switching vlan members vl113
+set interfaces ge-0/0/0.0 family ethernet-switching vlan members vl200
+set interfaces ge-1/0/1.0 family ethernet-switching vlan members vl200
+set interfaces ge-2/0/1.0 family ethernet-switching vlan members vl201
+set interfaces ge-2/0/2.0 family ethernet-switching vlan members vl202
+set interfaces ge-2/0/3.0 family ethernet-switching vlan members vl203
+set interfaces ge-2/0/4.0 family ethernet-switching vlan members vl204
+set interfaces ge-2/0/5.0 family ethernet-switching vlan members vl205
+set interfaces ge-2/0/6.0 family ethernet-switching vlan members vl206
+set interfaces ge-2/0/7.0 family ethernet-switching vlan members vl207
+set interfaces ge-2/0/8.0 family ethernet-switching vlan members vl208
+set interfaces ge-2/0/9.0 family ethernet-switching vlan members vl209
+set interfaces ge-2/0/10.0 family ethernet-switching vlan members vl210
+set interfaces ge-2/0/11.0 family ethernet-switching vlan members vl211
+set interfaces ge-2/0/12.0 family ethernet-switching vlan members vl212
+set interfaces ge-2/0/13.0 family ethernet-switching vlan members vl213
 
 
 
@@ -119,18 +119,18 @@ set routing-options static route 193.30.230.0/24 next-hop 172.30.230.6
 set routing-options static route 193.30.231.0/24 next-hop 172.30.231.6
 set routing-options static route 193.30.232.0/24 next-hop 172.30.232.6
 
-set routing-options static route 193.30.220.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.221.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.222.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.223.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.224.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.225.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.226.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.227.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.228.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.229.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.230.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.231.0/24 qualified-next-hop 193.30.100.254 preference 25
-set routing-options static route 193.30.232.0/24 qualified-next-hop 193.30.100.254 preference 25
+set routing-options static route 193.30.220.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.221.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.222.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.223.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.224.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.225.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.226.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.227.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.228.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.229.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.230.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.231.0/24 qualified-next-hop 172.30.202.1 preference 25
+set routing-options static route 193.30.232.0/24 qualified-next-hop 172.30.202.1 preference 25
 
 set routing-options static route 0.0.0.0/0 next-hop 172.30.202.1

@@ -138,3 +138,7 @@ delete interfaces fe-0/0/6
 delete interfaces fe-0/0/7
 commit
 set chassis cluster cluster-id <cluster-id> node <node> reboot  #<cluster-id> range from 1~15，<node> from 0-1 #cluster-id> needed to be the same，<node>first 0 second 1
+
+======partition corrupt
+
+request system reboot slice alternate media internal
