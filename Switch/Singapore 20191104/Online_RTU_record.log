@@ -1,0 +1,1055 @@
+
+ORAOSTC (ttyu0)
+
+login: root
+Password:
+
+--- JUNOS 12.3R12.4 built 2016-01-20 04:27:51 UTC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+root@ORAOSTC:RE:0% clear
+root@ORAOSTC:RE:0% cli
+{master:0}
+root@ORAOSTC> show virtual-chassis
+
+Preprovisioned Virtual Chassis
+Virtual Chassis ID: 3ac2.1741.fe0d
+Virtual Chassis Mode: Enabled
+                                           Mstr           Mixed Neighbor List
+Member ID  Status   Serial No    Model     prio  Role      Mode ID  Interface
+0 (FPC 0)  Prsnt    BM0217090017 ex4200-24t 129  Master*      N  1  vcp-0
+                                                                 2  vcp-1
+1 (FPC 1)  Prsnt    BM0217040054 ex4200-24t 129  Backup       N  2  vcp-0
+                                                                 0  vcp-1
+2 (FPC 2)  Prsnt    BM0217040038 ex4200-24t   0  Linecard     N  0  vcp-0
+                                                                 1  vcp-1
+
+{master:0}
+root@ORAOSTC> ping 193.30.100.254
+PING 193.30.100.254 (193.30.100.254): 56 data bytes
+64 bytes from 193.30.100.254: icmp_seq=0 ttl=64 time=2.670 ms
+^C
+--- 193.30.100.254 ping statistics ---
+1 packets transmitted, 1 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 2.670/2.670/2.670/0.000 ms
+
+{master:0}
+root@ORAOSTC> ping 193.30.100.253
+PING 193.30.100.253 (193.30.100.253): 56 data bytes
+64 bytes from 193.30.100.253: icmp_seq=0 ttl=64 time=4.014 ms
+64 bytes from 193.30.100.253: icmp_seq=1 ttl=64 time=1.906 ms
+64 bytes from 193.30.100.253: icmp_seq=2 ttl=64 time=1.854 ms
+^C
+--- 193.30.100.253 ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 1.854/2.591/4.014/1.006 ms
+
+^[[A{master:0}
+root@ORAOSTC> ping 193.30.202.254
+PING 193.30.202.254 (193.30.202.254): 56 data bytes
+64 bytes from 193.30.202.254: icmp_seq=0 ttl=64 time=2.132 ms
+64 bytes from 193.30.202.254: icmp_seq=1 ttl=64 time=1.521 ms
+^C
+--- 193.30.202.254 ping statistics ---
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 1.521/1.827/2.132/0.305 ms
+
+{master:0}
+root@ORAOSTC> ping 193.30.220.254
+PING 193.30.220.254 (193.30.220.254): 56 data bytes
+36 bytes from 172.30.220.2: Redirect Host(New addr: 172.30.220.3)
+Vr HL TOS  Len   ID Flg  off TTL Pro  cks      Src      Dst
+ 4  5  00 0054 6feb   0 0000  40  01 e480 172.30.220.1  193.30.220.254
+
+64 bytes from 193.30.220.254: icmp_seq=0 ttl=64 time=15.123 ms
+36 bytes from 172.30.220.2: Redirect Host(New addr: 172.30.220.3)
+Vr HL TOS  Len   ID Flg  off TTL Pro  cks      Src      Dst
+ 4  5  00 0054 7024   0 0000  40  01 e447 172.30.220.1  193.30.220.254
+
+64 bytes from 193.30.220.254: icmp_seq=1 ttl=64 time=5.413 ms
+36 bytes from 172.30.220.2: Redirect Host(New addr: 172.30.220.3)
+Vr HL TOS  Len   ID Flg  off TTL Pro  cks      Src      Dst
+ 4  5  00 0054 705d   0 0000  40  01 e40e 172.30.220.1  193.30.220.254
+
+64 bytes from 193.30.220.254: icmp_seq=2 ttl=64 time=5.075 ms
+^C
+--- 193.30.220.254 ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 5.075/8.537/15.123/4.659 ms
+
+{master:0}
+root@ORAOSTC>
+
+
+==============================================================================================================
+
+root@ORAOSTC# show | no-more
+## Last changed: 2016-01-22 02:09:15 UTC
+version 12.3R12.4;
+system {
+    host-name ORAOSTC;
+    root-authentication {
+        encrypted-password "$1$eMS5nwxX$juy575U5veWwSCDwd.PDu."; ## SECRET-DATA
+    }
+    services {
+        dhcp {
+            traceoptions {
+                file dhcp_logfile;
+                level all;
+                flag all;
+            }
+        }
+    }
+    syslog {
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+}
+chassis {
+    aggregated-devices {
+        ethernet {
+            device-count 16;
+        }
+    }
+    auto-image-upgrade;
+}
+interfaces {
+    ge-0/0/0 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-0/0/1 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-0/0/2 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-0/0/3 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-0/0/4 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-0/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-0/0/6 {
+        ether-options {
+            802.3ad ae6;
+        }
+    }
+    ge-0/0/7 {
+        ether-options {
+            802.3ad ae7;
+        }
+    }
+    ge-0/0/8 {
+        ether-options {
+            802.3ad ae8;
+        }
+    }
+    ge-0/0/9 {
+        ether-options {
+            802.3ad ae9;
+        }
+    }
+    ge-0/0/10 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/11 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/12 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/13 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/14 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/15 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/16 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/17 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/18 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/19 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/20 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/21 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/22 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/0/23 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/1/0 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    xe-0/1/0 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/1/1 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    xe-0/1/1 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/1/2 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    xe-0/1/2 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-0/1/3 {
+        unit 0 {
+            family ethernet-switching;
+        }
+    }
+    ge-1/0/0 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-1/0/1 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-1/0/2 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-1/0/3 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-1/0/4 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-1/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ge-1/0/6 {
+        ether-options {
+            802.3ad ae6;
+        }
+    }
+    ge-1/0/7 {
+        ether-options {
+            802.3ad ae7;
+        }
+    }
+    ge-1/0/8 {
+        ether-options {
+            802.3ad ae8;
+        }
+    }
+    ge-1/0/9 {
+        ether-options {
+            802.3ad ae9;
+        }
+    }
+    ge-2/0/0 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v101;
+                }
+            }
+        }
+    }
+    ge-2/0/1 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v102;
+                }
+            }
+        }
+    }
+    ge-2/0/2 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v103;
+                }
+            }
+        }
+    }
+    ge-2/0/3 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v104;
+                }
+            }
+        }
+    }
+    ge-2/0/4 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v105;
+                }
+            }
+        }
+    }
+    ge-2/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v106;
+                }
+            }
+        }
+    }
+    ge-2/0/6 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v107;
+                }
+            }
+        }
+    }
+    ge-2/0/7 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v108;
+                }
+            }
+        }
+    }
+    ge-2/0/8 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v109;
+                }
+            }
+        }
+    }
+    ge-2/0/9 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v110;
+                }
+            }
+        }
+    }
+    ge-2/0/10 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v111;
+                }
+            }
+        }
+    }
+    ge-2/0/11 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v112;
+                }
+            }
+        }
+    }
+    ge-2/0/12 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v113;
+                }
+            }
+        }
+    }
+    ae6 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                active;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                ##
+                ## Warning: statement ignored: unsupported platform (ex4200-24t)
+                ##
+                interface-mode access;
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ae7 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                active;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                ##
+                ## Warning: statement ignored: unsupported platform (ex4200-24t)
+                ##
+                interface-mode access;
+                vlan {
+                    members v101;
+                }
+            }
+        }
+    }
+    ae8 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                ##
+                ## Warning: statement ignored: unsupported platform (ex4200-24t)
+                ##
+                interface-mode access;
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    ae9 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                ##
+                ## Warning: statement ignored: unsupported platform (ex4200-24t)
+                ##
+                interface-mode access;
+                vlan {
+                    members v100;
+                }
+            }
+        }
+    }
+    vlan {
+        unit 0 {
+            family inet;
+        }
+        unit 100 {
+            family inet {
+                address 193.30.100.254/24;
+            }
+        }
+        unit 101 {
+            family inet {
+                address 172.30.220.1/24;
+            }
+        }
+        unit 102 {
+            family inet {
+                address 172.30.221.1/24;
+            }
+        }
+        unit 103 {
+            family inet {
+                address 172.30.222.1/30;
+            }
+        }
+        unit 104 {
+            family inet {
+                address 172.30.223.1/30;
+            }
+        }
+        unit 105 {
+            family inet {
+                address 172.30.224.1/30;
+            }
+        }
+        unit 106 {
+            family inet {
+                address 172.30.225.1/30;
+            }
+        }
+        unit 107 {
+            family inet {
+                address 172.30.226.1/30;
+            }
+        }
+        unit 108 {
+            family inet {
+                address 172.30.227.1/30;
+            }
+        }
+        unit 109 {
+            family inet {
+                address 172.30.228.1/30;
+            }
+        }
+        unit 110 {
+            family inet {
+                address 172.30.229.1/30;
+            }
+        }
+        unit 111 {
+            family inet {
+                address 172.30.230.1/30;
+            }
+        }
+        unit 112 {
+            family inet {
+                address 172.30.231.1/30;
+            }
+        }
+        unit 113 {
+            family inet {
+                address 172.30.232.1/30;
+            }
+        }
+        unit 220 {
+            family inet {
+                address 172.30.202.1/30;
+            }
+        }
+    }
+    vme {
+        unit 0 {
+            family inet {
+                dhcp {
+                    vendor-id Juniper-ex4200-24t;
+                }
+            }
+        }
+    }
+}
+routing-options {
+    static {
+        route 193.30.220.0/24 {
+            next-hop 172.30.220.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.221.0/24 {
+            next-hop 172.30.221.3;
+            qualified-next-hop 172.30.222.1 {
+                preference 25;
+            }
+        }
+        route 193.30.222.0/24 {
+            next-hop 172.30.222.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.223.0/24 {
+            next-hop 172.30.223.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.224.0/24 {
+            next-hop 172.30.224.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.225.0/24 {
+            next-hop 172.30.225.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.226.0/24 {
+            next-hop 172.30.226.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.227.0/24 {
+            next-hop 172.30.227.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.228.0/24 {
+            next-hop 172.30.228.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.229.0/24 {
+            next-hop 172.30.229.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.230.0/24 {
+            next-hop 172.30.230.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.231.0/24 {
+            next-hop 172.30.231.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.232.0/24 {
+            next-hop 172.30.232.2;
+            qualified-next-hop 172.30.202.2 {
+                preference 25;
+            }
+        }
+        route 193.30.100.0/24 next-hop 193.30.100.253;
+        route 193.30.202.0/24 {
+            next-hop 172.30.220.2;
+            retain;
+        }
+    }
+}
+protocols {
+    igmp-snooping {
+        vlan all;
+    }
+    rstp;
+    lldp {
+        interface all;
+    }
+    lldp-med {
+        interface all;
+    }
+}
+ethernet-switching-options {
+    storm-control {
+        interface all;
+    }
+}
+vlans {
+    default {
+        l3-interface vlan.0;
+    }
+    v100 {
+        vlan-id 100;
+        l3-interface vlan.100;
+    }
+    v101 {
+        vlan-id 101;
+        l3-interface vlan.101;
+    }
+    v102 {
+        vlan-id 102;
+        l3-interface vlan.102;
+    }
+    v103 {
+        vlan-id 103;
+        l3-interface vlan.103;
+    }
+    v104 {
+        vlan-id 104;
+        l3-interface vlan.104;
+    }
+    v105 {
+        vlan-id 105;
+        l3-interface vlan.105;
+    }
+    v106 {
+        vlan-id 106;
+        l3-interface vlan.106;
+    }
+    v107 {
+        vlan-id 107;
+        l3-interface vlan.107;
+    }
+    v108 {
+        vlan-id 108;
+        l3-interface vlan.108;
+    }
+    v109 {
+        vlan-id 109;
+        l3-interface vlan.109;
+    }
+    v110 {
+        vlan-id 110;
+        l3-interface vlan.110;
+    }
+    v111 {
+        vlan-id 111;
+        l3-interface vlan.111;
+    }
+    v112 {
+        vlan-id 112;
+        l3-interface vlan.112;
+    }
+    v113 {
+        vlan-id 113;
+        l3-interface vlan.113;
+    }
+    v114 {
+        vlan-id 114;
+    }
+    v115 {
+        vlan-id 115;
+    }
+    v116 {
+        vlan-id 116;
+    }
+    v220 {
+        vlan-id 220;
+        l3-interface vlan.220;
+    }
+}
+poe {
+    interface all;
+}
+virtual-chassis {
+    preprovisioned;
+    member 0 {
+        role routing-engine;
+        serial-number BM0217090017;
+    }
+    member 1 {
+        role routing-engine;
+        serial-number BM0217040054;
+    }
+    member 2 {
+        role line-card;
+        serial-number BM0217040038;
+    }
+}
+
+{master:0}[edit]
+root@ORAOSTC#
+
+
+================================================================================
+root@ORAOSTC# show | display set
+set version 12.3R12.4
+set system host-name ORAOSTC
+set system root-authentication encrypted-password "$1$eMS5nwxX$juy575U5veWwSCDwd.PDu."
+set system services dhcp traceoptions file dhcp_logfile
+set system services dhcp traceoptions level all
+set system services dhcp traceoptions flag all
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set chassis aggregated-devices ethernet device-count 16
+set chassis auto-image-upgrade
+set interfaces ge-0/0/0 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-0/0/1 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-0/0/5 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-0/0/10 unit 0 family ethernet-switching
+set interfaces ge-0/0/11 unit 0 family ethernet-switching
+set interfaces ge-0/0/12 unit 0 family ethernet-switching
+set interfaces ge-0/0/13 unit 0 family ethernet-switching
+set interfaces ge-0/0/14 unit 0 family ethernet-switching
+set interfaces ge-0/0/15 unit 0 family ethernet-switching
+set interfaces ge-0/0/16 unit 0 family ethernet-switching
+set interfaces ge-0/0/17 unit 0 family ethernet-switching
+set interfaces ge-0/0/18 unit 0 family ethernet-switching
+set interfaces ge-0/0/19 unit 0 family ethernet-switching
+set interfaces ge-0/0/20 unit 0 family ethernet-switching
+set interfaces ge-0/0/21 unit 0 family ethernet-switching
+set interfaces ge-0/0/22 unit 0 family ethernet-switching
+set interfaces ge-0/0/23 unit 0 family ethernet-switching
+set interfaces ge-0/1/0 unit 0 family ethernet-switching
+set interfaces xe-0/1/0 unit 0 family ethernet-switching
+set interfaces ge-0/1/1 unit 0 family ethernet-switching
+set interfaces xe-0/1/1 unit 0 family ethernet-switching
+set interfaces ge-0/1/2 unit 0 family ethernet-switching
+set interfaces xe-0/1/2 unit 0 family ethernet-switching
+set interfaces ge-0/1/3 unit 0 family ethernet-switching
+set interfaces ge-1/0/0 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-1/0/1 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-1/0/2 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-1/0/3 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-1/0/4 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-1/0/5 unit 0 family ethernet-switching vlan members v100
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/7 ether-options 802.3ad ae7
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/9 ether-options 802.3ad ae9
+set interfaces ge-2/0/0 unit 0 family ethernet-switching vlan members v101
+set interfaces ge-2/0/1 unit 0 family ethernet-switching vlan members v102
+set interfaces ge-2/0/2 unit 0 family ethernet-switching vlan members v103
+set interfaces ge-2/0/3 unit 0 family ethernet-switching vlan members v104
+set interfaces ge-2/0/4 unit 0 family ethernet-switching vlan members v105
+set interfaces ge-2/0/5 unit 0 family ethernet-switching vlan members v106
+set interfaces ge-2/0/6 unit 0 family ethernet-switching vlan members v107
+set interfaces ge-2/0/7 unit 0 family ethernet-switching vlan members v108
+set interfaces ge-2/0/8 unit 0 family ethernet-switching vlan members v109
+set interfaces ge-2/0/9 unit 0 family ethernet-switching vlan members v110
+set interfaces ge-2/0/10 unit 0 family ethernet-switching vlan members v111
+set interfaces ge-2/0/11 unit 0 family ethernet-switching vlan members v112
+set interfaces ge-2/0/12 unit 0 family ethernet-switching vlan members v113
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae6 aggregated-ether-options lacp active
+set interfaces ae6 unit 0 family ethernet-switching interface-mode access
+set interfaces ae6 unit 0 family ethernet-switching vlan members v100
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options lacp active
+set interfaces ae7 unit 0 family ethernet-switching interface-mode access
+set interfaces ae7 unit 0 family ethernet-switching vlan members v101
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae8 unit 0 family ethernet-switching interface-mode access
+set interfaces ae8 unit 0 family ethernet-switching vlan members v100
+set interfaces ae9 aggregated-ether-options minimum-links 1
+set interfaces ae9 aggregated-ether-options lacp passive
+set interfaces ae9 unit 0 family ethernet-switching interface-mode access
+set interfaces ae9 unit 0 family ethernet-switching vlan members v100
+set interfaces vlan unit 0 family inet
+set interfaces vlan unit 100 family inet address 193.30.100.254/24
+set interfaces vlan unit 101 family inet address 172.30.220.1/24
+set interfaces vlan unit 102 family inet address 172.30.221.1/24
+set interfaces vlan unit 103 family inet address 172.30.222.1/30
+set interfaces vlan unit 104 family inet address 172.30.223.1/30
+set interfaces vlan unit 105 family inet address 172.30.224.1/30
+set interfaces vlan unit 106 family inet address 172.30.225.1/30
+set interfaces vlan unit 107 family inet address 172.30.226.1/30
+set interfaces vlan unit 108 family inet address 172.30.227.1/30
+set interfaces vlan unit 109 family inet address 172.30.228.1/30
+set interfaces vlan unit 110 family inet address 172.30.229.1/30
+set interfaces vlan unit 111 family inet address 172.30.230.1/30
+set interfaces vlan unit 112 family inet address 172.30.231.1/30
+set interfaces vlan unit 113 family inet address 172.30.232.1/30
+set interfaces vlan unit 220 family inet address 172.30.202.1/30
+set interfaces vme unit 0 family inet dhcp vendor-id Juniper-ex4200-24t
+set routing-options static route 193.30.220.0/24 next-hop 172.30.220.2
+set routing-options static route 193.30.220.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.221.0/24 next-hop 172.30.221.3
+set routing-options static route 193.30.221.0/24 qualified-next-hop 172.30.222.1 preference 25
+set routing-options static route 193.30.222.0/24 next-hop 172.30.222.2
+set routing-options static route 193.30.222.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.223.0/24 next-hop 172.30.223.2
+set routing-options static route 193.30.223.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.224.0/24 next-hop 172.30.224.2
+set routing-options static route 193.30.224.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.225.0/24 next-hop 172.30.225.2
+set routing-options static route 193.30.225.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.226.0/24 next-hop 172.30.226.2
+set routing-options static route 193.30.226.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.227.0/24 next-hop 172.30.227.2
+set routing-options static route 193.30.227.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.228.0/24 next-hop 172.30.228.2
+set routing-options static route 193.30.228.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.229.0/24 next-hop 172.30.229.2
+set routing-options static route 193.30.229.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.230.0/24 next-hop 172.30.230.2
+set routing-options static route 193.30.230.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.231.0/24 next-hop 172.30.231.2
+set routing-options static route 193.30.231.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.232.0/24 next-hop 172.30.232.2
+set routing-options static route 193.30.232.0/24 qualified-next-hop 172.30.202.2 preference 25
+set routing-options static route 193.30.100.0/24 next-hop 193.30.100.253
+set routing-options static route 193.30.202.0/24 next-hop 172.30.220.2
+set routing-options static route 193.30.202.0/24 retain
+set protocols igmp-snooping vlan all
+set protocols rstp
+set protocols lldp interface all
+set protocols lldp-med interface all
+set ethernet-switching-options storm-control interface all
+set vlans default l3-interface vlan.0
+set vlans v100 vlan-id 100
+set vlans v100 l3-interface vlan.100
+set vlans v101 vlan-id 101
+set vlans v101 l3-interface vlan.101
+set vlans v102 vlan-id 102
+set vlans v102 l3-interface vlan.102
+set vlans v103 vlan-id 103
+set vlans v103 l3-interface vlan.103
+set vlans v104 vlan-id 104
+set vlans v104 l3-interface vlan.104
+set vlans v105 vlan-id 105
+set vlans v105 l3-interface vlan.105
+set vlans v106 vlan-id 106
+set vlans v106 l3-interface vlan.106
+set vlans v107 vlan-id 107
+set vlans v107 l3-interface vlan.107
+set vlans v108 vlan-id 108
+set vlans v108 l3-interface vlan.108
+set vlans v109 vlan-id 109
+set vlans v109 l3-interface vlan.109
+set vlans v110 vlan-id 110
+set vlans v110 l3-interface vlan.110
+set vlans v111 vlan-id 111
+set vlans v111 l3-interface vlan.111
+set vlans v112 vlan-id 112
+set vlans v112 l3-interface vlan.112
+set vlans v113 vlan-id 113
+set vlans v113 l3-interface vlan.113
+set vlans v114 vlan-id 114
+set vlans v115 vlan-id 115
+set vlans v116 vlan-id 116
+set vlans v220 vlan-id 220
+set vlans v220 l3-interface vlan.220
+set poe interface all
+set virtual-chassis preprovisioned
+set virtual-chassis member 0 role routing-engine
+set virtual-chassis member 0 serial-number BM0217090017
+set virtual-chassis member 1 role routing-engine
+set virtual-chassis member 1 serial-number BM0217040054
+set virtual-chassis member 2 role line-card
+set virtual-chassis member 2 serial-number BM0217040038
+
+{master:0}[edit]
+root@ORAOSTC#
