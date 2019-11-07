@@ -142,3 +142,8 @@ set chassis cluster cluster-id <cluster-id> node <node> reboot  #<cluster-id> ra
 ======partition corrupt
 
 request system reboot slice alternate media internal
+
+
+=======configuration files saved in
+/config
+/var/db/config
