@@ -68,59 +68,59 @@ delete protocols rstp interfaces ge-2/0/12
 delete protocols rstp interfaces ge-3/0/12
 
 
-delete interfaces ge-0/0/0 family ethernet-switching vlan members default
-delete interfaces ge-1/0/0 family ethernet-switching vlan members default
-delete interfaces ge-0/0/1 family ethernet-switching vlan members default
-delete interfaces ge-1/0/1 family ethernet-switching vlan members default
-delete interfaces ge-0/0/2 family ethernet-switching vlan members default
-delete interfaces ge-1/0/2 family ethernet-switching vlan members default
-delete interfaces ge-0/0/3 family ethernet-switching vlan members default
-delete interfaces ge-1/0/3 family ethernet-switching vlan members default
-delete interfaces ge-0/0/4 family ethernet-switching vlan members default
-delete interfaces ge-1/0/4 family ethernet-switching vlan members default
-delete interfaces ge-0/0/5 family ethernet-switching vlan members default
-delete interfaces ge-1/0/5 family ethernet-switching vlan members default
-delete interfaces ge-0/0/6 family ethernet-switching vlan members default
-delete interfaces ge-1/0/6 family ethernet-switching vlan members default
-delete interfaces ge-0/0/7 family ethernet-switching vlan members default
-delete interfaces ge-1/0/7 family ethernet-switching vlan members default
-delete interfaces ge-0/0/8 family ethernet-switching vlan members default
-delete interfaces ge-1/0/8 family ethernet-switching vlan members default
-delete interfaces ge-0/0/9 family ethernet-switching vlan members default
-delete interfaces ge-1/0/9 family ethernet-switching vlan members default
-delete interfaces ge-0/0/10 family ethernet-switching vlan members default
-delete interfaces ge-1/0/10 family ethernet-switching vlan members default
-delete interfaces ge-0/0/11 family ethernet-switching vlan members default
-delete interfaces ge-1/0/11 family ethernet-switching vlan members default
-delete interfaces ge-0/0/12 family ethernet-switching vlan members default
-delete interfaces ge-1/0/12 family ethernet-switching vlan members default
+delete interfaces ge-0/0/0 unit 0
+delete interfaces ge-1/0/0 unit 0
+delete interfaces ge-0/0/1 unit 0
+delete interfaces ge-1/0/1 unit 0
+delete interfaces ge-0/0/2 unit 0
+delete interfaces ge-1/0/2 unit 0
+delete interfaces ge-0/0/3 unit 0
+delete interfaces ge-1/0/3 unit 0
+delete interfaces ge-0/0/4 unit 0
+delete interfaces ge-1/0/4 unit 0
+delete interfaces ge-0/0/5 unit 0
+delete interfaces ge-1/0/5 unit 0
+delete interfaces ge-0/0/6 unit 0
+delete interfaces ge-1/0/6 unit 0
+delete interfaces ge-0/0/7 unit 0
+delete interfaces ge-1/0/7 unit 0
+delete interfaces ge-0/0/8 unit 0
+delete interfaces ge-1/0/8 unit 0
+delete interfaces ge-0/0/9 unit 0
+delete interfaces ge-1/0/9 unit 0
+delete interfaces ge-0/0/10 unit 0
+delete interfaces ge-1/0/10 unit 0
+delete interfaces ge-0/0/11 unit 0
+delete interfaces ge-1/0/11 unit 0
+delete interfaces ge-0/0/12 unit 0
+delete interfaces ge-1/0/12 unit 0
 
-delete interfaces ge-2/0/0 family ethernet-switching vlan members default
-delete interfaces ge-3/0/0 family ethernet-switching vlan members default
-delete interfaces ge-2/0/1 family ethernet-switching vlan members default
-delete interfaces ge-3/0/1 family ethernet-switching vlan members default
-delete interfaces ge-2/0/2 family ethernet-switching vlan members default
-delete interfaces ge-3/0/2 family ethernet-switching vlan members default
-delete interfaces ge-2/0/3 family ethernet-switching vlan members default
-delete interfaces ge-3/0/3 family ethernet-switching vlan members default
-delete interfaces ge-2/0/4 family ethernet-switching vlan members default
-delete interfaces ge-3/0/4 family ethernet-switching vlan members default
-delete interfaces ge-2/0/5 family ethernet-switching vlan members default
-delete interfaces ge-3/0/5 family ethernet-switching vlan members default
-delete interfaces ge-2/0/6 family ethernet-switching vlan members default
-delete interfaces ge-3/0/6 family ethernet-switching vlan members default
-delete interfaces ge-2/0/7 family ethernet-switching vlan members default
-delete interfaces ge-3/0/7 family ethernet-switching vlan members default
-delete interfaces ge-2/0/8 family ethernet-switching vlan members default
-delete interfaces ge-3/0/8 family ethernet-switching vlan members default
-delete interfaces ge-2/0/9 family ethernet-switching vlan members default
-delete interfaces ge-3/0/9 family ethernet-switching vlan members default
-delete interfaces ge-2/0/10 family ethernet-switching vlan members default
-delete interfaces ge-3/0/10 family ethernet-switching vlan members default
-delete interfaces ge-2/0/11 family ethernet-switching vlan members default
-delete interfaces ge-3/0/11 family ethernet-switching vlan members default
-delete interfaces ge-2/0/12 family ethernet-switching vlan members default
-delete interfaces ge-3/0/12 family ethernet-switching vlan members default
+delete interfaces ge-2/0/0 unit 0
+delete interfaces ge-3/0/0 unit 0
+delete interfaces ge-2/0/1 unit 0
+delete interfaces ge-3/0/1 unit 0
+delete interfaces ge-2/0/2 unit 0
+delete interfaces ge-3/0/2 unit 0
+delete interfaces ge-2/0/3 unit 0
+delete interfaces ge-3/0/3 unit 0
+delete interfaces ge-2/0/4 unit 0
+delete interfaces ge-3/0/4 unit 0
+delete interfaces ge-2/0/5 unit 0
+delete interfaces ge-3/0/5 unit 0
+delete interfaces ge-2/0/6 unit 0
+delete interfaces ge-3/0/6 unit 0
+delete interfaces ge-2/0/7 unit 0
+delete interfaces ge-3/0/7 unit 0
+delete interfaces ge-2/0/8 unit 0
+delete interfaces ge-3/0/8 unit 0
+delete interfaces ge-2/0/9 unit 0
+delete interfaces ge-3/0/9 unit 0
+delete interfaces ge-2/0/10 unit 0
+delete interfaces ge-3/0/10 unit 0
+delete interfaces ge-2/0/11 unit 0
+delete interfaces ge-3/0/11 unit 0
+delete interfaces ge-2/0/12 unit 0
+delete interfaces ge-3/0/12 unit 0
 
 set interfaces ge-0/0/0 ether-options 802.3ad ae0
 set interfaces ge-1/0/0 ether-options 802.3ad ae0
@@ -258,51 +258,51 @@ set vlans vl4 l3-interface irb.4
 
 set interfaces irb.11 family inet address 172.30.71.1/30
 set vlans vl11 vlan-id 11
-set vlans vlan11 l3-interface irb.11
+set vlans vl11 l3-interface irb.11
 
 set interfaces irb.12 family inet address 172.30.72.1/30
 set vlans vl12 vlan-id 12
 set vlans vl12 l3-interface irb.12
 
 set interfaces irb.13 family inet address 172.30.73.1/30
-set vlans vlan13 vlan-id 13
-set vlans vlan13 l3-interface irb.13
+set vlans vl13 vlan-id 13
+set vlans vl13 l3-interface irb.13
 
 set interfaces irb.14 family inet address 172.30.74.1/30
-set vlans vlan14 vlan-id 14
-set vlans vlan14 l3-interface irb.14
+set vlans vl14 vlan-id 14
+set vlans vl14 l3-interface irb.14
 
-set interfaces ae9 family inet address 172.30.13.245/30
+set interfaces ae9 unit 0 family inet address 172.30.13.245/30
 
 
-set interfaces ae0 family ethernet-switching vlan members vl10
-set interfaces ae10 family ethernet-switching vlan members vl10
-set interfaces ae11 family ethernet-switching vlan members vl10
-set interfaces ae12 family ethernet-switching vlan members vl10
-set interfaces ae13 family ethernet-switching vlan members vl10
-set interfaces ae14 family ethernet-switching vlan members vl10
-set interfaces ae15 family ethernet-switching vlan members vl10
-set interfaces ae16 family ethernet-switching vlan members vl10
-set interfaces ae17 family ethernet-switching vlan members vl10
-set interfaces ae18 family ethernet-switching vlan members vl10
-set interfaces ae19 family ethernet-switching vlan members vl10
-set interfaces ae20 family ethernet-switching vlan members vl10
-set interfaces ae21 family ethernet-switching vlan members vl10
-set interfaces ae22 family ethernet-switching vlan members vl10
-set interfaces ae23 family ethernet-switching vlan members vl10
-set interfaces ae24 family ethernet-switching vlan members vl10
-set interfaces ae25 family ethernet-switching vlan members vl10
-set interfaces ge-0/0/13 family ethernet-switching vlan members vl10
-set interfaces ge-1/0/13 family ethernet-switching vlan members vl10
+set interfaces ae0 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae10 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae11 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae12 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae13 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae14 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae15 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae16 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae17 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae18 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae19 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae20 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae21 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae22 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae23 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae24 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae25 unit 0 family ethernet-switching vlan members vl10
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members vl10
+set interfaces ge-1/0/13 unit 0 family ethernet-switching vlan members vl10
 
-set interfaces ae1 family ethernet-switching vlan members vl8
-set interfaces ae2 family ethernet-switching vlan members vl2
-set interfaces ae3 family ethernet-switching vlan members vl3
-set interfaces ae4 family ethernet-switching vlan members vl4
-set interfaces ae5 family ethernet-switching vlan members vl11
-set interfaces ae6 family ethernet-switching vlan members vl12
-set interfaces ae7 family ethernet-switching vlan members vl13
-set interfaces ae8 family ethernet-switching vlan members vl14
+set interfaces ae1 unit 0 family ethernet-switching vlan members vl8
+set interfaces ae2 unit 0 family ethernet-switching vlan members vl2
+set interfaces ae3 unit 0 family ethernet-switching vlan members vl3
+set interfaces ae4 unit 0 family ethernet-switching vlan members vl4
+set interfaces ae5 unit 0 family ethernet-switching vlan members vl11
+set interfaces ae6 unit 0 family ethernet-switching vlan members vl12
+set interfaces ae7 unit 0 family ethernet-switching vlan members vl13
+set interfaces ae8 unit 0 family ethernet-switching vlan members vl14
 
 set routing-options static route 193.30.12.0/24 next-hop 172.30.12.2
 set routing-options static route 193.30.51.0/24 next-hop 172.30.51.2
