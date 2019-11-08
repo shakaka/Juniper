@@ -216,7 +216,6 @@ set interfaces ae5 aggregated-ether-options lacp passive
 set interfaces ae6 aggregated-ether-options lacp passive
 set interfaces ae7 aggregated-ether-options lacp passive
 set interfaces ae8 aggregated-ether-options lacp passive
-set interfaces ae9 aggregated-ether-options lacp passive
 set interfaces ae10 aggregated-ether-options lacp passive
 set interfaces ae11 aggregated-ether-options lacp passive
 set interfaces ae12 aggregated-ether-options lacp passive
