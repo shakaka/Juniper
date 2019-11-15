@@ -1,13 +1,13 @@
 ????,Interface,AE Interface,????,ip,
 A303-03-5-DDCC1,Ge-0/0/0,ae0,,172.30.51.2/30,2
 ,Ge-1/0/0,,,,
-,Ge-0/0/1,ae1,work Station#1,193.30.51.254/24,51
+,Ge-0/0/1,ae1,work Station,193.30.51.254/24,51
 ,Ge-1/0/1,,,,
-,Ge-0/0/2,ae2,work Station#2,,
+,Ge-0/0/2,ae2,work Station
 ,Ge-1/0/2,,,,
-,Ge-0/0/3,ae3,work Station#3,,
+,Ge-0/0/3,ae3,work Station
 ,Ge-1/0/3,,,,
-,Ge-0/0/4,ae4,work Station#4,,
+,Ge-0/0/4,ae4,work Station
 ,Ge-1/0/4,,,,
 ,Ge-0/0/5,,color printer,,
 ,,,,,

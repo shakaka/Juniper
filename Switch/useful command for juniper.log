@@ -147,3 +147,20 @@ request system reboot slice alternate media internal
 =======configuration files saved in
 /config
 /var/db/config
+
+=======backup configuration
+mkdir /var/tmp/usb
+mount_msdosfs /dev/da1s1 /var/tmp/usb
+cp /config/juniper.conf.* /var/tmp/usb/switch_backup/
+
+umount /var/tmp/usb
+
+
+set protocols ospf area 0.0.0.10 interface ge-0/0/1.0
+set protocols ospf area 0.0.0.10 interface vlan.100
+set protocols ospf area 0.0.0.10 interface ge-0/0/0.0
+
+
+EX4200
+vlan for ae
+set vlans vlan20 interface ae0

@@ -1,0 +1,65 @@
+show virtual-chassis vc-port
+request virtual-chassis vc-port set pic-slot 2 port 1
+request virtual-chassis vc-port set pic-slot 2 port 0
+.....
+
+
+set virtual-chassis preprovisioned
+set virtual-chassis member 0 serial-number BM0217040081 role routing-engine
+set virtual-chassis member 1 serial-number BM0217090123 role routing-engine
+
+set system host-name EHSA1EH1TC
+
+
+delete protocols rstp interface ge-0/0/0
+delete protocols rstp interface ge-1/0/0
+delete protocols rstp interface ge-0/0/1
+delete protocols rstp interface ge-1/0/1
+delete protocols rstp interface ge-0/0/2
+delete protocols rstp interface ge-1/0/2
+
+delete interfaces ge-0/0/0.0
+delete interfaces ge-1/0/0.0
+delete interfaces ge-0/0/1.0
+delete interfaces ge-1/0/1.0
+delete interfaces ge-0/0/2.0
+delete interfaces ge-1/0/2.0
+
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-1/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-1/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+
+set chassis aggregated-devices ethernet device-count 3
+
+set vlans vl11 vlan-id 11
+set vlans vl71 vlan-id 71
+
+set interfaces vlan unit 11 family inet address 172.30.71.2/30
+set vlans vl11 vlan-id 11
+
+set interfaces vlan unit 71 family inet address 193.30.71.254/24
+set vlans vl71 vlan-id 71
+
+set vlans vl11 l3-interface vlan.11
+set vlans vl71 l3-interface vlan.71
+
+
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options minimum-links 1
+
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae1 aggregated-ether-options lacp passive
+set interfaces ae2 aggregated-ether-options lacp passive
+
+
+set interfaces ae0.0 family ethernet-switching vlan members vl11
+set interfaces ae1.0 family ethernet-switching vlan members vl71
+set interfaces ae2.0 family ethernet-switching vlan members vl71
+set interfaces ge-0/0/3.0 family ethernet-switching vlan members vl71
+
+
+set routing-options static route 0.0.0.0/0 next-hop 172.30.71.1

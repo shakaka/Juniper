@@ -1,9 +1,15 @@
 show virtual-chassis vc-port
 request virtual-chassis vc-port set pic-slot 2 port 1
 request virtual-chassis vc-port set pic-slot 2 port 0
+.....
 
-set member 0 serial-number PGXXXX role routing-engine
-set member 1 serial-number PGXXXX role routing-engine
+
+
+set virtual-chassis preprovisioned
+set virtual-chassis member 0 serial-number BM0217090051 role routing-engine
+set virtual-chassis member 1 serial-number BM0217040001 role routing-engine
+
+set system host-name DDSA1DD1TC
 
 
 delete protocols rstp interface ge-0/0/0
@@ -16,11 +22,6 @@ delete protocols rstp interface ge-0/0/3
 delete protocols rstp interface ge-1/0/3
 delete protocols rstp interface ge-0/0/4
 delete protocols rstp interface ge-1/0/4
-delete protocols rstp interface ge-0/0/5
-delete protocols rstp interface ge-1/0/5
-delete protocols rstp interface ge-0/0/6
-delete protocols rstp interface ge-1/0/6
-
 
 delete interfaces ge-0/0/0.0
 delete interfaces ge-1/0/0.0
@@ -32,10 +33,6 @@ delete interfaces ge-0/0/3.0
 delete interfaces ge-1/0/3.0
 delete interfaces ge-0/0/4.0
 delete interfaces ge-1/0/4.0
-delete interfaces ge-0/0/5.0
-delete interfaces ge-1/0/5.0
-delete interfaces ge-0/0/6.0
-delete interfaces ge-1/0/6.0
 
 set interfaces ge-0/0/0 ether-options 802.3ad ae0
 set interfaces ge-1/0/0 ether-options 802.3ad ae0
@@ -47,43 +44,41 @@ set interfaces ge-0/0/3 ether-options 802.3ad ae3
 set interfaces ge-1/0/3 ether-options 802.3ad ae3
 set interfaces ge-0/0/4 ether-options 802.3ad ae4
 set interfaces ge-1/0/4 ether-options 802.3ad ae4
-set interfaces ge-0/0/5 ether-options 802.3ad ae5
-set interfaces ge-1/0/5 ether-options 802.3ad ae5
-set interfaces ge-0/0/6 ether-options 802.3ad ae6
-set interfaces ge-1/0/6 ether-options 802.3ad ae6
 
+set chassis aggregated-devices ethernet device-count 5
 
-set chassis aggregated-devices ethernet device-count 7
+set vlans vl2 vlan-id 2
+set vlans vl51 vlan-id 51
+
+set interfaces vlan unit 2 family inet address 172.30.51.2/30
+set vlans vl2 vlan-id 2
+
+set interfaces vlan unit 51 family inet address 193.30.51.254/24
+set vlans vl51 vlan-id 51
+
+set vlans vl2 l3-interface vlan.2
+set vlans vl51 l3-interface vlan.51
+
 
 set interfaces ae0 aggregated-ether-options minimum-links 1
 set interfaces ae1 aggregated-ether-options minimum-links 1
 set interfaces ae2 aggregated-ether-options minimum-links 1
 set interfaces ae3 aggregated-ether-options minimum-links 1
 set interfaces ae4 aggregated-ether-options minimum-links 1
-set interfaces ae5 aggregated-ether-options minimum-links 1
-set interfaces ae6 aggregated-ether-options minimum-links 1
 
-set interfaces ae0 aggregated-ether-options lacp active
+set interfaces ae0 aggregated-ether-options lacp passive
 set interfaces ae1 aggregated-ether-options lacp passive
 set interfaces ae2 aggregated-ether-options lacp passive
 set interfaces ae3 aggregated-ether-options lacp passive
 set interfaces ae4 aggregated-ether-options lacp passive
-set interfaces ae5 aggregated-ether-options lacp passive
-set interfaces ae6 aggregated-ether-options lacp passive
 
 
+set interfaces ae0.0 family ethernet-switching vlan members vl2
+set interfaces ae1.0 family ethernet-switching vlan members vl51
+set interfaces ae2.0 family ethernet-switching vlan members vl51
+set interfaces ae3.0 family ethernet-switching vlan members vl51
+set interfaces ae4.0 family ethernet-switching vlan members vl51
+set interfaces ge-0/0/5.0 family ethernet-switching vlan members vl51
 
-set interfaces irb.10 family inet address 193.30.10.253/24
-set vlans vl10 vlan-id 10
-set vlans vl10 l3-interface irb.10
 
-
-set interfaces ae0.0 family ethernet-switching vlan members vl10
-set interfaces ae1.0 family ethernet-switching vlan members vl10
-set interfaces ae2.0 family ethernet-switching vlan members vl10
-set interfaces ae3.0 family ethernet-switching vlan members vl10
-set interfaces ae4.0 family ethernet-switching vlan members vl10
-set interfaces ae5.0 family ethernet-switching vlan members vl10
-set interfaces ae6.0 family ethernet-switching vlan members vl10
-
-set routing-options static route 0.0.0.0/0 next-hop 193.30.10.254
+set routing-options static route 0.0.0.0/0 next-hop 172.30.51.1

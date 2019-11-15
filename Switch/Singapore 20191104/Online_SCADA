@@ -5,11 +5,15 @@ request virtual-chassis vc-port set pic-slot 2 port 0
 
 
 
-set member 0 serial-number PGXXXX role routing-engine
-set member 1 serial-number PGXXXX role routing-engine
-set member 2 serial-number PGXXXX role line-card
-set member 3 serial-number PGXXXX role line-card
-
+set virtual-chassis preprovisioned
+set virtual-chassis member 0 role routing-engine
+set virtual-chassis member 0 serial-number PG3717080083
+set virtual-chassis member 1 role routing-engine
+set virtual-chassis member 1 serial-number PG3717080094
+set virtual-chassis member 2 role line-card
+set virtual-chassis member 2 serial-number PG3717050012
+set virtual-chassis member 3 role line-card
+set virtual-chassis member 3 serial-number PG3717050067
 
 
 
