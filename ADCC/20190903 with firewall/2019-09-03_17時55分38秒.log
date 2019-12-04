@@ -1,0 +1,2968 @@
+﻿root> configure 
+warning: Clustering enabled; using private edit
+error: shared configuration database modified
+
+Please temporarily use 'configure shared' to commit
+outstanding changes in the shared database, exit,
+and return to configuration mode using 'configure'
+
+{primary:node0}
+root> configure shared
+Entering configuration mode
+The configuration has been changed but not committed
+
+{primary:node0}[edit]
+root# load set terminal
+[Type ^D at a new line to end input]
+set groups node0 system host-name SRX550-1
+set groups node0 interfaces fxp0 unit 0 family inet address 1.1.1.1/24
+set groups node1 system host-name SRX550-2
+set groups node1 interfaces fxp0 unit 0 family inet address 1.1.1.2/24
+set apply-groups "${node}"
+set chassis aggregated-devices ethernet device-count 2
+set chassis cluster reth-count 12
+set chassis cluster redundancy-group 0 node 0 priority 100
+set chassis cluster redundancy-group 0 node 1 priority 1
+set chassis cluster redundancy-group 1 node 0 priority 100
+set chassis cluster redundancy-group 1 node 1 priority 1
+set chassis cluster redundancy-group 1 preempt
+delete system autoinstallation
+delete system phone-home
+delete interfaces ge-0/0/0
+delete interfaces ge-0/0/1
+delete interfaces ge-0/0/2
+set interfaces fab0 fabric-options member-interfaces ge-0/0/2
+set interfaces fab1 fabric-options member-interfaces ge-1/0/2
+load complete
+
+{primary:node0}[edit]
+root# commit
+[edit]
+  'system'
+    Missing mandatory statement: 'root-authentication'
+error: commit failed: (missing mandatory statements)
+
+{primary:node0}[edit]
+root# set system root-authentication plain-text-password
+New password:
+Retype new password:
+
+{primary:node0}[edit]
+root# commit and-quit
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+[edit security zones security-zone trust]
+  'interfaces ge-0/0/1.0'
+    Interface ge-0/0/1.0 must be configured under interfaces
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root# delete security zones security-zone trust interfaces ge-0/0/1.0
+
+{primary:node0}[edit]
+root# commit and-quit
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+[edit security zones security-zone trust]
+  'interfaces ge-0/0/2.0'
+    Interface ge-0/0/2.0 must be configured under interfaces
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root# delete security zones security-zone trust interfaces ge-0/0/2
+
+{primary:node0}[edit]
+root# commit
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+[edit security zones security-zone untrust]
+  'interfaces ge-0/0/0.0'
+    Interface ge-0/0/0.0 must be configured under interfaces
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root# delete security zones security-zone untrust interfaces ge-0/0/0.0
+
+{primary:node0}[edit]
+root# commit
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root# show interfaces fab1
+fabric-options {
+    member-interfaces {
+        ge-1/0/2;
+    }
+}
+
+{primary:node0}[edit]
+root# lo
+Password:
+Login incorrect
+login: root
+
+--- JUNOS 15.1X49-D170.4 built 2019-02-22 22:34:42 UTC
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+root@% configuration check-out failed
+root@%
+root@% y:node0}[edit]
+root@% cli interfaces fab1
+fabric-options {
+    member-interfaces {
+{primary:node1}2;
+root>
+}
+{primary:node1}
+root> ry:node0}[edit]
+root# lo
+{primary:node1}
+root> configure
+warning: Clustering enabled; using private edit
+error: shared configuration database modified
+--- JUNOS 15.1X49-D170.4 built 2019-02-22 22:34:42 UTC
+Please temporarily use 'configure shared' to commit
+outstanding changes in the shared database, exit,
+and return to configuration mode using 'configure'
+
+{primary:node1}
+root> configure shared
+Entering configuration mode
+The configuration has been changed but not committed
+
+{primary:node1}[edit]
+root# load set terminal
+[Type ^D at a new line to end input]
+delete system autoinstallation
+delete system services dhcp-local-server
+delete interfaces
+delete security zones security-zone trust interfaces
+delete security zones security-zone untrust interfaces
+delete system services web-management https
+load complete
+
+{primary:node1}[edit]
+root# set system root-authentication plain-text-password
+New password:
+Retype new password:
+
+{primary:node1}[edit]
+root# commit and-quit
+Sep  3 10:17:47 init: mountd-service (PID 2200) exited with status=1
+Sep  3 10:17:47 init: exec_command: /usr/sbin/mountd (PID 2203) started
+Sep  3 10:17:47 init: mountd-service (PID 2203) started
+Sep  3 10:17:47 init: dhcp-service (PID 1618) exited with status=0 Normal Exit
+Sep  3 10:17:47 init: autoinstallation (PID 1612) exited with status=0 Normal Exit
+Sep  3 10:17:48 init: trousers (PID 2197) exited with status=2
+node1:
+commit complete
+Exiting configuration mode
+
+{primary:node1}
+root>
+
+{primary:node0}[edit]
+root# commit and-quit
+error: Could not connect to node1 : Can't assign requested address
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root# show interfaces fab1
+fabric-options {
+    member-interfaces {
+        ge-1/0/2;
+    }
+}
+
+{primary:node0}[edit]
+root# commit
+error: Could not connect to node1 : Can't assign requested address
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root# run show chassis cluster status
+Monitor Failure codes:
+    CS  Cold Sync monitoring        FL  Fabric Connection monitoring
+    GR  GRES monitoring             HW  Hardware monitoring
+    IF  Interface monitoring        IP  IP monitoring
+    LB  Loopback monitoring         MB  Mbuf monitoring
+    NH  Nexthop monitoring          NP  NPC monitoring
+    SP  SPU monitoring              SM  Schedule monitoring
+    CF  Config Sync monitoring      RE  Relinquish monitoring
+
+Cluster ID: 1
+Node   Priority Status         Preempt Manual   Monitor-failures
+
+Redundancy group: 0 , Failover count: 1
+node0  1        primary        no      no       None
+node1  1        secondary-hold no      no       None
+
+{primary:node0}[edit]
+root# deactivate interfaces fab1
+
+{primary:node0}[edit]
+root# show interfaces
+ge-0/0/3 {
+    unit 0 {
+        family inet {
+            address 192.168.3.1/24;
+        }
+    }
+}
+ge-0/0/4 {
+    unit 0 {
+        family inet {
+            address 192.168.4.1/24;
+        }
+    }
+}
+ge-0/0/5 {
+    unit 0 {
+        family inet {
+            address 192.168.5.1/24;
+        }
+    }
+}
+ge-0/0/9 {
+    unit 0 {
+
+{primary:node0}[edit]
+root# commit and-quit
+error: Could not connect to node1 : Can't assign requested address
+node0:
+configuration check succeeds
+error: failed to copy file '//var/etc/policy.id+' to 'node1'
+
+{primary:node0}[edit]
+root# exit
+The configuration has been changed but not committed
+Exit with uncommitted changes? [yes,no] (yes) no
+
+Exit aborted
+
+{primary:node0}[edit]
+root#
+
+{primary:node0}[edit]
+root# show chassis
+aggregated-devices {
+    ethernet {
+        device-count 2;
+    }
+}
+cluster {
+    reth-count 12;
+    redundancy-group 0 {
+        node 0 priority 100;
+        node 1 priority 1;
+    }
+    redundancy-group 1 {
+        node 0 priority 100;
+        node 1 priority 1;
+        preempt;
+    }
+}
+
+{primary:node0}[edit]
+root# run show c
+                ^
+'c' is ambiguous.
+Possible completions:
+  captive-portal       Show captive portal information
+  chassis              Show chassis information
+  class-of-service     Show class-of-service (CoS) information
+  cli                  Show command-line interface settings
+  configuration        Show current configuration
+  connections          Show circuit cross-connect connections
+{primary:node0}[edit]
+root# run show cl
+                 ^
+'cl' is ambiguous.
+Possible completions:
+  class-of-service     Show class-of-service (CoS) information
+  cli                  Show command-line interface settings
+{primary:node0}[edit]
+root# run show chassis cluster ?
+Possible completions:
+  control-plane        Display control-plane information
+  data-plane           Display data-plane information
+  ethernet-switching   Display chassis cluster ethernet switching details
+  information          Show chassis cluster information
+  interfaces           Display chassis cluster interfaces
+  ip-monitoring        Display IP monitoring related information
+  statistics           Display chassis cluster statistics
+  status               Display chassis cluster status
+{primary:node0}[edit]
+root# run show chassis cluster statistics
+Control link statistics:
+    Control link 0:
+        Heartbeat packets sent: 1174
+        Heartbeat packets received: 277
+        Heartbeat packet errors: 0
+Fabric link statistics:
+    Child link 0
+        Probes sent: 0
+        Probes received: 0
+    Child link 1
+        Probes sent: 0
+        Probes received: 0
+error: usp_ipc_client_open: failed to connect to the server after 1 retries(65)
+
+{primary:node0}[edit]
+root# run show chassis cluster status
+Monitor Failure codes:
+    CS  Cold Sync monitoring        FL  Fabric Connection monitoring
+    GR  GRES monitoring             HW  Hardware monitoring
+    IF  Interface monitoring        IP  IP monitoring
+    LB  Loopback monitoring         MB  Mbuf monitoring
+    NH  Nexthop monitoring          NP  NPC monitoring
+    SP  SPU monitoring              SM  Schedule monitoring
+    CF  Config Sync monitoring      RE  Relinquish monitoring
+
+Cluster ID: 1
+Node   Priority Status         Preempt Manual   Monitor-failures
+
+Redundancy group: 0 , Failover count: 1
+node0  1        primary        no      no       None
+node1  1        secondary-hold no      no       None
+
+{primary:node0}[edit]
+root#
+
+{secondary-hold:node1}
+root> request system reboot at now
+Reboot the system at now? [yes,no] (no) yes
+
+Shutdown NOW!
+[pid 2353]
+
+
+*** FINAL System shutdown message from root@ ***
+
+System going down IMMEDIATELY
+
+
+{secondary-hold:node1}
+root>
+
+{primary:node0}[edit]
+root# run show chassis hardware
+error: Could not connect to node0 : Can't assign requested address
+error: Could not connect to node1 : Can't assign requested address
+
+{primary:node0}[edit]
+root# commit
+node0:
+commit complete
+
+{primary:node0}[edit]
+root@SRX550-1# exit
+Exiting configuration mode
+
+{primary:node0}
+root@SRX550-1> show chassis hardware
+node0:
+--------------------------------------------------------------------------
+Hardware inventory:
+Item             Version  Part number  Serial number     Description
+Chassis                                DA3516AK0145      SRX550M
+Midplane         REV 08   750-063950   ACPB3944
+Routing Engine   REV 06   711-062269   ACPF3302          RE-SRX550M
+FPC 0                                                    FPC
+FPC 6            REV 04   750-064614   ACPH9023          FPC
+
+{primary:node0}
+root@SRX550-1>
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 SCHED: Thread 61 (FWDD CM) ran for 1466 ms without yielding
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Scheduler Oinker
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 00: sp = 0x52bc2c88, pc = 0x18243be8
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 01: sp = 0x52bc2d30, pc = 0x1822b830
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 02: sp = 0x52bc2da0, pc = 0x18232834
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 03: sp = 0x52bc2dd8, pc = 0x1822c040
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 04: sp = 0x52bc2e00, pc = 0x19d8cf78
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 05: sp = 0x52bc2e48, pc = 0x19d8aa0c
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 06: sp = 0x52bc2e68, pc = 0x19d8aa74
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 07: sp = 0x52bc2e98, pc = 0x19d8c878
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 08: sp = 0x52bc2eb0, pc = 0x19069798
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 09: sp = 0x52bc2ef8, pc = 0x19057e14
+
+Message from syslogd@SRX550-1 at Sep  3 10:26:23  ...
+SRX550-1 Frame 10: sp = 0x52bc3018, pc = 0x19061ac8
+
+
+
+{primary:node0}
+root@SRX550-1> show chassis hardware
+node0:
+--------------------------------------------------------------------------
+Hardware inventory:
+Item             Version  Part number  Serial number     Description
+Chassis                                DA3516AK0145      SRX550M
+Midplane         REV 08   750-063950   ACPB3944
+Routing Engine   REV 06   711-062269   ACPF3302          RE-SRX550M
+FPC 0                                                    FPC
+  PIC 0                                                  6x GE, 4x GE SFP Base PIC
+FPC 6            REV 04   750-064614   ACPH9023          FPC
+  PIC 0                                                  16x GE POE gPIM
+Power Supply 0   Rev 04   740-024283   AG90823           PS 645W AC
+Power Supply 1   Rev 04   740-024283   AG90181           PS 645W AC
+
+node1:
+--------------------------------------------------------------------------
+Hardware inventory:
+Item             Version  Part number  Serial number     Description
+Chassis                                DA3516AK0199      SRX550M
+Midplane         REV 08   750-063950   ACPB3807
+Routing Engine   REV 06   711-062269   ACPD1590          RE-SRX550M
+FPC 0                                                    FPC
+FPC 6            REV 04   750-064614   ACPH9056          FPC
+
+{primary:node0}
+root@SRX550-1> configure
+warning: Clustering enabled; using private edit
+warning: uncommitted changes will be discarded on exit
+Entering configuration mode
+
+{primary:node0}[edit]
+root@SRX550-1# ace
+               ^
+unknown command.
+root@SRX550-1# activate interfaces fab1
+
+{primary:node0}[edit]
+root@SRX550-1# commit and-quit
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root@SRX550-1# commit and-quit
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root@SRX550-1# commit and-quit
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root@SRX550-1# run show chassis hardware
+node0:
+--------------------------------------------------------------------------
+Hardware inventory:
+Item             Version  Part number  Serial number     Description
+Chassis                                DA3516AK0145      SRX550M
+Midplane         REV 08   750-063950   ACPB3944
+Routing Engine   REV 06   711-062269   ACPF3302          RE-SRX550M
+FPC 0                                                    FPC
+  PIC 0                                                  6x GE, 4x GE SFP Base PIC
+FPC 6            REV 04   750-064614   ACPH9023          FPC
+  PIC 0                                                  16x GE POE gPIM
+Power Supply 0   Rev 04   740-024283   AG90823           PS 645W AC
+Power Supply 1   Rev 04   740-024283   AG90181           PS 645W AC
+
+node1:
+--------------------------------------------------------------------------
+Hardware inventory:
+Item             Version  Part number  Serial number     Description
+Chassis                                DA3516AK0199      SRX550M
+Midplane         REV 08   750-063950   ACPB3807
+Routing Engine   REV 06   711-062269   ACPD1590          RE-SRX550M
+FPC 0                                                    FPC
+  PIC 0                                                  6x GE, 4x GE SFP Base PIC
+FPC 6            REV 04   750-064614   ACPH9056          FPC
+  PIC 0                                                  16x GE POE gPIM
+Power Supply 0   Rev 04   740-024283   AG90894           PS 645W AC
+Power Supply 1   Rev 04   740-024283   AB84660           PS 645W AC
+
+        {primary:node0}[edit]
+root@SRX550-1# run show chassis cluster status
+Monitor Failure codes:
+    CS  Cold Sync monitoring        FL  Fabric Connection monitoring
+    GR  GRES monitoring             HW  Hardware monitoring
+    IF  Interface monitoring        IP  IP monitoring
+    LB  Loopback monitoring         MB  Mbuf monitoring
+    NH  Nexthop monitoring          NP  NPC monitoring
+    SP  SPU monitoring              SM  Schedule monitoring
+    CF  Config Sync monitoring      RE  Relinquish monitoring
+
+Cluster ID: 1
+Node   Priority Status         Preempt Manual   Monitor-failures
+
+Redundancy group: 0 , Failover count: 1
+node0  100      primary        no      no       None
+node1  1        secondary      no      no       None
+
+Redundancy group: 1 , Failover count: 1
+node0  0        primary        yes     no       CS
+node1  0        secondary      yes     no       CS
+
+{primary:node0}[edit]
+root@SRX550-1# commit and-quit
+[edit interfaces]
+  'fab1'
+     configured wrong interface as fab child
+error: configuration check-out failed
+
+{primary:node0}[edit]
+root@SRX550-1# rollback 0
+e
+{primary:node0}[edit]
+root@SRX550-1# exit
+Exiting configuration mode
+
+{primary:node0}
+root@SRX550-1> configure
+warning: Clustering enabled; using private edit
+warning: uncommitted changes will be discarded on exit
+Entering configuration mode
+
+{primary:node0}[edit]
+root@SRX550-1# exit
+Exiting configuration mode
+
+{primary:node0}
+root@SRX550-1> show chassis hardware
+node0:
+--------------------------------------------------------------------------
+Hardware inventory:
+Item             Version  Part number  Serial number     Description
+Chassis                                DA3516AK0145      SRX550M
+Midplane         REV 08   750-063950   ACPB3944
+Routing Engine   REV 06   711-062269   ACPF3302          RE-SRX550M
+FPC 0                                                    FPC
+  PIC 0                                                  6x GE, 4x GE SFP Base PIC
+FPC 6            REV 04   750-064614   ACPH9023          FPC
+  PIC 0                                                  16x GE POE gPIM
+Power Supply 0   Rev 04   740-024283   AG90823           PS 645W AC
+Power Supply 1   Rev 04   740-024283   AG90181           PS 645W AC
+
+node1:
+--------------------------------------------------------------------------
+Hardware inventory:
+Item             Version  Part number  Serial number     Description
+Chassis                                DA3516AK0199      SRX550M
+Midplane         REV 08   750-063950   ACPB3807
+Routing Engine   REV 06   711-062269   ACPD1590          RE-SRX550M
+FPC 0                                                    FPC
+  PIC 0                                                  6x GE, 4x GE SFP Base PIC
+FPC 6            REV 04   750-064614   ACPH9056          FPC
+  PIC 0                                                  16x GE POE gPIM
+Power Supply 0   Rev 04   740-024283   AG90894           PS 645W AC
+Power Supply 1   Rev 04   740-024283   AB84660           PS 645W AC
+
+{primary:node0}
+root@SRX550-1> show chassis cluster status
+Monitor Failure codes:
+    CS  Cold Sync monitoring        FL  Fabric Connection monitoring
+    GR  GRES monitoring             HW  Hardware monitoring
+    IF  Interface monitoring        IP  IP monitoring
+    LB  Loopback monitoring         MB  Mbuf monitoring
+    NH  Nexthop monitoring          NP  NPC monitoring
+    SP  SPU monitoring              SM  Schedule monitoring
+    CF  Config Sync monitoring      RE  Relinquish monitoring
+
+Cluster ID: 1
+Node   Priority Status         Preempt Manual   Monitor-failures
+
+Redundancy group: 0 , Failover count: 1
+node0  100      primary        no      no       None
+node1  1        secondary      no      no       None
+
+Redundancy group: 1 , Failover count: 1
+node0  0        primary        yes     no       CS
+node1  0        secondary      yes     no       CS
+
+{primary:node0}
+root@SRX550-1> show configuration interfaces fab0
+fabric-options {
+    member-interfaces {
+        ge-0/0/2;
+    }
+}
+
+{primary:node0}
+root@SRX550-1> ru
+               ^
+unknown command.
+root@SRX550-1> show interfaces terse
+Interface               Admin Link Proto    Local                 Remote
+ge-0/0/0                up    down
+gr-0/0/0                up    up
+ip-0/0/0                up    up
+lt-0/0/0                up    up
+ge-0/0/1                up    up
+ge-0/0/2                up    up
+ge-0/0/2.0              up    up   aenet    --> fab0.0
+ge-0/0/3                up    down
+ge-0/0/3.0              up    down inet     192.168.3.1/24
+ge-0/0/4                up    down
+ge-0/0/4.0              up    down inet     192.168.4.1/24
+ge-0/0/5                up    down
+ge-0/0/5.0              up    down inet     192.168.5.1/24
+ge-0/0/6                up    down
+ge-0/0/7                up    down
+ge-0/0/8                up    down
+ge-0/0/9                up    down
+ge-0/0/9.0              up    down inet
+ge-6/0/0                up    down
+ge-6/0/1                up    down
+ge-6/0/2                up    down
+ge-6/0/3                up    down
+ge-6/0/4                up    down
+ge-6/0/5                up    down
+ge-6/0/6                up    down
+ge-6/0/7                up    down
+ge-6/0/8                up    down
+ge-6/0/9                up    down
+ge-6/0/10               up    down
+ge-6/0/11               up    down
+ge-6/0/12               up    down
+ge-6/0/13               up    down
+ge-6/0/14               up    down
+ge-6/0/15               up    down
+ge-9/0/0                up    down
+ge-9/0/1                up    up
+ge-9/0/2                up    up
+ge-9/0/3                up    down
+ge-9/0/4                up    down
+ge-9/0/5                up    down
+ge-9/0/6                up    down
+ge-9/0/7                up    down
+ge-9/0/8                up    down
+ge-9/0/9                up    down
+ge-15/0/0               up    down
+ge-15/0/1               up    down
+
+{primary:node0}
+root@SRX550-1> configure
+warning: Clustering enabled; using private edit
+warning: uncommitted changes will be discarded on exit
+Entering configuration mode
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces fab1
+##
+## inactive: interfaces fab1
+##
+fabric-options {
+    member-interfaces {
+        ge-1/0/2;
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# ...ric-options member-interfaces ge-9/0/2
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces fab1
+##
+## inactive: interfaces fab1
+##
+fabric-options {
+    member-interfaces {
+        ge-1/0/2;
+        ge-9/0/2;
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# delete interfaces fab1 fabric-options member-interfaces ge-1
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces fab1
+##
+## inactive: interfaces fab1
+##
+fabric-options {
+    member-interfaces {
+        ge-9/0/2;
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# activate interfaces fab1
+
+{primary:node0}[edit]
+root@SRX550-1# commit and-quit
+node0:
+configuration check succeeds
+node1:
+commit complete
+node0:
+commit complete
+Exiting configuration mode
+
+{primary:node0}
+root@SRX550-1> configure
+warning: Clustering enabled; using private edit
+warning: uncommitted changes will be discarded on exit
+Entering configuration mode
+
+{primary:node0}[edit]
+root@SRX550-1# run show interfaces
+Physical interface: ge-0/0/0, Enabled, Physical link is Down
+  Interface index: 151, SNMP ifIndex: 510
+  Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Link-mode: Full-duplex,
+  Speed: 1000mbps, BPDU Error: None, MAC-REWRITE Error: None,
+  Loopback: Disabled, Source filtering: Disabled, Flow control: Disabled,
+  Auto-negotiation: Enabled, Remote fault: Online
+  Device flags   : Present Running Down
+  Interface flags: Hardware-Down SNMP-Traps Internal: 0x0
+  Link flags     : None
+  CoS queues     : 8 supported, 8 maximum usable queues
+  Current address: d4:04:ff:e9:be:00, Hardware address: d4:04:ff:e9:be:00
+  Last flapped   : 2019-09-03 10:26:19 UTC (00:08:03 ago)
+  Input rate     : 0 bps (0 pps)
+  Output rate    : 0 bps (0 pps)
+  Active alarms  : LINK
+  Active defects : LINK
+  Interface transmit statistics: Disabled
+
+Physical interface: gr-0/0/0, Enabled, Physical link is Up
+  Interface index: 136, SNMP ifIndex: 525
+  Type: GRE, Link-level type: GRE, MTU: Unlimited, Speed: 800mbps
+  Link flags     : Scheduler Keepalives DTE
+  Device flags   : Present Running
+
+{primary:node0}[edit]
+root@SRX550-1# run show interfaces terse
+Interface               Admin Link Proto    Local                 Remote
+ge-0/0/0                up    down
+gr-0/0/0                up    up
+ip-0/0/0                up    up
+lt-0/0/0                up    up
+ge-0/0/1                up    up
+ge-0/0/2                up    up
+ge-0/0/2.0              up    up   aenet    --> fab0.0
+ge-0/0/3                up    down
+ge-0/0/3.0              up    down inet     192.168.3.1/24
+ge-0/0/4                up    down
+ge-0/0/4.0              up    down inet     192.168.4.1/24
+ge-0/0/5                up    down
+ge-0/0/5.0              up    down inet     192.168.5.1/24
+ge-0/0/6                up    down
+ge-0/0/7                up    down
+ge-0/0/8                up    down
+ge-0/0/9                up    down
+ge-0/0/9.0              up    down inet
+ge-6/0/0                up    down
+ge-6/0/1                up    down
+ge-6/0/2                up    down
+ge-6/0/3                up    down
+ge-6/0/4                up    down
+ge-6/0/5                up    down
+ge-6/0/6                up    down
+ge-6/0/7                up    down
+ge-6/0/8                up    down
+ge-6/0/9                up    down
+ge-6/0/10               up    down
+ge-6/0/11               up    down
+ge-6/0/12               up    down
+ge-6/0/13               up    down
+ge-6/0/14               up    down
+ge-6/0/15               up    down
+ge-9/0/0                up    down
+ge-9/0/1                up    up
+ge-9/0/2                up    up
+ge-9/0/2.0              up    up   aenet    --> fab1.0
+ge-9/0/3                up    down
+ge-9/0/4                up    down
+ge-9/0/5                up    down
+ge-9/0/6                up    down
+ge-9/0/7                up    down
+ge-9/0/8                up    down
+ge-9/0/9                up    down
+ge-15/0/0               up    down
+ge-15/0/1               up    down
+ge-15/0/2               up    down
+ge-15/0/3               up    down
+ge-15/0/4               up    down
+ge-15/0/5               up    down
+ge-15/0/6               up    down
+ge-15/0/7               up    down
+ge-15/0/8               up    down
+ge-15/0/9               up    down
+ge-15/0/10              up    down
+ge-15/0/11              up    down
+ge-15/0/12              up    down
+ge-15/0/13              up    down
+ge-15/0/14              up    down
+ge-15/0/15              up    down
+dl0                     up    up
+dl0.0                   up    up   inet
+                                   inet6
+fab0                    up    up
+fab0.0                  up    up   inet     30.17.0.200/24
+fab1                    up    up
+fab1.0                  up    up   inet     30.18.0.200/24
+fxp0                    up    up
+fxp0.0                  up    up   inet     1.1.1.1/24
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces
+ge-0/0/3 {
+    unit 0 {
+        family inet {
+            address 192.168.3.1/24;
+        }
+    }
+}
+ge-0/0/4 {
+    unit 0 {
+        family inet {
+            address 192.168.4.1/24;
+        }
+    }
+}
+ge-0/0/5 {
+    unit 0 {
+        family inet {
+            address 192.168.5.1/24;
+        }
+    }
+}
+ge-0/0/9 {
+    unit 0 {
+        family inet;
+    }
+}
+cl-1/0/0 {
+    dialer-options {
+        pool 1 priority 100;
+    }
+}
+dl0 {
+    unit 0 {
+        family inet {
+            negotiate-address;
+        }
+        family inet6 {
+            negotiate-address;
+        }
+        dialer-options {
+            pool 1;
+            always-on;
+            dial-string 1234;
+        }
+    }
+}
+fab0 {
+    fabric-options {
+        member-interfaces {
+            ge-0/0/2;
+        }
+    }
+}
+fab1 {
+    fabric-options {
+        member-interfaces {
+            ge-9/0/2;
+        }
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# set interfaces ge-0/0/0 unit 0 family er
+                                                     ^
+syntax error.
+root@SRX550-1# ... unit 0 family ethernet-switching vlanme
+                                                    ^
+syntax error.
+root@SRX550-1# show interfaces ir
+                                  ^
+invalid interface type in 'ir'.
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces vl
+                                  ^
+invalid interface type in 'vl'.
+
+{primary:node0}[edit]
+root@SRX550-1# ... 10 family inet address 193.30.10.245/24
+
+{primary:node0}[edit]
+root@SRX550-1# ...faces irb unit 30 family inet address 193.30.12.245
+
+{primary:node0}[edit]
+root@SRX550-1# ...1 family inet address 193.30.51.245/24
+
+{primary:node0}[edit]
+root@SRX550-1# ...0 family inet address 193.30.12.245/24
+
+{primary:node0}[edit]
+root@SRX550-1# ...faces irb unit 52 family inet address 193.30.52.245/24
+
+{primary:node0}[edit]
+root@SRX550-1# ...faces irb unit 53 family inet address 193.30.53.245/24
+
+{primary:node0}[edit]
+root@SRX550-1# ...faces irb unit 73 family inet address 193.30.73.245/24
+
+{primary:node0}[edit]
+root@SRX550-1# ...faces irb unit 72 family inet address 193.30.72.245/24
+
+{primary:node0}[edit]
+root@SRX550-1# ...faces irb unit 71 family inet address 193.30.71.245/24
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces irb
+unit 10 {
+    family inet {
+        address 193.30.10.245/24;
+    }
+}
+unit 30 {
+    family inet {
+        address 193.30.12.245/32;
+        address 193.30.12.245/24;
+    }
+}
+unit 51 {
+    family inet {
+        address 193.30.51.245/24;
+    }
+}
+unit 52 {
+    family inet {
+        address 193.30.52.245/24;
+    }
+}
+unit 53 {
+    family inet {
+        address 193.30.53.245/24;
+    }
+}
+unit 71 {
+    family inet {
+        address 193.30.71.245/24;
+    }
+}
+unit 72 {
+    family inet {
+        address 193.30.72.245/24;
+    }
+}
+unit 73 {
+    family inet {
+        address 193.30.73.245/24;
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# ...nit 30 family inet address 193.30.12.245/32
+
+{primary:node0}[edit]
+root@SRX550-1# show vlans
+
+{primary:node0}[edit]
+root@SRX550-1# set vlans v10 vlan-id 10 l3-interface irb.10
+
+{primary:node0}[edit]
+root@SRX550-1# set vlans v30 vlan-id 30 l3-interface irb.30
+
+{primary:node0}[edit]
+root@SRX550-1# set vlans v51 vlan-id 51 l3-interface irb.51
+
+{primary:node0}[edit]
+root@SRX550-1# set vlans v52 vlan-id 52 l3-interface irb.52
+
+{primary:node0}[edit]
+root@SRX550-1# set vlans v53 vlan-id 53 l3-interface irb.53
+
+{primary:node0}[edit]
+root@SRX550-1# set vlans v73 vlan-id 73 l3-interface irb.73
+
+{primary:node0}[edit]
+root@SRX550-1# set vlans v72 vlan-id 72 l3-interface irb.72
+
+{primary:node0}[edit]
+root@SRX550-1# set vlans v71 vlan-id 71 l3-interface irb.71
+
+{primary:node0}[edit]
+root@SRX550-1# show vlans
+v10 {
+    vlan-id 10;
+    l3-interface irb.10;
+}
+v30 {
+    vlan-id 30;
+    l3-interface irb.30;
+}
+v51 {
+    vlan-id 51;
+    l3-interface irb.51;
+}
+v52 {
+    vlan-id 52;
+    l3-interface irb.52;
+}
+v53 {
+    vlan-id 53;
+    l3-interface irb.53;
+}
+v71 {
+    vlan-id 71;
+    l3-interface irb.71;
+}
+v72 {
+    vlan-id 72;
+    l3-interface irb.72;
+}
+v73 {
+    vlan-id 73;
+    l3-interface irb.73;
+}
+
+{primary:node0}[edit]
+root@SRX550-1# sj
+               ^
+unknown command.
+root@SRX550-1# show interfaces irb
+unit 10 {
+    family inet {
+        address 193.30.10.245/24;
+    }
+}
+unit 30 {
+    family inet {
+        address 193.30.12.245/24;
+    }
+}
+unit 51 {
+    family inet {
+        address 193.30.51.245/24;
+    }
+}
+unit 52 {
+    family inet {
+        address 193.30.52.245/24;
+    }
+}
+unit 53 {
+    family inet {
+        address 193.30.53.245/24;
+    }
+}
+unit 71 {
+    family inet {
+        address 193.30.71.245/24;
+    }
+}
+unit 72 {
+    family inet {
+        address 193.30.72.245/24;
+    }
+}
+unit 73 {
+    family inet {
+        address 193.30.73.245/24;
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# commit
+node0:
+configuration check succeeds
+node1:
+commit complete
+node0:
+commit complete
+
+{primary:node0}[edit]
+root@SRX550-1#
+
+{primary:node0}[edit]
+root@SRX550-1# load set terminal
+[Type ^D at a new line to end input]
+
+set interfaces ge-6/0/0 gigether-options redundant-parent reth0
+set interfaces ge-15/0/0 gigether-options redundant-parent reth0
+set interfaces reth0 redundant-ether-options redundancy-group 1
+set interfaces reth0 unit 0 family ethernet-switching vlan members v10
+
+set interfaces ge-6/0/1 gigether-options redundant-parent reth1
+set interfaces ge-15/0/1 gigether-options redundant-parent reth1
+set interfaces reth1 redundant-ether-options redundancy-group 1
+set interfaces reth1 unit 0 family ethernet-switching vlan members v30
+
+set interfaces ge-6/0/2 gigether-options redundant-parent reth2
+set interfaces ge-15/0/2 gigether-options redundant-parent reth2
+set interfaces reth2 redundant-ether-options redundancy-group 1
+set interfaces reth2 unit 0 family ethernet-switching vlan members v51
+set interfaces reth2 unit 0 family ethernet-switching vlan members v52
+set interfaces reth2 unit 0 family ethernet-switching vlan members v53
+
+set interfaces ge-6/0/3 gigether-options redundant-parent reth3
+set interfaces ge-15/0/3 gigether-options redundant-parent reth3
+set interfaces reth3 redundant-ether-options redundancy-group 1
+set interfaces reth3 unit 0 family ethernet-switching vlan members v71
+set interfaces reth3 unit 0 family ethernet-switching vlan members v72
+set interfaces reth3 unit 0 family ethernet-switching vlan members v73
+
+set security zones security-zone online interfaces reth0.0
+set security zones security-zone eos interfaces reth1.0
+set security zones security-zone ddcc interfaces reth2.0
+set security zones security-zone ehv interfaces reth3.0
+
+set chassis cluster redundancy-group 1 interface-monitor ge-6/0/0 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-15/0/0 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-6/0/1 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-15/0/1 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-6/0/2 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-15/0/2 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-6/0/3 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-15/0/3 weight 255
+load complete
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces
+ge-0/0/3 {
+    unit 0 {
+        family inet {
+            address 192.168.3.1/24;
+        }
+    }
+}
+ge-0/0/4 {
+    unit 0 {
+        family inet {
+            address 192.168.4.1/24;
+        }
+    }
+}
+ge-0/0/5 {
+    unit 0 {
+        family inet {
+            address 192.168.5.1/24;
+        }
+    }
+}
+ge-0/0/9 {
+    unit 0 {
+
+{primary:node0}[edit]
+root@SRX550-1# delete interfaces ge-0/0/3
+
+{primary:node0}[edit]
+root@SRX550-1# delete interfaces ge-0/0/4
+
+{primary:node0}[edit]
+root@SRX550-1# delete interfaces ge-0/0/5
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces
+ge-0/0/9 {
+    unit 0 {
+        family inet;
+    }
+}
+cl-1/0/0 {
+    dialer-options {
+        pool 1 priority 100;
+    }
+}
+ge-6/0/0 {
+    gigether-options {
+        redundant-parent reth0;
+    }
+}
+ge-6/0/1 {
+    gigether-options {
+        redundant-parent reth1;
+    }
+}
+ge-6/0/2 {
+    gigether-options {
+        redundant-parent reth2;
+
+{primary:node0}[edit]
+root@SRX550-1# delete interfaces ge-0/0/9
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces
+cl-1/0/0 {
+    dialer-options {
+        pool 1 priority 100;
+    }
+}
+ge-6/0/0 {
+    gigether-options {
+        redundant-parent reth0;
+    }
+}
+ge-6/0/1 {
+    gigether-options {
+        redundant-parent reth1;
+    }
+}
+ge-6/0/2 {
+    gigether-options {
+        redundant-parent reth2;
+    }
+}
+ge-6/0/3 {
+    gigether-options {
+        redundant-parent reth3;
+    }
+}
+ge-15/0/0 {
+    gigether-options {
+        redundant-parent reth0;
+    }
+}
+ge-15/0/1 {
+    gigether-options {
+        redundant-parent reth1;
+    }
+}
+ge-15/0/2 {
+    gigether-options {
+        redundant-parent reth2;
+    }
+}
+ge-15/0/3 {
+    gigether-options {
+        redundant-parent reth3;
+    }
+}
+dl0 {
+    unit 0 {
+        family inet {
+            negotiate-address;
+        }
+        family inet6 {
+            negotiate-address;
+        }
+        dialer-options {
+            pool 1;
+            always-on;
+            dial-string 1234;
+        }
+    }
+}
+fab0 {
+    fabric-options {
+        member-interfaces {
+            ge-0/0/2;
+        }
+    }
+}
+fab1 {
+    fabric-options {
+        member-interfaces {
+            ge-9/0/2;
+
+{primary:node0}[edit]
+root@SRX550-1# delete interfaces dl0
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces
+cl-1/0/0 {
+    dialer-options {
+        pool 1 priority 100;
+    }
+}
+ge-6/0/0 {
+    gigether-options {
+        redundant-parent reth0;
+    }
+}
+ge-6/0/1 {
+    gigether-options {
+        redundant-parent reth1;
+    }
+}
+ge-6/0/2 {
+    gigether-options {
+        redundant-parent reth2;
+    }
+}
+ge-6/0/3 {
+    gigether-options {
+        redundant-parent reth3;
+    }
+}
+ge-15/0/0 {
+    gigether-options {
+        redundant-parent reth0;
+    }
+}
+ge-15/0/1 {
+    gigether-options {
+        redundant-parent reth1;
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# dle
+               ^
+unknown command.
+root@SRX550-1# delete interfaces cl-1/0/0
+
+{primary:node0}[edit]
+root@SRX550-1# show interfaces
+ge-6/0/0 {
+    gigether-options {
+        redundant-parent reth0;
+    }
+}
+ge-6/0/1 {
+    gigether-options {
+        redundant-parent reth1;
+    }
+}
+ge-6/0/2 {
+    gigether-options {
+        redundant-parent reth2;
+    }
+}
+ge-6/0/3 {
+    gigether-options {
+        redundant-parent reth3;
+    }
+}
+ge-15/0/0 {
+    gigether-options {
+        redundant-parent reth0;
+    }
+}
+ge-15/0/1 {
+    gigether-options {
+        redundant-parent reth1;
+    }
+}
+ge-15/0/2 {
+    gigether-options {
+        redundant-parent reth2;
+    }
+}
+ge-15/0/3 {
+    gigether-options {
+        redundant-parent reth3;
+    }
+}
+fab0 {
+    fabric-options {
+        member-interfaces {
+            ge-0/0/2;
+        }
+    }
+}
+fab1 {
+    fabric-options {
+        member-interfaces {
+            ge-9/0/2;
+        }
+    }
+}
+irb {
+    unit 10 {
+        family inet {
+            address 193.30.10.245/24;
+        }
+    }
+    unit 30 {
+        family inet {
+            address 193.30.12.245/24;
+        }
+    }
+    unit 51 {
+        family inet {
+            address 193.30.51.245/24;
+        }
+    }
+    unit 52 {
+        family inet {
+            address 193.30.52.245/24;
+        }
+    }
+    unit 53 {
+        family inet {
+            address 193.30.53.245/24;
+        }
+    }
+    unit 71 {
+        family inet {
+            address 193.30.71.245/24;
+        }
+    }
+    unit 72 {
+        family inet {
+            address 193.30.72.245/24;
+        }
+    }
+    unit 73 {
+        family inet {
+            address 193.30.73.245/24;
+        }
+    }
+}
+reth0 {
+    redundant-ether-options {
+        redundancy-group 1;
+    }
+    unit 0 {
+        ##
+        ## Warning: In switching mode, ethernet-switching interface must not be in security zone.
+        ## Warning: In switching mode, ethernet-switching interface must not be in security zone.
+        ##
+        family ethernet-switching {
+            vlan {
+                members v10;
+            }
+        }
+    }
+}
+reth1 {
+    redundant-ether-options {
+        redundancy-group 1;
+    }
+    unit 0 {
+        ##
+        ## Warning: In switching mode, ethernet-switching interface must not be in security zone.
+        ## Warning: In switching mode, ethernet-switching interface must not be in security zone.
+        ##
+        family ethernet-switching {
+            vlan {
+                members v30;
+            }
+        }
+    }
+}
+reth2 {
+    redundant-ether-options {
+        redundancy-group 1;
+    }
+    unit 0 {
+        ##
+        ## Warning: In switching mode, ethernet-switching interface must not be in security zone.
+        ## Warning: In switching mode, ethernet-switching interface must not be in security zone.
+        ##
+        family ethernet-switching {
+            vlan {
+                members [ v51 v52 v53 ];
+            }
+        }
+    }
+}
+reth3 {
+    redundant-ether-options {
+        redundancy-group 1;
+    }
+    unit 0 {
+        ##
+        ## Warning: In switching mode, ethernet-switching interface must not be in security zone.
+        ## Warning: In switching mode, ethernet-switching interface must not be in security zone.
+        ##
+        family ethernet-switching {
+            vlan {
+                members [ v71 v72 v73 ];
+            }
+        }
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# set interfaces reth
+                                  ^
+'reth' is ambiguous.
+Possible completions:
+  <interface-name>     Interface name
+  reth0                Interface name
+  reth1                Interface name
+  reth2                Interface name
+  reth3                Interface name
+{primary:node0}[edit]
+root@SRX550-1# set interfaces reth2 fa
+                                    ^
+syntax error.
+root@SRX550-1# set interfaces reth2 unit 0 family ethernet-switching in
+                                                                       ^
+'in' is ambiguous.
+Possible completions:
+> inner-vlan           Trunk mode vlan membership for this interface
+  inter-switch-link    PVLAN inter switch link
+  interface-mode       Type of interface mode
+{primary:node0}[edit]
+root@SRX550-1# ...it 0 family ethernet-switching interface-mode trunk
+
+{primary:node0}[edit]
+root@SRX550-1# set interfaces reth3 unit 0 family ethernet-switching interf
+
+{primary:node0}[edit]
+root@SRX550-1# delete security policies
+
+{primary:node0}[edit]
+root@SRX550-1# delete security zones
+
+{primary:node0}[edit]
+root@SRX550-1# load set terminal
+[Type ^D at a new line to end input]
+set security zones security-zone online interfaces reth0.0
+set security zones security-zone eos interfaces reth1.0
+set security zones security-zone ddcc interfaces reth2.0
+set security zones security-zone ehv interfaces reth3.0
+load complete
+
+{primary:node0}[edit]
+root@SRX550-1# delete security nat
+
+{primary:node0}[edit]
+root@SRX550-1# show
+## Last changed: 2019-09-03 10:59:55 UTC
+version 15.1X49-D170.4;
+groups {
+    node0 {
+        system {
+            host-name SRX550-1;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.1/24;
+                    }
+                }
+            }
+        }
+    }
+    node1 {
+        system {
+            host-name SRX550-2;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.2/24;
+                    }
+                }
+            }
+        }
+    }
+}
+apply-groups "${node}";
+system {
+    root-authentication {
+        encrypted-password "$5$F1zRSKRf$upVgar5pNSygmrjIrwFMFyBoZjwWjyjWalRm5tuuI53"; ## SECRET-DATA
+    }
+    name-server {
+        8.8.8.8;
+        8.8.4.4;
+    }
+    services {
+        ssh;
+        netconf {
+            ssh;
+        }
+        dhcp-local-server {
+            group jdhcp-group {
+                interface ge-0/0/1.0;
+                interface ge-0/0/2.0;
+                interface ge-0/0/3.0;
+                interface ge-0/0/4.0;
+                interface ge-0/0/5.0;
+            }
+        }
+        web-management {
+            https {
+                system-generated-certificate;
+            }
+        }
+    }
+    syslog {
+        archive size 100k files 3;
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+
+{primary:node0}[edit]
+root@SRX550-1# delete system dh
+                             ^
+syntax error.
+root@SRX550-1# delete system services dhcp-local-server
+
+{primary:node0}[edit]
+root@SRX550-1# show
+## Last changed: 2019-09-03 11:00:08 UTC
+version 15.1X49-D170.4;
+groups {
+    node0 {
+        system {
+            host-name SRX550-1;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.1/24;
+                    }
+                }
+            }
+        }
+    }
+    node1 {
+        system {
+            host-name SRX550-2;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.2/24;
+                    }
+                }
+            }
+        }
+    }
+}
+apply-groups "${node}";
+system {
+    root-authentication {
+        encrypted-password "$5$F1zRSKRf$upVgar5pNSygmrjIrwFMFyBoZjwWjyjWalRm5tuuI53"; ## SECRET-DATA
+    }
+    name-server {
+        8.8.8.8;
+        8.8.4.4;
+    }
+    services {
+        ssh;
+        netconf {
+            ssh;
+        }
+        web-management {
+            https {
+                system-generated-certificate;
+            }
+        }
+    }
+    syslog {
+        archive size 100k files 3;
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+    max-configurations-on-flash 5;
+    max-configuration-rollbacks 5;
+    license {
+        autoupdate {
+            url https://ae1.juniper.net/junos/key_retrieval;
+        }
+    }
+}
+chassis {
+    aggregated-devices {
+        ethernet {
+            device-count 2;
+        }
+    }
+    cluster {
+        reth-count 12;
+        redundancy-group 0 {
+
+{primary:node0}[edit]
+root@SRX550-1# set system ma
+                            ^
+'ma' is ambiguous.
+Possible completions:
+> master-password      Master password for $8$ password-encryption
+  max-configuration-rollbacks  Number of rollback configuration files (0..49)
+  max-configurations-on-flash  Number of configuration files stored on flash
+{primary:node0}[edit]
+root@SRX550-1# set system max-configurations-on-flash 49
+
+{primary:node0}[edit]
+root@SRX550-1# set system ma
+                            ^
+'ma' is ambiguous.
+Possible completions:
+> master-password      Master password for $8$ password-encryption
+  max-configuration-rollbacks  Number of rollback configuration files (0..49)
+  max-configurations-on-flash  Number of configuration files stored on flash
+{primary:node0}[edit]
+root@SRX550-1# set system max-configuration-rollbacks 49
+
+{primary:node0}[edit]
+root@SRX550-1# show
+## Last changed: 2019-09-03 11:00:39 UTC
+version 15.1X49-D170.4;
+groups {
+    node0 {
+        system {
+            host-name SRX550-1;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.1/24;
+                    }
+                }
+            }
+        }
+    }
+    node1 {
+        system {
+            host-name SRX550-2;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.2/24;
+                    }
+                }
+            }
+        }
+    }
+}
+apply-groups "${node}";
+system {
+    root-authentication {
+        encrypted-password "$5$F1zRSKRf$upVgar5pNSygmrjIrwFMFyBoZjwWjyjWalRm5tuuI53"; ## SECRET-DATA
+    }
+    name-server {
+        8.8.8.8;
+        8.8.4.4;
+    }
+    services {
+        ssh;
+        netconf {
+            ssh;
+        }
+        web-management {
+            https {
+                system-generated-certificate;
+            }
+        }
+    }
+    syslog {
+        archive size 100k files 3;
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+    max-configurations-on-flash 49;
+    max-configuration-rollbacks 49;
+    license {
+        autoupdate {
+            url https://ae1.juniper.net/junos/key_retrieval;
+        }
+    }
+}
+chassis {
+    aggregated-devices {
+        ethernet {
+            device-count 2;
+        }
+    }
+    cluster {
+        reth-count 12;
+        redundancy-group 0 {
+            node 0 priority 100;
+            node 1 priority 1;
+        }
+        redundancy-group 1 {
+            node 0 priority 100;
+            node 1 priority 1;
+            preempt;
+            interface-monitor {
+                ge-6/0/0 weight 255;
+                ge-15/0/0 weight 255;
+                ge-6/0/1 weight 255;
+                ge-15/0/1 weight 255;
+                ge-6/0/2 weight 255;
+                ge-15/0/2 weight 255;
+                ge-6/0/3 weight 255;
+                ge-15/0/3 weight 255;
+            }
+        }
+    }
+}
+security {
+    log {
+        mode stream;
+        report;
+    }
+    screen {
+        ids-option untrust-screen {
+            icmp {
+                ping-death;
+            }
+            ip {
+                source-route-option;
+                tear-drop;
+            }
+            tcp {
+                syn-flood {
+                    alarm-threshold 1024;
+                    attack-threshold 200;
+                    source-threshold 1024;
+                    destination-threshold 2048;
+                    timeout 20;
+                }
+                land;
+            }
+        }
+    }
+    zones {
+        security-zone online {
+            interfaces {
+                ##
+                ## Warning: Referenced interface must not be ethernet-switching interface of switching mode
+                ## Warning: Referenced interface must not be ethernet-switching interface of switching mode
+                ##
+                reth0.0;
+            }
+        }
+        security-zone eos {
+            interfaces {
+                ##
+                ## Warning: Referenced interface must not be ethernet-switching interface of switching mode
+                ## Warning: Referenced interface must not be ethernet-switching interface of switching mode
+                ##
+                reth1.0;
+            }
+        }
+        security-zone ddcc {
+            interfaces {
+                ##
+
+{primary:node0}[edit]
+root@SRX550-1# ...t-inbound-traffic system-services all
+
+{primary:node0}[edit]
+root@SRX550-1# ...y-zone online host-inbound-traffic protocols all
+
+{primary:node0}[edit]
+root@SRX550-1# ...ecurity-zone eos host-inbound-traffic protocols all
+
+{primary:node0}[edit]
+root@SRX550-1# ...host-inbound-traffic system-services all
+
+{primary:node0}[edit]
+root@SRX550-1# ...rity-zone ddcc host-inbound-traffic system-services all
+
+{primary:node0}[edit]
+root@SRX550-1# ...ity-zone ddcc host-inbound-traffic protocols all
+
+{primary:node0}[edit]
+root@SRX550-1# ... security-zone ehv host-inbound-traffic protocols all
+
+{primary:node0}[edit]
+root@SRX550-1# ...s security-zone ehv host-inbound-traffic ser
+                                                           ^
+syntax error.
+root@SRX550-1# ...s security-zone ehv host-inbound-traffic sera;
+                                                           ^
+syntax error.
+root@SRX550-1# ...s security-zone ehv host-inbound-traffic se
+                                                           ^
+syntax error.
+root@SRX550-1# ...host-inbound-traffic system-services all
+
+{primary:node0}[edit]
+root@SRX550-1# show security zones
+security-zone online {
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        ##
+        ## Warning: Referenced interface must not be ethernet-switching interface of switching mode
+        ## Warning: Referenced interface must not be ethernet-switching interface of switching mode
+        ##
+        reth0.0;
+    }
+}
+security-zone eos {
+    host-inbound-traffic {
+        system-services {
+            all;
+
+{primary:node0}[edit]
+root@SRX550-1# show security zones |display set |no-more
+set security zones security-zone online host-inbound-traffic system-services all
+set security zones security-zone online host-inbound-traffic protocols all
+set security zones security-zone online interfaces reth0.0
+set security zones security-zone eos host-inbound-traffic system-services all
+set security zones security-zone eos host-inbound-traffic protocols all
+set security zones security-zone eos interfaces reth1.0
+set security zones security-zone ddcc host-inbound-traffic system-services all
+set security zones security-zone ddcc host-inbound-traffic protocols all
+set security zones security-zone ddcc interfaces reth2.0
+set security zones security-zone ehv host-inbound-traffic system-services all
+set security zones security-zone ehv host-inbound-traffic protocols all
+set security zones security-zone ehv interfaces reth3.0
+
+{primary:node0}[edit]
+root@SRX550-1# delete security zones
+
+{primary:node0}[edit]
+root@SRX550-1# load set terminal
+[Type ^D at a new line to end input]
+set security zones security-zone online host-inbound-traffic system-services all
+set security zones security-zone online host-inbound-traffic protocols all
+set security zones security-zone online interfaces irb.10
+set security zones security-zone eos host-inbound-traffic system-services all
+set security zones security-zone eos host-inbound-traffic protocols all
+set security zones security-zone eos interfaces irb.30
+set security zones security-zone ddcc host-inbound-traffic system-services all
+set security zones security-zone ddcc host-inbound-traffic protocols all
+set security zones security-zone ddcc interfaces irb.51
+set security zones security-zone ddcc interfaces irb.52
+set security zones security-zone ddcc interfaces irb.53
+set security zones security-zone ehv host-inbound-traffic system-services all
+set security zones security-zone ehv host-inbound-traffic protocols all
+set security zones security-zone ehv interfaces irb.71
+set security zones security-zone ehv interfaces irb.72
+set security zones security-zone ehv interfaces irb.73
+load complete
+
+{primary:node0}[edit]
+root@SRX550-1# show security zones
+security-zone online {
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.10;
+    }
+}
+security-zone eos {
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.30;
+    }
+}
+security-zone ddcc {
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.51;
+        irb.52;
+        irb.53;
+    }
+}
+security-zone ehv {
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.71;
+        irb.72;
+        irb.73;
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# show security in
+                             ^
+syntax error.
+root@SRX550-1# show interfaces
+ge-6/0/0 {
+    gigether-options {
+        redundant-parent reth0;
+    }
+}
+ge-6/0/1 {
+    gigether-options {
+        redundant-parent reth1;
+    }
+}
+ge-6/0/2 {
+    gigether-options {
+        redundant-parent reth2;
+    }
+}
+ge-6/0/3 {
+    gigether-options {
+        redundant-parent reth3;
+    }
+}
+ge-15/0/0 {
+    gigether-options {
+        redundant-parent reth0;
+    }
+}
+ge-15/0/1 {
+    gigether-options {
+        redundant-parent reth1;
+    }
+}
+ge-15/0/2 {
+    gigether-options {
+        redundant-parent reth2;
+    }
+}
+ge-15/0/3 {
+    gigether-options {
+        redundant-parent reth3;
+    }
+}
+fab0 {
+    fabric-options {
+        member-interfaces {
+            ge-0/0/2;
+        }
+    }
+}
+fab1 {
+    fabric-options {
+        member-interfaces {
+            ge-9/0/2;
+        }
+    }
+}
+irb {
+    unit 10 {
+        family inet {
+            address 193.30.10.245/24;
+        }
+    }
+    unit 30 {
+        family inet {
+            address 193.30.12.245/24;
+        }
+    }
+    unit 51 {
+        family inet {
+            address 193.30.51.245/24;
+        }
+    }
+    unit 52 {
+        family inet {
+            address 193.30.52.245/24;
+        }
+    }
+    unit 53 {
+        family inet {
+            address 193.30.53.245/24;
+        }
+    }
+    unit 71 {
+        family inet {
+            address 193.30.71.245/24;
+        }
+    }
+    unit 72 {
+        family inet {
+            address 193.30.72.245/24;
+        }
+    }
+    unit 73 {
+        family inet {
+            address 193.30.73.245/24;
+        }
+    }
+}
+reth0 {
+    redundant-ether-options {
+        redundancy-group 1;
+    }
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members v10;
+            }
+        }
+    }
+}
+reth1 {
+    redundant-ether-options {
+        redundancy-group 1;
+    }
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members v30;
+            }
+        }
+    }
+}
+reth2 {
+    redundant-ether-options {
+        redundancy-group 1;
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode trunk;
+            vlan {
+                members [ v51 v52 v53 ];
+            }
+        }
+    }
+}
+reth3 {
+    redundant-ether-options {
+        redundancy-group 1;
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode trunk;
+            vlan {
+                members [ v71 v72 v73 ];
+            }
+        }
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# delete security policies
+warning: statement not found
+
+{primary:node0}[edit]
+root@SRX550-1# show security policies
+
+{primary:node0}[edit]
+root@SRX550-1# set security zones security-zone online ad
+                                                         ^
+'ad' is ambiguous.
+Possible completions:
+> address-book         Address book entries
+> advance-policy-based-routing-profile  Enable Advance Policy Based Routing on this zone
+{primary:node0}[edit]
+root@SRX550-1# ...ress-book address 193.30.10.10/32 193.30.10.10/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book address 193.30.10.13 193.30.10.13
+
+{primary:node0}[edit]
+root@SRX550-1# ... online address-book address 193.30.12.12/32
+                                                               ^
+missing argument.
+
+{primary:node0}[edit]
+root@SRX550-1# ...dress-book address 193.30.12.12/32 193.30.12.12/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book ?
+Possible completions:
+> address              Define a security address
+> address-set          Define a security address set
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book address-set ?
+Possible completions:
+  <address-set-name>   Security address-set name
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book address-set 193.30.12.14-17 ?
+Possible completions:
+> address              Address to be included in this set
+> address-set          Define an address-set name
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+  description          Text description of address set
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book address-set 193.30.12.14-17 address ?
+Possible completions:
+  <address-name>       Security address name
+  193.30.10.10/32
+  193.30.10.13
+  193.30.12.12/32
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book address 193.30.12.14/32 193.30.12.14/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book address 193.30.12.15/32 193.30.12.15/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book address 193.30.12.16/32 193.30.12.16/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book address 193.30.12.17/32 193.30.12.17/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...e address-book address 193.30.12.0/24 193.30.12.0/24
+
+{primary:node0}[edit]
+root@SRX550-1# show security zones
+security-zone online {
+    address-book {
+        address 193.30.10.10/32 193.30.10.10/32;
+        address 193.30.10.13 193.30.10.13/32;
+        address 193.30.12.12/32 193.30.12.12/32;
+        address 193.30.12.14/32 193.30.12.14/32;
+        address 193.30.12.15/32 193.30.12.15/32;
+        address 193.30.12.16/32 193.30.12.16/32;
+        address 193.30.12.17/32 193.30.12.17/32;
+        address 193.30.12.0/24 193.30.12.0/24;
+    }
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.10;
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# ... address 193.30.10.13/32 193.30.10.13/32
+
+{primary:node0}[edit]
+root@SRX550-1# show security zones |display set |no-more
+set security zones security-zone online address-book address 193.30.10.10/32 193.30.10.10/32
+set security zones security-zone online address-book address 193.30.10.13 193.30.10.13/32
+set security zones security-zone online address-book address 193.30.12.12/32 193.30.12.12/32
+set security zones security-zone online address-book address 193.30.12.14/32 193.30.12.14/32
+set security zones security-zone online address-book address 193.30.12.15/32 193.30.12.15/32
+set security zones security-zone online address-book address 193.30.12.16/32 193.30.12.16/32
+set security zones security-zone online address-book address 193.30.12.17/32 193.30.12.17/32
+set security zones security-zone online address-book address 193.30.12.0/24 193.30.12.0/24
+set security zones security-zone online address-book address 193.30.10.13/32 193.30.10.13/32
+set security zones security-zone online host-inbound-traffic system-services all
+set security zones security-zone online host-inbound-traffic protocols all
+set security zones security-zone online interfaces irb.10
+set security zones security-zone eos host-inbound-traffic system-services all
+set security zones security-zone eos host-inbound-traffic protocols all
+set security zones security-zone eos interfaces irb.30
+set security zones security-zone ddcc host-inbound-traffic system-services all
+set security zones security-zone ddcc host-inbound-traffic protocols all
+set security zones security-zone ddcc interfaces irb.51
+set security zones security-zone ddcc interfaces irb.52
+set security zones security-zone ddcc interfaces irb.53
+set security zones security-zone ehv host-inbound-traffic system-services all
+set security zones security-zone ehv host-inbound-traffic protocols all
+set security zones security-zone ehv interfaces irb.71
+set security zones security-zone ehv interfaces irb.72
+set security zones security-zone ehv interfaces irb.73
+
+{primary:node0}[edit]
+root@SRX550-1# delete security zones
+
+{primary:node0}[edit]
+root@SRX550-1# load set terminal
+[Type ^D at a new line to end input]
+set security zones security-zone online address-book address 193.30.10.10/32 193.30.10.10/32
+set security zones security-zone online address-book address 193.30.10.13/32 193.30.10.13/32
+set security zones security-zone online host-inbound-traffic system-services all
+set security zones security-zone online host-inbound-traffic protocols all
+set security zones security-zone online interfaces irb.10
+set security zones security-zone eos address-book address 193.30.12.12/32 193.30.12.12/32
+set security zones security-zone eos address-book address 193.30.12.14/32 193.30.12.14/32
+set security zones security-zone eos address-book address 193.30.12.15/32 193.30.12.15/32
+set security zones security-zone eos address-book address 193.30.12.16/32 193.30.12.16/32
+set security zones security-zone eos address-book address 193.30.12.17/32 193.30.12.17/32
+set security zones security-zone eos address-book address 193.30.12.0/24 193.30.12.0/24
+set security zones security-zone eos host-inbound-traffic system-services all
+set security zones security-zone eos host-inbound-traffic protocols all
+set security zones security-zone eos interfaces irb.30
+set security zones security-zone ddcc host-inbound-traffic system-services all
+set security zones security-zone ddcc host-inbound-traffic protocols all
+set security zones security-zone ddcc interfaces irb.51
+set security zones security-zone ddcc interfaces irb.52
+set security zones security-zone ddcc interfaces irb.53
+set security zones security-zone ehv host-inbound-traffic system-services all
+set security zones security-zone ehv host-inbound-traffic protocols all
+set security zones security-zone ehv interfaces irb.71
+set security zones security-zone ehv interfaces irb.72
+set security zones security-zone ehv interfaces irb.73
+load complete
+
+{primary:node0}[edit]
+root@SRX550-1# show security zones
+security-zone online {
+    address-book {
+        address 193.30.10.10/32 193.30.10.10/32;
+        address 193.30.10.13/32 193.30.10.13/32;
+    }
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.10;
+    }
+}
+security-zone eos {
+    address-book {
+        address 193.30.12.12/32 193.30.12.12/32;
+        address 193.30.12.14/32 193.30.12.14/32;
+        address 193.30.12.15/32 193.30.12.15/32;
+        address 193.30.12.16/32 193.30.12.16/32;
+        address 193.30.12.17/32 193.30.12.17/32;
+        address 193.30.12.0/24 193.30.12.0/24;
+    }
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+
+{primary:node0}[edit]
+root@SRX550-1# set security zones security-zone eos ad
+                                                      ^
+'ad' is ambiguous.
+Possible completions:
+> address-book         Address book entries
+> advance-policy-based-routing-profile  Enable Advance Policy Based Routing on this zone
+{primary:node0}[edit]
+root@SRX550-1# ...rity-zone eos address-book address-set ?
+Possible completions:
+  <address-set-name>   Security address-set name
+{primary:node0}[edit]
+root@SRX550-1# ...rity-zone eos address-book address-set 12-14 ?
+Possible completions:
+> address              Address to be included in this set
+> address-set          Define an address-set name
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+  description          Text description of address set
+{primary:node0}[edit]
+root@SRX550-1# ...rity-zone eos address-book address-set 12-14 address ?
+Possible completions:
+  <address-name>       Security address name
+  193.30.12.0/24
+  193.30.12.12/32
+  193.30.12.14/32
+  193.30.12.15/32
+  193.30.12.16/32
+  193.30.12.17/32
+{primary:node0}[edit]
+root@SRX550-1# ...s-book address-set 12-14 address 193.30.12.12
+
+{primary:node0}[edit]
+root@SRX550-1# ...os address-book address-set 12-14 address 193.30.12.14
+
+{primary:node0}[edit]
+root@SRX550-1# ...os address-book address-set 12-14 address 193.30.12.15
+
+{primary:node0}[edit]
+root@SRX550-1# ...os address-book address-set 12-14 address 193.30.12.16
+
+{primary:node0}[edit]
+root@SRX550-1# ...os address-book address-set 12-14 address 193.30.12.17
+
+{primary:node0}[edit]
+root@SRX550-1# show security zones
+security-zone online {
+    address-book {
+        address 193.30.10.10/32 193.30.10.10/32;
+        address 193.30.10.13/32 193.30.10.13/32;
+    }
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.10;
+    }
+}
+security-zone eos {
+    address-book {
+        address 193.30.12.12/32 193.30.12.12/32;
+        address 193.30.12.14/32 193.30.12.14/32;
+        address 193.30.12.15/32 193.30.12.15/32;
+        address 193.30.12.16/32 193.30.12.16/32;
+        address 193.30.12.17/32 193.30.12.17/32;
+        address 193.30.12.0/24 193.30.12.0/24;
+        address-set 12-14 {
+            ##
+            ## Warning: referenced address must be defined under address-book
+            ## Warning: referenced address must be defined under address-book
+            ##
+            address 193.30.12.12;
+            ##
+            ## Warning: referenced address must be defined under address-book
+            ## Warning: referenced address must be defined under address-book
+            ##
+            address 193.30.12.14;
+            ##
+            ## Warning: referenced address must be defined under address-book
+            ## Warning: referenced address must be defined under address-book
+            ##
+            address 193.30.12.15;
+            ##
+            ## Warning: referenced address must be defined under address-book
+            ## Warning: referenced address must be defined under address-book
+            ##
+            address 193.30.12.16;
+            ##
+
+{primary:node0}[edit]
+root@SRX550-1# delete security zones security-zone eos ad
+                                                         ^
+'ad' is ambiguous.
+Possible completions:
+> address-book         Address book entries
+> advance-policy-based-routing-profile  Enable Advance Policy Based Routing on this zone
+{primary:node0}[edit]
+root@SRX550-1# ...ecurity-zone eos address-book address-set 12-14
+
+{primary:node0}[edit]
+root@SRX550-1# ...rity-zone eos address-book address-set 12-14 ?
+Possible completions:
+> address              Address to be included in this set
+> address-set          Define an address-set name
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+  description          Text description of address set
+{primary:node0}[edit]
+root@SRX550-1# ...s-book address-set 12-14 address-set ?
+Possible completions:
+  <address-set-name>
+{primary:node0}[edit]
+root@SRX550-1# ...s-book address-set 12-14 address-set 12 ?
+Possible completions:
+  <[Enter]>            Execute this command
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+  |                    Pipe through a command
+{primary:node0}[edit]
+root@SRX550-1# ...s-book address-set ?
+Possible completions:
+  <address-set-name>   Security address-set name
+{primary:node0}[edit]
+root@SRX550-1# ...s-book address-set 12-14 ?
+Possible completions:
+> address              Address to be included in this set
+> address-set          Define an address-set name
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+  description          Text description of address set
+{primary:node0}[edit]
+root@SRX550-1# ...s-book address-set 12-14 address ?
+Possible completions:
+  <address-name>       Security address name
+  193.30.12.0/24
+  193.30.12.12/32
+  193.30.12.14/32
+  193.30.12.15/32
+  193.30.12.16/32
+  193.30.12.17/32
+{primary:node0}[edit]
+root@SRX550-1# ...s-book address-set 12-14 address 193.30.12.12/32 ?
+Possible completions:
+  <[Enter]>            Execute this command
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+  |                    Pipe through a command
+{primary:node0}[edit]
+root@SRX550-1# show security zones
+security-zone online {
+    address-book {
+        address 193.30.10.10/32 193.30.10.10/32;
+        address 193.30.10.13/32 193.30.10.13/32;
+    }
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.10;
+    }
+}
+security-zone eos {
+    address-book {
+        address 193.30.12.12/32 193.30.12.12/32;
+        address 193.30.12.14/32 193.30.12.14/32;
+        address 193.30.12.15/32 193.30.12.15/32;
+        address 193.30.12.16/32 193.30.12.16/32;
+        address 193.30.12.17/32 193.30.12.17/32;
+        address 193.30.12.0/24 193.30.12.0/24;
+    }
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.30;
+    }
+}
+security-zone ddcc {
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.51;
+        irb.52;
+        irb.53;
+    }
+}
+security-zone ehv {
+    host-inbound-traffic {
+        system-services {
+            all;
+        }
+        protocols {
+            all;
+        }
+    }
+    interfaces {
+        irb.71;
+        irb.72;
+        irb.73;
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# set security policies from-zone online to-zone e
+                                                               ^
+'e' is ambiguous.
+Possible completions:
+  <to-zone>            Destination zone
+  ehv
+  eos
+{primary:node0}[edit]
+root@SRX550-1#
+
+{primary:node0}[edit]
+root@SRX550-1# load set terminal
+[Type ^D at a new line to end input]
+set applications application RPCBIND term TCP111 protocol tcp
+set applications application RPCBIND term TCP111 destination-port 111
+
+set applications application NUFI term TCP9710 protocol tcp
+set applications application NUFI term TCP9710 destination-port 9710
+
+set applications application BULS term TCP9711 protocol tcp
+set applications application BULS term TCP9711 destination-port 9711
+
+set applications application NFS term TCP2049 protocol tcp
+set applications application NFS term TCP2049 destination-port 2049
+load complete
+
+{primary:node0}[edit]
+root@SRX550-1# show appl
+                        ^
+'appl' is ambiguous.
+Possible completions:
+> applications         Define applications by protocol characteristics
++ apply-groups         Groups from which to inherit configuration data
+
+{primary:node0}[edit]
+root@SRX550-1# show applications
+application RPCBIND {
+    term TCP111 protocol tcp destination-port 111;
+}
+application NUFI {
+    term TCP9710 protocol tcp destination-port 9710;
+}
+application BULS {
+    term TCP9711 protocol tcp destination-port 9711;
+}
+application NFS {
+    term TCP2049 protocol tcp destination-port 2049;
+}
+
+{primary:node0}[edit]
+root@SRX550-1# set security policies gr
+                                     ^
+syntax error.
+root@SRX550-1# set security policies from-zone online to-zone eos so
+                                                                  ^
+syntax error.
+root@SRX550-1# set security policies from-zone online to-zone eos m
+                                                                  ^
+syntax error.
+root@SRX550-1# set security policies from-zone online to-zone eos ma
+                                                                  ^
+syntax error.
+root@SRX550-1# ...rom-zone online to-zone eos policy 1 so
+                                                       ^
+syntax error.
+root@SRX550-1# ...rom-zone online to-zone eos policy 1 match source-
+                                                                    ^
+'source-' is ambiguous.
+Possible completions:
++ source-address       Match source address
+  source-address-excluded  Exclude source addresses
+> source-end-user-profile  Match source end user profile
++ source-identity      Match source identity
++ source-l3vpn-vrf-group  Match vrf name
+{primary:node0}[edit]
+root@SRX550-1# ...3.30.10.10/32 destination-address 193.30.12.1
+                                                               ^
+'193.30.12.1' is ambiguous.
+Possible completions:
+  <address>            Address from address book or static_nat or incoming_nat address
+  193.30.12.12/32      The address in address book
+  193.30.12.14/32      The address in address book
+  193.30.12.15/32      The address in address book
+  193.30.12.16/32      The address in address book
+  193.30.12.17/32      The address in address book
+{primary:node0}[edit]
+root@SRX550-1# ...3.30.10.10/32 destination-address 193.30.12.12/32 1
+                                                                    ^
+syntax error.
+root@SRX550-1# ...3.30.10.10/32 destination-address 193.30.12.12/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...ss 193.30.10.10/32 destination-address 193.30.12.14/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...ss 193.30.10.10/32 destination-address 193.30.12.15/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...ss 193.30.10.10/32 destination-address 193.30.12.16
+
+{primary:node0}[edit]
+root@SRX550-1# ...dress 193.30.10.10/32 destination-address 193.30.12.1
+                                                                       ^
+'193.30.12.1' is ambiguous.
+Possible completions:
+  <address>            Address from address book or static_nat or incoming_nat address
+  193.30.12.12/32      The address in address book
+  193.30.12.14/32      The address in address book
+  193.30.12.15/32      The address in address book
+  193.30.12.16         Address from address book or static_nat or incoming_nat address
+  193.30.12.16/32      The address in address book
+  193.30.12.17/32      The address in address book
+{primary:node0}[edit]
+root@SRX550-1# ...2 destination-address 193.30.12.16/32
+
+{primary:node0}[edit]
+root@SRX550-1# ...ss 193.30.10.10/32 destination-address 193.30.12.17/32
+
+{primary:node0}[edit]
+root@SRX550-1# delete security policies from-zone online to-zone eos m
+                                                                     ^
+syntax error.
+root@SRX550-1# ...o-zone eos policy 1 match destination-1
+                                            ^
+syntax error.
+root@SRX550-1# ...o-zone eos policy 1 match destination-address1
+                                            ^
+syntax error.
+root@SRX550-1# ...match destination-address 193.30.12.1
+                                                       ^
+'193.30.12.1' is ambiguous.
+Possible completions:
+  193.30.12.12/32      The address in address book
+  193.30.12.14/32      The address in address book
+  193.30.12.15/32      The address in address book
+  193.30.12.16         Address from address book or static_nat or incoming_nat address
+  193.30.12.16/32      The address in address book
+  193.30.12.17/32      The address in address book
+{primary:node0}[edit]
+root@SRX550-1# ...match destination-address 193.30.12.16
+
+{primary:node0}[edit]
+root@SRX550-1# ... appl
+                       ^
+'appl' is ambiguous.
+Possible completions:
++ application          Port-based application
++ apply-groups         Groups from which to inherit configuration data
++ apply-groups-except  Don't inherit configuration data from these groups
+{primary:node0}[edit]
+root@SRX550-1# ... application junos-ssh
+
+{primary:node0}[edit]
+root@SRX550-1# ...nline to-zone eos policy 1 match application junos-s
+                                                                      ^
+'junos-s' is ambiguous.
+Possible completions:
+  <value_keyword>      Specify application or application-set name to match
+  junos-sccp           [applications application <*>]
+  junos-sctp-any       [applications application <*>]
+  junos-sip            [applications application <*>]
+  junos-smb            [applications application <*>]
+  junos-smb-session    [applications application <*>]
+  junos-smtp           [applications application <*>]
+  junos-smtps          [applications application <*>]
+  junos-snmp-agentx    [applications application <*>]
+  junos-snpp           [applications application <*>]
+  junos-sql-monitor    [applications application <*>]
+  junos-sqlnet-v1      [applications application <*>]
+  junos-sqlnet-v2      [applications application <*>]
+  junos-ssh            [applications application <*>]
+  junos-stun           [applications application <*>]
+  junos-sun-rpc        [applications application-set <*>]
+  junos-sun-rpc-any    [applications application-set <*>]
+  junos-sun-rpc-any-tcp  [applications application <*>]
+  junos-sun-rpc-any-udp  [applications application <*>]
+  junos-sun-rpc-mountd  [applications application-set <*>]
+  junos-sun-rpc-mountd-tcp  [applications application <*>]
+  junos-sun-rpc-mountd-udp  [applications application <*>]
+  junos-sun-rpc-nfs    [applications application-set <*>]
+  junos-sun-rpc-nfs-access  [applications application-set <*>]
+  junos-sun-rpc-nfs-tcp  [applications application <*>]
+  junos-sun-rpc-nfs-udp  [applications application <*>]
+  junos-sun-rpc-nlockmgr  [applications application-set <*>]
+  junos-sun-rpc-nlockmgr-tcp  [applications application <*>]
+  junos-sun-rpc-nlockmgr-udp  [applications application <*>]
+  junos-sun-rpc-portmap  [applications application-set <*>]
+  junos-sun-rpc-portmap-tcp  [applications application <*>]
+  junos-sun-rpc-portmap-udp  [applications application <*>]
+  junos-sun-rpc-rquotad  [applications application-set <*>]
+  junos-sun-rpc-rquotad-tcp  [applications application <*>]
+  junos-sun-rpc-rquotad-udp  [applications application <*>]
+  junos-sun-rpc-ruserd  [applications application-set <*>]
+  junos-sun-rpc-ruserd-tcp  [applications application <*>]
+  junos-sun-rpc-ruserd-udp  [applications application <*>]
+  junos-sun-rpc-sadmind  [applications application-set <*>]
+  junos-sun-rpc-sadmind-tcp  [applications application <*>]
+  junos-sun-rpc-sadmind-udp  [applications application <*>]
+  junos-sun-rpc-sprayd  [applications application-set <*>]
+  junos-sun-rpc-sprayd-tcp  [applications application <*>]
+  junos-sun-rpc-sprayd-udp  [applications application <*>]
+  junos-sun-rpc-status  [applications application-set <*>]
+  junos-sun-rpc-status-tcp  [applications application <*>]
+  junos-sun-rpc-status-udp  [applications application <*>]
+  junos-sun-rpc-tcp    [applications application <*>]
+  junos-sun-rpc-udp    [applications application <*>]
+  junos-sun-rpc-walld  [applications application-set <*>]
+  junos-sun-rpc-walld-tcp  [applications application <*>]
+  junos-sun-rpc-walld-udp  [applications application <*>]
+  junos-sun-rpc-ypbind  [applications application-set <*>]
+  junos-sun-rpc-ypbind-tcp  [applications application <*>]
+  junos-sun-rpc-ypbind-udp  [applications application <*>]
+  junos-sun-rpc-ypserv  [applications application-set <*>]
+  junos-sun-rpc-ypserv-tcp  [applications application <*>]
+  junos-sun-rpc-ypserv-udp  [applications application <*>]
+{primary:node0}[edit]
+root@SRX550-1# ...nline to-zone eos policy 1 match application junos-sm
+                                                                       ^
+'junos-sm' is ambiguous.
+Possible completions:
+  <value_keyword>      Specify application or application-set name to match
+  junos-smb            [applications application <*>]
+  junos-smb-session    [applications application <*>]
+  junos-smtp           [applications application <*>]
+  junos-smtps          [applications application <*>]
+{primary:node0}[edit]
+root@SRX550-1# ...nline to-zone eos policy 1 match application junos-smtp
+
+{primary:node0}[edit]
+root@SRX550-1# ...line to-zone eos policy 1 match application junos-smtps
+
+{primary:node0}[edit]
+root@SRX550-1# ...ine to-zone eos policy 1 match application RPCBIND
+
+{primary:node0}[edit]
+root@SRX550-1# ... online to-zone eos policy 1 match application NUFI
+
+{primary:node0}[edit]
+root@SRX550-1# ...one online to-zone eos policy 1 match application BULS
+
+{primary:node0}[edit]
+root@SRX550-1# ...one online to-zone eos policy 1 then permit lo
+                                                              ^
+syntax error.
+root@SRX550-1# ...one online to-zone eos policy 1 then permit
+
+{primary:node0}[edit]
+root@SRX550-1# ... 1 then log session-close session-init
+
+{primary:node0}[edit]
+root@SRX550-1# show security policies
+from-zone online to-zone eos {
+    policy 1 {
+        match {
+            source-address 193.30.10.10/32;
+            destination-address [ 193.30.12.12/32 193.30.12.14/32 193.30.12.15/32 193.30.12.16/32 193.30.12.17/32 ];
+            application [ junos-ssh junos-smtp junos-smtps RPCBIND NUFI BULS ];
+        }
+        then {
+            permit;
+            log {
+                session-init;
+                session-close;
+            }
+        }
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# set security policies from-zone online to-zone e
+                                                               ^
+'e' is ambiguous.
+Possible completions:
+  <to-zone>            Destination zone
+  ehv
+  eos
+{primary:node0}[edit]
+root@SRX550-1# ...ation-address 193.30.12.0/24 application junos-ssh
+
+{primary:node0}[edit]
+root@SRX550-1# ...stination-address 193.30.12.0/24 application junos-smtp
+
+{primary:node0}[edit]
+root@SRX550-1# ...tination-address 193.30.12.0/24 application junos-smtps
+
+{primary:node0}[edit]
+root@SRX550-1# ...ination-address 193.30.12.0/24 application RPCBIND
+
+{primary:node0}[edit]
+root@SRX550-1# ...destination-address 193.30.12.0/24 application NUFI
+
+{primary:node0}[edit]
+root@SRX550-1# ...32 destination-address 193.30.12.0/24 application BULS
+
+{primary:node0}[edit]
+root@SRX550-1# ...32 destination-address 193.30.12.0/24 application NFS
+
+{primary:node0}[edit]
+root@SRX550-1# ...e eos policy 2 then permit
+
+{primary:node0}[edit]
+root@SRX550-1# ... 2 then log session-close session-init
+
+{primary:node0}[edit]
+root@SRX550-1# show security policies
+from-zone online to-zone eos {
+    policy 1 {
+        match {
+            source-address 193.30.10.10/32;
+            destination-address [ 193.30.12.12/32 193.30.12.14/32 193.30.12.15/32 193.30.12.16/32 193.30.12.17/32 ];
+            application [ junos-ssh junos-smtp junos-smtps RPCBIND NUFI BULS ];
+        }
+        then {
+            permit;
+            log {
+                session-init;
+                session-close;
+            }
+        }
+    }
+    policy 2 {
+        match {
+            source-address 193.30.10.13/32;
+            destination-address 193.30.12.0/24;
+            application [ junos-ssh junos-smtp junos-smtps RPCBIND NUFI BULS NFS ];
+        }
+        then {
+            permit;
+            log {
+                session-init;
+                session-close;
+            }
+        }
+    }
+}
+
+{primary:node0}[edit]
+root@SRX550-1# commit and-quit
+warning: L2 global mode is changed from non-l2 mode to switching mode. Please use the command request system reboot on current node or all nodes in case of HA cluster!
+node0:
+configuration check succeeds
+node1:
+warning: L2 global mode is changed from non-l2 mode to switching mode. Please use the command request system reboot on current node or all nodes in case of HA cluster!
+Sep  3 11:25:19 init: dhcp-service (PID 1618) exited with status=0 Normal Exit
+Sep  3 11:25:19 init: trousers (PID 3938) exited with status=2
+commit complete
+node0:
+commit complete
+Exiting configuration mode
+
+{primary:node0}

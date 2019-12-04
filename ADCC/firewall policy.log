@@ -1,0 +1,52 @@
+Online zone to EOS zone
+  193.30.10.10 to 193.30.12.12, 193.30.12.14, 193.30.12.15, 193.30.12.16, 193.30.12.17
+    22 TCP
+    25 UDP
+    111 TCP
+    9710 TCP
+    9711 TCP
+  193.30.10.10 to 193.30.12.10
+    22 TCP
+    25 UDP
+    111 TCP
+    9710 TCP
+    9711 TCP
+    1526 TCP
+  193.30.10.13 to EOS zone (193.30.10.*)
+    22 TCP
+    25 UDP
+    111 TCP
+    2049 TCP
+    9710 TCP
+    9711 TCP
+================================================trivial=====
+
+Online zone to DMZ zone
+  193.30.10.10 to 193.30.13.10
+    1526  TCP tnslistener
+  193.30.10.11 to 193.30.13.10
+    1526  TCP tnslistener
+Online zone to ICCP sites
+  193.30.10.14 to ICCP sites (172.30.13.*)
+    102 TCP ICCP
+    3782 TCP ICCP
+  193.30.10.15 to ICCP sites (172.30.13.*)
+    102 TCP ICCP
+    3782 TCP ICCP
+EOS zone to ICCP sites
+  193.30.12.12 to ICCP sites (172.30.13.*)
+    102 TCP ICCP
+    3782 TCP ICCP
+DEV zone to ICCP sites
+  193.30.10.42 to ICCP sites (172.30.13.*)
+    102 TCP ICCP
+    3782 TCP ICCP
+
+
+=======external===============================================
+DMZ zone to external
+  193.30.13.90 to any
+    8080 TCP jasper
+    80 TCP web
+    110 TCP POP3
+    25 TCP SMTP

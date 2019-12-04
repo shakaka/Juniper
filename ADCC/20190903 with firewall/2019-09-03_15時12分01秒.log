@@ -1,0 +1,1279 @@
+﻿root@DSADSKA-SCADA> configure 
+Entering configuration mode
+
+{master:1}[edit]
+root@DSADSKA-SCADA# show interfaces irb
+unit 0;
+unit 10 {
+    family inet {
+        address 193.50.10.253/24;
+    }
+}
+unit 100 {
+    family inet {
+        address 193.30.100.1/24;
+    }
+}
+
+{master:1}[edit]
+root@DSADSKA-SCADA# delete interfaces irb unit 100
+
+{master:1}[edit]
+root@DSADSKA-SCADA# show interfaces irb
+unit 0;
+unit 10 {
+    family inet {
+        address 193.50.10.253/24;
+    }
+}
+
+{master:1}[edit]
+root@DSADSKA-SCADA# show vlans
+LAN1 {
+    vlan-id 5;
+}
+default {
+    vlan-id 10;
+    l3-interface irb.10;
+}
+v100 {
+    vlan-id 100;
+    l3-interface irb.100;
+}
+vlan150 {
+    vlan-id 150;
+}
+
+{master:1}[edit]
+root@DSADSKA-SCADA# delete vlans LAN1
+
+{master:1}[edit]
+root@DSADSKA-SCADA# delete vlans v100
+
+{master:1}[edit]
+root@DSADSKA-SCADA# delete vlans vlan150
+
+{master:1}[edit]
+root@DSADSKA-SCADA# delete vlans default
+
+{master:1}[edit]
+root@DSADSKA-SCADA# segt
+                    ^
+unknown command.
+root@DSADSKA-SCADA# set vlans v10 vlan-id 10 l3-interface irb.10
+
+{master:1}[edit]
+root@DSADSKA-SCADA# show vlans
+v10 {
+    vlan-id 10;
+    l3-interface irb.10;
+}
+
+{master:1}[edit]
+root@DSADSKA-SCADA# show interfaces irb
+unit 0;
+unit 10 {
+    family inet {
+        address 193.50.10.253/24;
+    }
+}
+
+{master:1}[edit]
+root@DSADSKA-SCADA# show interfaces
+ge-0/0/0 {
+    ether-options {
+        802.3ad ae0;
+    }
+}
+ge-0/0/1 {
+    ether-options {
+        802.3ad ae1;
+    }
+}
+ge-0/0/2 {
+    ether-options {
+        802.3ad ae2;
+    }
+}
+ge-0/0/3 {
+    ether-options {
+        802.3ad ae3;
+    }
+}
+ge-0/0/4 {
+    ether-options {
+        802.3ad ae4;
+    }
+}
+ge-0/0/5 {
+    ether-options {
+        802.3ad ae5;
+    }
+}
+ge-0/0/6 {
+    ether-options {
+        802.3ad ae6;
+    }
+}
+ge-0/0/7 {
+    ether-options {
+        802.3ad ae7;
+    }
+}
+ge-0/0/8 {
+    ether-options {
+        802.3ad ae8;
+    }
+}
+ge-0/0/9 {
+    ether-options {
+        802.3ad ae9;
+    }
+}
+ge-0/0/10 {
+    ether-options {
+        802.3ad ae10;
+    }
+}
+ge-0/0/11 {
+    ether-options {
+        802.3ad ae11;
+    }
+}
+ge-0/0/12 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/13 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/14 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/15 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/16 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/17 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/18 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/19 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/20 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/21 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/22 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/0/23 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/2/0 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+xe-0/2/0 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/2/1 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+xe-0/2/1 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/2/2 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+xe-0/2/2 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-0/2/3 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+xe-0/2/3 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+            storm-control default;
+        }
+    }
+}
+ge-1/0/0 {
+    ether-options {
+        802.3ad ae0;
+    }
+}
+ge-1/0/1 {
+    ether-options {
+        802.3ad ae1;
+    }
+}
+ge-1/0/2 {
+    ether-options {
+        802.3ad ae2;
+    }
+}
+ge-1/0/3 {
+    ether-options {
+        802.3ad ae3;
+    }
+}
+ge-1/0/4 {
+    ether-options {
+        802.3ad ae4;
+    }
+}
+ge-1/0/5 {
+    ether-options {
+        802.3ad ae5;
+    }
+}
+ge-1/0/6 {
+    ether-options {
+        802.3ad ae6;
+    }
+}
+ge-1/0/7 {
+    ether-options {
+        802.3ad ae7;
+    }
+}
+ge-1/0/8 {
+    ether-options {
+        802.3ad ae8;
+    }
+}
+ge-1/0/9 {
+    ether-options {
+        802.3ad ae9;
+    }
+}
+ge-1/0/10 {
+    ether-options {
+        802.3ad ae10;
+    }
+}
+ge-1/0/11 {
+    ether-options {
+        802.3ad ae11;
+    }
+}
+ge-1/0/12 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/13 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/14 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/15 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/16 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/17 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/18 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/19 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/20 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/21 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/22 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ge-1/0/23 {
+    unit 0 {
+        family ethernet-switching {
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae0 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae1 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae2 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae4 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae5 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae6 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae7 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae8 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae9 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae10 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+ae11 {
+    aggregated-ether-options {
+        minimum-links 1;
+        lacp {
+            passive;
+        }
+    }
+    unit 0 {
+        family ethernet-switching {
+            interface-mode access;
+            vlan {
+                members default;
+            }
+        }
+    }
+}
+irb {
+    unit 0;
+    unit 10 {
+        family inet {
+            address 193.50.10.253/24;
+        }
+    }
+}
+vme {
+    unit 0 {
+        family inet {
+            address 192.168.1.1/24;
+        }
+    }
+}
+
+{master:1}[edit]
+root@DSADSKA-SCADA# show interfaces |display set |no-more
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-0/0/5 ether-options 802.3ad ae5
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-0/0/10 ether-options 802.3ad ae10
+set interfaces ge-0/0/11 ether-options 802.3ad ae11
+set interfaces ge-0/0/12 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/17 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/18 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/19 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/20 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/21 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/22 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/23 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/0 ether-options 802.3ad ae0
+set interfaces ge-1/0/1 ether-options 802.3ad ae1
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/3 ether-options 802.3ad ae3
+set interfaces ge-1/0/4 ether-options 802.3ad ae4
+set interfaces ge-1/0/5 ether-options 802.3ad ae5
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/7 ether-options 802.3ad ae7
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/9 ether-options 802.3ad ae9
+set interfaces ge-1/0/10 ether-options 802.3ad ae10
+set interfaces ge-1/0/11 ether-options 802.3ad ae11
+set interfaces ge-1/0/12 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/13 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/14 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/15 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/16 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/17 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/18 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/19 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/20 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/21 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/22 unit 0 family ethernet-switching vlan members default
+set interfaces ge-1/0/23 unit 0 family ethernet-switching vlan members default
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae0 unit 0 family ethernet-switching interface-mode access
+set interfaces ae0 unit 0 family ethernet-switching vlan members default
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options lacp passive
+set interfaces ae1 unit 0 family ethernet-switching interface-mode access
+set interfaces ae1 unit 0 family ethernet-switching vlan members default
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae2 unit 0 family ethernet-switching interface-mode access
+set interfaces ae2 unit 0 family ethernet-switching vlan members default
+set interfaces ae4 aggregated-ether-options minimum-links 1
+set interfaces ae4 aggregated-ether-options lacp passive
+set interfaces ae4 unit 0 family ethernet-switching interface-mode access
+set interfaces ae4 unit 0 family ethernet-switching vlan members default
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options lacp passive
+set interfaces ae5 unit 0 family ethernet-switching interface-mode access
+set interfaces ae5 unit 0 family ethernet-switching vlan members default
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae6 aggregated-ether-options lacp passive
+set interfaces ae6 unit 0 family ethernet-switching interface-mode access
+set interfaces ae6 unit 0 family ethernet-switching vlan members default
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae7 unit 0 family ethernet-switching interface-mode access
+set interfaces ae7 unit 0 family ethernet-switching vlan members default
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae8 unit 0 family ethernet-switching interface-mode access
+set interfaces ae8 unit 0 family ethernet-switching vlan members default
+set interfaces ae9 aggregated-ether-options minimum-links 1
+set interfaces ae9 aggregated-ether-options lacp passive
+set interfaces ae9 unit 0 family ethernet-switching interface-mode access
+set interfaces ae9 unit 0 family ethernet-switching vlan members default
+set interfaces ae10 aggregated-ether-options minimum-links 1
+set interfaces ae10 aggregated-ether-options lacp passive
+set interfaces ae10 unit 0 family ethernet-switching interface-mode access
+set interfaces ae10 unit 0 family ethernet-switching vlan members default
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members default
+set interfaces irb unit 0
+set interfaces irb unit 10 family inet address 193.50.10.253/24
+set interfaces vme unit 0 family inet address 192.168.1.1/24
+
+{master:1}[edit]
+root@DSADSKA-SCADA#
+
+{master:1}[edit]
+root@DSADSKA-SCADA# delete interfaces
+
+{master:1}[edit]
+root@DSADSKA-SCADA# load set terminal
+[Type ^D at a new line to end input]
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-0/0/5 ether-options 802.3ad ae5
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-0/0/10 ether-options 802.3ad ae10
+set interfaces ge-0/0/11 ether-options 802.3ad ae11
+set interfaces ge-0/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching vlan members v10
+set interfaces xe-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching vlan members v10
+set interfaces xe-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching vlan members v10
+set interfaces xe-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching vlan members v10
+set interfaces xe-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/0 ether-options 802.3ad ae0
+set interfaces ge-1/0/1 ether-options 802.3ad ae1
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/3 ether-options 802.3ad ae3
+set interfaces ge-1/0/4 ether-options 802.3ad ae4
+set interfaces ge-1/0/5 ether-options 802.3ad ae5
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/7 ether-options 802.3ad ae7
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/9 ether-options 802.3ad ae9
+set interfaces ge-1/0/10 ether-options 802.3ad ae10
+set interfaces ge-1/0/11 ether-options 802.3ad ae11
+set interfaces ge-1/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/23 unit 0 family ethernet-switching vlan members
+set interfaces ae0 aggregated-ether-options minimum-links 1
+terminal:76:(0) syntax error, expecting '[' or <data>: members
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae0 unit 0 family ethernet-switching interface-mode access
+set interfaces ae0 unit 0 family ethernet-switching vlan members v10
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options lacp passive
+set interfaces ae1 unit 0 family ethernet-switching interface-mode access
+set interfaces ae1 unit 0 family ethernet-switching vlan members v10
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae2 unit 0 family ethernet-switching interface-mode access
+set interfaces ae2 unit 0 family ethernet-switching vlan members v10
+set interfaces ae4 aggregated-ether-options minimum-links 1
+set interfaces ae4 aggregated-ether-options lacp passive
+set interfaces ae4 unit 0 family ethernet-switching interface-mode access
+set interfaces ae4 unit 0 family ethernet-switching vlan members v10
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options lacp passive
+set interfaces ae5 unit 0 family ethernet-switching interface-mode access
+set interfaces ae5 unit 0 family ethernet-switching vlan members v10
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae6 aggregated-ether-options lacp passive
+set interfaces ae6 unit 0 family ethernet-switching interface-mode access
+set interfaces ae6 unit 0 family ethernet-switching vlan members v10
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae7 unit 0 family ethernet-switching interface-mode access
+set interfaces ae7 unit 0 family ethernet-switching vlan members v10
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae8 unit 0 family ethernet-switching interface-mode access
+set interfaces ae8 unit 0 family ethernet-switching vlan members v10
+set interfaces ae9 aggregated-ether-options minimum-links 1
+set interfaces ae9 aggregated-ether-options lacp passive
+set interfaces ae9 unit 0 family ethernet-switching interface-mode access
+set interfaces ae9 unit 0 family ethernet-switching vlan members v10
+set interfaces ae10 aggregated-ether-options minimum-links 1
+set interfaces ae10 aggregated-ether-options lacp passive
+set interfaces ae10 unit 0 family ethernet-switching interface-mode access
+set interfaces ae10 unit 0 family ethernet-switching vlan members v10
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces irb unit 0
+set interfaces irb unit 10 family inet address 193.50.10.253/24
+set interfaces vme unit 0 family inet address 192.168.1.1/24
+load complete
+
+{master:1}[edit]
+root@DSADSKA-SCADA# delete interfaces
+
+{master:1}[edit]
+root@DSADSKA-SCADA# load set terminal
+[Type ^D at a new line to end input]
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-0/0/5 ether-options 802.3ad ae5
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-0/0/10 ether-options 802.3ad ae10
+set interfaces ge-0/0/11 ether-options 802.3ad ae11
+set interfaces ge-0/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/12 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/0/23 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching vlan members v10
+set interfaces xe-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching vlan members v10
+set interfaces xe-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching vlan members v10
+set interfaces xe-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching vlan members v10
+set interfaces xe-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/0 ether-options 802.3ad ae0
+set interfaces ge-1/0/1 ether-options 802.3ad ae1
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/3 ether-options 802.3ad ae3
+set interfaces ge-1/0/4 ether-options 802.3ad ae4
+set interfaces ge-1/0/5 ether-options 802.3ad ae5
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/7 ether-options 802.3ad ae7
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/9 ether-options 802.3ad ae9
+set interfaces ge-1/0/10 ether-options 802.3ad ae10
+set interfaces ge-1/0/11 ether-options 802.3ad ae11
+set interfaces ge-1/0/12 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/13 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/14 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/15 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/16 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/17 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/18 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/19 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/20 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/21 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/22 unit 0 family ethernet-switching vlan members v10
+set interfaces ge-1/0/23 unit 0 family ethernet-switching vlan members v10
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae0 unit 0 family ethernet-switching interface-mode access
+set interfaces ae0 unit 0 family ethernet-switching vlan members v10
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options lacp passive
+set interfaces ae1 unit 0 family ethernet-switching interface-mode access
+set interfaces ae1 unit 0 family ethernet-switching vlan members v10
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae2 unit 0 family ethernet-switching interface-mode access
+set interfaces ae2 unit 0 family ethernet-switching vlan members v10
+set interfaces ae4 aggregated-ether-options minimum-links 1
+set interfaces ae4 aggregated-ether-options lacp passive
+set interfaces ae4 unit 0 family ethernet-switching interface-mode access
+set interfaces ae4 unit 0 family ethernet-switching vlan members v10
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options lacp passive
+set interfaces ae5 unit 0 family ethernet-switching interface-mode access
+set interfaces ae5 unit 0 family ethernet-switching vlan members v10
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae6 aggregated-ether-options lacp passive
+set interfaces ae6 unit 0 family ethernet-switching interface-mode access
+set interfaces ae6 unit 0 family ethernet-switching vlan members v10
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae7 unit 0 family ethernet-switching interface-mode access
+set interfaces ae7 unit 0 family ethernet-switching vlan members v10
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae8 unit 0 family ethernet-switching interface-mode access
+set interfaces ae8 unit 0 family ethernet-switching vlan members v10
+set interfaces ae9 aggregated-ether-options minimum-links 1
+set interfaces ae9 aggregated-ether-options lacp passive
+set interfaces ae9 unit 0 family ethernet-switching interface-mode access
+set interfaces ae9 unit 0 family ethernet-switching vlan members v10
+set interfaces ae10 aggregated-ether-options minimum-links 1
+set interfaces ae10 aggregated-ether-options lacp passive
+set interfaces ae10 unit 0 family ethernet-switching interface-mode access
+set interfaces ae10 unit 0 family ethernet-switching vlan members v10
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching interface-mode access
+set interfaces ae11 unit 0 family ethernet-switching vlan members v10
+set interfaces irb unit 0
+set interfaces irb unit 10 family inet address 193.50.10.253/24
+set interfaces vme unit 0 family inet address 192.168.1.1/24
+load complete
+
+{master:1}[edit]
+root@DSADSKA-SCADA# show
+## Last changed: 2019-09-03 07:19:28 UTC
+version 14.1X53-D47.3;
+system {
+    host-name DSADSKA-SCADA;
+    auto-snapshot;
+    root-authentication {
+        encrypted-password "$1$sCaknyKs$hYBzFY8v0ZHnR2RDaBLV./"; ## SECRET-DATA
+    }
+    login {
+        user jim {
+            uid 2000;
+            class super-user;
+            authentication {
+                encrypted-password "$1$xpPxt5iP$vgAkcE4C3lMA2sTMTx9uf/"; ## SECRET-DATA
+            }
+        }
+    }
+    services {
+        ftp;
+        ssh {
+            root-login allow;
+            max-sessions-per-connection 32;
+        }
+        telnet;
+        netconf {
+            ssh;
+        }
+        web-management {
+            http;
+            https {
+                system-generated-certificate;
+            }
+        }
+    }
+    syslog {
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+        file default-log-messages {
+            any any;
+            match "(requested 'commit' operation)|(requested 'commit synchronize' operation)|(copying configuration to juniper.save)|(commit complete)|ifAdminStatus|(FRU power)|(FRU removal)|(FRU insertion)|(link UP)|transitioned|Transferred|transfer-file|(license add)|(license delete)|(package -X update)|(package -X delete)|(FRU Online)|(FRU Offline)|(plugged in)|(unplugged)|CFMD_CCM_DEFECT| LFMD_3AH | RPD_MPLS_PATH_BFD|(Master Unchanged, Members Changed)|(Master Changed, Members Changed)|(Master Detected, Members Changed)|(vc add)|(vc delete)|(Master detected)|(Master changed)|(Backup detected)|(Backup changed)|(interface vcp-)|BR_INFRA_DEVICE";
+            structured-data;
+        }
+    }
+    commit synchronize;
+    processes {
+        dhcp-service {
+            traceoptions {
+                file dhcp_logfile size 10m;
+                level all;
+                flag all;
+            }
+        }
+    }
+    ntp {
+        server 193.50.10.34;
+    }
+}
+chassis {
+    aggregated-devices {
+        ethernet {
+            device-count 16;
+        }
+    }
+    alarm {
+        management-ethernet {
+            link-down ignore;
+        }
+    }
+}
+interfaces {
+    ge-0/0/0 {
+        ether-options {
+            802.3ad ae0;
+        }
+    }
+    ge-0/0/1 {
+        ether-options {
+            802.3ad ae1;
+        }
+    }
+    ge-0/0/2 {
+        ether-options {
+            802.3ad ae2;
+        }
+    }
+    ge-0/0/3 {
+        ether-options {
+            802.3ad ae3;
+        }
+    }
+    ge-0/0/4 {
+        ether-options {
+            802.3ad ae4;
+        }
+    }
+    ge-0/0/5 {
+        ether-options {
+            802.3ad ae5;
+        }
+    }
+    ge-0/0/6 {
+        ether-options {
+            802.3ad ae6;
+        }
+    }
+    ge-0/0/7 {
+        ether-options {
+            802.3ad ae7;
+        }
+    }
+    ge-0/0/8 {
+        ether-options {
+            802.3ad ae8;
+        }
+
+{master:1}[edit]
+root@DSADSKA-SCADA# set system host-name DSADSTC
+
+{master:1}[edit]
+root@DSADSKA-SCADA# load set terminal
+[Type ^D at a new line to end input]
+set virtual-chassis preprovisioned
+set virtual-chassis no-split-detection
+set virtual-chassis member 0 role routing-engine
+set virtual-chassis member 0 serial-number PG3717080038
+set virtual-chassis member 1 role routing-engine
+set virtual-chassis member 1 serial-number PG3717080010
+
+load complete
+
+{master:1}[edit]
+root@DSADSKA-SCADA# show virtual-chassis
+preprovisioned;
+no-split-detection;
+member 0 {
+    role routing-engine;
+    serial-number PG3717080038;
+}
+member 1 {
+    role routing-engine;
+    serial-number PG3717080010;
+}
+
+{master:1}[edit]
+root@DSADSKA-SCADA# commit and-quit
+fpc1:
+configuration check succeeds
+fpc0:
+commit complete
+fpc1:
+commit complete
+Exiting configuration mode
+
+{master:1}
+root@DSADSTC> request syy
+                      ^
+syntax error, expecting <command>.
+root@DSADSTC> request system al
+                             ^
+syntax error, expecting <command>.
+root@DSADSTC> request system reboot all-members
+Reboot the system ? [yes,no] (no) yes
+
+
+Rebooting fpc0
+
+*** System shutdown message from root@DSADSTC ***
+
+System going down in 1 minute
+
+
+Shutdown at Tue Sep  3 07:22:02 2019.
+[pid 2574]
+
+{master:1}
