@@ -164,3 +164,11 @@ set protocols ospf area 0.0.0.10 interface ge-0/0/0.0
 EX4200
 vlan for ae
 set vlans vlan20 interface ae0
+
+=============speed limitation=======
+set firewall policer 2m if-exceeding bandwidth-limit 2m
+set firewall policer 2m if-exceeding burst-size-limit 250k
+set firewall policer 2m then discard
+
+set interfaces irb unit 10 family inet policer input 2m
+set interfaces irb unit 10 family inet policer output 2m
