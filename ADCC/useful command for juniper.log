@@ -172,3 +172,7 @@ set firewall policer 2m then discard
 
 set interfaces irb unit 10 family inet policer input 2m
 set interfaces irb unit 10 family inet policer output 2m
+
+====================================
+set chassis alarm management-ethernet link-down ignore
+request system configuration rescue save
