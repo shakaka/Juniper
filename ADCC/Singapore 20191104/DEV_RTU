@@ -36,6 +36,7 @@ set interfaces vlan unit 100 family inet address 193.30.100.253/24
 set vlans vl100 l3-interface vlan.100
 
 
-set interfaces ae0 family ethernet-switching vlan members vl100
+set interfaces ae0.0 family ethernet-switching vlan members vl100
+set interfaces ae1.0 family ethernet-switching vlan members vl100
 
 set routing-options static route 0.0.0.0/0 next-hop 193.30.100.254
