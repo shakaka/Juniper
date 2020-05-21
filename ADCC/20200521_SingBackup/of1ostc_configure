@@ -1,0 +1,437 @@
+## Last changed: 2019-12-24 02:13:57 UTC
+version 15.1X49-D170.4;
+groups {
+    node0 {
+        system {
+            host-name SRX550-1;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.1/24;
+                    }
+                }
+            }
+        }
+    }
+    node1 {
+        system {
+            host-name SRX550-2;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.2/24;
+                    }
+                }
+            }
+        }
+    }
+}
+---(more)---[abort]
+
+{primary:node0}[edit]
+root@SRX550-1# show |no-more
+## Last changed: 2019-12-24 02:13:57 UTC
+version 15.1X49-D170.4;
+groups {
+    node0 {
+        system {
+            host-name SRX550-1;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.1/24;
+                    }
+                }
+            }
+        }
+    }
+    node1 {
+        system {
+            host-name SRX550-2;
+        }
+        interfaces {
+            fxp0 {
+                unit 0 {
+                    family inet {
+                        address 1.1.1.2/24;
+                    }
+                }
+            }
+        }
+    }
+}
+apply-groups "${node}";
+system {
+    root-authentication {
+        encrypted-password "$5$F1zRSKRf$upVgar5pNSygmrjIrwFMFyBoZjwWjyjWalRm5tuuI
+    }
+    name-server {
+        8.8.8.8;
+        8.8.4.4;
+    }
+    services {
+        ssh {
+            root-login allow;
+        }
+        netconf {
+            ssh;
+        }
+        web-management {
+            https {
+                system-generated-certificate;
+            }
+        }
+    }
+    syslog {
+        archive size 100k files 3;
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+    max-configurations-on-flash 49;
+    max-configuration-rollbacks 49;
+    license {
+        autoupdate {
+            url https://ae1.juniper.net/junos/key_retrieval;
+        }
+    }
+}
+chassis {
+    aggregated-devices {
+        ethernet {
+            device-count 2;
+        }
+    }
+    cluster {
+        reth-count 12;
+        redundancy-group 1 {
+            node 0 priority 100;
+            node 1 priority 1;
+            preempt;
+            interface-monitor {
+                ge-15/0/1 weight 255;
+                ge-15/0/0 weight 255;
+                ge-6/0/0 weight 255;
+                ge-6/0/1 weight 255;
+            }
+        }
+    }
+}
+security {
+    log {
+        mode stream;
+        report;
+    }
+    address-book {
+        book1 {
+            address os_ad 193.30.10.0/24;
+            address eos_ad 193.30.12.0/24;
+            address dmz_ad 193.30.13.0/24;
+        }
+    }
+    screen {
+        ids-option untrust-screen {
+            icmp {
+                ping-death;
+            }
+            ip {
+                source-route-option;
+                tear-drop;
+            }
+            tcp {
+                syn-flood {
+                    alarm-threshold 1024;
+                    attack-threshold 200;
+                    source-threshold 1024;
+                    destination-threshold 2048;
+                    timeout 20;
+                }
+                land;
+            }
+        }
+    }
+    policies {
+        from-zone online to-zone dmz {
+            policy o-d {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+        from-zone dmz to-zone online {
+            policy d-o {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+        from-zone online to-zone online {
+            policy o-o {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+    }
+    zones {
+        security-zone online {
+            host-inbound-traffic {
+                system-services {
+                    all;
+                }
+                protocols {
+                    all;
+                }
+            }
+            interfaces {
+                reth0.0;
+            }
+        }
+        security-zone dmz {
+            host-inbound-traffic {
+                system-services {
+                    all;
+                }
+                protocols {
+                    all;
+                }
+            }
+            interfaces {
+                reth1.0;
+            }
+        }
+    }
+}
+interfaces {
+    ge-6/0/0 {
+        gigether-options {
+            redundant-parent reth0;
+        }
+    }
+    ge-6/0/1 {
+        gigether-options {
+            redundant-parent reth1;
+        }
+    }
+    ge-6/0/2 {
+        gigether-options {
+            redundant-parent reth0;
+        }
+    }
+    ge-6/0/3 {
+        gigether-options {
+            redundant-parent reth1;
+        }
+    }
+    ge-15/0/0 {
+        gigether-options {
+            redundant-parent reth0;
+        }
+    }
+    ge-15/0/1 {
+        gigether-options {
+            redundant-parent reth1;
+        }
+    }
+    ge-15/0/2 {
+        gigether-options {
+            redundant-parent reth0;
+        }
+    }
+    ge-15/0/3 {
+        gigether-options {
+            redundant-parent reth1;
+        }
+    }
+    fab0 {
+        fabric-options {
+            member-interfaces {
+                ge-0/0/2;
+            }
+        }
+    }
+    fab1 {
+        fabric-options {
+            member-interfaces {
+                ge-9/0/2;
+            }
+        }
+    }
+    reth0 {
+        redundant-ether-options {
+            redundancy-group 1;
+            lacp {
+                passive;
+                periodic slow;
+            }
+        }
+        unit 0 {
+            family inet {
+                address 172.30.13.246/30;
+            }
+        }
+    }
+    reth1 {
+        redundant-ether-options {
+            redundancy-group 1;
+            lacp {
+                passive;
+                periodic slow;
+            }
+        }
+        unit 0 {
+            family inet {
+                address 172.30.13.250/30;
+            }
+        }
+    }
+    reth2 {
+        redundant-ether-options {
+            redundancy-group 1;
+        }
+        unit 0;
+    }
+    reth3 {
+        redundant-ether-options {
+            redundancy-group 1;
+        }
+        unit 0;
+    }
+}
+routing-options {
+    static {
+        route 193.30.13.0/24 next-hop 172.30.13.249;
+        route 193.30.10.0/24 next-hop 172.30.13.245;
+        route 193.30.12.0/24 next-hop 172.30.13.245;
+        route 172.30.12.0/30 next-hop 172.30.13.245;
+    }
+}
+protocols {
+    l2-learning {
+        global-mode switching;
+    }
+    rstp {
+        interface all;
+    }
+}
+access {
+    address-assignment {
+        pool junosDHCPPool1 {
+            family inet {
+                network 192.168.1.0/24;
+                range junosRange {
+                    low 192.168.1.2;
+                    high 192.168.1.254;
+                }
+                dhcp-attributes {
+                    router {
+                        192.168.1.1;
+                    }
+                    propagate-settings ge-0/0/0.0;
+                }
+            }
+        }
+        pool junosDHCPPool2 {
+            family inet {
+                network 192.168.2.0/24;
+                range junosRange {
+                    low 192.168.2.2;
+                    high 192.168.2.254;
+                }
+                dhcp-attributes {
+                    router {
+                        192.168.2.1;
+                    }
+                    propagate-settings ge-0/0/0.0;
+                }
+            }
+        }
+        pool junosDHCPPool3 {
+            family inet {
+                network 192.168.3.0/24;
+                range junosRange {
+                    low 192.168.3.2;
+                    high 192.168.3.254;
+                }
+                dhcp-attributes {
+                    router {
+                        192.168.3.1;
+                    }
+                    propagate-settings ge-0/0/0.0;
+                }
+            }
+        }
+        pool junosDHCPPool4 {
+            family inet {
+                network 192.168.4.0/24;
+                range junosRange {
+                    low 192.168.4.2;
+                    high 192.168.4.254;
+                }
+                dhcp-attributes {
+                    router {
+                        192.168.4.1;
+                    }
+                    propagate-settings ge-0/0/0.0;
+                }
+            }
+        }
+        pool junosDHCPPool5 {
+            family inet {
+                network 192.168.5.0/24;
+                range junosRange {
+                    low 192.168.5.2;
+                    high 192.168.5.254;
+                }
+                dhcp-attributes {
+                    router {
+                        192.168.5.1;
+                    }
+                    propagate-settings ge-0/0/0.0;
+                }
+            }
+        }
+    }
+}
+applications {
+    application RPCBIND {
+        term TCP111 protocol tcp destination-port 111;
+    }
+    application NUFI {
+        term TCP9710 protocol tcp destination-port 9710;
+    }
+    application BULS {
+        term TCP9711 protocol tcp destination-port 9711;
+    }
+    application NFS {
+        term TCP2049 protocol tcp destination-port 2049;
+    }
+}

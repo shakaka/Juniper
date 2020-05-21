@@ -1,0 +1,124 @@
+set version 15.1X49-D170.4
+set groups node0 system host-name SRX550-1
+set groups node0 interfaces fxp0 unit 0 family inet address 1.1.1.1/24
+set groups node1 system host-name SRX550-2
+set groups node1 interfaces fxp0 unit 0 family inet address 1.1.1.2/24
+set apply-groups "${node}"
+set system root-authentication encrypted-password "$5$F1zRSKRf$upVgar5pNSygmrjIrwFMFyBoZjwWjyjWalRm5tuuI53"
+set system name-server 8.8.8.8
+set system name-server 8.8.4.4
+set system services ssh root-login allow
+set system services netconf ssh
+set system services web-management https system-generated-certificate
+set system syslog archive size 100k
+set system syslog archive files 3
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set system max-configurations-on-flash 49
+set system max-configuration-rollbacks 49
+set system license autoupdate url https://ae1.juniper.net/junos/key_retrieval
+set chassis aggregated-devices ethernet device-count 2
+set chassis cluster reth-count 12
+set chassis cluster redundancy-group 1 node 0 priority 100
+set chassis cluster redundancy-group 1 node 1 priority 1
+set chassis cluster redundancy-group 1 preempt
+set chassis cluster redundancy-group 1 interface-monitor ge-15/0/1 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-15/0/0 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-6/0/0 weight 255
+set chassis cluster redundancy-group 1 interface-monitor ge-6/0/1 weight 255
+set security log mode stream
+set security log report
+Match for:
+set security address-book book1 address os_ad 193.30.10.0/24
+set security address-book book1 address eos_ad 193.30.12.0/24
+set security address-book book1 address dmz_ad 193.30.13.0/24
+set security screen ids-option untrust-screen icmp ping-death
+set security screen ids-option untrust-screen ip source-route-option
+set security screen ids-option untrust-screen ip tear-drop
+set security screen ids-option untrust-screen tcp syn-flood alarm-threshold 1024
+set security screen ids-option untrust-screen tcp syn-flood attack-threshold 200
+set security screen ids-option untrust-screen tcp syn-flood source-threshold 1024
+set security screen ids-option untrust-screen tcp syn-flood destination-threshold 2048
+set security screen ids-option untrust-screen tcp syn-flood timeout 20
+set security screen ids-option untrust-screen tcp land
+set security policies from-zone online to-zone dmz policy o-d match source-address any
+set security policies from-zone online to-zone dmz policy o-d match destination-address any
+set security policies from-zone online to-zone dmz policy o-d match application any
+set security policies from-zone online to-zone dmz policy o-d then permit
+set security policies from-zone dmz to-zone online policy d-o match source-address any
+set security policies from-zone dmz to-zone online policy d-o match destination-address any
+set security policies from-zone dmz to-zone online policy d-o match application any
+set security policies from-zone dmz to-zone online policy d-o then permit
+set security policies from-zone online to-zone online policy o-o match source-address any
+set security policies from-zone online to-zone online policy o-o match destination-address any
+set security policies from-zone online to-zone online policy o-o match application any
+set security policies from-zone online to-zone online policy o-o then permit
+set security zones security-zone online host-inbound-traffic system-services all
+set security zones security-zone online host-inbound-traffic protocols all
+set security zones security-zone online interfaces reth0.0
+set security zones security-zone dmz host-inbound-traffic system-services all
+set security zones security-zone dmz host-inbound-traffic protocols all
+set security zones security-zone dmz interfaces reth1.0
+set interfaces ge-6/0/0 gigether-options redundant-parent reth0
+set interfaces ge-6/0/1 gigether-options redundant-parent reth1
+set interfaces ge-6/0/2 gigether-options redundant-parent reth0
+set interfaces ge-6/0/3 gigether-options redundant-parent reth1
+set interfaces ge-15/0/0 gigether-options redundant-parent reth0
+set interfaces ge-15/0/1 gigether-options redundant-parent reth1
+set interfaces ge-15/0/2 gigether-options redundant-parent reth0
+set interfaces ge-15/0/3 gigether-options redundant-parent reth1
+set interfaces fab0 fabric-options member-interfaces ge-0/0/2
+set interfaces fab1 fabric-options member-interfaces ge-9/0/2
+set interfaces reth0 redundant-ether-options redundancy-group 1
+set interfaces reth0 redundant-ether-options lacp passive
+set interfaces reth0 redundant-ether-options lacp periodic slow
+set interfaces reth0 unit 0 family inet address 172.30.13.246/30
+set interfaces reth1 redundant-ether-options redundancy-group 1
+set interfaces reth1 redundant-ether-options lacp passive
+set interfaces reth1 redundant-ether-options lacp periodic slow
+set interfaces reth1 unit 0 family inet address 172.30.13.250/30
+set interfaces reth2 redundant-ether-options redundancy-group 1
+set interfaces reth2 unit 0
+set interfaces reth3 redundant-ether-options redundancy-group 1
+set interfaces reth3 unit 0
+set routing-options static route 193.30.13.0/24 next-hop 172.30.13.249
+set routing-options static route 193.30.10.0/24 next-hop 172.30.13.245
+set routing-options static route 193.30.12.0/24 next-hop 172.30.13.245
+set routing-options static route 172.30.12.0/30 next-hop 172.30.13.245
+set protocols l2-learning global-mode switching
+set protocols rstp interface all
+set access address-assignment pool junosDHCPPool1 family inet network 192.168.1.0/24
+set access address-assignment pool junosDHCPPool1 family inet range junosRange low 192.168.1.2
+set access address-assignment pool junosDHCPPool1 family inet range junosRange high 192.168.1.254
+set access address-assignment pool junosDHCPPool1 family inet dhcp-attributes router 192.168.1.1
+set access address-assignment pool junosDHCPPool1 family inet dhcp-attributes propagate-settings ge-0/0/0.0
+set access address-assignment pool junosDHCPPool2 family inet network 192.168.2.0/24
+set access address-assignment pool junosDHCPPool2 family inet range junosRange low 192.168.2.2
+set access address-assignment pool junosDHCPPool2 family inet range junosRange high 192.168.2.254
+set access address-assignment pool junosDHCPPool2 family inet dhcp-attributes router 192.168.2.1
+set access address-assignment pool junosDHCPPool2 family inet dhcp-attributes propagate-settings ge-0/0/0.0
+set access address-assignment pool junosDHCPPool3 family inet network 192.168.3.0/24
+set access address-assignment pool junosDHCPPool3 family inet range junosRange low 192.168.3.2
+set access address-assignment pool junosDHCPPool3 family inet range junosRange high 192.168.3.254
+set access address-assignment pool junosDHCPPool3 family inet dhcp-attributes router 192.168.3.1
+set access address-assignment pool junosDHCPPool3 family inet dhcp-attributes propagate-settings ge-0/0/0.0
+set access address-assignment pool junosDHCPPool4 family inet network 192.168.4.0/24
+set access address-assignment pool junosDHCPPool4 family inet range junosRange low 192.168.4.2
+set access address-assignment pool junosDHCPPool4 family inet range junosRange high 192.168.4.254
+set access address-assignment pool junosDHCPPool4 family inet dhcp-attributes router 192.168.4.1
+set access address-assignment pool junosDHCPPool4 family inet dhcp-attributes propagate-settings ge-0/0/0.0
+set access address-assignment pool junosDHCPPool5 family inet network 192.168.5.0/24
+set access address-assignment pool junosDHCPPool5 family inet range junosRange low 192.168.5.2
+set access address-assignment pool junosDHCPPool5 family inet range junosRange high 192.168.5.254
+set access address-assignment pool junosDHCPPool5 family inet dhcp-attributes router 192.168.5.1
+set access address-assignment pool junosDHCPPool5 family inet dhcp-attributes propagate-settings ge-0/0/0.0
+set applications application RPCBIND term TCP111 protocol tcp
+set applications application RPCBIND term TCP111 destination-port 111
+set applications application NUFI term TCP9710 protocol tcp
+set applications application NUFI term TCP9710 destination-port 9710
+set applications application BULS term TCP9711 protocol tcp
+set applications application BULS term TCP9711 destination-port 9711
+set applications application NFS term TCP2049 protocol tcp
+set applications application NFS term TCP2049 destination-port 2049

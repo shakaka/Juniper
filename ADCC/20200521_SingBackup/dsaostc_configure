@@ -1,0 +1,486 @@
+## Last changed: 2019-08-17 11:51:09 UTC
+version 14.1X53-D47.3;
+system {
+    host-name DSADSTC;
+    auto-snapshot;
+    root-authentication {
+        encrypted-password "$1$Asa.GDu1$bBAW/86VpWc2cNfjfzViY1"; ## SECRET-DATA
+    }
+    services {
+        ssh {
+            root-login allow;
+        }
+    }
+    syslog {
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+    processes {
+        dhcp-service {
+            traceoptions {
+                file dhcp_logfile size 10m;
+                level all;
+                flag all;
+            }
+        }
+    }
+}
+chassis {
+    aggregated-devices {
+        ethernet {
+            device-count 7;
+        }
+    }
+}
+interfaces {
+    ge-0/0/0 {
+        ether-options {
+            802.3ad ae0;
+        }
+    }
+    ge-0/0/1 {
+        ether-options {
+            802.3ad ae1;
+        }
+    }
+    ge-0/0/2 {
+        ether-options {
+            802.3ad ae2;
+        }
+    }
+    ge-0/0/3 {
+        ether-options {
+            802.3ad ae3;
+        }
+    }
+    ge-0/0/4 {
+        ether-options {
+            802.3ad ae4;
+        }
+    }
+    ge-0/0/5 {
+        ether-options {
+            802.3ad ae5;
+        }
+    }
+    ge-0/0/6 {
+        ether-options {
+            802.3ad ae6;
+        }
+    }
+    ge-0/0/7 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/8 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/9 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/10 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/11 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/12 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/13 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/14 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/15 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/16 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/17 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/18 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/19 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/20 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/21 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/22 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/23 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/2/0 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    xe-0/2/0 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/2/1 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    xe-0/2/1 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/2/2 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    xe-0/2/2 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/2/3 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    xe-0/2/3 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-1/0/0 {
+        ether-options {
+            802.3ad ae0;
+        }
+    }
+    ge-1/0/1 {
+        ether-options {
+            802.3ad ae1;
+        }
+    }
+    ge-1/0/2 {
+        ether-options {
+            802.3ad ae2;
+        }
+    }
+    ge-1/0/3 {
+        ether-options {
+            802.3ad ae3;
+        }
+    }
+    ge-1/0/4 {
+        ether-options {
+            802.3ad ae4;
+        }
+    }
+    ge-1/0/5 {
+        ether-options {
+            802.3ad ae5;
+        }
+    }
+    ge-1/0/6 {
+        ether-options {
+            802.3ad ae6;
+        }
+    }
+    ae0 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                active;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vl10;
+                }
+            }
+        }
+    }
+    ae1 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vl10;
+                }
+            }
+        }
+    }
+    ae2 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vl10;
+                }
+            }
+        }
+    }
+    ae3 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vl10;
+                }
+            }
+        }
+    }
+    ae4 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vl10;
+                }
+            }
+        }
+    }
+    ae5 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vl10;
+                }
+            }
+        }
+    }
+    ae6 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vl10;
+                }
+            }
+        }
+    }
+    irb {
+        unit 0 {
+            family inet {
+                dhcp {
+                    vendor-id Juniper-ex4300-24t;
+                }
+            }
+        }
+        unit 10 {
+            family inet {
+                address 193.30.10.253/24;
+            }
+        }
+    }
+    vme {
+        unit 0 {
+            family inet {
+                dhcp {
+                    vendor-id Juniper-ex4300-24t;
+                }
+            }
+        }
+    }
+}
+forwarding-options {
+    storm-control-profiles default {
+        all;
+    }
+}
+routing-options {
+    static {
+        route 0.0.0.0/0 next-hop 193.30.10.254;
+    }
+}
+protocols {
+    lldp {
+        interface all;
+    }
+    lldp-med {
+        interface all;
+    }
+    igmp-snooping {
+        vlan default;
+    }
+    rstp {
+        interface ge-0/0/7;
+        interface ge-0/0/8;
+        interface ge-0/0/9;
+        interface ge-0/0/10;
+        interface ge-0/0/11;
+        interface ge-0/0/12;
+        interface ge-0/0/13;
+        interface ge-0/0/14;
+        interface ge-0/0/15;
+        interface ge-0/0/16;
+        interface ge-0/0/17;
+        interface ge-0/0/18;
+        interface ge-0/0/19;
+        interface ge-0/0/20;
+        interface ge-0/0/21;
+        interface ge-0/0/22;
+        interface ge-0/0/23;
+        interface ge-0/2/0;
+        interface xe-0/2/0;
+        interface ge-0/2/1;
+        interface xe-0/2/1;
+        interface ge-0/2/2;
+        interface xe-0/2/2;
+        interface ge-0/2/3;
+        interface xe-0/2/3;
+    }
+}
+virtual-chassis {
+    preprovisioned;
+    member 0 {
+        role routing-engine;
+        serial-number PG3717080125;
+    }
+    member 1 {
+        role routing-engine;
+        serial-number PG3717050201;
+    }
+}
+vlans {
+    default {
+        vlan-id 1;
+        l3-interface irb.0;
+    }
+    vl10 {
+        vlan-id 10;
+        l3-interface irb.10;
+    }
+}
