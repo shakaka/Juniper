@@ -43,7 +43,7 @@ load set terminal     //used to import multiple lines
 ==========upgrade kit==================
 mkdir /var/tmp/usb
 mount_msdosfs /dev/da1s1 /var/tmp/usb
-cp /var/tmp/usb/jinstall-ex-4200-12.3R12.4-domestic-signed.tgz /var/tmp
+cp /var/tmp/usb/Juniper/jinstall-ex-4200-12.3R12.4-domestic-signed.tgz /var/tmp
 umount /var/tmp/usb
 set system root-authentication plain-text-password
 delete chassis auto-image-upgrade
