@@ -44,11 +44,14 @@ load set terminal     //used to import multiple lines
 mkdir /var/tmp/usb
 mount_msdosfs /dev/da1s1 /var/tmp/usb
 cp /var/tmp/usb/Juniper/jinstall-ex-4200-12.3R12.4-domestic-signed.tgz /var/tmp
+cp /var/tmp/usb/Juniper/jinstall-ex-4300-18.1R3-S6.1-signed.tgz /var/tmp
 umount /var/tmp/usb
 set system root-authentication plain-text-password
 delete chassis auto-image-upgrade
 commit and-quit
+set date 201107071700.00
 request system software add /var/tmp/jinstall-ex-4200-12.3R12.4-domestic-signed.tgz no-copy no-validate
+request system software add /var/tmp/jinstall-ex-4300-18.1R3-S6.1-signed.tgz no-copy no-validate
 ========
 
 set member 0 serial-number PG3717050012 role routing-engine/line-card

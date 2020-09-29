@@ -1,0 +1,258 @@
+set version 18.1R3-S6.1
+set system host-name OSAOSTC
+set system auto-snapshot
+set system root-authentication encrypted-password "$1$1tsHCjve$O8Oo1GahTTgbrPh/qflKL0"
+set system services ssh root-login allow
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set system processes dhcp-service traceoptions file dhcp_logfile
+set system processes dhcp-service traceoptions file size 10m
+set system processes dhcp-service traceoptions level all
+set system processes dhcp-service traceoptions flag all
+set chassis redundancy graceful-switchover
+set chassis aggregated-devices ethernet device-count 30
+set interfaces ge-0/0/0 ether-options 802.3ad ae0
+set interfaces ge-0/0/1 ether-options 802.3ad ae1
+set interfaces ge-0/0/2 ether-options 802.3ad ae2
+set interfaces ge-0/0/3 ether-options 802.3ad ae3
+set interfaces ge-0/0/4 ether-options 802.3ad ae4
+set interfaces ge-0/0/5 ether-options 802.3ad ae5
+set interfaces ge-0/0/6 ether-options 802.3ad ae6
+set interfaces ge-0/0/7 ether-options 802.3ad ae7
+set interfaces ge-0/0/8 ether-options 802.3ad ae8
+set interfaces ge-0/0/9 ether-options 802.3ad ae9
+set interfaces ge-0/0/10 ether-options 802.3ad ae10
+set interfaces ge-0/0/11 ether-options 802.3ad ae11
+set interfaces ge-0/0/12 ether-options 802.3ad ae12
+set interfaces ge-0/0/13 unit 0 family ethernet-switching vlan members vl10
+set interfaces ge-0/0/13 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/14 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/15 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/16 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/17 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/18 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/19 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/20 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/21 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/22 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/0/23 ether-options 802.3ad ae123
+set interfaces ge-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/0 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/1 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/2 unit 0 family ethernet-switching storm-control default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces ge-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching vlan members default
+set interfaces xe-0/2/3 unit 0 family ethernet-switching storm-control default
+set interfaces ge-1/0/0 ether-options 802.3ad ae0
+set interfaces ge-1/0/1 ether-options 802.3ad ae1
+set interfaces ge-1/0/2 ether-options 802.3ad ae2
+set interfaces ge-1/0/3 ether-options 802.3ad ae3
+set interfaces ge-1/0/4 ether-options 802.3ad ae4
+set interfaces ge-1/0/5 ether-options 802.3ad ae5
+set interfaces ge-1/0/6 ether-options 802.3ad ae6
+set interfaces ge-1/0/7 ether-options 802.3ad ae7
+set interfaces ge-1/0/8 ether-options 802.3ad ae8
+set interfaces ge-1/0/9 ether-options 802.3ad ae9
+set interfaces ge-1/0/10 ether-options 802.3ad ae10
+set interfaces ge-1/0/11 ether-options 802.3ad ae11
+set interfaces ge-1/0/12 ether-options 802.3ad ae12
+set interfaces ge-1/0/13 unit 0 family ethernet-switching vlan members vl10
+set interfaces ge-1/0/23 ether-options 802.3ad ae123
+set interfaces ge-2/0/0 ether-options 802.3ad ae13
+set interfaces ge-2/0/1 ether-options 802.3ad ae14
+set interfaces ge-2/0/2 ether-options 802.3ad ae15
+set interfaces ge-2/0/3 ether-options 802.3ad ae16
+set interfaces ge-2/0/4 ether-options 802.3ad ae17
+set interfaces ge-2/0/5 ether-options 802.3ad ae18
+set interfaces ge-2/0/6 ether-options 802.3ad ae19
+set interfaces ge-2/0/7 ether-options 802.3ad ae20
+set interfaces ge-2/0/8 ether-options 802.3ad ae21
+set interfaces ge-2/0/9 ether-options 802.3ad ae22
+set interfaces ge-2/0/10 ether-options 802.3ad ae23
+set interfaces ge-2/0/11 ether-options 802.3ad ae24
+set interfaces ge-2/0/12 ether-options 802.3ad ae25
+set interfaces ge-3/0/0 ether-options 802.3ad ae13
+set interfaces ge-3/0/1 ether-options 802.3ad ae14
+set interfaces ge-3/0/2 ether-options 802.3ad ae15
+set interfaces ge-3/0/3 ether-options 802.3ad ae16
+set interfaces ge-3/0/4 ether-options 802.3ad ae17
+set interfaces ge-3/0/5 ether-options 802.3ad ae18
+set interfaces ge-3/0/6 ether-options 802.3ad ae19
+set interfaces ge-3/0/7 ether-options 802.3ad ae20
+set interfaces ge-3/0/8 ether-options 802.3ad ae21
+set interfaces ge-3/0/9 ether-options 802.3ad ae22
+set interfaces ge-3/0/10 ether-options 802.3ad ae23
+set interfaces ge-3/0/11 ether-options 802.3ad ae24
+set interfaces ge-3/0/12 ether-options 802.3ad ae25
+set interfaces ae0 aggregated-ether-options minimum-links 1
+set interfaces ae0 aggregated-ether-options lacp passive
+set interfaces ae0 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae1 aggregated-ether-options minimum-links 1
+set interfaces ae1 aggregated-ether-options lacp passive
+set interfaces ae1 unit 0 family ethernet-switching vlan members vl112
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 aggregated-ether-options lacp passive
+set interfaces ae2 unit 0 family ethernet-switching vlan members vl2
+set interfaces ae3 aggregated-ether-options minimum-links 1
+set interfaces ae3 aggregated-ether-options lacp passive
+set interfaces ae3 unit 0 family ethernet-switching vlan members vl3
+set interfaces ae4 aggregated-ether-options minimum-links 1
+set interfaces ae4 aggregated-ether-options lacp passive
+set interfaces ae4 unit 0 family ethernet-switching vlan members vl4
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options lacp passive
+set interfaces ae5 unit 0 family ethernet-switching vlan members vl11
+set interfaces ae6 aggregated-ether-options minimum-links 1
+set interfaces ae6 aggregated-ether-options lacp passive
+set interfaces ae6 unit 0 family ethernet-switching vlan members vl12
+set interfaces ae7 aggregated-ether-options minimum-links 1
+set interfaces ae7 aggregated-ether-options lacp passive
+set interfaces ae7 unit 0 family ethernet-switching vlan members vl13
+set interfaces ae8 aggregated-ether-options minimum-links 1
+set interfaces ae8 aggregated-ether-options lacp passive
+set interfaces ae8 unit 0 family ethernet-switching vlan members vl14
+set interfaces ae9 aggregated-ether-options minimum-links 1
+set interfaces ae9 aggregated-ether-options lacp active
+set interfaces ae9 aggregated-ether-options lacp periodic slow
+set interfaces ae9 unit 0 family ethernet-switching vlan members vl113
+set interfaces ae10 aggregated-ether-options minimum-links 1
+set interfaces ae10 aggregated-ether-options lacp passive
+set interfaces ae10 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae11 aggregated-ether-options minimum-links 1
+set interfaces ae11 aggregated-ether-options lacp passive
+set interfaces ae11 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae12 aggregated-ether-options minimum-links 1
+set interfaces ae12 aggregated-ether-options lacp passive
+set interfaces ae12 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae123 aggregated-ether-options lacp active
+set interfaces ae123 aggregated-ether-options lacp periodic slow
+set interfaces ae123 unit 0 family ethernet-switching vlan members vl113
+set interfaces ae13 aggregated-ether-options minimum-links 1
+set interfaces ae13 aggregated-ether-options lacp passive
+set interfaces ae13 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae14 aggregated-ether-options minimum-links 1
+set interfaces ae14 aggregated-ether-options lacp passive
+set interfaces ae14 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae15 aggregated-ether-options minimum-links 1
+set interfaces ae15 aggregated-ether-options lacp passive
+set interfaces ae15 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae16 aggregated-ether-options minimum-links 1
+set interfaces ae16 aggregated-ether-options lacp passive
+set interfaces ae16 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae17 aggregated-ether-options minimum-links 1
+set interfaces ae17 aggregated-ether-options lacp passive
+set interfaces ae17 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae18 aggregated-ether-options minimum-links 1
+set interfaces ae18 aggregated-ether-options lacp passive
+set interfaces ae18 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae19 aggregated-ether-options minimum-links 1
+set interfaces ae19 unit 0 family ethernet-switching interface-mode trunk
+set interfaces ae19 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae20 aggregated-ether-options minimum-links 1
+set interfaces ae20 unit 0 family ethernet-switching interface-mode trunk
+set interfaces ae20 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae21 aggregated-ether-options minimum-links 1
+set interfaces ae21 aggregated-ether-options lacp passive
+set interfaces ae21 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae22 aggregated-ether-options minimum-links 1
+set interfaces ae22 aggregated-ether-options lacp passive
+set interfaces ae22 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae23 aggregated-ether-options minimum-links 1
+set interfaces ae23 aggregated-ether-options lacp passive
+set interfaces ae23 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae24 aggregated-ether-options minimum-links 1
+set interfaces ae24 aggregated-ether-options lacp passive
+set interfaces ae24 unit 0 family ethernet-switching vlan members vl10
+set interfaces ae25 aggregated-ether-options minimum-links 1
+set interfaces ae25 aggregated-ether-options lacp passive
+set interfaces ae25 unit 0 family ethernet-switching vlan members vl10
+set interfaces irb unit 0 family inet dhcp vendor-id Juniper-ex4300-24t-PG3717080083
+set interfaces irb unit 2 family inet address 172.30.51.1/30
+set interfaces irb unit 3 family inet address 172.30.52.1/30
+set interfaces irb unit 4 family inet address 172.30.53.1/30
+set interfaces irb unit 10 family inet address 193.30.10.254/24
+set interfaces irb unit 11 family inet address 172.30.71.1/30
+set interfaces irb unit 12 family inet address 172.30.72.1/30
+set interfaces irb unit 13 family inet address 172.30.73.1/30
+set interfaces irb unit 14 family inet address 172.30.74.1/30
+set interfaces irb unit 112 family inet address 172.30.12.1/30
+set interfaces irb unit 113 family inet address 172.30.13.245/30
+set interfaces vme unit 0 family inet dhcp vendor-id Juniper-ex4300-24t-PG3717080083
+set snmp description "OSTC Network Switch"
+set snmp location TC
+set snmp community junossnmp authorization read-only
+set snmp community junossnmp clients 193.30.10.254/24
+set snmp community public
+set snmp trap-group ostc-tr-gr version v2
+set snmp trap-group ostc-tr-gr categories chassis
+set snmp trap-group ostc-tr-gr categories link
+set snmp trap-group ostc-tr-gr categories routing
+set snmp trap-group ostc-tr-gr targets 193.30.10.254
+set forwarding-options storm-control-profiles default all
+set routing-options static route 193.30.51.0/24 next-hop 172.30.51.2
+set routing-options static route 193.30.52.0/24 next-hop 172.30.52.2
+set routing-options static route 193.30.53.0/24 next-hop 172.30.53.2
+set routing-options static route 193.30.71.0/24 next-hop 172.30.71.2
+set routing-options static route 193.30.72.0/24 next-hop 172.30.72.2
+set routing-options static route 193.30.73.0/24 next-hop 172.30.73.2
+set routing-options static route 193.30.74.0/24 next-hop 172.30.74.2
+set routing-options static route 193.30.13.0/24 next-hop 172.30.13.246
+set routing-options static route 193.30.12.0/24 next-hop 172.30.12.2
+set routing-options static route 172.30.13.248/30 next-hop 172.30.13.246
+set protocols lldp interface all
+set protocols lldp-med interface all
+set protocols igmp-snooping vlan default
+set protocols rstp interface ge-0/2/0
+set protocols rstp interface xe-0/2/0
+set protocols rstp interface ge-0/2/1
+set protocols rstp interface xe-0/2/1
+set protocols rstp interface ge-0/2/2
+set protocols rstp interface xe-0/2/2
+set protocols rstp interface ge-0/2/3
+set protocols rstp interface xe-0/2/3
+set protocols rstp interface all
+set virtual-chassis preprovisioned
+set virtual-chassis no-split-detection
+set virtual-chassis member 0 role routing-engine
+set virtual-chassis member 0 serial-number PG3717050056
+set virtual-chassis member 1 role routing-engine
+set virtual-chassis member 1 serial-number PG3717050147
+set virtual-chassis member 2 role line-card
+set virtual-chassis member 2 serial-number PG3717050105
+set virtual-chassis member 3 role line-card
+set virtual-chassis member 3 serial-number PG3717050156
+set vlans default vlan-id 1
+set vlans default l3-interface irb.0
+set vlans vl10 vlan-id 10
+set vlans vl10 l3-interface irb.10
+set vlans vl11 vlan-id 11
+set vlans vl11 l3-interface irb.11
+set vlans vl112 vlan-id 112
+set vlans vl112 l3-interface irb.112
+set vlans vl113 vlan-id 113
+set vlans vl113 l3-interface irb.113
+set vlans vl12 vlan-id 12
+set vlans vl12 l3-interface irb.12
+set vlans vl13 vlan-id 13
+set vlans vl13 l3-interface irb.13
+set vlans vl14 vlan-id 14
+set vlans vl14 l3-interface irb.14
+set vlans vl2 vlan-id 2
+set vlans vl2 l3-interface irb.2
+set vlans vl3 vlan-id 3
+set vlans vl3 l3-interface irb.3
+set vlans vl4 vlan-id 4
+set vlans vl4 l3-interface irb.4
+set vlans vl8 vlan-id 8
+set vlans vl8 l3-interface irb.8
