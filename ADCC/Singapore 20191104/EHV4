@@ -8,7 +8,7 @@ set virtual-chassis preprovisioned
 set virtual-chassis member 0 serial-number BM0217090121 role routing-engine
 set virtual-chassis member 1 serial-number BM0217090009 role routing-engine
 
-set system host-name EHSA4EH1TC
+set system host-name ehsa4eh1tc
 
 
 delete protocols rstp interface ge-0/0/0
