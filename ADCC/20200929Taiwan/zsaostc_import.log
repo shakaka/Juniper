@@ -1,0 +1,689 @@
+system {
+    host-name zsazstc;
+    services {
+        ssh {
+            root-login allow;
+        }
+        dhcp {
+            traceoptions {
+                file dhcp_logfile;
+                level all;
+                flag all;
+            }
+        }
+    }
+    syslog {
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+}
+chassis {
+    aggregated-devices {
+        ethernet {
+            device-count 30;
+        }
+    }
+}
+interfaces {
+    ge-0/0/0 {
+        ether-options {
+            802.3ad ae0;
+        }
+    }
+    ge-0/0/1 {
+        ether-options {
+            802.3ad ae1;
+        }
+    }
+    ge-0/0/2 {
+        ether-options {
+            802.3ad ae2;
+        }
+    }
+    ge-0/0/3 {
+        ether-options {
+            802.3ad ae3;
+        }
+    }
+    ge-0/0/4 {
+        ether-options {
+            802.3ad ae4;
+        }
+    }
+    ge-0/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/6 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/7 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/8 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/9 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/10 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/11 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/12 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/13 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/14 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/15 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/16 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/17 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/18 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/19 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/20 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/21 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/22 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/0/23 {
+        ether-options {
+            802.3ad ae23;
+        }
+    }
+    ge-0/1/0 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    xe-0/1/0 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/1/1 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    xe-0/1/1 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/1/2 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    xe-0/1/2 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-0/1/3 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/0 {
+        ether-options {
+            802.3ad ae0;
+        }
+    }
+    ge-1/0/1 {
+        ether-options {
+            802.3ad ae1;
+        }
+    }
+    ge-1/0/2 {
+        ether-options {
+            802.3ad ae2;
+        }
+    }
+    ge-1/0/3 {
+        ether-options {
+            802.3ad ae3;
+        }
+    }
+    ge-1/0/4 {
+        ether-options {
+            802.3ad ae4;
+        }
+    }
+    ge-1/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/6 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/7 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/8 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/9 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/10 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/11 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/12 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/13 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/14 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/15 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/16 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/17 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/18 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/19 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/20 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/21 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/22 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/0/23 {
+        ether-options {
+            802.3ad ae23;
+        }
+    }
+    ge-1/1/0 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/1/1 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/1/2 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ge-1/1/3 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ae0 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                active;
+                periodic slow;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vl13;
+                }
+            }
+        }
+    }
+    ae1 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family inet {
+                address 172.30.13.253/30;
+            }
+        }
+    }
+    ae2 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+
+
+
+                
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ae3 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+
+
+
+
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ae4 {
+        aggregated-ether-options {
+            minimum-links 1;
+            lacp {
+                passive;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+
+
+
+
+                vlan {
+                    members v90;
+                }
+            }
+        }
+    }
+    ae23 {
+        aggregated-ether-options {
+            lacp {
+                active;
+                periodic slow;
+            }
+        }
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vl13;
+                }
+            }
+        }
+    }
+    vlan {
+        unit 0 {
+            family inet {
+                dhcp {
+                    vendor-id Juniper-ex4200-24t;
+                }
+            }
+        }
+        unit 13 {
+            family inet {
+                address 172.30.13.249/30;
+            }
+        }
+        unit 90 {
+            family inet {
+                address 193.30.13.254/24;
+            }
+        }
+    }
+    vme {
+        unit 0 {
+            family inet {
+                dhcp {
+                    vendor-id Juniper-ex4200-24t;
+                }
+            }
+        }
+    }
+}
+routing-options {
+    static {
+        route 193.30.10.0/24 next-hop 172.30.13.250;
+        route 193.30.12.0/24 next-hop 172.30.13.250;
+        route 172.30.13.0/24 next-hop 172.30.13.250;
+        route 172.30.12.0/24 next-hop 172.30.13.250;
+    }
+}
+protocols {
+    igmp-snooping {
+        vlan all;
+    }
+    rstp;
+    lldp {
+        interface all;
+    }
+    lldp-med {
+        interface all;
+    }
+}
+ethernet-switching-options {
+    storm-control {
+        interface all;
+    }
+}
+vlans {
+    default {
+        l3-interface vlan.0;
+    }
+    v90 {
+        vlan-id 90;
+        l3-interface vlan.90;
+    }
+    vl13 {
+        vlan-id 13;
+        l3-interface vlan.13;
+    }
+}
+poe {
+    interface all;
+}

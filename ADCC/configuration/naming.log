@@ -1,0 +1,4 @@
+SCADA LAN - 1st & 2nd Ethernet interface (bond0); br0 (if KVM exists)
+BRS LAN - 3rd Ethernet interface; br1 (if KVM exists)
+RTU LAN - 5th & 6th Ethernet interface (bond1); br2 (if KVM exists)
+SCADA_LAN_A (1st NIC card),  SCADA_LAN_B (2nd NIC card), and SCADA_LAN_TEAM (logical teaming)
