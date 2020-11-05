@@ -1,19 +1,19 @@
 Online zone to EOS zone
   193.30.10.10 to 193.30.12.12, 193.30.12.14, 193.30.12.15, 193.30.12.16, 193.30.12.17
-    22 TCP
+    22 TCP  ssh
     25 UDP
     111 TCP
     9710 TCP
     9711 TCP
   193.30.10.10 to 193.30.12.10
-    22 TCP
+    22 TCP  ssh
     25 UDP
     111 TCP
     9710 TCP
     9711 TCP
     1526 TCP
   193.30.10.13 to EOS zone (193.30.10.*)
-    22 TCP
+    22 TCP  ssh
     25 UDP
     111 TCP
     2049 TCP
@@ -34,7 +34,7 @@ Online zone to ICCP sites
     102 TCP ICCP
     3782 TCP ICCP
 EOS zone to ICCP sites
-  193.30.12.12 to ICCP sites (172.30.13.*)
+  193.30.12.14 to ICCP sites (172.30.13.*)
     102 TCP ICCP
     3782 TCP ICCP
 DEV zone to ICCP sites

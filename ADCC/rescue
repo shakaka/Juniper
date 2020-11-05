@@ -1,0 +1,30 @@
+dd if=install-media-qfx-5e-15.1X53-D30.5-domestic.img of=/dev/da0 bs=1m(1M)
+dd if=/var/tmp/filename of=/dev/da0 bs=1048576
+
+
+Back up or move all volumes on the basic GPT disk you want to convert into an MBR disk.
+
+Open an elevated command prompt by right-clicking Command Prompt and then choosing Run as Administrator.
+
+Type diskpart. If the disk contains no partitions or volumes, skip to step 6.
+
+At the DISKPART prompt, type list disk. Note the disk number that you want to delete.
+
+At the DISKPART prompt, type select disk <disknumber>.
+
+At the DISKPART prompt, type clean.
+
+
+Running the clean command will delete all partitions or volumes on the disk.
+
+At the DISKPART prompt, type convert mbr.
+
+
+
+set currdev="disk1s1a"
+ls /boot
+include /boot/loader.r
+
+
+
+set system auto-snapshot

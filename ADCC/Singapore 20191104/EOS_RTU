@@ -14,10 +14,10 @@ delete protocols rstp interfaces ge-1/0/0
 delete protocols rstp interfaces ge-0/0/2
 delete protocols rstp interfaces ge-1/0/2
 
-delete interfaces ge-0/0/0 family ethernet-switching vlan members default
-delete interfaces ge-1/0/0 family ethernet-switching vlan members default
-delete interfaces ge-0/0/2 family ethernet-switching vlan members default
-delete interfaces ge-1/0/2 family ethernet-switching vlan members default
+delete interfaces ge-0/0/0.0
+delete interfaces ge-1/0/0.0
+delete interfaces ge-0/0/2.0
+delete interfaces ge-1/0/2.0
 
 set interfaces ge-0/0/0 ether-options 802.3ad ae0
 set interfaces ge-1/0/0 ether-options 802.3ad ae0
@@ -85,8 +85,7 @@ set interfaces ae0 aggregated-ether-options lacp passive
 set interfaces ae2 aggregated-ether-options lacp passive
 set interfaces ae2 aggregated-ether-options lacp passive
 
-set interfaces ae0 family ethernet-switching vlan members vl220
-set interfaces ae2 family ethernet-switching vlan members vl200
+set interfaces ae0.0 family ethernet-switching vlan members vl220
 set interfaces ge-0/0/0.0 family ethernet-switching vlan members vl200
 set interfaces ge-1/0/1.0 family ethernet-switching vlan members vl200
 set interfaces ge-2/0/1.0 family ethernet-switching vlan members vl201

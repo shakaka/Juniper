@@ -19,14 +19,14 @@ delete protocols rstp interfaces ge-1/0/8
 delete protocols rstp interfaces ge-0/0/9
 delete protocols rstp interfaces ge-1/0/9
 
-delete interfaces ge-0/0/6 family ethernet-switching vlan members default
-delete interfaces ge-1/0/6 family ethernet-switching vlan members default
-delete interfaces ge-0/0/7 family ethernet-switching vlan members default
-delete interfaces ge-1/0/7 family ethernet-switching vlan members default
-delete interfaces ge-0/0/8 family ethernet-switching vlan members default
-delete interfaces ge-1/0/8 family ethernet-switching vlan members default
-delete interfaces ge-0/0/9 family ethernet-switching vlan members default
-delete interfaces ge-1/0/9 family ethernet-switching vlan members default
+delete interfaces ge-0/0/6.0
+delete interfaces ge-1/0/6.0
+delete interfaces ge-0/0/7.0
+delete interfaces ge-1/0/7.0
+delete interfaces ge-0/0/8.0
+delete interfaces ge-1/0/8.0
+delete interfaces ge-0/0/9.0
+delete interfaces ge-1/0/9.0
 
 set interfaces ge-0/0/6 ether-options 802.3ad ae6
 set interfaces ge-1/0/6 ether-options 802.3ad ae6
@@ -94,28 +94,28 @@ set interfaces ae8 aggregated-ether-options minimum-links 1
 set interfaces ae9 aggregated-ether-options minimum-links 1
 
 set interfaces ae6 aggregated-ether-options lacp active
-set interfaces ae7 aggregated-ether-options lacp actice
+set interfaces ae7 aggregated-ether-options lacp active
 set interfaces ae8 aggregated-ether-options lacp passive
 set interfaces ae9 aggregated-ether-options lacp passive
 
 
-set interfaces ae6 family ethernet-switching vlan members vl100
-set interfaces ae7 family ethernet-switching vlan members vl100
-set interfaces ae8 family ethernet-switching vlan members vl100
-set interfaces ae9 family ethernet-switching vlan members vl100
-set interfaces ge-0/0/0 family ethernet-switching vlan members vl100
-set interfaces ge-0/0/1 family ethernet-switching vlan members vl100
-set interfaces ge-0/0/2 family ethernet-switching vlan members vl100
-set interfaces ge-0/0/3 family ethernet-switching vlan members vl100
-set interfaces ge-0/0/4 family ethernet-switching vlan members vl100
-set interfaces ge-0/0/5 family ethernet-switching vlan members vl100
-set interfaces ge-1/0/0 family ethernet-switching vlan members vl100
-set interfaces ge-1/0/1 family ethernet-switching vlan members vl100
-set interfaces ge-1/0/2 family ethernet-switching vlan members vl100
-set interfaces ge-1/0/3 family ethernet-switching vlan members vl100
-set interfaces ge-1/0/4 family ethernet-switching vlan members vl100
-set interfaces ge-1/0/5 family ethernet-switching vlan members vl100
-set interfaces ge-2/0/0 family ethernet-switching vlan members vl100
+set interfaces ae6.0 family ethernet-switching vlan members vl100
+set interfaces ae7.0 family ethernet-switching vlan members vl100
+set interfaces ae8.0 family ethernet-switching vlan members vl100
+set interfaces ae9.0 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/0.0 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/1.0 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/2.0 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/3.0 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/4.0 family ethernet-switching vlan members vl100
+set interfaces ge-0/0/5.0 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/0.0 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/1.0 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/2.0 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/3.0 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/4.0 family ethernet-switching vlan members vl100
+set interfaces ge-1/0/5.0 family ethernet-switching vlan members vl100
+set interfaces ge-2/0/0.0 family ethernet-switching vlan members vl100
 set interfaces ge-2/0/1 family ethernet-switching vlan members vl101
 set interfaces ge-2/0/2 family ethernet-switching vlan members vl102
 set interfaces ge-2/0/3 family ethernet-switching vlan members vl103

@@ -179,3 +179,11 @@ set interfaces irb unit 10 family inet policer output 2m
 ====================================
 set chassis alarm management-ethernet link-down ignore
 request system configuration rescue save
+
+===================================
+show system users
+request system logout terminal xx
+====================================
+set system auto-snapshot
+set system services ssh root-login allow
+set system services web-management https system-generated-certificate
