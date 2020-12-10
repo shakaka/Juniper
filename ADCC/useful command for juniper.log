@@ -187,3 +187,19 @@ request system logout terminal xx
 set system auto-snapshot
 set system services ssh root-login allow
 set system services web-management https system-generated-certificate
+
+==================================FW======================
+set system syslog user * any critical
+set system syslog host Log-SERVER-IP any any
+set system syslog host Log-SERVER-IP port 514
+set system syslog host Log-SERVER-IP structured-data
+set security log mode stream
+set security log format sd-syslog
+set security log source-address Firewall-IP
+set security log stream securitylog format sd-syslog
+set security log stream securitylog category idp
+set security log stream securitylog category flow
+set security log stream securitylog category nat
+set security log stream securitylog category ipsec
+set security log stream securitylog host Log-SERVER-IP
+set security log stream securitylog host port 514
