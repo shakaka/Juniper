@@ -173,8 +173,8 @@ set firewall policer 2m if-exceeding bandwidth-limit 2m
 set firewall policer 2m if-exceeding burst-size-limit 250k
 set firewall policer 2m then discard
 
-set interfaces irb unit 10 family inet policer input 2m
-set interfaces irb unit 10 family inet policer output 2m
+set interfaces irb unit 8 family inet policer input 2m
+set interfaces irb unit 8 family inet policer output 2m
 
 ====================================
 set chassis alarm management-ethernet link-down ignore
